@@ -1,0 +1,337 @@
+TÉRMINOS DE REFERENCIA
+Contratación de analista de políticas educativas –
+Especialista en reformas sistémicas de lectoescritura
+1. Antecedentes y Justificación
+SUMMA está desarrollando una Plataforma de Análisis de Reformas Educativas, que tiene
+como objetivo desarrollar un ecosistema de conocimiento estratégico y aplicado que
+sintetice evidencia rigurosa y lecciones prácticas sobre reformas educativas de escala
+sistémica, con el fin de fortalecer la capacidad de diseño, implementación y evaluación de
+políticas públicas en los equipos técnicos de ministerios de educación de la región. La
+plataforma integrará un enfoque académico (como repositorio analítico basado en evidencia
+de efectividad) y un enfoque práctico (como herramienta que orienta las distintas etapas del
+ciclo de políticas).
+El valor agregado fundamental de esta plataforma radica en llenar un vacío crítico en el
+ecosistema global de evidencia educativa. Mientras existen numerosos repositorios y toolkits
+que sistematizan prácticas o intervenciones específicas (a nivel de aula o escuela), existe una
+carencia marcada de herramientas que analicen de manera sistemática, comparada y
+multidimensional reformas educativas de escala sistémica. Nuestra plataforma se
+posicionaría precisamente en este nivel de análisis —el de las políticas y reformas que
+transforman los marcos de gobernanza, financiamiento, currículo o profesión docente de un
+país o región—. Esto la convierte en una herramienta única para que técnicos ministeriales y
+tomadores de decisión comprendan no solo qué se reformó, sino cómo se hizo, bajo qué
+condiciones y con qué resultados integrales, facilitando así el diseño de políticas más
+informadas, contextualizadas y sostenibles.
+En línea con el Objetivo de Desarrollo Sostenible 4 (ODS 4) - Educación de Calidad, y
+específicamente con la meta 4.1 que busca asegurar que todas las niñas y niños terminen la
+enseñanza primaria y secundaria, adquiriendo competencias de lectoescritura y
+cálculo relevantes y efectivas, este proyecto prioriza el análisis de reformas transformadoras
+en este ámbito.
+En este contexto, se requiere la contratación de un/a analista especializado/a para realizar
+una revisión de literatura para elaborar un marco conceptual, mapeo de iniciativas y estudio
+comparado en profundidad de tres casos de reformas nacionales integrales (holísticas) de
+lectoescritura. Estas reformas deben caracterizarse por intervenir de manera simultánea y
+coordinada en múltiples componentes del sistema (ej: currículo, formación docente,
+metodologías de enseñanza, evaluación, recursos), con el objetivo de innovar en las
+
+-- 1 of 9 --
+
+metodologías pedagógicas y ampliar significativamente los niveles de alfabetización a
+escala nacional. El producto final será un conjunto de tres estudios de caso analíticos y
+una síntesis comparativa, que alimentará la base de conocimientos de la plataforma.
+2. Objetivo General del Contrato
+Producir tres estudios de caso analíticos y una matriz de síntesis comparativa sobre reformas
+nacionales integrales de lectoescritura, que describan y analicen su diseño holístico, proceso
+político, estrategia de implementación, ajustes e impacto, utilizando un marco analítico
+común y riguroso, con especial foco en la innovación metodológica y la mejora de los
+resultados de aprendizaje.
+3. Funciones Generales del/la Consultor(a)
+Además de la elaboración de los productos descritos en la sección siguiente, el/la consultor(a)
+deberá:
+1. Participar en sesiones de ideación de la Plataforma de Análisis de Reformas
+Educativas, contribuyendo con su expertise en lectoescritura al diseño conceptual de
+la plataforma, la definición de sus líneas de trabajo, y la identificación de necesidades
+de conocimiento de los ministerios de educación de la región.
+2. Convocar y articular un comité académico especializado en lectoescritura,
+compuesto por 3 a 5 expertos nacionales/internacionales de reconocida trayectoria,
+que sirva como órgano consultor del estudio. El/la consultor(a) será responsable de:
+o Proponer una lista preliminar de candidatos para el comité.
+o Coordinar las reuniones periódicas del comité (al menos dos durante la
+vigencia del contrato).
+o Presentar avances de los casos al comité para recibir retroalimentación y
+validar hallazgos, asegurando la calidad y pertinencia del análisis.
+o Incorporar los comentarios y sugerencias del comité en las versiones finales
+de los productos.
+4. Alcance de los Servicios y Entregables
+PRODUCTO 1a: REVISIÓN GENERAL DE LECTOESCRITURA – MARCO CONCEPTUAL Y
+MAPEO DE INICIATIVAS
+Objetivo: Establecer las bases conceptuales del estudio y mapear el panorama de
+metodologías, evaluaciones e iniciativas existentes en lectoescritura inicial, con énfasis en los
+
+-- 2 of 9 --
+
+contextos de habla inglesa y española, adoptando una visión integral que considere los
+múltiples componentes de un sistema de mejora de la lectoescritura.
+Actividades:
+1. Revisión de literatura especializada sobre el proceso de alfabetización inicial,
+desarrollando un marco conceptual que contenga:
+o Principales enfoques y metodologías de enseñanza de lectoescritura (ej:
+enfoque fonético, multisensorial, etc.), con especial atención a las diferencias
+relevantes entre la enseñanza en inglés y español.
+o Modelos de formación docente específica para la enseñanza de la
+lectoescritura, incluyendo estrategias de desarrollo profesional continuo,
+acompañamiento en aula, y mentoría.
+o Estrategias de trabajo con familias y comunidades en el proceso de
+alfabetización, identificando enfoques efectivos para involucrar a los hogares
+en el apoyo a la lectura y escritura.
+o Enfoques y herramientas de evaluación formativa y sumativa en primeros
+años, incluyendo su uso para la toma de decisiones pedagógicas.
+o Otros componentes relevantes de programas integrales (materiales
+didácticos, recursos tecnológicos, organización escolar) que contribuyan a una
+visión sistémica.
+2. Mapeo grueso de iniciativas relevantes existentes en estas dimensiones, que incluya
+una descripción ampliada de cada programa o política identificada:
+Área de Mapeo Descripción y Alcance
+Metodologías de
+enseñanza
+Listado y descripción breve de las principales metodologías de
+enseñanza de lectoescritura utilizadas en contextos de habla inglesa
+y española. Para cada metodología, señalar: (a) principios pedagógicos
+centrales, (b) evidencia de efectividad disponible (con referencia a
+fuentes como BEE o WWC), (c) países o contextos donde se ha
+implementado a escala. (d) niveles con los cuales se trabaja, (d)
+competencias, edades y secuencias esperadas de aprendizaje.
+Evaluaciones Principales evaluaciones internacionales en primera infancia y
+primeros años de educación básica (ej: PIRLS, EGRA, evaluaciones
+nacionales referentes). Para cada una, describir: dimensiones de la
+lectoescritura que evalúan, grupo etario, formato (papel/digital),
+mecanismos de corrección, y uso predominante
+(formativo/sumativo).
+Programas de
+formación
+Identificación de programas o estrategias nacionales de formación
+docente inicial y continua focalizados en la enseñanza de la
+lectoescritura. Incluir: (a) estructura y duración, (b) componentes de
+
+-- 3 of 9 --
+
+docente en
+lectoescritura
+acompañamiento en aula, (c) evidencia de impacto en prácticas
+docentes.
+Estrategias de
+involucramiento
+familiar
+Identificación de programas o iniciativas que hayan trabajado
+sistemáticamente con familias para apoyar la alfabetización inicial.
+Incluir: (a) enfoque metodológico, (b) materiales o recursos utilizados,
+(c) evidencia de efectividad disponible.
+Orientaciones Metodológicas:
+● Para la identificación de metodologías y programas con respaldo empírico, se deberán
+consultar preferentemente:
+o Education Endowment Foundation (EEF), Revisiones sistemáticas y meta-
+análisis de prácticas educativas realizadas por EEF.
+o Best Evidence Encyclopedia (BEE): Revisiones sistemáticas y meta-análisis
+del Center for Research and Reform in Education, Johns Hopkins University.
+o What Works Clearinghouse (WWC): Practice guides y revisiones de
+evidencia del Institute of Education Sciences (IES) del Departamento de
+Educación de Estados Unidos.
+o ERIC (Education Resources Information Center): Base de datos de literatura
+académica y técnica en educación.
+o Otras fuentes de revisiones sistemáticas o meta-análisis relevantes en el
+campo de la lectoescritura inicial.
+● Se espera un mapeo grueso que permita tener una visión panorámica del campo y
+sirva de base para la posterior selección de casos, no una revisión sistemática
+completa de cada programa identificado.
+Entregable 1a: Documento que contenga:
+● Marco conceptual sobre enseñanza de lectoescritura inicial, con énfasis en una visión
+integral (metodologías, formación docente, familias, evaluación).
+● Matriz de mapeo ampliada que cubra las cinco áreas señaladas en la tabla anterior.
+● Anexo con referencias bibliográficas y fuentes consultadas.
+Plazo: Semana 6 desde la firma de contrato.
+PRODUCTO 1b: PROPUESTA DE MARCO ANALÍTICO Y SELECCIÓN DE CASOS
+Objetivo: Desarrollar la propuesta metodológica para los estudios de caso y seleccionar, con
+base en criterios jerarquizados, los tres casos de reformas nacionales holísticas a analizar en
+profundidad.
+
+-- 4 of 9 --
+
+Actividades:
+1. Realizar una revisión exploratoria para proponer 3 casos de estudio que representen
+reformas nacionales holísticas en lectoescritura. Se valorará la inclusión de casos
+paradigmáticos y comparables, que puedan incluir experiencias de América Latina,
+Europa, Asia o África. No se considerarán programas aislados o intervenciones
+parciales (ej: solo entrega de textos, solo capacitación docente sin cambio curricular).
+2. Aplicar criterios jerarquizados de selección de casos. Los tres casos de estudio
+deberán seleccionarse considerando la siguiente jerarquía de criterios:
+o Criterios Primarios (Obligatorios): Todo caso seleccionado debe contar con
+evidencia sustantiva, cualitativa o cuantitativa, en cada una de estas
+dimensiones:
+▪ Aprendizajes: Impacto documentado en resultados de aprendizaje en
+lectura y escritura (ej: pruebas estandarizadas, evaluaciones
+nacionales, estudios de evaluación de impacto).
+▪ Acceso y Trayectorias: Evidencia de impacto en la reducción de
+repetición, mejora de la progresión escolar, o transición efectiva entre
+niveles educativos.
+▪ Equidad y Justicia Educativa: Evidencia de reducción de brechas de
+aprendizaje en lectoescritura entre grupos (socioeconómicos,
+geográficos, lingüísticos, étnicos, estudiantes con discapacidad) o
+aumento en la participación y logro de grupos históricamente
+rezagados.
+o Criterios Secundarios (Diferenciadores): Estos criterios otorgan un valor
+adicional y pueden ser factor de desempate cuando múltiples casos cumplen
+con los criterios primarios:
+▪ Costo-efectividad: Evidencia de que la reforma logra resultados con
+un uso eficiente de recursos (humanos, financieros, materiales), o que
+presenta un análisis de costo-efectividad favorable.
+▪ Sostenibilidad y Resiliencia: Evidencia de que la reforma ha perdurado
+en el tiempo, ha logrado institucionalizarse (política de Estado vs.
+política de gobierno), o ha demostrado capacidad de adaptación a
+cambios políticos o crisis.
+3. Desarrollar y presentar una propuesta de marco analítico detallado para los estudios
+de caso, adaptado a reformas holísticas, que incluya dimensiones de análisis,
+preguntas guía y fuentes de datos propuestas.
+Entregable 1b: Documento que incluya:
+● Justificación de la selección de los 3 casos, demostrando:
+
+-- 5 of 9 --
+
+o Su carácter holístico/nacional (intervención en múltiples componentes del
+sistema).
+o Cómo cumplen con los criterios primarios (aprendizajes, acceso, equidad).
+o Qué criterios secundarios (costo-efectividad, sostenibilidad) están presentes
+y cómo refuerzan la relevancia del caso.
+● Marco analítico propuesto (dimensiones, preguntas guía, fuentes de datos esperadas
+por caso).
+● Cronograma detallado de trabajo para los estudios de caso.
+Plazo: Semana 10 desde la firma de contrato (4 semanas después del Entregable 1a).
+PRODUCTO 2: TRES ESTUDIOS DE CASO ANALÍTICOS EN PROFUNDIDAD
+Actividades: Para cada uno de los 3 casos seleccionados y aprobados, realizar:
+1. Investigación Documental Exhaustiva: Revisión de políticas nacionales, marcos
+curriculares, programas de formación docente, diseños de evaluación, informes de
+implementación, evaluaciones de impacto y artículos académicos.
+2. Elaboración del Estudio de Caso siguiendo la estructura acordada.
+3. Propuesta de actores claves a entrevistar y revisión de entrevistas: Elaboradores de
+la política, académicos, parlamentarios relevantes, u otros actores claves que
+participaron del proceso.
+4. Presentación de avances al comité académico: Se presentarán los hallazgos
+preliminares de los casos al comité académico especializado, incorporando su
+retroalimentación antes de la versión final.
+Entregable 2: Tres documentos individuales, uno por caso (extensión estimada: 25-30
+páginas cada uno).
+Plazo: 10 semanas después del entregable 1b ( 3 a 4 semanas por caso, entregable parcial al
+finalizar cada caso).
+PRODUCTO 3: MATRIZ DE SÍNTESIS COMPARATIVA Y REPORTE EJECUTIVO
+Actividades:
+1. Diseñar una matriz comparativa que sintetice los hallazgos clave de los tres casos en
+dimensiones estandarizadas (diseño holístico, gobernanza, implementación,
+resultados), con especial atención a los criterios primarios y secundarios de
+efectividad, y la revisión general de literatura.
+
+-- 6 of 9 --
+
+2. Redactar un reporte ejecutivo que destaque las lecciones aprendidas, patrones
+comunes en el diseño de reformas integrales, factores críticos de éxito/fracaso y
+recomendaciones para la región, con especial atención a cómo los casos abordaron
+los criterios primarios (aprendizajes, acceso, equidad) y qué rol jugaron los criterios
+secundarios en su éxito.
+3. Presentación final al comité académico: Presentar los hallazgos consolidados al
+comité para su validación y retroalimentación final antes de la entrega del producto.
+Entregable 3: Un paquete que contenga:
+● Matriz comparativa en formato Excel o tabla Word/PDF.
+● Reporte ejecutivo de síntesis (8-10 páginas).
+Plazo: 4 semanas después del entregable 2.
+5. Estructura Sugerida para los Estudios de Caso (Marco Analítico Base, referencial a acordar
+con la contraparte)
+A. DESCRIPCIÓN GENERAL Y CONTEXTO
+● Nombre de la reforma, país, período de implementación.
+● Condiciones estructurales del país al momento de la reforma (matrícula, tasa de
+egreso, nivel socioeconómico, secuencia previa de reformas, entre otros).
+● Diagnóstico y problema público que justificó la reforma (ej: crisis de aprendizajes,
+altas tasas de analfabetismo funcional, brechas profundas, ¿es una necesidad que
+surge desde el territorio o el ejecutivo?).
+● Objetivos declarados, con foco en la innovación metodológica y la ampliación de los
+niveles de alfabetización.
+B. DISEÑO HOLÍSTICO DE LA REFORMA: COMPONENTES Y SU INTEGRACIÓN
+● Componente Curricular: Cambios en estándares, expectativas de aprendizaje y
+enfoque pedagógico oficial.
+● Componente de Desarrollo Profesional Docente: Estrategia de
+formación/capacitación masiva, acompañamiento en aula.
+● Componente de Recursos y Materiales: Provisión de textos, guías, recursos digitales
+alineados con la nueva metodología.
+● Componente de Evaluación y Monitoreo: Sistemas implementados para medir
+progreso de estudiantes y fidelidad de implementación.
+● Componente de Involucramiento Familiar y Comunitario: Estrategias para involucrar
+a las familias en el proceso de alfabetización.
+● Financiamiento: Costos generales de la reforma.
+
+-- 7 of 9 --
+
+C. PROCESO POLÍTICO, GOBERNANZA E IMPLEMENTACIÓN A ESCALA
+● Agenda-Setting: Liderazgo político, actores técnicos, participación de expertos,
+resistencias.
+● Estrategia de Implementación: Etapas, despliegue nacional, pilotos, escalamiento, rol
+de los niveles intermedios (regiones, distritos).
+● Gestión y Ajustes: Desafíos operativos, capacidad institucional, modificaciones
+realizadas durante la ejecución.
+● Monitoreo y Evaluación: Mecanismos de seguimiento, evaluaciones de proceso e
+impacto disponibles.
+● Comunicación: Hacia los implementadores y la ciudadanía, cómo se implementan
+ideas fuerza y se gestionan crisis comunicacionales.
+D. RESULTADOS E IMPACTO (Énfasis especial en los criterios de selección)
+● Impacto en Aprendizajes de Lectoescritura: Síntesis de evaluaciones de impacto en
+resultados de pruebas estandarizadas o nacionales. (Criterio Primario)
+● Impacto en Acceso y Trayectorias: Evidencia de efectos en repetición, graduación,
+transición. (Criterio Primario)
+● Impacto en Equidad: Efecto en la reducción de brechas de aprendizaje entre grupos
+poblacionales (socioeconómicos, geográficos, lingüísticos). (Criterio Primario)
+● Costo-efectividad: Análisis de recursos invertidos versus resultados logrados, si
+existe información disponible. (Criterio Secundario)
+● Sostenibilidad: Evidencia de continuidad más allá del ciclo político inicial,
+institucionalización de la reforma. (Criterio Secundario)
+E. LECCIONES, SOSTENIBILIDAD Y TRANSFERIBILIDAD
+● Factores críticos para el éxito de una reforma holística.
+● Sostenibilidad de los cambios más allá del ciclo político inicial.
+● Recomendaciones para el diseño e implementación de reformas similares en otros
+contextos.
+6. Perfil Requerido del/de la Consultor(a)
+
+-- 8 of 9 --
+
+● Formación: Título en Educación, Política Educativa, Lingüística Aplicada o campos
+afines. Magíster o superior.
+● Experiencia: Mínimo 8 años de experiencia en:
+o Análisis de políticas y reformas educativas, con foco específico en
+alfabetización, lectoescritura o mejora de los aprendizajes básicos.
+o Conocimiento de enfoques pedagógicos y metodologías para la enseñanza
+de la lectoescritura.
+o Paso por el estado (deseable)
+7. Duración y Modalidad
+● Duración estimada: 6 meses.
+● Modalidad: Contrato de honorarios por productos/entregables. Trabajo remoto. Se
+coordinará con el/la Investigador/a Principal del proyecto en SUMMA.
+8. Supervisión
+El/La consultor(a) reportará y coordinará sus productos con el/la Coordinador(a) de
+Contenidos de la Plataforma y el/la Investigador(a) Principal del proyecto.
+Resumen de Plazos y Productos
+Producto Descripción Plazo Pago
+Producto
+1a
+Revisión general de lectoescritura: marco
+conceptual y mapeo de iniciativas (con
+énfasis en visión integral y fuentes de
+evidencia)
+Semana 6 20%
+Producto
+1b
+Propuesta de marco analítico y selección
+de casos (con criterios jerarquizados)
+Semana 10 20%
+Producto 2 Tres estudios de caso en profundidad (4
+semanas por caso)
+Semana 20 40%
+Producto 3 Matriz de síntesis comparativa y reporte
+ejecutivo
+Semana 24 20%
+
+-- 9 of 9 --
+

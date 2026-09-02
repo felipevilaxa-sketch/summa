@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#fff;color:#17242A;font-family:Lato,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:#0D4A57;text-decoration:none}
+  a:hover{color:#6FA030}
+  button{font:inherit}
+  select{font:inherit}
+  :focus-visible{outline:2px solid #6FA030;outline-offset:2px}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  @media print{[data-noprint]{display:none !important}}
+  [data-m="cds-linea-intro"]{display:none!important}
+</style>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#0D4A57"/><g fill="none" stroke="#8BC53F" stroke-width="5" stroke-linecap="round"><path d="M40 60l10 10 22-24"/><circle cx="60" cy="60" r="26"/></g></svg></template>
+</helmet>
+
+<div style="width:100%;position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:{{ navShadow }};transition:box-shadow .25s ease" data-noprint>
+  <nav data-m="topnav" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px clamp(20px,4vw,40px);max-width:1240px;margin:0 auto">
+    <a href="index.html" style="display:flex;align-items:center;gap:14px" data-m="brand">
+      <img src="assets/logo-summa-lab.png" alt="SUMMA — Laboratorio de Investigación e Innovación en Educación para América Latina y el Caribe" style="height:56px;width:auto">
+      <span style="display:flex;flex-direction:column;justify-content:center;line-height:1.2;font-family:Lato,sans-serif;color:#0D4A57;padding-left:14px;border-left:1.5px solid #DCE3E1;align-self:stretch">
+        <span style="font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase">Plataforma de</span>
+        <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
+      </span>
+    </a>
+    <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
+      <a href="marco-wise.html" style="color:#0D4A57">Marco WISE</a>
+      <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <x-import component-from-global-scope="site-search" from="./site-search.js" hint-size="40px,40px"></x-import>
+      <span data-m="hamburger"><x-import component-from-global-scope="mobile-nav" from="./mobile-nav.js" hint-size="44px,44px"></x-import></span>
+      <a data-m="navcta" href="casos.html" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;background:#0D4A57;color:#fff;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s" style-hover="background:none;color:#0D4A57">EXPLORAR CASOS</a>
+    </div>
+  </nav>
+</div>
+
+<div data-m="spacer" aria-hidden="true" style="height:81px" data-noprint></div>
+
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+
+
+  <header style="margin:0 0 clamp(44px,5.5vw,68px)">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(20px,3vw,40px);flex-wrap:wrap">
+      <div style="max-width:640px">
+        <h1 data-m="h1" style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(30px,4.2vw,42px);line-height:1.16;letter-spacing:-.01em;color:#0D4A57;margin:24px 0 16px;text-wrap:pretty">Criterios de selección de casos</h1>
+        <p style="font-size:16px;line-height:1.65;color:#3D4E52;margin:0;max-width:540px;text-wrap:pretty">Qué debe cumplir una reforma para entrar a la plataforma, y qué criterio aplica a cada caso ya seleccionado.</p>
+      </div>
+      <a href="#matriz" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#8BC53F 0%,#D4FBA1 100%);background-size:180% 100%;background-position:0% 0%;color:#0D4A57;font-size:13px;letter-spacing:.04em;padding:14px 26px;border-radius:999px;transition:background-position .35s ease;white-space:nowrap" style-hover="background-position:100% 0%">VER CRITERIOS POR CASO
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="5 12 12 19 19 12"></polyline></svg>
+      </a>
+    </div>
+  </header>
+
+  <section style="margin:0 0 clamp(52px,6.5vw,82px)">
+    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Cómo funciona</div>
+    <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0 0 22px;max-width:620px">Tres filtros sucesivos, aplicados en orden</h2>
+    <div data-m="cds-filters" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:22px 24px;border-top:4px solid #0D4A57">
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">Filtro 1 · Elegibilidad</div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Vigencia, naturaleza y alcance</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Define qué es una reforma admisible. Si no se cumple, el caso no avanza.</p>
+      </div>
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:22px 24px;border-top:4px solid #8BC53F">
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">Filtro 2 · Obligatorio</div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Criterios primarios</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Equidad, resultados y justicia educativa: deben cumplirse para que el caso sea seleccionable.</p>
+      </div>
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:22px 24px;border-top:4px solid #E8A33D">
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">Filtro 3 · Desempate</div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Criterios secundarios</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Diferencian entre casos que ya pasaron los filtros. No excluyen: ordenan por prioridad.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="matriz" style="margin:0 0 clamp(52px,6.5vw,82px);scroll-margin-top:110px">
+    <div style="margin-bottom:4px">
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Criterios por caso</div>
+      <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:560px">Qué criterio aplica a cada reforma</h2>
+    </div>
+
+    <p data-m="cds-inst" style="font-family:Lato,sans-serif;font-size:13.5px;color:#4F6B72;margin:20px 0 0">Selecciona primero la línea de reforma y luego el caso.</p>
+
+    <div role="tablist" aria-label="Línea de reforma" data-m="cds-linea-tabs" data-m2="scroll-x" style="display:flex;gap:clamp(14px,2.2vw,28px);border-bottom:1px solid #DCE3E1;margin:22px 0 22px;flex-wrap:wrap" data-noprint>
+      <sc-for list="{{ lineaTabs }}" as="t" hint-placeholder-count="2">
+        <button role="tab" aria-selected="{{ t.selected }}" onClick="{{ t.select }}" style="{{ t.style }}">{{ t.label }}</button>
+      </sc-for>
+    </div>
+
+    <span data-m="cds-linea-intro" style="display:none!important;position:absolute;visibility:hidden">{{ lineaIntro }}</span>
+
+    <div data-m="cds-casos-wrap" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:22px" data-noprint>
+      <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4F6B72">Caso</span>
+      <div data-m="scroll-x" style="display:flex;gap:8px;flex-wrap:wrap">
+        <sc-for list="{{ casoChips }}" as="c" hint-placeholder-count="4">
+          <button onClick="{{ c.select }}" aria-pressed="{{ c.pressed }}" style="{{ c.style }}">{{ c.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-m="table-scroll" style="border:1px solid #DCE3E1;border-radius:16px;overflow-x:auto;-webkit-overflow-scrolling:touch">
+      <div role="table" style="display:grid;grid-template-columns:210px {{ colGridTemplate }};min-width:{{ tableMin }}">
+        <div role="row" style="display:contents">
+          <div role="columnheader" style="text-align:left;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#4F6B72;padding:20px 18px 14px 22px;border-bottom:1.5px solid #DCE3E1;width:210px;background:#fff;position:sticky;left:0;z-index:2">Criterio</div>
+          <sc-for list="{{ cols }}" as="c" hint-placeholder-count="3">
+            <div role="columnheader" style="text-align:left;padding:20px 18px 14px;border-bottom:1.5px solid #DCE3E1;border-left:1px solid #F0F4F3;min-width:190px">
+              <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:600;color:#8CA0A5;margin-bottom:5px">{{ c.country }}</span>
+              <a href="{{ c.href }}" style="font-family:Lato,sans-serif;font-size:14.5px;font-weight:700;color:#0D4A57;line-height:1.3;text-decoration:none">{{ c.title }}</a>
+            </div>
+          </sc-for>
+        </div>
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
+          <div role="row" style="display:contents">
+            <div role="rowheader" style="text-align:left;padding:16px 18px 16px 22px;border-bottom:1px solid #F0F4F3;background:{{ r.rowBg }};position:sticky;left:0;z-index:1">
+              <sc-if value="{{ r.isGroup }}" hint-placeholder-val="{{ false }}">
+                <span style="display:block;font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:{{ r.groupColor }}">{{ r.group }}</span>
+              </sc-if>
+              <span style="display:block;font-family:Lato,sans-serif;font-size:13.5px;font-weight:700;color:#17242A;line-height:1.35;margin-top:{{ r.nameTop }}">{{ r.name }}</span>
+              <button onClick="{{ r.toggle }}" aria-expanded="{{ r.open }}" style="display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-family:Lato,sans-serif;font-size:11.5px;font-weight:600;color:#4F6B72;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline" data-noprint>{{ r.defLabel }}</button>
+              <sc-if value="{{ r.open }}">
+                <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:8px;padding-left:10px;border-left:2px solid #8BC53F;animation:fadeUp .24s ease-out both">{{ r.definition }}</span>
+              </sc-if>
+            </div>
+            <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3">
+              <div role="cell" style="padding:16px 18px;border-bottom:1px solid #F0F4F3;border-left:1px solid #F0F4F3;background:{{ c.bg }}">
+                <span style="display:inline-flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:{{ c.color }};background:{{ c.chipBg }};padding:5px 11px;border-radius:6px;line-height:1.3">{{ c.value }}</span>
+                <sc-if value="{{ c.hasNote }}">
+                  <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:7px">{{ c.note }}</span>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px">
+      <p style="font-size:12.5px;color:#4F6B72;margin:0;max-width:560px">Cada caso nuevo de la línea se suma como una columna más. Los criterios sin aplicación en la línea se marcan como “No aplica”.</p>
+      <button onClick="{{ exportCsv }}" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap" style-hover="background:#0D4A57;color:#fff" data-noprint>EXPORTAR CSV</button>
+    </div>
+  </section>
+
+  <section style="margin:0 0 clamp(52px,6.5vw,82px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:clamp(22px,2.8vw,30px)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <span style="width:26px;height:26px;border-radius:50%;background:#EEF6E2;color:#4E7220;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </span>
+          <h3 style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin:0">Entra a la plataforma</h3>
+        </div>
+        <ul style="padding-left:20px;margin:0;display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{ inclusion }}" as="x" hint-placeholder-count="5">
+            <li style="font-size:14px;line-height:1.6;color:#3D4E52">{{ x.text }}</li>
+          </sc-for>
+        </ul>
+      </div>
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:clamp(22px,2.8vw,30px)">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <span style="width:26px;height:26px;border-radius:50%;background:#F6E2DC;color:#9A4630;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </span>
+          <h3 style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin:0">Queda fuera</h3>
+        </div>
+        <ul style="padding-left:20px;margin:0;display:flex;flex-direction:column;gap:8px">
+          <sc-for list="{{ exclusion }}" as="x" hint-placeholder-count="5">
+            <li style="font-size:14px;line-height:1.6;color:#3D4E52">{{ x.text }}</li>
+          </sc-for>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="display:flex;align-items:center;justify-content:space-between;gap:20px;background:#F4F7F6;border-radius:16px;padding:28px 32px;margin:0 0 clamp(52px,6.5vw,82px);flex-wrap:wrap" data-noprint>
+    <p style="font-family:Lato,sans-serif;font-size:17px;color:#0D4A57;margin:0;max-width:560px">Revisa los casos que pasaron este filtro y compáralos entre sí.</p>
+    <a href="casos.html?vista=comparador" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">COMPARAR CASOS
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+  </section>
+
+</div>
+
+<footer style="background:#0D4A57;margin-top:0;padding:clamp(38px,4.4vw,54px) clamp(20px,4vw,40px) clamp(34px,4vw,46px)">
+    <div data-m="footer-row" style="max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:26px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img src="assets/logo-summa-footer.png" alt="SUMMA — Laboratorio de Investigación e Innovación en Educación para América Latina y el Caribe" style="height:72px;width:auto">
+        <span style="display:flex;flex-direction:column;justify-content:center;line-height:1.2;font-family:Lato,sans-serif;color:rgba(255,255,255,.9);padding-left:14px;border-left:1.5px solid rgba(255,255,255,.3);align-self:stretch">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase">Plataforma de</span>
+          <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
+        </span>
+      </div>
+    </div>
+    <div data-m="footer-col" style="display:flex;flex-direction:column;align-items:flex-end;gap:18px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://summaedu.org/contacto/" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;background:linear-gradient(90deg,#8BC53F 0%,#D4FBA1 100%);background-size:180% 100%;background-position:0% 0%;color:#0D4A57;border:1.5px solid transparent;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;text-decoration:none;transition:background-position .35s ease" style-hover="background-position:100% 0%">CONTÁCTANOS</a>
+        <a href="https://summaedu.org/trabaja-con-nosotros/" style="font-family:Lato,sans-serif;border:1.5px solid #fff;color:#fff;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;text-decoration:none;transition:background .15s,color .15s" style-hover="background:#fff;color:#0D4A57">TRABAJA CON NOSOTROS</a>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:18px;margin-top:2px">
+        <a href="#" style="font-family:Lato,sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;color:#fff;border-bottom:1px solid transparent;transition:color .15s,border-color .15s" style-hover="color:#D4FBA1;border-color:#D4FBA1">Plataforma de Prácticas Educativas Efectivas →</a>
+      </div>
+      <div style="display:flex;gap:10px">
+        <a href="#" aria-label="LinkedIn" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"></path></svg>
+        </a>
+        <a href="#" aria-label="X" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.24 2H21l-6.55 7.48L22.5 22h-6.3l-4.93-6.44L5.6 22H2.84l7.02-8.02L1.5 2h6.46l4.46 5.9zm-.97 18h1.53L7.02 3.6H5.38z"></path></svg>
+        </a>
+        <a href="#" aria-label="YouTube" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.6-.46-5.33a2.78 2.78 0 0 0-1.95-1.96C18.86 4.25 12 4.25 12 4.25s-6.86 0-8.59.46A2.78 2.78 0 0 0 1.46 6.67C1 8.4 1 12 1 12s0 3.6.46 5.33a2.78 2.78 0 0 0 1.95 1.96c1.73.46 8.59.46 8.59.46s6.86 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96C23 15.6 23 12 23 12zM9.75 15.27V8.73L15.5 12z"></path></svg>
+        </a>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const DC = location.pathname.indexOf('.dc.html') > -1;
+function P(dc, plain){ return DC ? dc : plain; }
+
+const LINEAS = [
+  {id:'fin', label:'Financiamiento progresivo', color:'#0D4A57',
+   intro:'En esta línea la elegibilidad exige progresividad verificable a nivel de estudiante, y los tres criterios primarios incluyen la equidad en la distribución del recurso.'},
+  {id:'lec', label:'Lectoescritura', color:'#4E7220',
+   intro:'En esta línea la elegibilidad exige intervenir en más de una dimensión —formación docente, materiales y acompañamiento— y cubrir al menos los primeros grados de primaria.'}
+];
+
+/* Estructura y vocabulario de la ficha de registro (hojas Ficha_Financiamiento
+   y Ficha_Alfabetización). Cada caso nuevo se agrega aquí: la tabla suma una
+   columna automáticamente. */
+const CASES = [
+  {id:'sep', linea:'fin', title:'Subvención Escolar Preferencial (SEP)', country:'Chile', state:'Publicado',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2008', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'LAC', neutral:true},
+     e1:{value:'2', note:'Bertoni et al. (2023): análisis de progresividad regional y por estudiante.'},
+     e2:{value:'2', note:'Elacqua et al. (2025), BID: síntesis de resultados en pruebas estandarizadas.'},
+     e3:{value:'2', note:'Mizala & Torche (2013): evaluación de impacto en resultados SIMCE.'},
+     s1:{value:'Sí'},
+     s2:{value:'Sí'},
+     s3:{value:'Parcial'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'fundeb', linea:'fin', title:'FUNDEB', country:'Brasil', state:'Publicado',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2007', neutral:true},
+     vigencia:{value:'Rediseñada', note:'Constitucionalizado en 2020 (Enmienda 108).'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'LAC', neutral:true},
+     e1:{value:'2', note:'Complementación federal dirigida a estados bajo el mínimo por alumno.'},
+     e2:{value:'1', note:'Efectos positivos reportados, concentrados en los cuartiles bajos.'},
+     e3:{value:'1', note:'Reduce brechas entre estados; menos evidencia dentro de cada uno.'},
+     s1:{value:'Sí'},
+     s2:{value:'Sí'},
+     s3:{value:'Sí'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'title1', linea:'fin', title:'Title I, Part A', country:'Estados Unidos', state:'Publicado',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'1965', neutral:true},
+     vigencia:{value:'Rediseñada', note:'ESEA (1965), reautorizada como ESSA (2015).'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Focalizado a escala significativa', note:'Distritos y escuelas con alta concentración de pobreza.'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'1', note:'Las garantías históricas de asignación limitan la progresividad final.'},
+     e2:{value:'1', note:'Resultados mixtos, sensibles a la capacidad del distrito.'},
+     e3:{value:'1', note:'Depende de la distribución dentro de cada estado.'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     s3:{value:'Parcial'},
+     fuentes:{value:'4', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+
+  {id:'pta', linea:'lec', title:'Programa Todos a Aprender (PTA)', country:'Colombia', state:'Publicado',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2012', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Política'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Primaria completa'},
+     cobertura:{value:'Focalizado a escala significativa', note:'Escuelas priorizadas por resultados y vulnerabilidad.'},
+     region:{value:'LAC', neutral:true},
+     e1:{value:'2', note:'Mejoras documentadas en lenguaje en escuelas participantes.'},
+     e2:{value:'1', note:'Datos administrativos de permanencia, sin diseño causal.'},
+     e3:{value:'1', note:'Avance mayor en escuelas de menor nivel socioeconómico.'},
+     s1:{value:'Sí'},
+     s2:{value:'Parcial'},
+     s3:{value:'Sí'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'peru', linea:'lec', title:'Estrategia Nacional de Comprensión Lectora', country:'Perú', state:'Publicado',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2014', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Política'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Primaria inicial (1º-3º)'},
+     cobertura:{value:'Focalizado a escala significativa', note:'Escuelas rurales y multigrado.'},
+     region:{value:'LAC', neutral:true},
+     e1:{value:'1', note:'Avances en la evaluación censal, con atribución aún en discusión.'},
+     e2:{value:'1', note:'Cobertura ampliada en zonas rurales, sin evaluación de impacto.'},
+     e3:{value:'1', note:'Brechas rurales persistentes pese a la mejora general.'},
+     s1:{value:'Sí'},
+     s2:{value:'Parcial'},
+     s3:{value:'Parcial'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'guatemala', linea:'lec', title:'Programa Leamos Juntos', country:'Guatemala', state:'Publicado',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2019', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Política'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Primaria inicial (1º-3º)'},
+     cobertura:{value:'Focalizado a escala significativa', note:'Escuelas rurales e indígenas.'},
+     region:{value:'LAC', neutral:true},
+     e1:{value:'1', note:'Mejora en comprensión lectora reportada por evaluación externa en curso.'},
+     e2:{value:'1', note:'Datos de matrícula y permanencia en escuelas participantes.'},
+     e3:{value:'2', note:'Reducción de brechas por lengua materna y ruralidad.'},
+     s1:{value:'Parcial'},
+     s2:{value:'Parcial'},
+     s3:{value:'Sí'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }}
+];
+
+const ROWS = [
+  {id:'anio', group:'Identificación', groupColor:'#4F6B72', name:'Año de inicio',
+   def:{fin:'Año de implementación de la iniciativa.', lec:'Año de implementación de la iniciativa.'}},
+
+  {id:'vigencia', group:'Elegibilidad', groupColor:'#0D4A57', name:'Vigencia',
+   def:{fin:'Estado actual: vigente, discontinuada o rediseñada. Se excluyen reformas con menos de cinco años de vigencia.',
+        lec:'Estado actual: vigente, discontinuada o rediseñada. Se excluyen reformas con menos de cinco años de vigencia.'}},
+  {id:'tipo', name:'Tipo',
+   def:{fin:'Naturaleza de la iniciativa: reforma, política o programa. Se excluyen programas acotados o parciales.',
+        lec:'Naturaleza de la iniciativa: reforma, política o programa. Debe intervenir en más de una dimensión —formación docente, materiales, acompañamiento— y combinar enseñanza del código con comprensión y estrategias dialógicas.'}},
+  {id:'alcance', name:'Alcance',
+   def:{fin:'Nivel de gobierno que implementa la iniciativa: nacional o subnacional.',
+        lec:'Nivel de gobierno que implementa la iniciativa: nacional o subnacional.'}},
+  {id:'nivel', name:'Nivel educativo',
+   def:{fin:'Niveles que cubre: preescolar, primaria inicial (1º-3º/4º), primaria completa, secundaria o todos los niveles.',
+        lec:'Niveles que cubre. Debe cubrir al menos los primeros grados de primaria, desde kínder al primer ciclo básico.'}},
+  {id:'cobertura', name:'Cobertura',
+   def:{fin:'Sistémico: aplica a todo el sistema público o a una categoría amplia y estable. Focalizado a escala significativa: segmento acotado pero con volumen relevante y sostenido. Piloto acotado: unas pocas escuelas sin escalamiento, se excluye salvo que haya escalado después.',
+        lec:'Sistémico: aplica a todo el sistema público o a una categoría amplia y estable. Focalizado a escala significativa: segmento acotado pero con volumen relevante y sostenido. Piloto acotado: unas pocas escuelas sin escalamiento, se excluye salvo que haya escalado después.'}},
+  {id:'region', name:'Región',
+   def:{fin:'LAC u otra región. Dato de registro: aún no pondera en la selección.',
+        lec:'LAC u otra región. Dato de registro: aún no pondera en la selección.'}},
+
+  {id:'e1', group:'Criterios primarios · nivel de evidencia 0-2', groupColor:'#4E7220',
+   name:{fin:'Equidad en financiamiento', lec:'Aprendizajes'},
+   def:{fin:'¿Llegó más recurso per cápita a las escuelas más vulnerables? 2 = evidencia robusta (evaluación experimental o cuasi-experimental). 1 = evidencia parcial (datos descriptivos, correlacionales o informe institucional sin diseño causal). 0 = sin evidencia.',
+        lec:'Efecto en aprendizajes de lectura y escritura. 2 = evidencia robusta (evaluación experimental o cuasi-experimental). 1 = evidencia parcial (datos descriptivos, correlacionales o informe institucional sin diseño causal). 0 = sin evidencia.'}},
+  {id:'e2', name:{fin:'Resultados educativos', lec:'Acceso y trayectorias'},
+   def:{fin:'Acceso, permanencia y aprendizajes atribuibles al mecanismo, en la misma escala de evidencia 0-2.',
+        lec:'Acceso, permanencia y trayectorias escolares atribuibles al mecanismo, en la misma escala de evidencia 0-2.'}},
+  {id:'e3', name:{fin:'Justicia educativa', lec:'Equidad y justicia educativa'},
+   def:{fin:'Reducción de brechas de aprendizaje por nivel socioeconómico, en la misma escala de evidencia 0-2.',
+        lec:'Reducción de brechas por nivel socioeconómico, geografía, lengua, etnia y discapacidad, en la misma escala de evidencia 0-2.'}},
+
+  {id:'s1', group:'Criterios secundarios · Sí / Parcial / No', groupColor:'#B4791F', name:'Costo-efectividad',
+   def:{fin:'Resultados obtenidos con uso eficiente de los recursos. El umbral exacto se acuerda con la contraparte.',
+        lec:'Resultados obtenidos con uso eficiente de los recursos. El umbral exacto se acuerda con la contraparte.'}},
+  {id:'s2', name:'Sostenibilidad y resiliencia',
+   def:{fin:'Institucionalización como política de Estado y capacidad de adaptación a crisis.',
+        lec:'Institucionalización como política de Estado y capacidad de adaptación a crisis.'}},
+  {id:'s3', name:'Innovación y replicabilidad',
+   def:{fin:'Grado de innovación y potencial de adaptación a otros contextos de la región.',
+        lec:'Grado de innovación y potencial de adaptación a otros contextos de la región.'}},
+
+  {id:'fuentes', group:'Registro', groupColor:'#4F6B72', name:'Nº de fuentes registradas',
+   def:{fin:'Cuenta automática de las fuentes cargadas para el caso en la hoja Fuentes de la línea.',
+        lec:'Cuenta automática de las fuentes cargadas para el caso en la hoja Fuentes de la línea.'}},
+  {id:'elegibilidad', name:'Elegibilidad',
+   def:{fin:'Resultado del filtro: elegible, revisar con contraparte o excluir. Se calcula a partir de los criterios anteriores.',
+        lec:'Resultado del filtro: elegible, revisar con contraparte o excluir. Se calcula a partir de los criterios anteriores.'}}
+];
+
+const EVIDENCIA = {
+  '2':{label:'2 · Robusta', color:'#4E7220', chipBg:'#EEF6E2'},
+  '1':{label:'1 · Parcial', color:'#8A5C14', chipBg:'#FBF0DF'},
+  '0':{label:'0 · Sin evidencia', color:'#9A4630', chipBg:'#F6E2DC'}
+};
+const EV_ROWS = ['e1','e2','e3'];
+const POSITIVE = ['Sí','Elegible','Sistémico','Nacional','Vigente','Rediseñada','Reforma','Política'];
+const PARTIAL = ['Parcial','Revisar','Focalizado a escala significativa','Discontinuada','Programa'];
+
+class Component extends DCLogic {
+  state = {scrolled:false, linea:'fin', caso:CASES.filter(function(c){return c.linea==='fin';})[0].id, open:{}};
+
+  componentDidMount(){
+    this.onScroll = () => {
+      const sc = window.scrollY > 8;
+      if(sc !== this.state.scrolled) this.setState({scrolled:sc});
+    };
+    window.addEventListener('scroll', this.onScroll, {passive:true});
+    this.onScroll();
+
+    const q = new URLSearchParams(location.search);
+    const validL = LINEAS.map(function(x){ return x.id; });
+    const caso = CASES.filter(function(c){ return c.id === q.get('caso'); })[0];
+    const l = caso ? caso.linea : q.get('linea');
+    if(l && validL.indexOf(l) > -1){
+      const self = this;
+      this.setState({linea:l, caso: caso ? caso.id : 'todos'}, function(){
+        const el = document.getElementById('matriz');
+        if(el) setTimeout(function(){
+          window.scrollTo({top: el.getBoundingClientRect().top + window.pageYOffset - 100, behavior:'smooth'});
+        }, 260);
+      });
+    }
+  }
+  componentWillUnmount(){ window.removeEventListener('scroll', this.onScroll); }
+
+  renderVals(){
+    const s = this.state, self = this;
+    const linea = LINEAS.filter(function(x){ return x.id === s.linea; })[0];
+    const lineaCases = CASES.filter(function(c){ return c.linea === s.linea; });
+    const cases = s.caso === 'todos'
+      ? lineaCases
+      : lineaCases.filter(function(c){ return c.id === s.caso; });
+
+    function chip(cell, rowId){
+      if(!cell) return {label:'—', color:'#4F6B72', chipBg:'#F0F4F3'};
+      if(EV_ROWS.indexOf(rowId) > -1 && EVIDENCIA[cell.value]){
+        const e = EVIDENCIA[cell.value];
+        return {label:e.label, color:e.color, chipBg:e.chipBg};
+      }
+      const base = {label:cell.value};
+      if(cell.na || cell.neutral) return Object.assign(base, {color:'#4F6B72', chipBg:'#F0F4F3'});
+      if(POSITIVE.indexOf(cell.value) > -1) return Object.assign(base, {color:'#4E7220', chipBg:'#EEF6E2'});
+      if(PARTIAL.indexOf(cell.value) > -1) return Object.assign(base, {color:'#8A5C14', chipBg:'#FBF0DF'});
+      return Object.assign(base, {color:'#0D4A57', chipBg:'#EAF1F2'});
+    }
+
+    return {
+      navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
+
+      lineaTabs: LINEAS.map(function(l){
+        const on = s.linea === l.id;
+        return {
+          label:l.label, selected: on ? 'true' : 'false',
+          select:function(){ var fc=CASES.filter(function(c){return c.linea===l.id;})[0]; self.setState({linea:l.id, caso:fc?fc.id:'', open:{}}); },
+          style:"font-family:Lato,sans-serif;font-size:clamp(14px,1.5vw,17px);font-weight:700;background:none;border:none;padding:16px 2px;cursor:pointer;transition:all .15s;border-bottom:3px solid " +
+            (on ? '#8BC53F' : 'transparent') + ';color:' + (on ? '#0D4A57' : '#7C8B8D')
+        };
+      }),
+      casoChips: lineaCases.map(function(c){ return {id:c.id, label:c.title}; })
+      .map(function(o){
+        const on = s.caso === o.id;
+        return {
+          label:o.label, pressed: on ? 'true' : 'false',
+          select:function(){ self.setState({caso:o.id}); },
+          style:"font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;border:1.5px solid " +
+            (on ? '#0D4A57;background:#0D4A57;color:#fff' : '#DCE3E1;background:#fff;color:#4F6B72')
+        };
+      }),
+      lineaIntro: linea.intro,
+      tableMin: (210 + cases.length * 215) + 'px',
+      colGridTemplate: 'repeat(' + cases.length + ',minmax(190px,1fr))',
+
+      cols: cases.map(function(c){
+        return {title:c.title, country:c.country, href:c.href};
+      }),
+
+      rows: ROWS.map(function(r, ri){
+        const open = !!s.open[r.id];
+        return {
+          name: typeof r.name === 'string' ? r.name : r.name[s.linea],
+          isGroup: !!r.group, group:r.group || '', groupColor:r.groupColor || '#8CA0A5',
+          nameTop: r.group ? '7px' : '0px',
+          rowBg: r.group ? '#FBFCFC' : '#fff',
+          open:open,
+          defLabel: open ? 'Ocultar definición' : 'Ver definición',
+          definition: r.def[s.linea],
+          toggle:function(){
+            const o = Object.assign({}, s.open); o[r.id] = !open;
+            self.setState({open:o});
+          },
+          cells: cases.map(function(c){
+            const cell = c.v[r.id] || {value:'—'};
+            const col = chip(cell, r.id);
+            return {
+              value:col.label, color:col.color, chipBg:col.chipBg,
+              bg: r.group ? '#FBFCFC' : '#fff',
+              hasNote: !!cell.note, note:cell.note || ''
+            };
+          })
+        };
+      }),
+
+      exportCsv:function(){
+        const head = ['Criterio'].concat(cases.map(function(c){ return c.title + ' (' + c.country + ')'; }));
+        const body = ROWS.map(function(r){
+          const nm = typeof r.name === 'string' ? r.name : r.name[s.linea];
+          return [nm].concat(cases.map(function(c){
+            const cell = c.v[r.id];
+            if(!cell) return '—';
+            const lbl = chip(cell, r.id).label;
+            return cell.note ? lbl + ' — ' + cell.note : lbl;
+          }));
+        });
+        const csv = [head].concat(body).map(function(row){
+          return row.map(function(v){ return '"' + String(v).split('"').join('""') + '"'; }).join(',');
+        }).join('\n');
+        const url = URL.createObjectURL(new Blob([csv], {type:'text/csv;charset=utf-8;'}));
+        const a = document.createElement('a');
+        a.href = url; a.download = 'criterios-' + (s.caso || s.linea) + '.csv';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+      },
+
+      inclusion:[
+        {text:'Reformas o políticas con al menos cinco años de vigencia, actuales, descontinuadas o rediseñadas.'},
+        {text:'Alcance nacional o subnacional estadual, con cobertura sistémica o focalizada a escala significativa.'},
+        {text:'Intervención en más de una dimensión del sistema, no en un solo componente.'},
+        {text:'Evidencia disponible de resultados educativos atribuibles al mecanismo.'},
+        {text:'Evidencia de reducción de brechas de aprendizaje entre grupos.'},
+        {text:'En financiamiento: progresividad verificable a nivel de estudiante.'}
+      ],
+      exclusion:[
+        {text:'Programas acotados o parciales que intervienen en una sola dimensión.'},
+        {text:'Reformas con menos de cinco años de vigencia.'},
+        {text:'Iniciativas de alcance local o institucional aislado.'},
+        {text:'Casos sin evidencia documentada de resultados ni de efectos distributivos.'},
+        {text:'En lectoescritura: modelos que trabajan solo el código, sin comprensión ni estrategias dialógicas.'},
+        {text:'En lectoescritura: reformas que no cubren los primeros grados de primaria.'}
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

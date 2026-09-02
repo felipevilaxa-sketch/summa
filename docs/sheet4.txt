@@ -1,0 +1,109 @@
+=== sheet4.xml ===
+R1
+  A: Ficha Alfabetización
+R2
+  A: ID
+  B: Nombre de la iniciativa
+  C: País
+  D: Año inicio
+  E: Vigencia
+  F: Tipo
+  G: Alcance
+  H: Nivel educativo
+  I: Cobertura
+  J: Región
+  K: Nº de fuentes
+registradas
+  L: Aprendizajes
+(evidencia 0-2)
+  M: Acceso y trayectorias
+(evidencia 0-2)
+  N: Equidad y justicia educativa
+(evidencia 0-2)
+  O: Costo-efectividad
+  P: Sostenibilidad y
+resiliencia
+  Q: Innovación y
+replicabilidad
+  R: Elegibilidad
+  S: Notas / Justificación
+R3
+  A: Ej.
+  B: National Literacy and Numeracy Strategy
+  C: Irlanda
+  D: 2011
+  E: Rediseñada
+  F: Reforma
+  G: Nacional
+  H: Primaria completa
+  I: Sistémico
+  J: Otra
+  K: 1
+  L: 2
+  M: 1
+  N: 1
+  O: Parcial
+  P: Sí
+  Q: Parcial
+  R: Elegible
+  S: Fila de ejemplo — reemplazar o borrar. Nivel 1 en acceso/equidad: verificar si hay evaluación causal antes de cerrar.
+R4
+  A: 1
+R5
+  A: 2
+R6
+  A: 3
+R7
+  A: 4
+R8
+  A: 5
+R9
+  A: 6
+R10
+  A: 7
+R11
+  A: 8
+R12
+  A: 9
+R13
+  A: 10
+R14
+  A: 11
+R15
+  A: 12
+R16
+  A: 13
+R17
+  A: 14
+R18
+  A: 15
+R19
+  A: 16
+R20
+  A: 17
+R21
+  A: 18
+R22
+  A: 19
+R23
+  A: 20
+R24
+  A: 21
+R25
+  A: 22
+R26
+  A: 23
+R27
+  A: 24
+R28
+  A: 25
+R29
+  A: 26
+R30
+  A: 27
+R31
+  A: 28
+R32
+  A: 29
+R33
+  A: 30

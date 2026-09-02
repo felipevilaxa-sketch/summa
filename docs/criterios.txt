@@ -1,0 +1,86 @@
+ROW 1
+  A: Criterios de inclusión / exclusión y preguntas para definir en sesión
+ROW 2
+  A: Orden: igual al de las columnas en la hoja Ficha (de izquierda a derecha).
+ROW 4
+  A: 1. VIGENCIA, NATURALEZA Y ALCANCE (columnas 5-10 de la Ficha)
+ROW 5
+  A: 81
+  C: Alfabetización
+  D: Pregunta para definir en sesión
+  E: Propuestas de definiciones
+ROW 6
+  A: Vigencia
+  B: Vigente, descontinuada o rediseñada 
+  C: Vigente, descontinuada o rediseñada 
+  D: Criterio de exclusión: reformas que al menos han estado vigente por 5 años. 
+ROW 7
+  A: Tipo / Naturaleza del caso
+  B: Reforma o política 
+  C: Reforma o política
+  D: Criterio de exclusión: programas acotados o parciales.  ⏎ Más de una dimensión de intervención (formación docente, materiales, acompañamiento, etc..) ⏎ Combinar enseñanza del código con comprensión y estrategias dialógicas (modelo teórico). 
+ROW 8
+  A: Alcance geográfico
+  B: Nacional o subnacional (Estadual)
+  C: Nacional o subnacional (Estadual)
+ROW 9
+  A: Nivel educativo
+  B: Escolar
+  C: Debe cubrir al menos primeros grados de primaria
+  D: Desde k hasta primer ciclo básico. 
+ROW 10
+  A: Cobertura
+  B: Sistémico / Focalizado a escala significativa / Piloto acotado
+  C: Sistémico / Focalizado a escala significativa / Piloto acotado
+  D: Foco sistémico, que intente llegar a todos los estudiantes del ciclo.  ⏎  ⏎ Gradualidad (hasta que nivel se logran implementar). 
+ROW 11
+  A: Región (dato, no criterio de peso aún)
+  B: 178
+ROW 12
+  A: Foco NSE
+  B: 88
+  D: Financiamiento progresivo a nivel de estudiante (NSE y otras). 
+ROW 14
+  A: 2. CRITERIOS PRIMARIOS — obligatorios (columnas 12-14 de la Ficha)
+ROW 15
+  A: 81
+  C: Alfabetización
+  D: Pregunta para definir en sesión
+  E: Propuestas de definiciones
+ROW 16
+  A: Criterio 1
+  B: Equidad en financiamiento: ¿llegó más recurso per cápita a escuelas más vulnerables?
+ROW 17
+  A: Criterio 2
+  B: Resultados educativos: acceso, permanencia, aprendizajes atribuibles al mecanismo
+  C: Resultados educativos: acceso, permanencia, aprendizajes atribuibles al mecanismo
+  D: ¿Exigimos que el resultado sea directamente atribuible al mecanismo (algún diseño causal), o aceptamos correlación documentada sin atribución formal?
+ROW 18
+  A: Criterio 3
+  B: Justicia educativa: reducción de brechas de aprendizaje por NSE
+  C: Equidad y justicia educativa: brechas por NSE, geografía, lengua, etnia, discapacidad
+  D: ¿Qué grupos de comparación son válidos — solo NSE, o también geográfico/étnico/lingüístico? ¿Cuál es la reducción mínima de brecha para considerarla evidencia relevante?
+ROW 20
+  A: 3. CRITERIOS SECUNDARIOS — diferenciadores / desempate (columnas 15-17 de la Ficha)
+ROW 21
+  A: 81
+  C: Alfabetización
+  D: Pregunta para definir en sesión
+  E: Propuestas de definiciones
+ROW 22
+  A: Costo-efectividad
+  B: Resultados con uso eficiente de recursos
+  C: Resultados con uso eficiente de recursos
+  D: ¿Qué entendemos por 'uso eficiente de los recursos'? ¿Comparamos costo por estudiante impactado, costo total del programa versus resultados, o basta evidencia cualitativa de baja complejidad administrativa? ¿Exigimos un estudio formal de costo-efectividad publicado, o alcanza un análisis costo-beneficio informal mencionado en alguna fuente?
+ROW 23
+  A: Sostenibilidad y resiliencia
+  B: Institucionalización (política de Estado vs. de gobierno), adaptación a crisis
+  C: Institucionalización (política de Estado vs. de gobierno), adaptación a crisis
+  D: ¿Qué entendemos por sostenible? ¿Cuántos años mínimos de continuidad ininterrumpida? ¿Debe haber sobrevivido a un cambio de gobierno o ciclo electoral? ¿Basta con estar institucionalizado en una ley, o exigimos continuidad de facto? ¿Una reforma rediseñada que preservó su núcleo cuenta como sostenible?
+ROW 24
+  A: Innovación y replicabilidad
+  B: Grado de innovación y potencial de adaptación a otros contextos de la región
+  C: Grado de innovación y potencial de adaptación a otros contextos de la región  — antes solo estaba en Financiamiento
+  D: ¿Qué hace que un mecanismo sea 'innovador' — ser el primero en su tipo, o combinar elementos existentes de forma novedosa? ¿La replicabilidad se evalúa respecto a LAC específicamente, o a cualquier contexto?
+ROW 26
+  A: FUENTES DE BÚSQUEDA ?

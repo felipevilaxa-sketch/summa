@@ -1,0 +1,1746 @@
+Junio 2026
+Revisión de Mecanismos de
+Financiamiento General y
+Progresivo en Educación
+MARCO CONCEPTUAL Y MAPEO DE INICIATIVAS
+TANIA HERNÁNDEZ J.
+
+-- 1 of 47 --
+
+1
+Contenidos
+I. Introducción ................................................................................................................................ 2
+II. Marco Conceptual ....................................................................................................................... 4
+II.1. Mecanismos Generales de Financiamiento Educativo ............................................................. 4
+II.1.1 Dimensiones operativas y principios fundamentales del financiamiento educativo ......... 4
+II.1.2 Consideraciones respecto de la adecuación ...................................................................... 4
+II.1.3 Consideraciones respecto de la distribución...................................................................... 5
+II.1.4 Fuentes de Financiamiento Escolar .................................................................................... 6
+II.1.5 Principales Mecanismos de Asignación de Recursos ......................................................... 8
+II.1.6 Discrecionalidad en el uso de los recursos ......................................................................... 9
+II.2. Tipología y Caracterización de los Mecanismos de Financiamiento Progresivo .................... 11
+II.2.1 Weighted Student Funding (WSF): Subvención Ponderada por Alumno ......................... 11
+II.2.2 Fondos Focalizados ........................................................................................................... 13
+II.2.3 Fondos Compensatorios Interjurisdiccionales ................................................................. 16
+II.3. Condiciones Habilitantes para la Implementación ................................................................. 17
+II.3.1 Estabilidad Fiscal y Sostenibilidad Macroeconómica ....................................................... 17
+II.3.2 Marco Legal e Institucional............................................................................................... 18
+II.3.3 Capacidad Técnica Institucional........................................................................................ 19
+II.3.4 Sistemas de Información y Focalización ........................................................................... 20
+II.3.5 Mecanismos de Rendición de Cuentas y Transparencia................................................... 21
+II.4. Evidencia Disponible sobre la Efectividad de los Mecanismos............................................... 23
+II.4.1 Evidencia sobre la Reducción de Brechas de Financiamiento .......................................... 23
+II.4.2 Evidencia sobre la Mejora de Resultados Educativos ....................................................... 24
+III. Mapeo de Iniciativas Relevantes .......................................................................................... 26
+III.1 Área 1: Mecanismos de Financiamiento General................................................................... 26
+III.2 Área 2: Mecanismos de Financiamiento Progresivo .............................................................. 29
+III.3 Área 3: Políticas y Marcos Legales Habilitantes...................................................................... 39
+IV. Conclusiones y Recomendaciones para el Diseño de Política .............................................. 41
+V. Referencias Bibliográficas .......................................................................................................... 43
+
+-- 2 of 47 --
+
+2
+I. Introducción
+El financiamiento es uno de los instrumentos de política más determinantes para que los sistemas
+educativos puedan cumplir sus objetivos de calidad y equidad. La forma en que un país decide
+cuántos recursos movilizar para la educación, y en particular cómo distribuirlos entre regiones,
+escuelas y estudiantes, condiciona la capacidad de los establecimientos para responder a las
+necesidades de los estudiantes y, en último término, los resultados de aprendizaje que el sistema es
+capaz de producir.
+En las últimas décadas, un número creciente de países de la OCDE y de América Latina y el Caribe ha
+avanzado desde esquemas de financiamiento basados en la discrecionalidad administrativa o en
+criterios históricos, hacia mecanismos más objetivos y transparentes, entre los que destaca el
+financiamiento por fórmula. Dentro de esta tendencia, ha cobrado especial relevancia el desarrollo
+de mecanismos de financiamiento progresivo, que reconocen que educar a estudiantes en situación
+de desventaja socioeconómica, con necesidades educativas especiales, o que habitan en territorios
+con menor capacidad de generación de ingresos, tiene un costo más alto, y que por tanto requieren
+de una asignación diferenciada de recursos que sea capaz de compensar dichas desigualdades de
+origen.
+Este informe tiene por objetivo realizar una revisión de los mecanismos generales y progresivos de
+financiamiento educativo, a partir de la literatura especializada producida por organismos
+internacionales así como de literatura académica. Con este propósito, se busca: (i) construir un
+marco conceptual que permita comprender las dimensiones, principios y mecanismos que
+estructuran el financiamiento escolar; (ii) caracterizar y tipificar los principales mecanismos de
+financiamiento progresivo disponibles en la literatura; (iii) identificar las condiciones habilitantes
+que la evidencia internacional señala como necesarias para la efectiva implementación de estos
+mecanismos; y (iv) sistematizar evidencia empírica disponible sobre su efectividad para reducir
+brechas de financiamiento, mejorar resultados educativos y promover una mayor equidad en el
+sistema.
+El informe se organiza en cuatro secciones, además de esta introducción. La sección II presenta un
+marco conceptual del financiamiento escolar. Primero, se realiza un análisis general de los
+mecanismos de financiamiento, describiendo sus dimensiones operativas y principios
+fundamentales, para luego profundizar en las consideraciones respecto de la adecuación y
+distribución de recursos, fuentes de financiamiento escolar, principales mecanismos de asignación
+de recursos y grados de discrecionalidad en su uso. A continuación, se desarrolla una tipología de
+los mecanismos de financiamiento progresivo: el Weighted Student Funding (WSF) o subvención
+ponderada por alumno, los fondos focalizados y los fondos compensatorios interjurisdiccionales. Se
+examinan las condiciones habilitantes para su implementación (estabilidad fiscal, marco legal e
+institucional, capacidad técnica, sistemas de información y mecanismos de rendición de cuentas), y
+se sintetizan algunos resultados respecto de su efectividad en términos de reducción de brechas de
+financiamiento y resultados educativos.
+
+-- 3 of 47 --
+
+3
+La sección III presenta un mapeo de iniciativas relevantes, organizado en tres áreas: mecanismos de
+financiamiento general, fichas detalladas de experiencias internacionales de financiamiento
+progresivo (Chile, Brasil, Colombia, Estados Unidos, Australia, Países Bajos, México y Francia, además
+del caso de California, en Estados Unidos), y políticas y marcos legales habilitantes que han permitido
+institucionalizar estos mecanismos. Finalmente, la sección IV presenta las conclusiones y
+recomendaciones para el diseño de política.
+
+-- 4 of 47 --
+
+4
+II. Marco Conceptual
+II.1. Mecanismos Generales de Financiamiento Educativo
+II.1.1 Dimensiones operativas y principios fundamentales del financiamiento educativo
+Para evaluar un sistema de financiamiento educativo y determinar cómo se alinea o no con los
+objetivos de política de cada país, Elacqua et al. (2025) proponen un marco conceptual integrado
+que articula cuatro dimensiones operativas con cuatro principios fundamentales del financiamiento
+educativo. Este marco integra las dimensiones operacionales de movilización, distribución, ejecución
+y monitoreo del financiamiento con los principios de adecuación, equidad, eficiencia y transparencia
+(Tabla 1).
+Tabla 1 – Dimensiones operativas y principios fundamentales asociados en un sistema de financiamiento
+educativo
+Dimensión operativa Descripción Principio asociado
+Movilización de recursos Procesos mediante los cuales el sistema
+educativo genera y capta los recursos
+financieros necesarios para operar
+Adecuación: los recursos movilizados
+deben ser suficientes para garantizar los
+objetivos educativos
+Distribución de recursos Mecanismos mediante los cuales los
+recursos se asignan entre regiones,
+escuelas y programas
+Equidad: los recursos deben distribuirse
+de manera justa, compensando
+diferencias en condiciones sociales y
+geográficas
+Ejecución de recursos Procesos mediante los cuales las
+escuelas y sistemas convierten recursos
+financieros en insumos y resultados
+educativos
+Eficiencia: los recursos deben usarse de
+manera que maximicen su impacto
+Monitoreo Sistemas de seguimiento, evaluación y
+rendición de cuentas sobre el uso y los
+resultados del financiamiento educativo
+Transparencia: el uso de los recursos y
+sus resultados deben ser verificables y
+auditables
+Fuente: Elaboración propia, en base a Elacqua et al. (2025)
+II.1.2 Consideraciones respecto de la adecuación
+El financiamiento escolar es una herramienta política fundamental para promover la igualdad.
+Diversos estudios recientes concluyen que un incremento en el gasto educativo mejora el
+desempeño escolar de los estudiantes, en especial de los que provienen de entornos más
+desfavorecidos (Lafortune et al., 2018; Candelaria et al., 2024), aumenta las posibilidades de alcanzar
+salarios más altos en la edad adulta (Jackson et al., 2016) y tiene un impacto positivo sobre la
+movilidad económica intergeneracional (Biasi, 2019).
+
+-- 5 of 47 --
+
+5
+Así, al diseñar un mecanismo de financiamiento de la educación, es necesario abordar la pregunta
+respecto de la adecuación, es decir, cuánto cuesta proporcionar una educación de calidad a todos
+los estudiantes y, complementariamente, si este financiamiento es sostenible.
+El Banco Mundial (2024) consigna que en la última década el gasto en educación a nivel mundial se
+ha incrementado más lentamente que el crecimiento económico. En este mismo período, el gasto
+público, principal fuente de financiamiento de la educación, medido como porcentaje del PIB se ha
+incrementado en países de ingresos bajos, pero disminuido en los demás grupos de países,
+provocando una leve convergencia entre grupos. Sin embargo, subsiste una severa brecha de
+adecuación: en 2022, los países de ingresos bajos gastaban en promedio apenas US$55 por niño al
+año, cerca de cuatro veces menos que los de ingreso medio-bajo (US$309) y 155 veces menos que
+los de ingresos altos (US$8.532).
+Por su parte, el BID (Elacqua, 2025) reporta que, entre 1995 y 2014, América Latina y el Caribe (ALC)
+elevó su inversión educativa del 3% al 5% del PIB, a niveles comparables a muchos países de la OCDE.
+Sin embargo, consigna que la pandemia global del Covid-19 y la demanda por recursos en salud,
+seguridad pública y crisis climática, combinada con mayores restricciones fiscales hizo que este
+impulso perdiera fuerza en la región, provocando una reducción de la inversión educativa, que en
+2022 bajó al 3,9% del PIB.
+II.1.3 Consideraciones respecto de la distribución
+Aunque el monto total destinado al financiamiento de la educación es fundamental, las estrategias
+de asignación y distribución de esos recursos son igual o incluso más importantes. La capacidad de
+los sistemas educativos para proporcionar una educación de calidad a todos los estudiantes y
+adaptarse a nuevas prioridades sin duda depende de la disponibilidad de recursos financieros
+suficientes. Sin embargo, alcanzado un nivel mínimo de financiamiento, no se observa una relación
+entre el gasto acumulado por estudiante y su desempeño. Esto sugiere que, al sobrepasar un cierto
+umbral de inversión, lo que importa más no es el nivel de gasto sino el diseño de políticas, los
+mecanismos a través de los cuales se asignan estos recursos y cómo se distribuyen (OCDE 2017,
+OCDE, 2023).
+Los resultados de la prueba PISA de 2018 muestran que estudiantes aventajados en términos de
+origen socioeconómico superan a estudiantes desaventajados, en todos los países OCDE. En
+términos de estatus migratorio, en casi todos los países de la OCDE existe una brecha en
+competencias lectoras a favor de estudiantes nativos, respecto de estudiantes inmigrantes (OCDE,
+2023b). Por su parte, el BID (Elacqua et al., 2025) documenta que los estudiantes indígenas
+presentan las brechas de escolarización y aprendizaje más pronunciadas en ALC.
+Por lo tanto, los establecimientos educativos que atienden a estudiantes en situación de
+vulnerabilidad socioeconómica, así como aquellos que tienen una elevada proporción de alumnos
+con necesidades específicas, requieren de más recursos para responder adecuadamente a las
+necesidades de sus estudiantes y favorecer su desarrollo educativo. Este financiamiento
+
+-- 6 of 47 --
+
+6
+diferenciado debería resultar en una mayor equidad en la educación, lo que a su vez impactaría
+positivamente en disminuir inequidades socioeconómicas.
+De acuerdo a la literatura, la equidad en el financiamiento se operacionaliza de acuerdo a dos
+medidas:
+• Equidad horizontal: estudiantes similares deben recibir recursos similares,
+independientemente del establecimiento al que asisten o del territorio en que habitan
+(Fazekas, 2012).
+• Equidad vertical: estudiantes con mayores necesidades deben recibir más recursos,
+reconociendo que educar a niños en desventaja socioeconómica tiene costos más altos. Este
+es el fundamento principal del financiamiento progresivo (Fazekas, 2012; Elacqua et al.,
+2025).
+Es importante mencionar que ambos objetivos son complementarios y pueden ser adecuadamente
+incorporados en un sistema de financiamiento bien diseñado. En efecto, es posible proporcionar un
+financiamiento diferenciado a distintos subgrupos de estudiantes y, al mismo tiempo, garantizar una
+variabilidad mínima en el acceso a recursos al interior de estos subgrupos. Así, mientras un
+mecanismo de financiamiento puede asignar recursos adicionales a escuelas con una mayor
+proporción de estudiantes provenientes de contextos socioeconómicos desfavorecidos, la equidad
+horizontal puede alcanzarse garantizando que dicho financiamiento adicional sea idéntico para
+aquellos grupos de estudiantes o escuelas que presenten características similares (OCDE, 2017).
+II.1.4 Fuentes de Financiamiento Escolar
+En su informe insignia sobre financiamiento escolar, que reúne las conclusiones de un importante
+proyecto respecto del uso efectivo de recursos para las escuelas (School Resources Review), la OCDE
+(2017) identifica cuatro fuentes principales de financiamiento a las escuelas:
+• Financiamiento central (gobierno nacional o federal): corresponde a transferencias a
+gobiernos subnacionales o a establecimientos, determinadas en base a distintos criterios
+con mayor o menor grado de objetividad, tal como se verá en la sección siguiente. Esta
+fuente constituye un importante instrumento para la redistribución de recursos a nivel
+interjurisdiccional (Cetrangolo & Curcio, 2017; OCDE, 2023).
+• Financiamiento subnacional (estados, regiones, municipios): Corresponde a recursos
+provenientes de la base tributaria local o regional del país. Este financiamiento suele tener
+un carácter complementario al anterior, aunque existen casos en que representa la mayor
+parte del financiamiento. Dado que este financiamiento refleja la capacidad de generación
+de ingresos a nivel subnacional y la riqueza del territorio, cuanto mayor sea la dependencia
+de este financiamiento, mayor será el grado de desigualdad horizontal, en términos de gasto
+por alumno, entre jurisdicciones (Cetrangolo & Curcio, 2017; Bertoni et al., 2023; OCDE,
+2017).
+• Financiamiento privado (familias, empresas, ONG): este financiamiento incluye el cobro de
+cuotas, aportes de empresas y donaciones. Esta fuente de financiamiento se ha
+
+-- 7 of 47 --
+
+7
+incrementado de manera más acelerada en los últimos años que las fuentes públicas, y tiene
+mayor importancia en la educación secundaria y vocacional (OCDE, 2017). El financiamiento
+privado tiende a ser regresivo, concentrando recursos adicionales en las escuelas que ya
+atienden a poblaciones favorecidas (Baker & Corcoran, 2012; Elacqua et al., 2025).
+• Financiamiento de organismos internacionales: El financiamiento de organismos
+multilaterales —como el BID, el Banco Mundial, la CAF y la CEPAL— constituye una fuente
+adicional, ya sea a través de préstamos blandos con tasas inferiores a las de mercado,
+donaciones o asistencia técnica. Si bien no sustituye al financiamiento público nacional,
+puede catalizar proyectos piloto, financiar estudios de adecuación, apoyar el diseño de
+fórmulas o fortalecer sistemas de información y rendición de cuentas. En algunos países de
+América Latina, como Haití o Nicaragua, puede tener una magnitud relevante, con cerca de
+40% y 8%, respectivamente. Además, su efectividad, en particular a largo plazo, es mayor en
+países con instituciones más fuertes, estabilidad política, y menor burocracia y corrupción
+(Elacqua et al., 2025).
+En promedio en los países de la OCDE, en el año 2022 un 93% del gasto en educación primaria
+provenía de fuentes gubernamentales, de cualquiera de sus niveles, un 6%, de las familias, un 1%,
+de otras fuentes privadas y un 1%, de fuentes internacionales (OCDE, 2025). Las cifras son similares
+para la educación secundaria de primer ciclo, pero con una participación más alta de fuentes
+privadas (algo superior al 11%) para la enseñanza secundaria superior. La participación de recursos
+privados es relativamente baja en los distintos países considerados, con algunas excepciones como
+Chile (22% para educación primaria), México (15%) y Turquía (13%). En efecto, según datos del BID
+(Elacqua et al., 2025), en los países de América Latina, el gasto privado representa un 20% del gasto
+público por estudiante, 4 veces más que en países de la OCDE.
+Al desglosar los fondos públicos para el financiamiento de la educación escolar entre niveles de
+gobierno, se observa que en promedio en los países de la OCDE, en el año 2020 (OCDE, 2023a), un
+59% del financiamiento de la educación escolar provenía del gobierno central, mientras que un 16%
+tenía origen en jurisdicciones regionales, y un 25%, de gobiernos locales. Estas cifras cambian a 45%,
+15% y 40%, respectivamente, si se considera la distribución posterior a las transferencias entre
+niveles de gobierno. Esta distinción es importante por cuanto las cifras de gasto inicial (antes de
+transferencias) refleja desde dónde provienen los recursos, mientras que los datos posteriores a la
+transferencia muestran qué agente finalmente realiza el gasto. Por lo tanto, los gobiernos
+subcentrales no solo complementan el financiamiento del gobierno central con sus propios ingresos,
+sino que actúan además como intermediarios en la distribución de los fondos del gobierno central
+a las escuelas.
+Aunque en la mayoría de los países analizados la mayor parte de los recursos públicos provienen del
+nivel central, se revela una importante variabilidad entre países, profundamente relacionada con la
+organización institucional de cada uno. En algunos países como Nueva Zelandia, Países Bajos o Chile,
+casi la totalidad de los recursos en su asignación inicial provienen del gobierno central. Por otra
+parte, en países más descentralizados o federales, como Canadá, Estados Unidos o Brasil, el sistema
+educativo depende mayoritariamente de fondos provenientes de gobiernos regionales.
+
+-- 8 of 47 --
+
+8
+La diferencia entre la asignación inicial y final de los recursos también revela los traspasos de
+recursos desde el gobierno central a gobiernos intermedios para su ejecución. A modo de ejemplo,
+en México el gobierno central asigna un 80% de los recursos iniciales, pero esta cifra disminuye a
+27%, tomando en consideración las transferencias a los gobiernos regionales. En el caso de Chile, la
+cifra disminuye desde 98% a 63%, producto de transferencias de recursos a gobiernos locales. En
+cambio, en Canadá y Estados Unidos, el porcentaje de participación del financiamiento de gobiernos
+regionales disminuye en 40% o más, producto de transferencias a gobiernos locales. Lo anterior gana
+relevancia en función del nivel de discrecionalidad que tiene cada agente para realizar el gasto, como
+se verá en la sección II.1.6.
+II.1.5 Principales Mecanismos de Asignación de Recursos
+La OCDE (2017) identifica cuatro grandes mecanismos para determinar el monto de financiamiento
+asignado a las escuelas.
+a) Discrecionalidad administrativa (Administrative discretion)
+Bajo este mecanismo, una autoridad administrativa —ministerio, autoridad regional o
+local— decide la asignación a cada escuela en base a su mejor juicio sobre las necesidades
+individuales de cada establecimiento. Si bien puede involucrar el uso de indicadores, la
+decisión final no necesariamente corresponde a los cálculos y no se aplica universalmente a
+todas las escuelas. Este esquema exige un alto grado de conocimiento de las necesidades de
+los establecimientos, por lo que es más común en sistemas centralizados o con menos
+establecimientos. Además, no garantiza equidad ni transparencia en el sistema, al descansar
+sobre criterios discrecionales, que además pueden estar sujetos a captura política (Fazekas,
+2012).
+b) Costos históricos e incrementales
+Bajo este esquema, cada año las escuelas reciben el monto que recibieron el año anterior,
+con pequeños ajustes relacionados con cambios en matrícula, precios de insumos, entre
+otros. Este mecanismo suele combinarse con el anterior. Tiene la ventaja de ser simple en
+términos técnicos para la planificación presupuestaria y además garantiza predictibilidad,
+para todos los actores involucrados. Una de sus limitaciones es que perpetúa inequidades
+históricas: las escuelas que recibieron en el pasado más recursos por razones de contexto
+político o capacidad de negociación continúan recibiéndolos, sin reflejar las necesidades
+actuales de sus estudiantes. Además, no genera incentivos para que las escuelas mejoren la
+calidad ni la eficiencia de la provisión del servicio educativo, considerando que tienen un
+presupuesto asegurado (OCDE, 2017).
+c) Concursos y negociación (Bidding and bargaining)
+Consiste en mecanismos de financiamiento complementarios a los mecanismos generales,
+en que las escuelas o autoridades subnacionales compiten por financiamiento adicional a
+través de la presentación de proyectos o propuestas. La OCDE (2017) advierte que el bidding
+
+-- 9 of 47 --
+
+9
+y la negociación, combinados con la discrecionalidad, generan con el tiempo idiosincrasias
+en el financiamiento derivadas de ajustes incrementales y juegos políticos. Es esperable
+también que incremente la inequidad horizontal y vertical en el sistema, ya que autoridades
+locales o establecimientos que gozan de mayores capacidades técnicas y recursos tienen una
+mayor probabilidad de elaborar mejores postulaciones o tener mayores capacidades de
+negociación, que localidades con menores recursos, que a su vez tienen mayores
+necesidades de recursos adicionales.
+d) Financiamiento por fórmula (Formula funding)
+Este mecanismo utiliza criterios objetivos de distribución de financiamiento, con una regla
+de aplicación universal para establecer el monto de recursos al que tiene derecho cada
+escuela. La distribución consiste en la aplicación de una fórmula matemática que contiene
+un cierto número de variables, con coeficientes asociados. Tiene la ventaja de que entrega
+un alto nivel de transparencia en el sistema de distribución de recursos, permite una
+adecuada planificación presupuestaria y tiene bajos costos administrativos. Sin embargo,
+existe un trade-off entre la simplicidad de una fórmula transparente, y una fórmula más
+compleja, pero a la vez más ajustada a las condiciones locales y a los determinantes de
+diferencias de costos entre escuelas (OCDE, 2017; Fazekas, 2012). Para mayor detalle
+respecto de las variables utilizadas y las ventajas y desventajas asociadas a este mecanismo,
+ver la sección II.2.1.
+Los mecanismos anteriores no son mutuamente excluyentes: la mayoría de los sistemas educativos
+combina dos o más de ellas para distintas categorías de gasto. Para el financiamiento de gastos
+corrientes en educación (salarios de docentes y no docentes y gastos operacionales) en países de la
+OCDE, el uso de fórmulas es el más frecuente, seguido de la discrecionalidad administrativa. En
+cambio, para decisiones respecto del financiamiento de gastos de capital (como mantenimiento de
+infraestructura escolar o compra de equipamientos), el cual tiene una naturaleza muy distinta por
+tratarse de gastos por una vez, que pueden tener una alta variación de año a año, es mucho más
+común el uso de mecanismos de discrecionalidad administrativa y concursos y negociación (OCDE,
+2022b).
+II.1.6 Discrecionalidad en el uso de los recursos
+Una dimensión complementaria al mecanismo de asignación de financiamiento es el grado de
+discrecionalidad con que cuentan los receptores de los fondos para decidir cómo usarlos. Tal como
+se mencionaba en la sección anterior, parte importante del financiamiento inicial del gobierno
+central se traspasa a gobiernos subnacionales, lo cual puede estar acompañado con restricciones
+respecto de cómo gastarlo. Adicionalmente, las escuelas pueden tener también mayor o menor nivel
+de autonomía en el uso de los recursos. La OCDE (2017) distingue cuatro tipos de transferencias
+según el nivel de discrecionalidad de uso, desde la mayor hasta la menor:
+
+-- 10 of 47 --
+
+10
+a) Suma Global (lump sum)
+Consiste en el traspaso de recursos con mayor grado de discrecionalidad. Los gobiernos
+subnacionales perciben una suma global de recursos sin restricciones sectoriales, y pueden
+determinar libremente qué proporción se invierte en educación. Sigue una lógica que se
+distancia de una relación jerárquica entre los gobiernos central, regionales y locales, hacia
+una de independencia mutua y autorregulación. Debe conjugarse con el uso de indicadores
+de desempeño para que las autoridades locales se hagan responsables de los resultados de
+sus acciones. Sin embargo, puede ser perjudicial para la educación, considerando que
+compite con otras temáticas apremiantes de las que se tienen que hacer cargo los gobiernos
+locales, y dificulta distinguir si las diferencias de gastos entre municipalidades son debidas a
+diferencias de ingresos, socioeconómicas, o diferencias en prioridades. Ejemplos de este tipo
+de mecanismos se encuentran en la OCDE en España, Dinamarca y Suecia y, en
+Latinoamérica, como las trasferencias generales a provincias de Argentina.
+b) Subvención en Bloque y Subvención en Bloque Restringida (Block grant / Restricted
+Block Grant)
+Corresponde a traspaso de recursos condicionados a ser gastados en educación, o, cuando
+es restringido, a algún tipo de gasto, tal como gasto corriente o de capital. Las autoridades
+subnacionales tienen total libertad para asignar estos recursos, al interior de las categorías
+de gastos permitidos y también entre escuelas. Tiene la ventaja de entregar flexibilidad a las
+autoridades subnacionales para ajustar el gasto a necesidades locales. Este es el caso de
+Islandia, República Eslovaca, y para América Latina, la subvención general en Chile, y parte
+del financiamiento del SGP en Colombia y de parte del Fundeb en Brasil.
+c) Subvención Destinada a un Fin Específico (Earmarked grant)
+Corresponde al traspaso de recursos con un nivel bajo de autonomía, en que el gobierno
+central impone restricciones más altas al uso de recursos, al especificar un propósito para
+esta transferencia. En países de la OCDE, hay ejemplos de traspaso de recursos destinados
+exclusivamente al gasto en salarios de docentes, materiales de enseñanza, textos escolares
+y alimentación de los estudiantes (Estonia, República Checa, Lituania).
+d) Subvenciones para Escuelas Específicas (School-Specific)
+Consiste en el traspaso de recursos con una mínima o nula discrecionalidad de uso para su
+redistribución entre escuelas por parte del gobierno subnacional. Típicamente se utiliza para
+el pago de salarios de docentes.
+e) Subvenciones Directas Específicas (Dedicated Grants)
+Consiste en fondos que no son administrados por la escuela, sino que por el gobierno
+central, para ítems específicos, como salarios de docentes o gastos operacionales pagados
+directamente por el nivel central.
+Es importante precisar que el mecanismo de asignación de recursos puede combinarse con
+cualquiera de los grados de discrecionalidad para su uso. Como se mencionaba anteriormente, una
+
+-- 11 of 47 --
+
+11
+mayor autonomía respecto del uso de recursos genera una mayor flexibilidad para que las
+autoridades locales y escuelas definan su mejor uso, pero esto debe ir acompañado de mecanismos
+de rendición de cuentas para lograr que se alcancen los objetivos de política en el sistema.
+Mecanismos con mayor rigidez en el uso y su distribución garantizan el uso previsto y también la
+progresividad del gasto, pero a su vez pueden generar rigideces y exigen que a nivel de escuela exista
+personal capacitado y sistemas informáticos adecuados para generar las rendiciones de cuentas. Así,
+es común que los países utilicen combinaciones de mecanismos de financiamiento, en que el
+financiamiento para poblaciones más vulnerables o con necesidades especiales, a su vez tiene un
+mayor nivel de condicionalidad en el uso.
+II.2. Tipología y Caracterización de los Mecanismos de Financiamiento Progresivo
+Tal como se mencionaba en la sección II.1.3, para alcanzar la equidad vertical en la distribución de
+recursos educativos, es necesario establecer mecanismos de financiamiento progresivo, que se
+hagan cargo de las diferencias en el costo de educar poblaciones con necesidades adicionales.
+La OCDE (2021) identifica dos enfoques para la progresividad: incluir financiamiento adicional
+directamente en el mecanismo de asignación principal, o bien proveer recursos adicionales a través
+de programas focalizados externos al mecanismo principal. Estas categorías de mecanismos no son
+mutuamente excluyentes y con frecuencia se combinan en los sistemas reales (OCDE, 2017; Elacqua
+et al., 2025). Para efectos del presente informe, se distinguen dentro del segundo grupo de fondos
+focalizados, los que tienen origen en el gobierno central y tienen como función específica realizar
+transferencias intergubernamentales destinadas a cubrir desbalances de recursos propios entre
+regiones de un mismo país.
+Cabe observar que un mecanismo de financiamiento progresivo adicional son las Transferencias
+Monetarias Condicionadas. Estos mecanismos, que operan desde el lado de la demanda, consisten
+en la entrega de recursos monetarios directamente a las familias de estudiantes en situación de
+pobreza, condicionados al cumplimiento de obligaciones tales como asistencia escolar y controles
+de salud (Fiszbein & Schady, 2009). Estos programas han sido utilizados de manera amplia en México
+(México Oportunidades) y de manera más focalizada en la extrema pobreza, como en Chile
+(Cetrángolo & Curcio, 2017). Estos recursos no se asignan al financiamiento de la educación per se,
+y sus impactos están relacionados con mejoras en nutrición y salud de niños e incrementos en tasas
+de asistencia escolar, por lo que no se consideran en este documento.
+II.2.1 Weighted Student Funding (WSF): Subvención Ponderada por Alumno
+El Weighted Student Funding (WSF) es un mecanismo extensamente analizado en la literatura
+internacional sobre financiamiento progresivo (AIR, 2019; Dammu et al., 2023; Koelher & O’Keefe,
+2023; Fazekas, 2012; OCDE, 2017). En términos simples, es un financiamiento por fórmula, de
+acuerdo a la definición de la sección II.1.5, que se utiliza como mecanismo general de educación.
+
+-- 12 of 47 --
+
+12
+Bajo esta fórmula, los presupuestos escolares se determinan multiplicando el número de alumnos
+por montos en efectivo que varían según las características de los estudiantes (Fazekas, 2012).
+Lógica del WSF: formula básica
+El monto base es el costo estimado de educar a un estudiante típico sin necesidades adicionales. Los pesos son
+multiplicadores, que reflejan un mayor costo de educación de estudiantes que presentan algún tipo de
+necesidad adicional. Así, en la fórmula anterior, el monto base es multiplicado por la matrícula total de
+estudiantes, mientras que las escuelas tienen acceso a un financiamiento un 25% superior por cada estudiante
+desfavorecido económicamente.
+El resultado final es que las escuelas que atienden más estudiantes vulnerables reciben automáticamente más
+recursos por alumno.
+Fuente: elaboración propia en base a Koehler & O’Keefe 2023
+Fazekas (2012) identifica cuatro grupos de variables que típicamente se utilizan en las fórmulas WSF
+en los países de la OCDE:
+• Variables básicas: número de estudiantes matriculados por nivel y modalidad educativa.
+• Variables basadas en necesidad: características de los estudiantes que elevan el costo de su
+educación, incluyendo nivel de pobreza o desventaja socioeconómica, condición de aprendiz
+de idioma oficial, discapacidad o necesidades educativas especiales, condición de indígena
+o de grupos históricamente marginados.
+• Variables basadas en currículum o programa: tipo de currículo, jornada escolar extendida,
+modalidad de enseñanza bilingüe o especial.
+• Variables institucionales: características de la escuela que afectan sus costos, tales como
+tamaño, ubicación rural o remota, tipo de sostenedor.
+Las fórmulas pueden tener distintos grados de complejidad e incorporar, por ejemplo, mínimos por
+escuela o distrito; incrementos por concentración de estudiantes (ver ejemplo de California en
+sección III.2).
+Adicionalmente, tal como se mencionaba en la sección II.1.6, el uso de estos recursos puede estar
+asociado a distintos grados de autonomía. Un ejemplo es el caso de Chile, en que la subvención
+general, mecanismo de asignación base por estudiante, puede ser utilizada con fines educativos
+generales, mientras que los recursos diferenciados para estudiantes vulnerables (Subvención Escolar
+Preferencial), debe asociarse a un plan de mejoramiento en educación. Un caso similar ocurre en
+California, en que, dependiendo del grado de concentración de estudiantes vulnerables en la
+escuela, existen distintos grados de autonomía para el uso de los recursos del LCFF (ver sección III.2).
+
+-- 13 of 47 --
+
+13
+Las ventajas y desventajas de este mecanismo son similares a las listadas en la sección II.1.5, respecto
+del financiamiento por fórmula, a saber:
+Ventajas:
+• Transparencia y objetividad: la fórmula aplica reglas iguales a todas las escuelas, reduciendo
+la discrecionalidad (Fazekas, 2012; OCDE, 2017).
+• Equidad horizontal y vertical: asegura el tratamiento igual de estudiantes en igual situación
+a través de la aplicación imparcial de los mismos indicadores y coeficientes (Fazekas, 2012).
+• Menor costo administrativo en el mecanismo de asignación de recursos (Fazekas, 2012).
+• Mayor predictibilidad de recursos, al ser asociados a una fórmula objetiva (Fazekas, 2012).
+Este efecto se refuerza en los casos en que la fórmula está plasmada en un instrumento legal
+permanente.
+• Combate a segregación: Al asignar recursos adicionales que requieren las escuelas para
+abordar de manera adecuada las necesidades de sus estudiantes, disminuyen los incentivos
+que podrían exacerbar la segregación (OCDE, 2017).
+• Resistencia a la captura: al ser una regla objetiva, es más difícil de manipular políticamente
+que la discrecionalidad administrativa (Fazekas, 2012).
+Desventajas y riesgos
+• Puede conducir a inequidades: El financiamiento por fórmula puede conducir a inequidades
+cuando existen considerables diferencias de costos entre escuelas que no estén reflejadas
+en la fórmula, como características de las instalaciones o niveles de precios locales (Fazekas,
+2012). Ejemplo de ello lo advierte California Education Trust West, en el caso de estudiantes
+pertenecientes a minorías raciales, que, al no ser considerados específicamente en la
+fórmula, no perciben un financiamiento adecuado (Weatfall-Lum, 2023).
+• Riesgo de manipulación: la OCDE (2021) documenta que cuando las escuelas tienen
+incentivos financieros para clasificar a sus estudiantes en categorías de mayor elegibilidad,
+pueden surgir prácticas de sobreclasificación que distorsionan la focalización.
+• Complejidad técnica: la OCDE (2021) documenta que el WSF requiere sistemas de
+información confiables; en ALC el BID (Elacqua et al., 2025) alerta que persisten deficiencias
+importantes en los sistemas de información educativa.
+II.2.2 Fondos Focalizados
+Los sistemas de financiamiento escolar también pueden optar por entregar recursos a poblaciones
+con mayores necesidades, mediante financiamiento focalizado destinado a apoyar objetivos
+específicos, asociados a programas especiales.
+Estos recursos focalizados pueden ser utilizados, entre otros, para financiar programas dirigidos a
+ciertos propósitos de política específicos, recursos para necesidades emergentes, o asegurar la
+provisión adecuada de servicios.
+
+-- 14 of 47 --
+
+14
+Se pueden distinguir ciertas categorías no exhaustivas de programas focalizados en distintas
+poblaciones o escuelas:
+a) Zonas o escuelas vulnerables
+El programa REP y REP+ de Francia, identifica zonas con alta concentración de vulnerabilidad
+y destina recursos a las escuelas públicas correspondientes, para financiar horas docentes y
+bonificaciones salariales a los docentes que allí se desempeñan. De la misma forma, el
+gobierno federal estadounidense destina recursos a los gobiernos federales desde la década
+de los 60 a través del Title I, para distritos y establecimientos con altas tasas de pobreza.
+Para más detalle respecto de estas experiencias, ver sección III.2.
+b) Educación Especial
+Los mecanismos de distribución de recursos para estudiantes con necesidades especiales
+(NEE) pueden ser incorporados en el mecanismo de financiamiento general, y de manera
+alternativa o adicional, pueden considerar recursos externos a éste. Es el caso del Programa
+de Integración Escolar, PIE, en Chile, en que las escuelas perciben recursos adicionales a la
+subvención escolar, por cada estudiante con necesidades educacionales transitorias y
+permanentes, que se integre en escuelas de educación general. Estos recursos se entregan
+para la compra de materiales especializados o adaptados, para la contratación de personal
+de apoyo, capacitación y trabajo colaborativo (OCDE, 2021).
+c) Educación Rural
+La educación rural tiene características especiales de tamaño y aislamiento que hacen
+necesario un financiamiento distinto al de una escuela urbana promedio. Existen ejemplos
+en Latinoamérica, como el programa de Educación Básica Rural en Chile (1992) o el
+Programa de Educación Rural de Colombia (2002-2015), en que se destinaron recursos a
+adaptar el currículum y materiales pedagógicos a la realidad rural, así como a capacitación
+de docentes y creación de redes de escuelas. Una evaluación de impacto de este último
+programa arrojó efectos positivos en eficiencia y calidad del servicio educativo en las
+escuelas que lo implementaron (OCDE, 2022a). Por otra parte, en Perú, los docentes que
+aceptan plazas en zonas rurales reciben incentivos salariales y beneficios adicionales para
+compensar las condiciones adversas. Estos incentivos monetarios han sido fundamentales
+para lograr una distribución progresiva del financiamiento escolar entre regiones con
+distinto nivel socioeconómico (Elacqua et al., 2020).
+d) Educación Indígena
+Existen también experiencias de fondos focalizados que asignan recursos especiales a
+establecimientos con concentración de estudiantes indígenas para realizar acciones en pos
+de la interculturalidad. Este es el caso del Programa de Educación Intercultural Bilingüe en
+Chile, que financia la inserción de educadores tradicionales al interior de establecimientos,
+talleres interculturales, proyectos de revitalización lingüística y cultural y el desarrollo de la
+
+-- 15 of 47 --
+
+15
+asignatura de Lengua Indígena1. Por otra parte, en Colombia se asignan directamente fondos
+a comunidades indígenas, en base a estudiantes atendidos, para el desarrollo de un Sistema
+Educativo Indígena Propio (Elacqua et al., 2025).
+e) Infraestructura
+Como se mencionaba en la sección II.1.5, el gasto en capital, al tener una naturaleza
+esporádica de gasto por una vez, suele responder a una lógica distinta de financiamiento
+que el gasto corriente, y por ende ser financiado con mecanismos especiales. Un ejemplo de
+fondo focalizado en este ámbito es el Programa La Escuela es Nuestra, de México (2019),
+que destina fondos para infraestructura en establecimientos públicos de educación básica y
+media, con prioridad para aquellos ubicados en localidades con grados elevados de
+marginación o rezago social (ver más detalle en sección III.2).
+f) Programas de emergencia Covid-19
+Durante la pandemia de COVID-19, distintos países de la OCDE aplicaron programas
+focalizados para reducir brechas socioeconómicas en educación. Se entregaron, por
+ejemplo, subsidios para dispositivos TIC (computadores, laptops), para alimentación y
+también transporte (OCDE, 2022a).
+Tal como se observa en los ejemplos listados, el uso de fondos focalizados externos a la asignación
+general de recursos permite (OCDE, 2022):
+• Apoyar distintos objetivos específicos de política para compensar inequidades en la
+educación
+• Asignar recursos a través de mecanismos más flexibles que los mecanismos de asignación
+general
+• Lograr un mayor nivel de control desde el nivel central respecto del uso de dichos fondos
+específicos
+• Financiar acciones innovadoras o programas piloto.
+Sin embargo, la OCDE (2022a) alerta que el excesivo uso de fondos focalizados tiene riesgos que
+deben ser ponderados:
+• Mayores costos de transacción y carga administrativa
+• Posible riesgo de una recentralización fragmentada del financiamiento
+• Menor transparencia en la asignación de recursos
+• Mayor complejidad en el sistema de financiamiento
+• Menor predictibilidad y estabilidad en el financiamiento.
+Por lo tanto, la recomendación para alcanzar los objetivos de política de manera más eficiente, es
+combinar ambos mecanismos, buscando un equilibrio entre el uso de fondos focalizados con los
+mecanismos de financiamiento regular, los cuales deberían incorporar dentro de la asignación
+1 Para más detalles, ver https://peib.mineduc.cl/
+
+-- 16 of 47 --
+
+16
+principal, ajustes de equidad vertical para grupos particulares de estudiantes, como es el caso de las
+WSF.
+II.2.3 Fondos Compensatorios Interjurisdiccionales
+Tal como se mencionaba en la sección II.1.4, mientras mayor sea la dependencia del financiamiento
+proveniente de la base tributaria local o regional del país, la cual refleja la capacidad de generación
+de ingresos y riqueza del territorio, mayor será el grado de desigualdad horizontal entre territorios.
+Asimismo, para el caso de América Latina, la CEPAL (Cetrangolo & Curcio, 2017) documenta que la
+combinación de sistemas tributarios concentrados en los gobiernos centrales con la cada vez mayor
+descentralización del gasto público determina diferentes grados de desbalance entre niveles de
+gasto y recursos de cada nivel de gobierno, lo que releva la importancia de la generación de sistemas
+de transferencias intergubernamentales destinadas a cubrir estos desbalances.
+La OCDE (2022c) presenta ejemplos en que se generan estos mecanismos como parte de las
+reformas de descentralización del financiamiento:
+• En Brasil durante los años 90 se creó el FUNDEF (Fundo de Manutenção e Desenvolvimento
+do Ensino Fundamental e de Valorização do Magistério), el cual evolucionó al FUNDEB
+(Fundo de Manutenção e Desenvolvimento da Educação Básica e de Valorização dos
+Profissionais da Educação) en 2007. Este fondo, que redistribuye recursos provenientes de
+la recaudación de impuestos estatal y municipal, hacia municipalidades con menos recursos,
+contribuyó a expandir la cobertura a toda la educación escolar, estableció un sistema que
+equilibra los principios de transparencia, equidad y eficiencia. En 2020, el FUNDEB se
+convirtió en un fondo permanente y se estableció que la contribución complementaria del
+gobierno federal a los estados más pobres se irá aumentando progresivamente, con un
+enfoque específico en apoyar a las regiones más vulnerables. Esta reforma también
+estableció que el gobierno federal debe complementar recursos en caso de que algún estado
+no llegue al mínimo de invertir al menos el 70% del gasto promedio nacional por alumno
+(OCDE, 2022c; Elacqua et al., 2025).
+• En Dinamarca, los recursos del gobierno central entregados a las municipalidades para la
+provisión de servicios públicos, incluida la educación, se basan en su población.
+Adicionalmente, existe un mecanismo de compensación fiscal, que toma en consideración
+la recaudación de impuestos y también necesidades de gasto según la composición etaria y
+la estructura socioeconómica de las municipalidades, de manera que todas puedan proveer
+los servicios a un nivel similar.
+• En Polonia, la transferencia del gobierno central al local es basado en el número de
+estudiantes, con distintos coeficientes, bajo un mecanismo de WSF. Adicionalmente, existe
+un componente de compensación fiscal, basado en una fórmula que lleva a las jurisdicciones
+más pobres al 90% de los ingresos per cápita promedio de los gobiernos locales con
+poblaciones de estudiantes similares.
+
+-- 17 of 47 --
+
+17
+Otro ejemplo de fondo compensatorio interjurisdiccional es el Régimen de Coparticipación de
+Argentina, que define una regla de asignación de la recaudación de impuestos entre el gobierno
+central y las provincias, y luego entre provincias. Esta última distribución sigue criterios
+compensatorios, en que provincias que tienen una menor capacidad de recaudar impuestos
+localmente reciben más fondos. Otro ejemplo de este mismo país es el Programa Nacional de
+Compensación Salarial Docente, recientemente descontinuado, que transfería recursos para asistir
+a las provincias con menos recursos propios, para garantizar el salario mínimo nacional para
+docentes, negociado por el gobierno central (Bertoni et al., 2018).
+Los fondos compensatorios interjurisdiccionales juegan un papel importante en reducir la inequidad
+existente entre gobiernos subnacionales, que tienen disímiles realidades en términos de capacidad
+de generación de ingresos propios a través de la recaudación tributaria local. Sin embargo, la
+experiencia internacional muestra distintos riesgos que genera la sobredependencia en estas
+transferencias en el financiamiento educacional (OCDE, 2017):
+• La experiencia empírica indica que las transferencias del gobierno central pueden exacerbar
+la fluctuación de los ingresos de los gobiernos subnacionales, ya que frecuentemente tienen
+un carácter procíclico, es decir, en períodos de crecimiento económico tienen tendencia a
+incrementarse, mientras que lo contrario ocurre en momentos de crisis económica. Esto
+puede agravar los desafíos económicos que enfrentan los gobiernos subnacionales que
+administran la educación, y dificulta su planificación a mediano plazo.
+• Las transferencias pueden reducir el incentivo a que gobiernos subnacionales recauden más
+impuestos a nivel subnacional, ya que ello podría generar una disminución de la
+transferencia del gobierno central. Además, puede generar una menor disposición por parte
+de los gobiernos subnacionales de hacerse responsables por los resultados educativos de
+sus escuelas, y que prioricen el gasto en otros servicios públicos.
+• El depender excesivamente de las transferencias de gobierno central también puede
+generar incentivos a que los gobiernos subnacionales incrementen el gasto, los déficits y las
+deudas, con la expectativa de que el gobierno central compense este mayor gasto con
+transferencias adicionales.
+II.3. Condiciones Habilitantes para la Implementación
+El financiamiento progresivo es necesario, pero no suficiente, para producir resultados educativos
+más equitativos (OCDE, 2021; Elacqua et al., 2025). Se identifican a continuación condiciones
+habilitantes fundamentales para su adecuada implementación.
+II.3.1 Estabilidad Fiscal y Sostenibilidad Macroeconómica
+Un aspecto crucial para el éxito de un mecanismo de financiamiento es que los recursos que se
+asignen a las escuelas estén efectivamente disponibles, de manera sostenible en el mediano plazo.
+
+-- 18 of 47 --
+
+18
+Esta dimensión está intrínsicamente relacionada con el principio de adecuación consignado en la
+sección II.1.2 de este informe.
+Una forma de garantizar recursos para la educación es fijar formalmente metas de gasto para estos
+fines. En América Latina, ocho países han fijado metas graduales de gasto en educación en términos
+de porcentaje del producto interno bruto, algunos en leyes o en la misma Constitución Política. A 10
+años de su implementación, ninguno ha alcanzado dicha meta, mostrando así que fijar metas
+ambiciosas no es suficiente, por sí solo, para alcanzarlas (Elacqua et al., 2025).
+Al implementar un mecanismo de financiamiento progresivo, una forma de alcanzar la equidad, sin
+comprometer la adecuación del financiamiento escolar, consiste en movilizar recursos adicionales
+para el financiamiento de dicho mecanismo, mediante la fijación de impuestos específicos
+destinados a este fin. Es el caso del Seguro Educativo de Panamá (impuesto a la renta a trabajadores)
+o el Salário Educação en Brasil (impuesto sobre la nómina de empleados privados), que se destinan
+directamente al financiamiento de la educación pública en estos países. Una alternativa de
+recaudación también puede ser bajo la forma de un impuesto a recursos naturales, destinado en
+parte a la infraestructura educacional, como es el caso del royalty a los hidrocarburos en Bolivia
+(Elacqua et al., 2025).
+En América Latina y el Caribe, el financiamiento educativo se ha estancado, e incluso retrocedido,
+en los últimos años, particularmente luego de la pandemia del Covid-19, debido a la priorización de
+recursos en sectores como salud, seguridad pública y crisis climática (Elacqua et al., 2025). Esto es
+especialmente preocupante considerando la evidencia de que períodos de recesión económica que
+produjeron reducciones de los ingresos y consiguientes caídas en el gasto educacional, como es el
+caso de Estados Unidos en el año 2008, resultaron en bajas en el desempeño de los estudiantes en
+evaluaciones de aprendizaje y en tasas de ingreso a la educación superior, con un mayor efecto en
+sectores de menores ingresos (Jackson et al., 2021).
+En este contexto, una de las herramientas que recomiendan CEPAL/UNICEF es la elaboración de
+presupuestos plurianuales, para una planificación más estable, predecible y alineada con los
+objetivos del sector, al permitir vincular el financiamiento con compromisos y resultados a mediano
+plazo (CEPAL et al., 2025).
+II.3.2 Marco Legal e Institucional
+La experiencia internacional coincide que una de las condiciones que propician la estabilidad en el
+financiamiento para la prestación del servicio educativo, de manera de poder realizar una adecuada
+planificación de mediano plazo, es que los mecanismos de financiamiento estén plasmados en
+instrumentos legales, de manera que no queden sujetos a la discrecionalidad política de cada
+gobierno, comprometiendo su continuidad y efectividad (OCDE, 2017; Elacqua et al., 2025).
+Distintos países que aplican mecanismos de financiamiento general basados en fórmulas para la
+distribución de recursos a educación consignan los montos, reglas de distribución, ponderadores y
+
+-- 19 of 47 --
+
+19
+rendición de cuentas en instrumentos legales, como es el caso de Chile, Países Bajos, o Australia
+(OCDE, 2017).
+Un caso de mayor estabilidad aún, es el Fundeb, en Brasil, que mediante una ley federal del año
+2020, pasó de ser un fondo de carácter transitorio, a ser incluido en la Constitución Federal de dicho
+país. Adicionalmente, esta ley amplió los recursos de carácter compensatorio considerados en el
+fondo, con una gradualidad hasta el año 2026, y la inclusión de reglas y procedimientos que inducen
+a una mayor eficiencia, eficacia y efectividad en el uso de recursos del fondo (Santos et al., 2022).
+En otro extremo, está Ecuador, en que el mecanismo de distribución general del financiamiento es
+de carácter discrecional, basado mayormente en criterios históricos. Al no existir reglas objetivas
+que guíen la distribución de los recursos, el sistema educativo está expuesto a vaivenes en función
+de cambios de prioridad política de los gobiernos, así como a la coyuntura económica (Bertoni et al.,
+2020).
+II.3.3 Capacidad Técnica Institucional
+Para que el financiamiento de la educación se traduzca en mejoras en aprendizaje, es necesario que
+todos los actores involucrados en el proceso presupuestario y de determinación del uso de dichos
+recursos tengan las capacidades suficientes para tomar decisiones que alineen estas opciones con
+las prioridades educativas.
+Por una parte, los gobiernos subnacionales son quienes mejor conocen la realidad y necesidades
+locales. Sin embargo, en la medida que tengan mayor autonomía para la toma de decisiones sobre
+la asignación de recursos, deben a su vez tener la capacidad de realizar una planificación
+presupuestaria y gestión financiera. En sistemas descentralizados, puede ser necesario que los
+estados o los distritos tengan la capacidad de desarrollar fórmulas de asignación de recursos entre
+escuelas, realizar la correspondiente gestión financiera, postular a fondos concursables y realizar las
+respectivas rendiciones de cuentas. Muchos sistemas educativos enfrentan dificultades en asegurar
+que estas capacidades estén disponibles de manera transversal en el país. En muchos sistemas, la
+administración local está muy fragmentada, con una débil capacidad administrativa, lo que dificulta
+mantener una provisión eficiente de servicio educativo. Hay casos de países que han hecho frente a
+estas inequidades mediante la creación de redes municipales (Noruega), o la creación de servicios
+locales de educación pública, con una mayor escala que la administración municipal (Chile) (OCDE,
+2017).
+A su vez, en los países de la OCDE ha habido una creciente tendencia hacia una mayor autonomía
+de las escuelas respecto de la gestión de sus recursos para potencialmente lograr una gestión
+estratégica más efectiva. Esto conlleva a mayores responsabilidades a los equipos directivos del
+establecimiento, para las cuales pueden no tener la expertise necesaria (OCDE, 2017).
+En ocasiones al recibir recursos focalizados es necesario que la escuela desarrolle un plan de
+mejoramiento educativo que establezca cómo se destinarán estos recursos para beneficiar
+estudiantes vulnerables, así como sus respectivos mecanismos de rendición de cuentas. La gestión
+
+-- 20 of 47 --
+
+20
+de estos recursos adicionales requiere de tiempo, capacidad administrativa y liderazgo estratégico
+dentro de cada escuela. De acuerdo a la OCDE (2017), los resultados mixtos que arrojan las
+evaluaciones de ciertos programas focalizados se deben a que el éxito de estos programas depende
+fuertemente de que las condiciones estén dadas a nivel de escuela, para realizar una asignación y
+uso efectivos de los recursos. También existe el riesgo de un uso ineficiente de recursos cuando se
+deja en manos de juntas escolares que carecen de la capacidad técnica para hacerlo (Elacqua et al.,
+2025; LEEN)
+El BID, por su parte, recomienda adoptar un enfoque más centralizado cuando las capacidades
+locales son limitadas, y otorgar una autonomía progresiva que esté basada en el desempeño y la
+capacidad técnica demostrada. Ejemplo de ello es la lógica de los Planes de Mejoramiento Educativo
+(PME) en Chile, cuya formulación y ejecución son requisitos para que las escuelas accedan al
+financiamiento adicional de la SEP. Las escuelas con bajos resultados deben elaborar e implementar
+el PME, mientras que aquellas con buenos resultados pueden usar los recursos SEP con mayor
+autonomía (Elacqua et al., 2025).
+Se pueden relevar distintas medidas para fortalecer las capacidades de gestión financiera del
+sistema: implementar programas de formación y capacitación, en que destaca el Programa de
+Formación de Directivos Escolares (PROGEPE) de Pernambuco, Brasil; fortalecer el reclutamiento de
+directivos escolares con altas capacidades técnicas; así como contratar asesorías y asistencia técnica
+externa, cuando las capacidades locales son limitadas (Elacqua et al., 2025).
+Asimismo, en distritos en Estados Unidos que implementan mecanismos con fórmula (WSF),
+frecuentemente se designa a personal de la administración del distrito, dedicado a apoyar a los
+directores en la gestión presupuestaria. Los directores reportan también un seguimiento más
+intensivo por parte del distrito en escuelas que no alcanzan un desempeño académico adecuado, en
+línea con el criterio de otorgar una autonomía progresiva basada en resultados (AIR, 2019).
+II.3.4 Sistemas de Información y Focalización
+Para que los mecanismos de financiamiento progresivo tengan una focalización adecuada, una
+condición previa es que existan sistemas de información suficientes para identificar a las poblaciones
+con mayores necesidades. Lo anterior es especialmente crítico en el caso en que este está
+incorporado en el mecanismo de financiamiento general, vía fórmulas.
+El uso de indicadores individuales reportados por las escuelas puede tener la ventaja de ser más
+precisos respecto de su condición, pero genera incentivos perversos. En Estados Unidos, por
+ejemplo, existe evidencia que las escuelas manipularon la fracción de sus estudiantes inscritos para
+recibir alimentación gratuita, para así asegurar más fondos federales provenientes de Title I
+(Matsudaira et al, 2012).
+Ante este tipo de incentivo, la OCDE (2017) sugiere utilizar datos basados en censos como un proxy
+de datos autorreportados por las escuelas respecto de las características de estudiantes individuales.
+En lo que respecta a nivel socioeconómico, por ejemplo, se puede optar por indicadores de pobreza,
+
+-- 21 of 47 --
+
+21
+desempleo o nivel educacional en la comunidad inmediata a la escuela. Ello puede significar una
+focalización menos precisa, pero también tiene la ventaja de no ser manipulables por la escuela y a
+la vez significan una menor carga administrativa de las escuelas. En cualquier caso, los sistemas de
+financiamiento deberían revisar regularmente los indicadores utilizados, de manera de asegurarse
+que reflejen adecuadamente la evolución de los sistemas de información. Adicionalmente, es
+importante que las escuelas tengan identificados los estudiantes que cumplen con la condición de
+vulnerabilidad, de manera que tengan claridad de hacia quiénes deben focalizar sus acciones
+(Driessen, 2019).
+En el caso de la educación especial, por ejemplo, se recomienda, para evitar una inflación en el
+número de niños con necesidades educativas especiales, la fijación de criterios transparentes que
+sean aplicados de manera imparcial por psicólogos educacionales. Varios países de la OCDE utilizan
+una combinación de fondos focalizados para NEE más severas, complementados con fórmulas
+basadas en estadísticas nacionales para estudiantes con NEE más leves (OCDE 2017).
+Además de los sistemas de información para focalización, es importante la consolidación de sistemas
+de información para una adecuada la gestión educativa y financiera.
+Por una parte, los sistemas de monitoreo deben ser capaces de asegurar que los recursos se utilicen
+para los fines previstos. Como se mencionaba en la sección II.1.6, los recursos pueden ser
+traspasados con distintos grados de discrecionalidad de uso. Mientras mayores sean las
+restricciones, más importante es la necesidad de que existan sistemas de rendición de cuentas e
+informes financieros para que las escuelas y/o gobiernos subnacionales registren detalladamente
+sus gastos, en cumplimiento con las regulaciones previstas para ello.
+Con miras a mejorar la eficiencia y transparencia en el gasto educativo, en América Latina y el Caribe
+se han desarrollado iniciativas para digitalizar información y permitir administrar y supervisar la
+gestión de los recursos públicos. Un ejemplo es el CloudSuite, portal electrónico de rendición de
+cuentas del gobierno nacional, en Barbados, o el reporte que deben realizar los sostenedores
+educacionales ante la Superintendencia de Educación de Chile para la supervisión del uso de
+recursos de la Subvención Escolar Preferencial. Pese a estos avances el BID identifica como una de
+las mayores debilidades en la mayoría de los países de América Latina y el Caribe, la falta de un
+Sistema de Información y Gestión Educativa (SIGED) que permita gestionar de manera integral y
+eficiente los distintos procesos del sistema educativo (Elacqua et al., 2025).
+II.3.5 Mecanismos de Rendición de Cuentas y Transparencia
+Una vez instalados los sistemas de información que recopilen los antecedentes relativos al uso de
+recursos, es importante la instalación de mecanismos de rendición de cuentas, para el adecuado
+seguimiento de la gestión financiera y sus resultados.
+La rendición de cuentas vertical, desde las escuelas hacia los gobiernos nacionales o subnacionales
+que proveen los recursos suele componerse de mecanismos de control, tales como informes
+financieros, reportes de gastos o auditorías, a los respectivos ministerios de Educación o entes
+
+-- 22 of 47 --
+
+22
+Contralores y superintendencias. Estos mecanismos de control dependen de la autonomía y
+mecanismos de transferencias de los recursos (Elacqua et al., 2025).
+En los países de la OCDE ha habido una tendencia reciente a establecer formalmente diseños de
+rendición de cuentas con múltiples capas, involucrando a los distintos actores del sistema educativo.
+Así, los consejos escolares, con representantes de padres, docentes, la comunidad y estudiantes,
+puede jugar un rol muy relevante en el uso del financiamiento en las escuelas, y realizar un
+seguimiento horizontal de la gestión de recursos a nivel de escuela, que complementa los sistemas
+de rendición de cuenta vertical. Este sistema complementario puede, eso sí, generar el riesgo de una
+mayor complejidad en la gobernanza educativa (OCDE, 2017). En Panamá destaca la experiencia del
+control local ejercido por comunidades educativas, para verificar la ejecución y difusión del uso de
+los recursos del FECE, complementario al que realizan la Oficina de Administración de este Fondo y
+la Contraloría General del Estado. (Elacqua et al., 2025).
+Incluso en los casos en que las escuelas o gobiernos subnacionales tienen mayor autonomía para
+decidir respecto del uso de los recursos, es importante que se instalen mecanismos de rendición de
+cuentas que sean transparentes, de manera que estos entes se hagan responsables de los resultados
+de sus decisiones (OCDE, 2017).
+Es importante además el levantamiento de información que permita evaluar los impactos de las
+acciones y ajustar la política en lo que corresponda. Un ejemplo es el ajuste en los factores y pesos
+utilizados en las fórmulas en distintos distritos de Estados Unidos (AIR, 2019), o la priorización del
+financiamiento de acciones que presentan mayor evidencia de su eficacia, como en fondos federales
+de Estados Unidos (OCDE, 2022) o la modificación del programa ZEP a REP y REP+ en Francia (ver
+sección III.2). Por otro lado, se dan casos en el sentido opuesto, como Argentina, en donde a partir
+de 2012, la prohibición de publicar los resultados de pruebas estandarizadas para evitar la
+estigmatización escolar, resultó en un debilitamiento en la rendición de cuentas. Ello dificulta
+además la posibilidad de impulsar reformas basadas en evidencia (Elacqua et al., 2025). De la misma
+manera, en Países Bajos, uno de los primeros países en aplicar el WSF, existe un diagnóstico que,
+debido a la alta autonomía de las escuelas, no se han hecho estudios sistemáticos respecto de qué
+acciones son más efectivas para mejorar el desempeño de los grupos priorizados (Driessen, 2019).
+Finalmente, es importante destacar el rol que tiene la transparencia en la prevención de la
+corrupción y mayor confianza de la ciudadanía en las instituciones. Sin embargo, también es
+relevante evitar una excesiva burocracia que genere una carga innecesaria para los administradores
+de educación, como es el caso de Chile en sus múltiples subvenciones, así como un excesivo temor
+a sanciones que genere una parálisis administrativa, como se detectó en un estudio reciente en Brasil
+(Elacqua et al., 2025).
+
+-- 23 of 47 --
+
+23
+II.4. Evidencia Disponible sobre la Efectividad de los Mecanismos
+II.4.1 Evidencia sobre la Reducción de Brechas de Financiamiento
+En la revisión de la evidencia respecto de la equidad en el financiamiento en países de la OCDE,
+Fazekas (2012) reporta que en general se reportan efectos positivos. La aplicación de una fórmula
+uniforme dentro de un territorio típicamente asegura equidad horizontal. Sin embargo, la existencia
+de distintos niveles de administración y distintas fuentes de financiamiento es muy relevante para
+la distribución final de recursos. En países en que los recursos que se distribuyen son principalmente
+provenientes del gobierno central y la contribución local es relativamente baja, es más probable
+alcanzar una equidad horizontal.
+Un ejemplo ello son los distritos de Alberta y Ontario, en Canadá, en que se utilizan indicadores y
+coeficientes comunes para la distribución de recursos entre escuelas. Sin embargo, cuando los
+ingresos locales juegan un rol relevante en el financiamiento de la educación, en comparación al
+financiamiento por fórmula, se violan los principios de equidad horizontal y neutralidad en la
+riqueza. Este es el caso de Hungría, Nueva Zelandia y varios estados de Estados Unidos.
+Para el caso de América Latina y el Caribe, estudios de Bertoni et al. (2020) y el Elacqua et al. (2020)
+realizaron un análisis comparado de la desigualdad en el gasto por alumno entre regiones con
+distintos niveles socioeconómicos en seis países. Los resultados en términos de tendencias en la
+progresividad del financiamiento y mecanismos principales de financiamiento progresivo se
+consignan en la tabla siguiente.
+Tabla 2 – Progresividad en el financiamiento y mecanismo de financiamiento progresivo en países de
+América Latina
+País Progresividad del financiamiento Mecanismo principal de financiamiento progresivo
+Chile Consistentemente progresivo, incluso a
+nivel de estudiantes
+Subvención Escolar Preferencial (WSF)
+Ecuador Consistentemente progresivo Transferencias focalizadas en zonas rurales.
+Discrecionalidad administrativa.
+Perú Paso de regresivo a progresivo Entrega de incentivos monetarios a docentes y
+directivos que trabajan en escuelas desfavorecidas,
+especialmente en áreas rurales y zonas de conflicto
+Colombia Se ha vuelto más regresivo Sistema General de Participaciones (SGP)
+Brasil Brecha más amplia, pero reducción en
+el tiempo
+FUNDEB con complementación federal. Altamente
+progresivo, pero representa pequeña porción del
+gasto total, insuficiente para nivel recursos.
+Argentina Regresiva Distribución secundaria de coparticipación federal de
+impuestos
+Fuente: Elaboración propia en base a Bertoni et al., 2020 y Elacqua et al., 2020.
+
+-- 24 of 47 --
+
+24
+Estos estudios concluyen que, en ausencia de políticas redistributivas, los fondos locales pueden
+convertirse en una fuente de inequidad entre regiones, lo que suele ser más pronunciado en países
+federales, como Brasil y Argentina. Igualmente, las fórmulas de financiamiento progresivas son
+necesarias pero no suficientes para resolver problemas de equidad. Estas deben hacer énfasis no
+solo en la redistribución entre regiones sino también dentro de ellas.
+II.4.2 Evidencia sobre la Mejora de Resultados Educativos
+La literatura especializada coincide en que la disponibilidad de mayores recursos financieros no se
+traduce necesariamente en mejoras en los resultados educativos. Por una parte, estos deben
+financiar más o mejores insumos educativos, que a su vez resulten en procesos pedagógicos más
+efectivos, para luego traducirse en mejores resultados de aprendizaje. Un desafío adicional en
+términos de equidad vertical es que estos mejores resultados sean más pronunciados en las
+poblaciones más vulnerables, de manera de reducir brechas de desempeño con el resto de la
+población.
+Pese a estas dificultades para determinar causalidad entre financiamiento y resultados educativos,
+sí existen algunos ejemplos, como el estudio de los efectos de incrementos de gasto en distritos más
+vulnerables, producto de fallos judiciales en Estados Unidos, en que se encontró que un 10% de
+incremento en gasto anual por estudiante lleva a 0,31 años adicionales de educación, 7% de
+incremento en salarios, y 3,2 puntos porcentuales de reducción en la incidencia anual de pobreza
+en edad adulta. Estos efectos fueron mucho más pronunciados para niños provenientes de familias
+de bajos ingresos (Jackson et al., 2016). Una evaluación de reformas de financiamiento educacional
+posteriores en este mismo país muestra que dichas reformas redujeron brechas de desempeño
+entre distritos escolares de bajos ingresos respecto de los de altos ingresos, pero no tuvieron efectos
+en las brechas de recursos entre estudiantes de altos y bajos ingresos, o entre estudiantes de raza
+blanca en comparación con afroamericanos, lo cual revela la importancia de la distribución final de
+recursos (Lafortune et al., 2018).
+Estos estudios revelan además que el incremento en gasto se vio reflejado en reducción de índices
+estudiantes por docente, incrementos en salarios de docentes y años escolares más largos (Jackson
+et al., 2016), incremento en el gasto en docencia, reducción de tamaño de aula e inversión en capital
+(Lafortune et al., 2018).
+Por su parte, el BID enfatiza la importancia de contar con un equipo docente administrativo y de
+apoyo de alta calidad, para obtener mejoras en el esfuerzo académico de los estudiantes y tasas de
+graduación, así como en la probabilidad de asistir a la educación superior y una reducción en
+indicadores como repitencia, suspensiones y participación en actividades delictivas (Elacqua et al.,
+2025).
+En su evaluación del mecanismo de financiamiento de California, el LCFF, Johnson (2023) coincide
+en que incrementos en el gasto en docencia, en particular la combinación de reducción de aula,
+incremento de salarios de docentes y reducción de la rotación de docentes, parecen ser el insumo
+con mayor efecto en el desempeño de los estudiantes. Este estudio documenta mejoras en
+
+-- 25 of 47 --
+
+25
+desempeño de estudiantes en matemática y lectura, con un efecto acumulativo en el tiempo,
+reducción de tasas de repitencia, incremento en la probabilidad de graduación de la escuela
+secundaria y disminución en la tasa de expulsiones.
+Es importante destacar también el caso chileno, en que Mizala & Torche (2013) encuentran que la
+SEP logra mejorar los resultados educativos, medidos por las pruebas estandarizadas de logro,
+fundamentalmente de los establecimientos educacionales que atienden a la población de menor
+nivel socioeconómico, con lo cual contribuye a reducir la brecha socioeconómica en los resultados
+educacionales.
+
+-- 26 of 47 --
+
+26
+III. Mapeo de Iniciativas Relevantes
+El siguiente mapeo sistematiza las principales iniciativas de financiamiento educativo identificadas
+en la revisión de literatura, organizadas en tres áreas: mecanismos de financiamiento general,
+mecanismos de financiamiento progresivo con fichas detalladas, y marcos legales habilitantes.
+III.1 Área 1: Mecanismos de Financiamiento General
+La tabla a continuación lista ejemplos de países en que se utilizan los distintos mecanismos de
+financiamiento general descritos en la sección II.1.5. Las ventajas y desventajas de cada uno se
+consignan en dicha sección.
+a) Discrecionalidad Administrativa y Costos Históricos e Incrementales
+Como se mencionaba en la sección II.1.5, estos mecanismos de financiamiento general suelen
+combinarse, por lo que se consignan de manera conjunta en este apartado.
+• Respecto de los países de la OCDE, Fazekas (2012) reporta que previo a la generalización del
+uso de mecanismos de financiamiento por fórmula, el mecanismo de financiamiento más
+común era basado en discrecionalidad administrativa y costos históricos.
+• En la determinación del financiamiento del gasto corriente en educación primaria los países
+de la OCDE típicamente combinan mecanismos basados en fórmulas con mecanismos más
+discrecionales. Así, 22 de 30 países de la OCDE utilizan discrecionalidad administrativa y 17
+utilizan métodos basados en costos incrementales para financiar el gasto corriente. Sin
+embargo, esta cifra se reduce al enfocarse en financiamiento general, en que solo 9 países
+utilizan criterios de discrecionalidad administrativa y 11, criterios históricos incrementales
+(OCDE 2022 b).
+• Por otra parte, los gobiernos de los países de la OCDE utilizan más frecuentemente la
+discreción administrativa para el financiamiento de capital, específicamente 17 de 24 países.
+Lo anterior debido a la naturaleza del gasto por una vez, que tiende a tener altas variaciones
+de un año al siguiente (OCDE 2022 b).
+• Ecuador: El financiamiento de la educación pública se realiza mediante transferencias
+discrecionales, basadas mayormente en criterios históricos, de la planta central a los niveles
+distritales del Ministerio de Educación. Estos últimos están a cargo de la operación de las
+escuelas, incluyendo la gestión de personal y recursos educativos (Bertoni et al., 2020).
+• Perú: el financiamiento para la educación desde el gobierno central proviene de la
+recaudación de impuestos, como Recursos Ordinarios, además de impuestos a recursos
+naturales (Recursos Determinados). A esto se suman recursos directamente recaudados por
+los gobiernos subnacionales y deuda fiscal. Estos recursos se distribuyen entre las unidades
+ejecutores de manera discrecional, principalmente basada en criterios históricos y
+
+-- 27 of 47 --
+
+27
+negociaciones anuales. Pese a ello, algunas asignaciones sí siguen criterios, como las
+transferencias para el equipo docente, en base a tamaño de clases y matrícula,
+transferencias para el mantenimiento de las escuelas o el material pedagógico (Bertoni et
+al., 2020; Bertoni et al., 2018).
+b) Negociación y Postulación
+• En los países de la OCDE esta lógica de financiamiento es utilizada más frecuentemente en
+el financiamiento de gasto en capital, en 9 países, mientras que prácticamente no es
+utilizada para el financiamiento de gastos en docencia y solo en 5 países para financiamiento
+general. Este tipo de financiamiento es más bien utilizado para la asignación de recursos
+adicionales al financiamiento general (OCDE, 2022b).
+• Un ejemplo de iniciativa de financiamiento de fondos concursables fue el Fondo Race to the
+Top, financiado por el American Recovery and Reinvestment Act (ARRA) del 2009, en Estados
+Unidos. Este programa, que estuvo vigente hasta el 2014, consistía en un fondo concursable
+diseñado para incentivar y premiar a los estados que crearan las condiciones para reforma
+e innovación educacional, alcanzaran mejoras significativas en el desempeño educativo de
+sus estudiantes, e implementaran planes ambiciosos en 4 áreas: 1) la adopción de
+estándares y evaluaciones para preparar a estudiantes para la educación superior y el
+mercado laboral; 2) la construcción de sistemas de información para medir el desempeño
+estudiantil y proveer de antecedentes para proveer una mejor enseñanza a docentes y
+directores; 3) el reclutamiento, desarrollo, incentivo y retención de docentes y directivos
+efectivos; 4) superación de escuelas con mayores rezagos en su desempeño. Los resultados
+de este programa sobre el desempeño de estudiantil no son concluyentes, y se vio una
+mayor frecuencia de uso de estos fondos para financiar sistemas de información que
+certificación de docentes (Dragoset et al., 2016).
+c) Financiamiento vía Fórmula
+• En los últimos años, el financiamiento vía fórmula se ha generalizado a nivel de los países de
+la OCDE, siendo recomendado debido a sus ventajas en términos de transparencia y
+objetividad (ver secciones II.1.5 y II.2.1).
+• El uso de fórmulas es el mecanismo más frecuente cuando se trata de financiar gasto
+corriente, siendo el preferido en 24 de 30 países OCDE. Dentro de estos gastos, 16 de 20
+países utilizan fórmulas para financiar equipos docentes, y 12 lo utilizan para financiar gasto
+en capital (OCDE, 2022 a).
+• El financiamiento vía fórmula también es utilizado por todos los estados de Estados Unidos,
+para distribuir su financiamiento entre distritos. De ellos, 37 estados distribuyen su
+financiamiento en base al número de estudiantes matriculados y también financiamiento
+adicional según algunas características de estudiantes, como nivel socioeconómico,
+discapacidades o inglés como segunda lengua. Dieciséis de los estados restantes utilizan
+
+-- 28 of 47 --
+
+28
+fórmulas basadas en estimaciones de costo de recursos e insumos, ajustadas por asistencia
+(Dammu et al., 2023).
+• En Brasil, los estados y municipios reciben transferencias del Gobierno federal y de un fondo
+interestatal, el Fundeb, compuesto por impuestos estatales y municipales que se
+redistribuyen a los sistemas escolares de acuerdo con la matrícula escolar. En la fórmula del
+Fundeb, los estudiantes tienen distintos "pesos" o ponderaciones según el nivel educativo y
+el tipo de escuela (jornada completa o parcial, rural o urbana, educación especial, educación
+técnica o educación de adultos). Si el gasto por estudiante no alcanza un monto mínimo,
+determinado a nivel nacional, el Gobierno federal transfiere recursos adicionales, el fondo
+Complementação (Elaqua et al., 2020; Bertoni et al., 2020).
+• En Chile, el mecanismo general de financiamiento público de la educación se basa en una
+transferencia desde el gobierno central a los sostenedores de escuelas, en base a una
+fórmula de financiamiento per cápita a nivel de escuela, de acuerdo con la matrícula y
+asistencia de los estudiantes a la escuela, el nivel de enseñanza, características particulares
+de cada escuela y de la población que atiende (nivel de enseñanza, ruralidad, modalidad
+educativa, zona geográfica y necesidades educativas especiales). Además, desde el 2008, las
+escuelas pueden recibir una subvención adicional por estudiantes de bajo nivel
+socioeconómico (Ley SEP) (Elaqua et al., 2020).
+
+-- 29 of 47 --
+
+29
+III.2 Área 2: Mecanismos de Financiamiento Progresivo
+Cada ficha a continuación consigna información detallada respecto de algunas experiencias
+internacionales de mecanismos de financiamiento progresivo, con la descripción de su
+funcionamiento y resultados.
+CHILE
+Subvención Escolar Preferencial (SEP)
+Año de implementación 2008 (Ley N°20.248). Expandida y modificada en varias ocasiones, en que las
+principales fueron en 2011 (Ley de Aseguramiento de Calidad), y 2015 (Ley de
+Inclusión N°20.845).
+Categoría de
+mecanismo
+Weighted Student Funding (WSF) integrado en la fórmula principal de subvención
+escolar.
+Criterios de focalización Individual: estudiantes prioritarios (principalmente tercio más vulnerable del
+Registro Social de Hogares) y preferentes (dentro del 80% más vulnerables según RSH
+y no prioritarios). La focalización es individual y el monto sigue a la escuela que
+matricula al alumno.
+Mecanismo de cálculo Subvención base más subvención preferencial (aprox. 50-70% adicional para
+alumnos prioritarios). También existe un subsidio diferencial a escuelas con alta
+concentración de alumnos prioritarios.
+Usos permitidos Earmarked grant: uso restringido al Plan de Mejoramiento Educativo (PME) en cuatro
+áreas, con mayor autonomía para escuelas con mejores resultados. Prohibido usar
+en remuneraciones de nómina regular (Ley N 20.248, 2008; OCDE, 2017).
+Evidencia de resultados Adecuación: Mejora, por incremento de recursos sin disminuir los existentes.
+Equidad: Bertoni et al. (2023) documentan progresividad en nivel socioeconómico,
+tanto a nivel regional como a nivel de estudiante. Aprendizaje: efecto positivo en
+SIMCE más fuerte en escuelas más desaventajadas (Mizala & Torche, 2013). Mejora
+importante en resultados PISA, pero persisten importantes diferencias
+socioeconómicas. Evaluaciones de esta política han identificado mejoras
+significativas en las escuelas analizadas, especialmente en los puntajes de lenguaje y
+matemáticas. Además, se observa un progreso importante entre los estudiantes más
+vulnerables, sugiriendo que la política ha contribuido a mejorar el rendimiento
+escolar y reducir las desigualdades socioeconómicas, particularmente en
+matemáticas (Elacqua, 2025)
+
+-- 30 of 47 --
+
+30
+BRASIL
+Fondo de Mantenimiento y Desarrollo de la Educación Básica (FUNDEB / Nuevo FUNDEB 2020)
+Año de implementación FUNDEF: 1996. FUNDEB: 2007-2020. Nuevo FUNDEB: Enmienda Constitucional
+108/2020. Ley N°14.113/2020.
+Categoría de
+mecanismo
+Fondo que tiene un componente de Fondo Compensatorio Interjurisdiccional.
+Redistribuye recursos para cada uno de los 26 estados y el Distrito Federal,
+garantizando un gasto mínimo por alumno mediante complementación federal.
+Criterios de focalización Interjurisdiccional: los estados con gasto por alumno por debajo del valor mínimo
+nacional reciben complementación federal (Santos et al., 2020; Bertoni et al., 2023).
+El Nuevo FUNDEB agrega la complementación VAAR que distribuye recursos
+adicionales según indicadores de resultado educativo. Se utilizan pesos diferenciados
+por nivel educativo y modalidad (educación del campo, indígena, quilombola,
+educación especial) incorporados en el valor por alumno.
+Mecanismo de cálculo Cada Fondo está compuesto por un porcentaje de la recaudación de impuestos de
+cada estado y municipios correspondientes, más una complementación federal, que
+se incrementa del 10% al 23% del total del fondo bajo el Nuevo FUNDEB. Se
+distribuye en base al número de estudiantes matriculados en educación básica
+pública. Los valores mínimos por alumno son diferenciados por modalidad.
+Usos permitidos Block grant con restricción: al menos 70% obligatoriamente en remuneración de
+profesionales de la educación. El 30% restante puede usarse en mantenimiento,
+formación docente, transporte escolar y material didáctico, entre otros.
+Evidencia de resultados Equidad distribución: la Complementação del Fundeb es altamente progresiva, pero
+representa una pequeña porción del gasto total, y resulta por ello insuficiente para
+nivelar los recursos entre regiones (Bertoni et al. 2023)
+Nevo modelo produce un crecimiento del 31% en el valor mínimo por alumno/año y
+una progresividad ligeramente superior (Santos et al., 2020).
+Complemento con gasto del gobierno federal para alcanzar mínimos fortalece
+equidad y adecuación (Elacqua et al., 2025).
+FUNDEF fue instrumental en la reducción de tamaño de aula, mejora en oferta y
+calidad de docentes e incremento de matrícula (OCDE, 2017).
+Fundeb tuvo impacto positivo en el desempeño en lenguaje y matemática,
+concentrados en primeros cuartiles de la distribución en el caso de lenguaje (da
+Silveria et al., 2017)
+
+-- 31 of 47 --
+
+31
+COLOMBIA
+Sistema General de Participaciones (SGP) — Componente Educación
+Año de implementación 2001 (Ley N°715). Reformado en 2007 (Ley N°1176).
+Categoría de
+mecanismo
+Weighted Student Funding. Entrega recursos para distintos servicios desde el
+gobierno central, con un componente para educación para financiar a Entidades
+Territoriales Certificadas (ETC)
+Criterios de focalización El componente de equidad pondera porcentaje de población en pobreza (NBI),
+condición de zona rural y grado de urbanización (Bertoni et al., 2023). No existe
+focalización individual por alumno.
+Mecanismo de cálculo La distribución sigue tres criterios principales: 1) en función de la población atendida,
+con una asignación por estudiante definida según una tipología establecida por el
+Ministerio de Educación, que determina un valor específico para cada una de las 97
+ETC, diferenciando entre niveles educativos (preescolar, primaria, secundaria y
+media) y tipo de zona (urbana o rural). En total, existen 776 valores de asignación
+diferenciados; 2) Si aún quedan recursos disponibles, se asignan fondos para
+financiar a la población no atendida, con el objetivo de ampliar la cobertura
+educativa; 3) Si persisten excedentes, los recursos se orientan hacia el mejoramiento
+de la calidad educativa, en base a indicadores como matrícula atendida, tasa de
+repetición o reprobación, tasa de deserción, y resultados en las pruebas
+estandarizadas del Estado (Elacqua et al. 2025).
+Usos permitidos Depende del componente: i) Provisión del Servicio principalmente para salario de
+docentes y no docentes (93% en 2016); ii) Calidad-Matricula para distintos gastos,
+como infraestructura, servicios y capacitación de docentes; iii) Calidad-Gratuidad,
+directamente para escuelas y redes de escuelas para todo tipo de gasto salvo
+remuneraciones.
+Evidencia de resultados Equidad: Las transferencias generales desde el gobierno central son progresivas en
+general. Esto puede reflejar el hecho que SGP transfiere más recursos a regiones con
+mayor proporción de escuelas rurales y también, pero en menor medida, que tiene
+un componente progresivo enfocado en niveles socioeconómicos más
+desfavorecidos (Bertoni et al. 2020).
+
+-- 32 of 47 --
+
+32
+ESTADOS UNIDOS
+Title I, Part A — Every Student Succeeds Act (ESSA, 2015)
+Año de implementación Title I original: 1965 (ESEA). No Child Left Behind: 2001. ESSA: 2015 (vigente).
+Categoría de
+mecanismo
+Fondo Focalizado de nivel federal que distribuye recursos adicionales a distritos y
+escuelas con alta concentración de pobreza sobre el mecanismo estatal de
+financiamiento. Es el mayor programa federal de apoyo a la educación escolar de
+EE.UU (CAP 2020).
+Criterios de focalización Institucional: distritos e instituciones educativas con estudiantes vulnerables
+elegibles, y alta concentración de éstos. Los estudiantes elegibles son los de familias
+que viven en pobreza, los que reciben ayudas temporales (TANF), niños víctimas de
+negligencia o con antecedentes de delincuencia, y niños en acogida. Además cada
+componente tiene requisitos basados en mínimos de número y concentración de
+estos estudiantes.
+Mecanismo de cálculo Fórmula federal de cuatro componentes: i) Basic grant: en base número de niños
+elegibles; ii) Concentration grants: para distritos con mayor porcentaje de
+concentración de pobreza y número de estudiantes elegibles; iii) Targeted Grants:
+considera de manera más intensiva el número y concentración de niños elegibles, iv)
+Education Finance Incentive Grants: para distritos con un mínimo de número y
+concentración de estudiantes elegibles, asignado en base al esfuerzo que realiza el
+estado relativo a su riqueza y un factor de equidad.
+Existen garantías mínimas por distrito, en términos históricos (hold harmless) y de
+montos mínimos por estado. También se toma en consideración el gasto en
+educación por alumno de cada estado (Snyder et al., 2019)
+Usos permitidos Schoolwide: escuelas con al menos 40 % de alumnos elegibles pueden utilizar los
+recursos en programas transversales a todo el establecimiento, para mejorar el
+desempeño de todos los estudiantes. En caso contrario, deben dedicar recursos a
+niños en riesgo académico (Snyder et al., 2019). Bajo ESSA (2015): ambas
+modalidades requieren intervenciones basadas en evidencia.
+Evidencia de resultados La complejidad de las fórmulas utilizadas ha resultado en que el programa ha
+asignado recursos y distritos estados más ricos, pese a su intención original de
+mejorar la equidad de recursos. El fondo es pequeño en términos de monto y con
+demasiada dispersión para hacerse cargo de inequidades de financiamiento a nivel
+nacional. No genera incentivos suficientes para que los estados sean más progresivos
+en sus propias fórmulas de asignación de recursos (CAP 2020).
+Aprendizaje: Estudios con resultados mixtos en términos de efectos Una de las
+razones para que no sea tan exitoso como podría es que puede generar una
+reducción de los fondos locales (crowd out) (Matsudaira et al, 2012, Johnson 2015).
+
+-- 33 of 47 --
+
+33
+AUSTRALIA
+Needs-Based School Funding (Schooling Resource Standard)
+Año de implementación Review of Funding for Schooling (Informe Gonski): 2011. Australian Education Act
+2013 (entrada en vigor del SRS). Australian Education Amendment Act 2017 (Gonski
+2.0).
+Categoría de
+mecanismo
+Fondo Focalizado desde el Gobierno central (Commonwealth), para escuelas
+públicas y privadas, como complemento al financiamiento de gobiernos estatales y
+locales.
+Criterios de focalización El número de estudiantes es parte de los determinantes del monto base.
+Adicionalmente, se utilizan ponderadores (“loadings”) a nivel de estudiante y a nivel
+de escuela: estudiantes con discapacidades; estudiantes aborígenes e isleños del
+Estrecho de Torres; provenientes de un nivel socioeconómico desaventajado;
+estudiantes con bajo dominio del inglés; escuelas ubicadas fuera de las grandes
+ciudades; escuelas de menor tamaño.
+Mecanismo de cálculo El SRS establece un monto base diferenciado por para educación básica y media. El
+monto base depende del SRS, del número de estudiantes de la escuela, y la
+capacidad de la comunidad escolar de contribuir financieramente a la escuela. Se
+consideran además los 6 ponderadores (“loadings”) anteriores.
+Usos permitidos Los fondos pueden utilizarse para el gasto operacional de la escuela, incluyendo
+salarios de docentes y demás personal, el desarrollo profesional, la elaboración de
+materiales didácticos, el mantenimiento de infraestructura, compra de
+equipamiento y otros gastos generales de funcionamiento.
+Las escuelas públicas, las de educación especial, las con programas de asistencia
+especial, las con mayoría de alumnos aborígenes e isleños del Estrecho de Torres y
+en los casos en que un único sostenedor provee la educación de cierto nivel en cierta
+área geográfica también pueden utilizar los fondos recurrentes para inversión.
+Evidencia de resultados Adecuación: Las reformas sucesivas han significado un incremento de recursos, que
+están aún en transición (Australian Government, 2023).
+Equidad: ha habido un incremento de la brecha de financiamiento entre escuelas
+más favorecidas y las menos favorecidas, así como entre escuelas públicas y privadas
+(Mitchell Institute, 2026).
+Aprendizajes: El desempeño educacional de Australia ha disminuido y hay una
+brecha creciente de aprendizaje entre estudiantes aventajados y desaventajados
+(mayor correlación entre nivel socioeconómico y mal desempeño educacional
+(Mitchell Institute, 2026).
+Nota: la información respecto del diseño fue extraída de https://www.education.gov.au/recurrent-funding-schools
+
+-- 34 of 47 --
+
+34
+PAÍSES BAJOS
+Leerlinggewichtenregeling (Sistema de Ponderacion de Alumnos) — financiamiento
+diferenciado por desventaja socioeducativa
+Año de implementación Sistema vigente desde mediados de la década de 1980. Reforma significativa en 2006
+(eliminación parcial de la etnicidad como criterio).
+Categoría de
+mecanismo
+Weighted Student Funding (WSF) para educación primaria, vigente para todas las
+escuelas primarias del país desde el nivel central a las juntas escolares (school
+boards) (Ladd & Fiske, 2011).
+Criterios de focalización Indicadores relativos a los estudiantes, con un peso mayor para ciertas categorías.
+Inicialmente se consideraban: estudiantes holandeses cuyos padres tiene bajo nivel
+de educación; primera o segunda generación de inmigrantes cuyos padres tienen
+baja educación o empleos de baja calificación; habitantes de caravanas; e hijos de
+padres que trabajan en turnos. A partir de 2006, se eliminó el estatus de inmigrante
+de la fórmula, y se considera solamente el nivel educacional de los padres, en tres
+categorías, con peso adicional de 1,2 (nivel muy bajo); 0,3 (nivel bajo) y 0.0 (nivel
+intermedio y eduación superior) (Laad Fiscke 2009). Desde 2019, se utiliza un
+indicador centralizado calculado por Statistics Netherlands (CBS), lo que garantiza
+una mayor objetividad en la asignación de recursos, y que considera: nivel educativo
+de los padres, país de nacimiento de la madre, tiempo de residencia de la madre en
+el país, nivel educativo promedio de todas las madres de la escuela, y si los padres
+están en un programa de repactación de deudas (Unesco2)
+Mecanismo de cálculo Se calcula en base a un monto por estudiantes, según la matrícula del año anterior,
+más un monto fijo por escuela. Para recibir los fondos adicionales, es necesario que
+exista una concentración mínima en la escuela de estudiantes que cumplen con los
+requisitos. El NCEE documenta que los estudiantes cuyos padres tienen niveles
+educativos muy bajos generan mas del doble del financiamiento base por alumno.
+Usos permitidos Lump sum: las escuelas reciben un presupuesto único para financiar personal,
+infraestructura y materiales, y las juntas escolares tienen libertad para gastar los
+recursos disponibles según sus propios objetivos educativos dentro del marco legal
+de la Ley de Educación Primaria (Eurydice, 2023).
+Evidencia de resultados Equidad: Comparadas con las escuelas con pocos alumnos ponderados, las escuelas
+holandesas con alta proporción de alumnos ponderados tienen casi 60% más
+docentes por alumno, además de más personal de apoyo por docente (Ladd & Fiske,
+2011).
+Se observa una reducción en la brecha de resultados de aprendizaje entre
+estudiantes focalizados y no focalizados, a lo largo de la educación primaria, para el
+caso de hijos de inmigrantes y en mayor medida para matemática que para lenguaje
+(Driessen & Merry, 2014).
+2 https://education-profiles.org/europe-and-northern-america/netherlands/~financing-for-equity-in-primary-
+and-secondary-education
+
+-- 35 of 47 --
+
+35
+MÉXICO
+Programa La Escuela es Nuestra (LEEN)
+Año de implementación LEEN: 2019. Este programa figura como el principal instrumento para determinar y
+ejecutar las acciones en torno a infraestructura en educación básica.
+Categoría de
+mecanismo
+Fondo Focalizado en establecimientos públicos de Educación Básica y Media,
+priorizando aquellos ubicados en localidades con grados elevados de marginación o
+rezago social, que presentan carencia de servicios básicos.
+Criterios de focalización Escuelas públicas de educación básica en zonas de alta y muy alta marginación según
+el Índice de Rezago Social del CONEVAL.
+Mecanismo de cálculo Transferencia monetaria directa al Comité Escolar de Administración Participativa
+(CEAP) de cada escuela.
+Usos permitidos Originalmente, para uso exclusivo para mantenimiento, rehabilitación y
+equipamiento de infraestructura escolar. En 2021 se amplió también a financiar
+Horario extendido y servicio de alimentación en educación básica.
+Evidencia de resultados La implementación de LEEN generalmente se apega a las Reglas de Operación y
+mejora la contextualización de los proyectos de infraestructura. Los supuestos de
+cercanía y confianza se cumplen principalmente en comunidades con un tejido social
+fuerte. Se identifican debilidades en los mecanismos de vigilancia y transparencia, lo
+que podría aumentar el riesgo de un uso inadecuado de recursos en comunidades
+con débil tejido social (Lavore & Santos 2025).
+
+-- 36 of 47 --
+
+36
+FRANCIA
+Reseau d'Education Prioritaire (REP / REP+)
+Año de implementación Zone d’Éducation Prioritaire (ZEP): 1981. Réseau d’Éducation Prioritaire REP y Réseau
+d’Éducation Prioritaire Renforcé REP+: 2015.
+Categoría de
+mecanismo
+Fondo Focalizado desde el gobierno central, que entrega recursos adicionales para
+escuelas en zonas con alta concentración de dificultades sociales.
+Criterios de focalización Institucional: escuelas clasificadas en ZEP según índices de vulnerabilidad de la
+escuela y de la localidad que se utilizan como proxy de las necesidades de los
+estudiantes. Se utilizan indicadores tales como altas tasas de desempleo,
+beneficiarios del sistema de bienestar, altas tasas de deserción de estudiantes.
+A partir de 2015, los criterios son según un índice social que considera porcentaje de
+estudiantes proveniente de categorías socioprofesionales desfavorecidas;
+porcentaje de estudiantes becados; porcentaje de estudiantes que residen en un
+barrio prioritario; porcentaje de estudiantes que repitieron curso antes de sexto
+grado. Las escuelas REP+ son las localizadas en zonas de mayor vulnerabilidad, y las
+REP en zonas de dificultad social, pero con un carácter algo más mixto.
+Mecanismo de cálculo Earmarked grant: ZEP combina el análisis de indicadores con criterio experto, lo que
+limita la objetividad del proceso de determinación del monto (arbitrariedad
+administrativa) (Bénabou, 2009). Considera recursos y bonificaciones salariales para
+docentes.
+REP y REP+ se entrega dotación adicional de docentes para disminuir tamaño de aula
+en primeros años de educación primaria, bonificación salarial para docentes, más
+alto para REP+, reducción del horas lectivas de docentes REP+ para que puedan
+participar en actividades no lectivas en red.
+Usos permitidos Earmarked: no se concentra en un grupo de estudiantes en particular, sino que
+considera recursos para la escuela. Inicialmente se le dio más autonomía a la
+administración local de las escuelas en el uso de recursos, muchos de los cuales
+optaron por reducir el tamaño de los cursos e incrementar las horas docentes,
+además de entregar bonificaciones salariales a docentes.
+A partir de 2015, se concentró en escalar iniciativas más efectivas, en 3 áreas:
+docencia personalizada y apoyo académico; formación continua de docentes y no
+docentes; colaboración con otras escuelas, padres, y organizaciones locales para
+difundir mejores prácticas. (Sugarman et al., 2016).
+Evidencia de resultados ZEP: Bonificaciones salariales (más bajas que REP y REP+) para atraer a mejores
+docentes en zonas prioritarias no tuvieron resultados (Sugarman). Se observa
+disminución de tamaño de curso e incremento de horas docentes por estudiante,
+pero de alcance limitado (Benabou, 2009). La declaración de un establecimiento
+como ZEP viene acompañado de una reducción en la matrícula, posiblemente por
+una estigmatización y movilidad de padres de clase media rehuyendo de la etiqueta
+asignada a la zona (OCDE, 2017). El ZEP No presenta impactos en términos de
+diplomas secundarios, alcanzar 8° grado, alcanzar 10° grado y éxito en el
+Baccalauréat (examen nacional al término de la secundaria) (Bénabou et al. 2009).
+
+-- 37 of 47 --
+
+37
+REP y REP+: Los estudios de la Direction de l'evaluation de la prospective et de la
+performance (DEPP) documentan reducción de brechas en aprendizaje entre
+estudiantes de escuelas REP y REP+ respecto de los demás, para los primeros grados
+de educación primaria, de mayor envergadura para REP+, mostrando cierto
+resultado positivo en reducción de tamaño de salas (Murat & Rocher, 2026).
+
+-- 38 of 47 --
+
+38
+CALIFORNIA (EE.UU.)
+Local Control Funding Formula (LCFF)
+Año de implementación Local Control Funding Formula (LCFF) fue una reforma de financiamiento escolar
+aprobada en 2013. Equity Multiplier agregado en 2023-24.
+Categoría de
+mecanismo
+Weighted Student Funding (WSF) desde el Estado de California a distritos.
+Criterios de focalización Individual mediante conteo no duplicado (unduplicated count) de tres categorías de
+alta necesidad: estudiantes que provienen de familias de bajos ingresos, estudiantes
+que aprenden inglés (English Learners) y estudiantes en el sistema de hogares de
+acogida (foster youth).
+Mecanismo de cálculo Tres componentes: subvención base por estudiante, diferenciada por nivel de grado;
+subvención suplementaria (20% adicional del monto base por cada alumno de alta
+necesidad); y subvención de concentración (66% adicional del monto base por cada
+alumno de alta necesidad, en distritos que superen el umbral de 55% de estudiantes
+de alta necesidad). Implementación progresiva hasta 2019.
+Usos permitidos Los distritos tienen amplia flexibilidad de uso, condicionada a que los recursos
+suplementarios y de concentración sean dirigidos principalmente a mejorar los
+servicios para los estudiantes de alta necesidad, mediante un Local Control and
+Accountability Plan (LCAP) anual. Las escuelas con concentración de estudiantes de
+alta necesidad de 40% o más pueden utilizarlos de manera transversal en la escuela,
+mientras que los distritos con 55% o más de concentración, pueden hacerlo de
+manera transversal en el distrito.
+Evidencia de resultados Adecuación: política de $18 billones adicionales de apoyo estatal, entregado
+gradualmente en 8 años. Este presupuesto plurianual permitió a los distritos estar
+seguros de su carácter permanente y así planificar su uso a largo plazo, financiando
+iniciativas transformadoras. Sin embargo, en términos de nivel, está en el rango bajo
+de otros estados con WSF (Johnson, 2023).
+Equidad: gracias al LCFF el estado ha distribuido recursos de forma más equitativa a
+través de los distritos, con un incremento del gasto por estudiante mayor en los de
+mayor concentración de estudiantes con altas necesidades. (Education Trust-West
+2024).
+Aprendizaje: El LCFF generó mejoras significativas en desempeño en matemáticas y
+lectura (con mayor efecto mientras mayor el financiamiento y el tiempo de
+aplicación), reducción de tasas de repitencia y de suspensiones y expulsiones,
+incremento de tasas de graduación y admisión universitaria. Algunos de los efectos
+son mayores para estudiantes de color y quienes asisten a establecimientos que
+perciben la Concentration Grant. Además, se determina que los insumos de gasto
+con mayor efecto en el aprendizaje son la reducción de tamaño de aula, incrementos
+en salarios de docentes y reducción de la rotación de docentes (Johnson, 2023). Sin
+embargo, persisten brechas en minorías raciales, por la forma en que está diseñada
+la fórmula. Las mejoras en aprendizaje se dan en distritos con alta concentración,
+pero la reducción de brechas ha sido lenta (Wheatfall-Lum, 2023).
+
+-- 39 of 47 --
+
+39
+III.3 Área 3: Políticas y Marcos Legales Habilitantes
+La siguiente tabla mapea los marcos legales y políticas específicas instauradas por los países para
+institucionalizar los mecanismos de financiamiento progresivo analizados en la sección anterior.
+País Instrumentos Legales Año Tipo de mecanismo Características clave
+Chile Ley N° 20.248 (Subvención
+Escolar Preferencial).
+Ley N°20.550 (2011) que
+modifica la Ley SEP.
+Ley de Inclusión N°20.845
+(2015)
+2008 WSF integrado en
+subvención escolar
+Definición legal de alumno
+prioritario y preferente;
+restricciones de uso; PME
+con rendición de cuentas
+Brasil Enmienda Constitucional
+N°108/2020 (Nuevo
+FUNDEB).
+Ley N°14.113/2020
+2020
+(FUNDEB
+original:
+2007)
+Fondo
+Compensatorio
+Interjurisdiccional
+constitucionalizado
+Constitucionalización del
+mecanismo; uso de fondos;
+CAQ como referencia de
+costo de calidad;
+Complementación federal.
+Colombia Ley N°715 de 2001.
+Acto Legislativo 04/2007.
+Ley 1176/2007
+2001 Fondo
+Compensatorio con
+componente de
+equidad territorial
+Fórmula mixta población-
+equidad; criterios de NBI y
+ruralidad;
+Estados
+Unidos
+Elementary and Secondary
+Education Act (1965). ESSA
+(2015)
+1965/2015 Fondo Focalizado
+federal (Title I)
+Definición federal de
+elegibilidad por pobreza
+(NSLP); cuatro fórmulas de
+distribución; schoolwide vs.
+targeted assistance
+Australia Australian Education Act
+2013 (No. 67, 2013)
+2013 (SRS);
+Gonski
+2011/2018
+WSF con SRS y
+loadings
+Schooling Resource Standard
+como norma de adecuación;
+cuatro loadings de estudiante
+y dos de escuela;
+financiamiento federal 20%
+(públicas) u 80% (privadas)
+del SRS
+Francia Circulaire n° 2014-077
+Refondation de l'éducation
+prioritaire
+Décret n° 2015-1087
+régimen indemnitario
+específico a favor de
+personal ejerciendo en
+1981 (ZEP)
+/ 2015
+(REP+)
+Fondo Focalizado
+territorial
+(REP/REP+)
+Funcionamiento de la
+educación prioritaria, y en
+particular en escuelas REP y
+REP+
+bonificación salarial a
+personal en escuelas REP+ y
+REP
+
+-- 40 of 47 --
+
+40
+País Instrumentos Legales Año Tipo de mecanismo Características clave
+escuelas de los programas
+REP y REP+
+Países
+Bajos
+Wet op het Primair
+Onderwijs (Ley de Educacion
+Primaria);
+Leerlinggewichtenregeling
+Desde
+mediados
+de 1980s
+WSF por indicadores
+socioeducativos
+individuales
+calculados por CBS
+Indicadores para determinar
+población vulnerable;
+financiamiento lump sum a
+las escuelas.
+México Reglas de Operación LEEN 2019
+(LEEN)
+Fondo Focalizado
+(LEEN)
+Zonas de atención prioritaria
+por CONEVAL; transferencias
+directas a APF
+
+-- 41 of 47 --
+
+41
+IV. Conclusiones y Recomendaciones para el Diseño de Política
+La revisión de literatura y el mapeo de iniciativas presentados en este informe permiten extraer un
+conjunto de conclusiones y recomendaciones respecto del diseño y la implementación de
+mecanismos de financiamiento educativo, general y progresivo.
+Un nivel de gasto insuficiente compromete la capacidad de un sistema educativo para alcanzar sus
+objetivos. Sin embargo, una vez alcanzado un umbral mínimo de financiamiento, lo que determina
+en mayor medida los resultados educativos no es el nivel de gasto agregado, sino el diseño de los
+mecanismos de distribución y la forma en que los recursos efectivamente llegan a los estudiantes
+que más los necesitan.
+El financiamiento por fórmula, en particular el Weighted Student Funding (WSF), se ha consolidado
+como el mecanismo de financiamiento progresivo más extendido en países de la OCDE. Sus
+principales ventajas son la transparencia, la objetividad, la menor exposición a la captura política y
+la posibilidad de incorporar la progresividad directamente en la fórmula de asignación general.
+Los fondos focalizados y los fondos compensatorios interjurisdiccionales cumplen un rol
+complementario relevante, en particular para atender necesidades específicas (educación especial,
+ruralidad, pueblos indígenas) o para corregir desbalances entre jurisdicciones con distinta capacidad
+de generación de ingresos propios. Sin embargo, la literatura advierte que su uso excesivo puede
+generar mayores costos de transacción, menor transparencia y una recentralización fragmentada
+del financiamiento, por lo que la recomendación es combinarlos de manera equilibrada con los
+mecanismos de asignación general.
+El financiamiento progresivo es una condición necesaria, pero no suficiente, para alcanzar mejores
+resultados educativos y mayor equidad. La evidencia revisada muestra que son determinantes: la
+estabilidad fiscal y macroeconómica (de preferencia asociada a la movilización de recursos
+adicionales para este fin); un marco legal e institucional sólido, resistente a presiones políticas; la
+capacidad técnica de los distintos niveles de gobierno y de las escuelas para decidir respecto del uso
+de los recursos de la manera más eficaz y eficiente; el desarrollo de sistemas de información
+confiables para una adecuada focalización y seguimiento de la gestión financiera; la instalación de
+mecanismos de rendición de cuentas transparentes que permitan asegurar el buen uso de los
+recursos además de evaluar y ajustar el diseño de la política.
+El diseño de un mecanismo de financiamiento progresivo debe tomar en consideración las
+condiciones locales de gobernanza y descentralización fiscal, política y administrativa. En este
+contexto, el tránsito hacia una mayor autonomía local debe conjugarse con el uso de indicadores de
+desempeño para que las autoridades locales y directores se hagan responsables de los resultados
+de sus acciones. Es primordial acompañar el financiamiento progresivo con el desarrollo de
+capacidades técnicas e institucionales a nivel subnacional y escolar, incluyendo formación de
+
+-- 42 of 47 --
+
+42
+equipos directivos, asistencia técnica focalizada y, en contextos de capacidades limitadas, esquemas
+de autonomía progresiva basados en el desempeño demostrado.
+
+-- 43 of 47 --
+
+43
+V. Referencias Bibliográficas
+American Institutes for Research. (2019). Districts' use of weighted student funding systems. AIR /
+U.S. Department of Education.
+Australian Government Department of Education. (2023). Improving outcomes for all: Australian
+Government summary report of the Review to Inform a Better and Fairer Education System.
+Commonwealth of Australia. https://www.education.gov.au/download/17514/review-inform-
+better-and-fairer-education-system-summary-report/35585/document/pdf
+Baker, B. D., & Corcoran, S. P. (2012). The stealth inequities of school funding. Center for American
+Progress.
+Banco Mundial. (2024). Education finance watch. World Bank / UNESCO-UIS / GEM Report.
+Bellwether Education Partners. (2024). Under pressure: What's driving the K-12 budget squeeze.
+Bellwether.
+Bertoni, E., Elacqua, G., Marotta, L., Martínez, M., Santos Morales, H., Soares, S., & Vegas, E. (2018).
+School finance in Latin America: A conceptual framework and a review of policies. Banco
+Interamericano de Desarrollo. https://doi.org/10.18235/0001306
+Bertoni, E., Elacqua, G., Marotta, L., Martinez, M., Santos, H., & Soares, S. (2020). Is school funding
+unequal in Latin America? A cross-country analysis (CEPA Working Paper No. 20-11). Stanford Center
+for Education Policy Analysis. http://cepa.stanford.edu/wp20-11
+Bertoni, E., Elacqua, G., Marotta, L., Martinez, M., Santos, H., & Soares, S. (2023). Is school funding
+unequal in Latin America? A cross-country analysis. Comparative Education Review, 67(1).
+https://doi.org/10.1086/722831
+Biasi, B. (2019). School finance equalization increases intergenerational mobility: Evidence from a
+simulated-instruments approach (Working Paper No. 25600). National Bureau of Economic
+Research.
+Bonet, J., Pérez V., G. J., & Ayala, J. (2014). Contexto histórico y evolución del SGP en Colombia
+(Documentos de Trabajo Sobre Economía Regional No. 205). Banco de la República – Sucursal
+Cartagena.
+Candelaria, C. A., Crutchfield, A. N., & McGill, D. G. (2024). The impact of additional funding on
+student outcomes: Evidence from an urban district using WSF (EdWorkingPaper No. 24-1006).
+Annenberg Institute at Brown University.
+CEPAL, UNICEF, UNESCO, BID, Banco Mundial, CAF, CLADE, & IIPE UNESCO. (2025). Sostenibilidad
+financiera, equidad y eficiencia de la inversión educativa. CEPAL/UNICEF.
+
+-- 44 of 47 --
+
+44
+Cetrangolo, O., & Curcio, J. (2017). Financiamiento y gasto educativo en América Latina (Serie
+Macroeconomía del Desarrollo N.° 192). CEPAL.
+Dammu, I., O'Keefe, B., & O'Neal Schiess, J. (2021). How are state education funding formulas
+structured? (Splitting the Bill: A Bellwether Series on Education Finance Equity, No. 3). Bellwether.
+https://bellwether.org/publications/splitting-the-bill/
+Dragoset, L., Thomas, J., Herrmann, M., Deke, J., James-Burdumy, S., Graczewski, C., Boyle, A.,
+Tanenbaum, C., Giffin, J., & Upton, R. (2016). Race to the Top: Implementation and relationship to
+student outcomes: Executive summary (NCEE 2017-4000). National Center for Education Evaluation
+and Regional Assistance, Institute of Education Sciences, U.S. Department of Education.
+Driessen, G. (2019). The pupil weighting system in the Netherlands. Encyclopedia, 4.
+https://encyclopedia.pub/161
+Driessen, G., & Merry, M. S. (2014). Trends in educational disadvantage in Dutch primary school.
+Educational Review, 66(3), 276–292. https://doi.org/10.1080/00131911.2013.771146
+Elacqua, G., Marotta, L., Bertoni, E., Mendez, C., Westh Olsen, A. S., Roman, A., & Soares, S. (2020).
+Is school funding unequal in Latin America? (IDB Policy Brief). Banco Interamericano de Desarrollo.
+https://doi.org/10.18235/0002620
+Elacqua, G., Marotta, L., Martinez, M., Mendez, C., & Nascimento, D. (2025). Smart spending in
+education in Latin America and the Caribbean. Banco Interamericano de Desarrollo.
+https://doi.org/10.18235/0013632
+Fazekas, M. (2012). School funding formulas: Review of main characteristics and impacts (OECD
+Education Working Papers, No. 74). OECD Publishing. https://doi.org/10.1787/5k993xw27cd3-en
+Fiszbein, A., & Schady, N. (2009). Conditional cash transfers: Reducing present and future poverty.
+World Bank.
+Fundo Nacional de Desenvolvimento da Educação. (2022). Perguntas e respostas: Fundeb —
+considerando a Emenda Constitucional n.° 108/2020 e a Lei n.° 14.113/2020 (Actualizado el 11 de
+octubre de 2022). Ministério da Educação, Governo Federal do Brasil.
+Hansen, J. (2022). The effects of California's LCFF concentration grant on student outcomes
+[Manuscrito no publicado].
+Jackson, C. K., Johnson, R. C., & Persico, C. (2016). The effects of school spending on educational and
+economic outcomes. Quarterly Journal of Economics, 131(1), 157–218.
+Jackson, C. K., Wigger, C., & Xiong, H. (2021). Do school spending cuts matter? Evidence from the
+Great Recession. American Economic Journal: Economic Policy, 13(2), 304–335.
+https://doi.org/10.1257/pol.20180674
+
+-- 45 of 47 --
+
+45
+Johnson, R. C. (2023). School funding effectiveness: Evidence from California's Local Control Funding
+Formula. Learning Policy Institute.
+Koehler, L., & O'Keefe, B. (2023). How does the base amount work in student-based funding
+formulas? (Splitting the Bill: A Bellwether Series on Education Finance Equity, No. 10). Bellwether.
+https://bellwether.org/publications/splitting-the-bill/
+Ladd, H. F., & Fiske, E. B. (2011). Weighted student funding in the Netherlands: A model for the U.S.?
+Journal of Policy Analysis and Management, 30(3), 470–498.
+Lafortune, J., Rothstein, J., & Schanzenbach, D. W. (2018). School finance reform and the distribution
+of student achievement. American Economic Journal: Applied Economics, 10(2), 1–26.
+https://doi.org/10.1257/app.20160567
+Lavore Fanjul, E., & Santos del Real, A. (2025). ¿Cercanía y confianza? La experiencia de comunidades
+escolares con el Programa la Escuela es Nuestra. Revista Latinoamericana de Estudios Educativos,
+55(2), 91–113. https://doi.org/10.48102/rlee.2025.55.2.718
+Matsudaira, J. D., Hosek, A., & Walsh, E. (2012). An integrated assessment of the effects of Title I on
+school behavior, resources, and student achievement. Economics of Education Review, 31(3), 1–14.
+Ministerio de Educación de Chile. (2008). Ley N.° 20.248: Subvención Escolar Preferencial (SEP).
+MINEDUC.
+Ministerio de Educación del Perú. (2012). Ley N.° 29944, Ley de Reforma Magisterial. Diario Oficial
+El Peruano.
+Mitchell Institute. (2026). Years apart: Australia's growing educational inequality. Victoria University.
+https://mitchell-institute.vu.edu.au/resources/schooling/years-apart-australias-growing-
+educational-inequality/
+Mizala, A., & Torche, F. (2013). ¿Logra la Subvención Escolar Preferencial igualar los resultados
+educativos? Espacio Público, Documento de Referencia, 9.
+Murat, F., & Rocher, T. (2026). Comment progressent les élèves de l'éducation prioritaire au cours de
+l'école élémentaire? Écarts de performances observés entre les élèves de REP+ et de REP et les élèves
+du secteur public hors éducation prioritaire (Document de travail - série études n.° 2026-E02). DEPP.
+OCDE. (2017). The funding of school education: Connecting resources and learning. OECD Publishing.
+https://doi.org/10.1787/9789264276147-en
+OCDE. (2021). Towards equity in school funding policies (OECD Education Policy Perspectives, No.
+41). OECD Publishing. https://doi.org/10.1787/6a3d127a-en
+OCDE. (2022a). Value for money in school education: Smart investments, quality outcomes, equal
+opportunities. OECD Publishing. https://doi.org/10.1787/f6de8710-en
+
+-- 46 of 47 --
+
+46
+OCDE. (2022b). How are public primary schools funded? (OECD Education Indicators in Focus). OECD
+Publishing. https://doi.org/10.1787/7564ac6a-en
+OCDE. (2022c). Governing and distributing school funding: Effectively connecting resources and
+learning (EDU/EDPC(2022)4). OECD Directorate for Education and Skills.
+https://one.oecd.org/document/EDU/EDPC(2022)4/en/pdf
+OCDE. (2023a). Education at a glance 2023: OECD indicators. OECD Publishing.
+https://doi.org/10.1787/e13bef63-en
+OCDE. (2023b). Equity and inclusion in education: Finding strength through diversity. OECD
+Publishing. https://doi.org/10.1787/e9072e21-en
+OCDE. (2025). Education at a glance 2025: OECD indicators. OECD Publishing.
+https://doi.org/10.1787/1c0d9c79-en
+Santos, A. do N., Callegari, C. de O., & Callegari, A. C. R. (2022). Avaliação da equidade redistributiva
+da Complementação da União no Novo FUNDEB. Education Policy Analysis Archives / Archivos
+Analíticos de Políticas Educativas, 30.
+Silveira, I. M., Lima, J. E., Teixeira, E. C., & Silva, R. G. (2017). Avaliação do efeito do Fundeb sobre o
+desempenho dos alunos do ensino médio no Brasil. Pesquisa e Planejamento Econômico, 47(1).
+Snyder, T. D., Dinkes, R., Sonnenberg, W., & Cornman, S. (2019). Study of the Title I, Part A grant
+program mathematical formulas: Statistical analysis report (NCES 2019-016). National Center for
+Education Statistics, U.S. Department of Education.
+Wheatfall-Lum, N. (2023). More to be done: California's Local Control Funding Formula after a
+decade. The Education Trust–West.
+
+-- 47 of 47 --
+

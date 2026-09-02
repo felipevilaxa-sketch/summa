@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  /* Complemento mobile: gaps no cubiertos por Ajustes responsive */
+  *{box-sizing:border-box}
+  body{margin:0;background:#fff;color:#17242A;font-family:Lato,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:#0D4A57;text-decoration:none}
+  a:hover{color:#6FA030}
+  button{font:inherit}
+  :focus-visible{outline:2px solid #6FA030;outline-offset:2px}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  @media print{[data-noprint]{display:none !important}}
+</style>
+<style>
+  /* ── Accordion ─────────────────────────────────────────────── */
+  details.rfl-acc{border:1px solid #DCE3E1;border-radius:16px;overflow:hidden;transition:box-shadow .2s}
+  details.rfl-acc + details.rfl-acc{margin-top:10px}
+  details.rfl-acc[open]{box-shadow:0 8px 24px -4px rgba(13,74,87,.10)}
+  details.rfl-acc > summary{
+    list-style:none;display:flex;align-items:center;justify-content:space-between;
+    gap:16px;padding:22px 26px;cursor:pointer;user-select:none;
+    font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;
+    background:#fff;transition:background .15s;
+  }
+  details.rfl-acc > summary::-webkit-details-marker{display:none}
+  details.rfl-acc > summary:hover{background:#F9FBFA}
+  details.rfl-acc[open] > summary{background:#F4F7F6;border-bottom:1px solid #DCE3E1}
+  details.rfl-acc .acc-icon{
+    flex-shrink:0;width:32px;height:32px;border-radius:50%;background:#EEF6E2;
+    display:flex;align-items:center;justify-content:center;transition:transform .25s;
+  }
+  details.rfl-acc[open] .acc-icon{transform:rotate(45deg);background:#0D4A57}
+  details.rfl-acc[open] .acc-icon svg{stroke:#fff}
+  details.rfl-acc .acc-body{padding:28px 26px 30px}
+
+  /* ── Expert cards ──────────────────────────────────────────── */
+  .expert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+  .expert-card{border:1px solid #DCE3E1;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px}
+  .expert-avatar{width:64px;height:64px;border-radius:50%;background:#0D4A57;display:flex;align-items:center;justify-content:center;font-family:Lato,sans-serif;font-weight:700;font-size:22px;color:#fff;flex-shrink:0}
+  .expert-avatar.green{background:#6FA030}
+  .expert-avatar.teal{background:#0D4A57}
+  .expert-avatar.olive{background:#3B6B42}
+
+  /* ── Stat cards ────────────────────────────────────────────── */
+  .stat-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0 0 28px}
+  .stat-card{background:#F4F7F6;border-radius:16px;padding:24px 26px}
+  .stat-num{font-family:Lato,sans-serif;font-weight:900;font-size:clamp(38px,5vw,52px);line-height:1;color:#0D4A57;margin-bottom:8px}
+  .stat-label{font-family:Lato,sans-serif;font-size:14px;line-height:1.5;color:#516268}
+
+  /* ── Principle list ────────────────────────────────────────── */
+  .prin-list{display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none}
+  .prin-item{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;background:#F9FBFA;border-radius:12px;border-left:3px solid #8BC53F}
+  .prin-dot{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:#EEF6E2;display:flex;align-items:center;justify-content:center}
+
+  /* ── Evidence ──────────────────────────────────────────────── */
+  .evid-body p{font-size:15.5px;line-height:1.72;color:#516268;margin:0 0 16px}
+  .evid-body p:last-child{margin-bottom:0}
+
+  /* ── ODS badge ─────────────────────────────────────────────── */
+  .ods-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .ods-badge{display:inline-flex;align-items:center;gap:8px;border:1.5px solid #DCE3E1;border-radius:8px;padding:8px 14px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:#0D4A57}
+  .ods-swatch{width:22px;height:22px;border-radius:4px;flex-shrink:0}
+</style>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0D4A57"/><rect x="24" y="56" width="12" height="18" rx="3" fill="#FFFFFF" opacity=".7"/><rect x="44" y="44" width="12" height="30" rx="3" fill="#8BC53F"/><rect x="64" y="32" width="12" height="42" rx="3" fill="#E8A33D"/></svg></template>
+</helmet>
+
+<!-- ══════════════════════════════════════════════════════ NAV -->
+<div style="width:100%;position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:{{ navShadow }};transition:box-shadow .25s ease" data-noprint>
+  <nav data-m="topnav" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px clamp(20px,4vw,40px);max-width:1240px;margin:0 auto">
+    <a href="index.html" style="display:flex;align-items:center;gap:14px" data-m="brand">
+      <img src="assets/logo-summa-lab.png" alt="SUMMA" style="height:56px;width:auto">
+      <span style="display:flex;flex-direction:column;justify-content:center;line-height:1.2;font-family:Lato,sans-serif;color:#0D4A57;padding-left:14px;border-left:1.5px solid #DCE3E1;align-self:stretch">
+        <span style="font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase">Plataforma de</span>
+        <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
+      </span>
+    </a>
+    <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
+      <a href="marco-wise.html" style="color:#0D4A57">Marco WISE</a>
+      <a href="lineas-de-reforma.html" style="color:#0D4A57;font-weight:700;border-bottom:2px solid #8BC53F;padding-bottom:2px">Líneas de Reforma</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <x-import component-from-global-scope="site-search" from="./site-search.js" hint-size="40px,40px"></x-import>
+      <span data-m="hamburger"><x-import component-from-global-scope="mobile-nav" from="./mobile-nav.js" hint-size="44px,44px"></x-import></span>
+      <a href="casos.html" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;background:#0D4A57;color:#fff;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s" style-hover="background:none;color:#0D4A57" data-m="navcta">EXPLORAR CASOS</a>
+    </div>
+  </nav>
+</div>
+<div data-m="spacer" aria-hidden="true" style="height:81px" data-noprint></div>
+
+<div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+
+  <!-- BREADCRUMB -->
+  <div style="display:flex;flex-wrap:wrap;gap:6px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:500;color:#7C8B8D;margin:26px 0 24px" data-noprint>
+    <a href="index.html" style="color:#7C8B8D">Inicio</a><span style="color:#C2CCCE">/</span><a href="lineas-de-reforma.html" style="color:#7C8B8D">Líneas de Reforma</a><span style="color:#C2CCCE">/</span><span style="color:#0D4A57;font-weight:600">Financiamiento progresivo</span>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ HERO -->
+  <header style="margin:0 0 clamp(56px,7vw,80px)">
+    <div style="position:relative;background:#F4F7F6;border-radius:16px;padding:clamp(38px,4.6vw,68px) clamp(32px,4vw,56px);overflow:hidden;min-height:clamp(300px,28vw,360px);display:flex;flex-direction:column;justify-content:center">
+      <div data-m="ldr-hero-icon" role="img" aria-hidden="true" style="position:absolute;right:clamp(-90px,-6vw,-40px);top:50%;transform:translateY(-50%);width:clamp(340px,42vw,540px);height:clamp(340px,42vw,540px);background-image:url(assets/icono-financiamiento.png);background-size:contain;background-position:center;background-repeat:no-repeat;opacity:.16;pointer-events:none"></div>
+      <div style="position:relative;max-width:620px">
+        <span style="display:inline-flex;align-items:center;gap:6px;background:#EEF6E2;color:#6FA030;font-family:Lato,sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;padding:6px 14px;border-radius:6px;margin-bottom:16px">Línea de reforma</span>
+        <h1 style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(30px,4.2vw,48px);line-height:1.12;letter-spacing:-.01em;color:#0D4A57;margin:0 0 18px">Financiamiento<br>progresivo</h1>
+        <p style="font-size:16px;line-height:1.65;color:#3D4E52;margin:0 0 26px;max-width:500px">Qué mecanismos permiten que los recursos lleguen a quienes más los necesitan, y qué se requiere para que ese dinero se traduzca en mejores aprendizajes.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="#casos" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#8BC53F 0%,#D4FBA1 100%);background-size:180% 100%;background-position:0% 0%;color:#0D4A57;font-size:13px;letter-spacing:.04em;padding:14px 26px;border-radius:999px;text-decoration:none;transition:background-position .35s ease" style-hover="background-position:100% 0%">VER CASOS
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 19 19 12"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════ POR QUÉ ESTA LÍNEA -->
+  <section style="margin:0 0 clamp(56px,7vw,88px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,56px);align-items:start">
+      <div>
+        <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Por qué esta línea</div>
+        <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0 0 20px">Más gasto no equivale a mejores resultados</h2>
+        <p style="font-size:15.5px;line-height:1.72;color:#516268;margin:0 0 16px">Superado un umbral mínimo, la evidencia internacional no encuentra relación directa entre el gasto acumulado por estudiante y su desempeño académico. Lo que pasa a ser determinante es el diseño del mecanismo de asignación y la distribución final de los recursos.</p>
+        <p style="font-size:15.5px;line-height:1.72;color:#516268;margin:0">América Latina elevó su inversión educativa del 3% al 5% del PIB entre 1995 y 2014, pero retrocedió a 3,9% en 2022 por la presión fiscal post-pandemia. En ese escenario, cómo se reparte cada peso importa más que nunca.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="border:1px solid #DCE3E1;border-radius:16px;padding:20px 22px;border-left:4px solid #0D4A57">
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:14.5px;color:#17242A;margin-bottom:5px">Equidad de base</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Garantizar un piso de recursos similar para todos los estudiantes, independiente de su origen o territorio.</p>
+        </div>
+        <div style="border:1px solid #DCE3E1;border-radius:16px;padding:20px 22px;border-left:4px solid #8BC53F">
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:14.5px;color:#17242A;margin-bottom:5px">Progresividad efectiva</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Asignar mayores recursos a quienes enfrentan mayores desventajas socioeconómicas, educativas o territoriales.</p>
+        </div>
+        <div style="border:1px solid #DCE3E1;border-radius:16px;padding:20px 22px;border-left:4px solid #E8A33D">
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:14.5px;color:#17242A;margin-bottom:5px">Rendición de cuentas</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Asegurar que los recursos lleguen a destino y generen el impacto esperado mediante seguimiento y evaluación continuos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ SITUACIÓN MUNDIAL Y REGIONAL -->
+  <section style="margin:0 0 clamp(56px,7vw,88px)">
+    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Situación mundial y regional</div>
+    <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0 0 28px;max-width:680px">El financiamiento educativo en América Latina: una deuda pendiente con la equidad</h2>
+
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="stat-num">13%</div>
+        <div class="stat-label">de los países de ALC cuenta con fórmulas de distribución que incluyen un componente de equidad <strong>explícito y vinculante</strong></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30%</div>
+        <div class="stat-label">menos recursos por estudiante reciben en promedio las escuelas del quintil más vulnerable respecto a las del quintil más favorecido</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3,9%</div>
+        <div class="stat-label">del PIB destinó América Latina a educación en 2022, por debajo del 5% promedio alcanzado en 2014 antes de la pandemia</div>
+      </div>
+    </div>
+
+    <p style="font-size:12.5px;color:#7C8B8D;margin:0;font-family:Lato,sans-serif">Fuente: <a href="https://werd.stanford.edu/database" target="_blank" rel="noopener" style="color:#7C8B8D;text-decoration:underline">WERD Stanford University Database</a></p>
+  </section>
+
+  <!-- ═══════════════════════ QUÉ ENTENDEMOS POR ESTA LÍNEA -->
+  <section id="que-entendemos" style="margin:0 0 clamp(56px,7vw,88px);scroll-margin-top:110px">
+    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Marco conceptual</div>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:28px">
+      <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:620px">¿Qué entendemos por financiamiento progresivo?</h2>
+    </div>
+
+    <!-- Acordeón item 1 -->
+    <details class="rfl-acc" open>
+      <summary>
+        <span style="display:flex;align-items:center;gap:14px">
+          <span style="flex-shrink:0;width:36px;height:36px;border-radius:10px;background:#EEF6E2;display:flex;align-items:center;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6FA030" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </span>
+          Dimensiones operativas y principios fundamentales
+        </span>
+        <span class="acc-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6FA030" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </span>
+      </summary>
+      <div class="acc-body">
+        <p style="font-size:15px;line-height:1.7;color:#516268;margin:0 0 20px">El financiamiento progresivo no es solo una cuestión de volumen de gasto: se articula en torno a cinco dimensiones que, cuando funcionan de manera coherente, permiten que los recursos educativos cumplan su función redistributiva.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Progresividad</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">Los recursos adicionales se dirigen de forma explícita y verificable hacia las poblaciones, escuelas o territorios con mayores desventajas socioeconómicas.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Transparencia y criterios públicos</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">Los mecanismos de asignación deben ser comprensibles, conocidos por todos los actores del sistema y sujetos a escrutinio externo.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Eficiencia asignativa</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">Los recursos se destinan a intervenciones con evidencia de impacto en aprendizaje, evitando la dispersión presupuestaria sin propósito pedagógico claro.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Universalidad de base</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">Antes de la progresividad diferenciada, se garantiza un piso mínimo de recursos para todos los establecimientos, sin distinción.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Rendición de cuentas y evaluación continua</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">El diseño contempla mecanismos de seguimiento que permiten verificar si los recursos llegaron a destino y si generaron los resultados esperados.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Acordeón item 2 -->
+    <details class="rfl-acc" style="margin-top:10px">
+      <summary>
+        <span style="display:flex;align-items:center;gap:14px">
+          <span style="flex-shrink:0;width:36px;height:36px;border-radius:10px;background:#EEF6E2;display:flex;align-items:center;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6FA030" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          Mecanismos para determinar la distribución de recursos
+        </span>
+        <span class="acc-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6FA030" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </span>
+      </summary>
+      <div class="acc-body">
+        <p style="font-size:15px;line-height:1.7;color:#516268;margin:0 0 20px">Los sistemas de financiamiento progresivo se articulan a través de mecanismos concretos que determinan cómo y cuánto recibe cada escuela o jurisdicción. La elección del mecanismo tiene implicancias directas en la equidad del sistema.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Fórmulas per cápita con ponderadores de equidad</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">El presupuesto se asigna por estudiante, pero incorpora multiplicadores que aumentan el monto para alumnos en situación de vulnerabilidad socioeconómica, zona rural o con necesidades educativas especiales. Es el mecanismo más difundido en OCDE.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Fondos focalizados y concursables</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">Recursos adicionales asignados mediante convocatorias abiertas que priorizan establecimientos en zonas de alta vulnerabilidad. Requieren presentar proyectos pedagógicos y compromisos de mejora medibles.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Transferencias condicionadas al desempeño</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">Una parte del presupuesto se libera según el cumplimiento de indicadores educativos preacordados (asistencia, retención, logros de aprendizaje). Genera incentivos pero requiere sistemas de información robustos.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- Acordeón item 3 -->
+    <details class="rfl-acc" style="margin-top:10px">
+      <summary>
+        <span style="display:flex;align-items:center;gap:14px">
+          <span style="flex-shrink:0;width:36px;height:36px;border-radius:10px;background:#EEF6E2;display:flex;align-items:center;justify-content:center">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6FA030" stroke-width="2.2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </span>
+          Tipos de financiamiento progresivo
+        </span>
+        <span class="acc-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6FA030" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </span>
+      </summary>
+      <div class="acc-body">
+        <p style="font-size:15px;line-height:1.7;color:#516268;margin:0 0 20px">Según el diseño institucional y los objetivos de política, el financiamiento progresivo adopta distintas modalidades que pueden combinarse dentro de un mismo sistema.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Subvención diferenciada</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">Monto base universal más un suplemento escalonado que aumenta según el nivel de vulnerabilidad del estudiante o del establecimiento.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Financiamiento por resultados</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">Parte del presupuesto se asigna retroactivamente según el logro de metas de aprendizaje, acceso o permanencia acordadas con las escuelas.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #DCE3E1;border-radius:14px;padding:22px 24px">
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#0D4A57;margin-bottom:6px">Financiamiento territorial</div>
+            <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">La distribución se ajusta por costo real de provisión educativa en cada región o municipio, incorporando variables como ruralidad, distancia o costo de vida.</p>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- CTA descargar PDF -->
+    <div style="margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#F4F7F6;border-radius:14px;padding:20px 26px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:14.5px;color:#0D4A57;margin-bottom:4px">Ampliar esta información</div>
+        <p style="margin:0;font-size:13.5px;color:#516268">Descarga el documento completo con el desarrollo conceptual de esta línea de reforma.</p>
+      </div>
+      <a href="#" style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;font-family:Lato,sans-serif;font-weight:700;font-size:13px;color:#0D4A57;border:1.5px solid #0D4A57;border-radius:999px;padding:11px 22px;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        DESCARGAR PDF
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ CARACTERÍSTICAS DE IMPLEMENTACIÓN -->
+  <section style="margin:0 0 clamp(56px,7vw,88px)">
+    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Características de implementación</div>
+    <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 36px">Cinco etapas para instalar un sistema de financiamiento progresivo</h2>
+    <div style="display:flex;flex-direction:column;gap:0">
+
+      <!-- Etapa 1: espaciador transparent arriba (centra), línea real abajo extendida al gap -->
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch;padding-bottom:20px">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="flex:1;width:2px;background:transparent"></div>
+          <div style="width:56px;height:56px;border-radius:50%;background:#0D4A57;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff,0 0 0 5px #DCE3E1">
+            <span style="font-family:Lato,sans-serif;font-weight:900;font-size:18px;color:#fff">1</span>
+          </div>
+          <div style="flex:1;width:2px;background:#DCE3E1;margin-top:6px;margin-bottom:-20px"></div>
+        </div>
+        <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Diagnóstico y línea de base</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Antes de rediseñar el esquema de asignación, el sistema debe levantar información confiable sobre la distribución actual de recursos: cuánto recibe cada escuela, cómo se calcula, qué variables determinan las diferencias y qué brechas existen entre establecimientos de distinto perfil socioeconómico.</p>
+        </div>
+      </div>
+
+      <!-- Etapa 2: línea real arriba y abajo extendida al gap -->
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch;padding-bottom:20px">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="flex:1;width:2px;background:#DCE3E1;margin-bottom:6px"></div>
+          <div style="width:56px;height:56px;border-radius:50%;background:#0D4A57;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff,0 0 0 5px #DCE3E1">
+            <span style="font-family:Lato,sans-serif;font-weight:900;font-size:18px;color:#fff">2</span>
+          </div>
+          <div style="flex:1;width:2px;background:#DCE3E1;margin-top:6px;margin-bottom:-20px"></div>
+        </div>
+        <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Diseño del mecanismo de distribución</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Se definen los criterios, ponderadores y fórmulas que determinarán la asignación diferenciada: qué variables de vulnerabilidad se incorporan, qué peso relativo tienen, cuál es el monto base universal y cuánto adicional recibirán los estudiantes en situación prioritaria. Esta etapa involucra negociación política y técnica entre el ministerio, las jurisdicciones y actores de la sociedad civil.</p>
+        </div>
+      </div>
+
+      <!-- Etapa 3: línea real arriba y abajo extendida al gap -->
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch;padding-bottom:20px">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="flex:1;width:2px;background:#DCE3E1;margin-bottom:6px"></div>
+          <div style="width:56px;height:56px;border-radius:50%;background:#0D4A57;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff,0 0 0 5px #DCE3E1">
+            <span style="font-family:Lato,sans-serif;font-weight:900;font-size:18px;color:#fff">3</span>
+          </div>
+          <div style="flex:1;width:2px;background:#DCE3E1;margin-top:6px;margin-bottom:-20px"></div>
+        </div>
+        <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Implementación piloto y ajuste técnico</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">La fórmula se aplica en un conjunto acotado de jurisdicciones o establecimientos seleccionados para probar su funcionamiento real. Se identifican los cuellos de botella administrativos, se ajustan los registros de estudiantes y se fortalece la capacidad de las escuelas para rendir cuenta del uso de los recursos adicionales.</p>
+        </div>
+      </div>
+
+      <!-- Etapa 4: línea real arriba y abajo extendida al gap -->
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch;padding-bottom:20px">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="flex:1;width:2px;background:#DCE3E1;margin-bottom:6px"></div>
+          <div style="width:56px;height:56px;border-radius:50%;background:#0D4A57;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff,0 0 0 5px #DCE3E1">
+            <span style="font-family:Lato,sans-serif;font-weight:900;font-size:18px;color:#fff">4</span>
+          </div>
+          <div style="flex:1;width:2px;background:#DCE3E1;margin-top:6px;margin-bottom:-20px"></div>
+        </div>
+        <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Escalamiento y consolidación normativa</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Validada la fórmula en el piloto, el mecanismo se extiende al conjunto del sistema. Esta etapa requiere anclar el diseño en legislación o normativa presupuestaria que garantice su continuidad más allá de los ciclos de gobierno. La sostenibilidad depende de que los criterios de asignación estén institucionalizados y no dependan de decisiones discrecionales anuales.</p>
+        </div>
+      </div>
+
+      <!-- Etapa 5: línea real arriba, espaciador transparent abajo (centra), sin extensión -->
+      <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch">
+        <div style="display:flex;flex-direction:column;align-items:center">
+          <div style="flex:1;width:2px;background:#DCE3E1;margin-bottom:6px"></div>
+          <div style="width:56px;height:56px;border-radius:50%;background:#0D4A57;flex-shrink:0;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff,0 0 0 5px #DCE3E1">
+            <span style="font-family:Lato,sans-serif;font-weight:900;font-size:18px;color:#fff">5</span>
+          </div>
+          <div style="flex:1;width:2px;background:transparent"></div>
+        </div>
+        <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Evaluación de impacto y mejora continua</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">El sistema incorpora mecanismos periódicos de evaluación que permiten verificar si los recursos adicionales llegaron a los estudiantes previstos y si se tradujeron en mejoras medibles de aprendizaje, retención o equidad. Los resultados retroalimentan el diseño de la fórmula: los ponderadores se actualizan según la evolución de las condiciones socioeconómicas y los criterios de focalización se refinan con nueva evidencia.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════ EVIDENCIA DISPONIBLE -->
+  <section style="margin:0 0 clamp(56px,7vw,88px)">
+    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Evidencia disponible</div>
+    <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 20px">¿Qué nos dice la investigación sobre su efectividad?</h2>
+    <div class="evid-body">
+      <p>Los estudios sobre financiamiento diferenciado en países de la OCDE muestran efectos positivos y significativos cuando la focalización alcanza al menos al 20% de los estudiantes más vulnerables y los recursos se acompañan de apoyo pedagógico directo a las escuelas.</p>
+      <p>La revisión de Jackson et al. (2016) para Estados Unidos encontró que un aumento del 10% en el gasto escolar a lo largo de la trayectoria K-12 se asocia con un 7% de incremento en los salarios adultos y una reducción del 3,7% en la probabilidad de vivir en pobreza. El efecto es significativamente mayor para estudiantes de bajos ingresos.</p>
+      <p>En América Latina, la evidencia es más heterogénea. Los programas con componente de equidad explícito (como la SEP chilena o el FUNDEB brasileño) muestran mejoras en acceso y retención, pero los resultados en aprendizajes son mixtos, condicionados por la capacidad institucional para convertir el dinero en intervenciones efectivas.</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════ OTRAS CUESTIONES PARA ENTENDER -->
+  <section style="margin:0 0 clamp(56px,7vw,88px)">
+    <div style="background:#F4F7F6;border-radius:16px;padding:clamp(32px,4vw,52px)">
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Matices de la línea</div>
+      <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 20px;max-width:640px">Dimensiones complementarias que condicionan el impacto</h2>
+      <p style="font-size:15.5px;line-height:1.72;color:#516268;margin:0;max-width:780px">El financiamiento progresivo opera en sistemas donde coexisten niveles de gobernanza nacional, subnacional y local, lo que exige coordinación intergubernamental permanente. Su efectividad depende de la calidad de la información disponible: sin datos confiables sobre vulnerabilidad socioeconómica y resultados educativos, los ponderadores de equidad pierden sentido. Además, los efectos de estas reformas se acumulan en el tiempo, por lo que los ciclos políticos cortos y la ausencia de marcos legales robustos representan un riesgo real para su continuidad y sostenibilidad.</p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ CRITERIOS (CTA BANNER) -->
+  <section style="display:flex;align-items:center;justify-content:space-between;gap:20px;background:#F4F7F6;border-radius:16px;padding:28px 32px;margin:0 0 clamp(56px,7vw,88px);flex-wrap:wrap" data-noprint>
+    <div style="max-width:600px">
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:6px">Criterios aplicados a los casos</div>
+      <p style="font-family:Lato,sans-serif;font-size:17px;color:#0D4A57;margin:0">Revisa qué criterio de elegibilidad, primario y secundario aplica a cada caso de esta línea.</p>
+    </div>
+    <a href="criterios-de-seleccion.html?linea=fin#matriz" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">VER CRITERIOS DE SELECCIÓN
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ CASOS -->
+  <section id="casos" style="margin:0 0 clamp(56px,7vw,88px);scroll-margin-top:100px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:26px">
+      <div>
+        <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Casos de la línea</div>
+        <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:560px">Mecanismos distintos para un mismo objetivo</h2>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px">
+      <a href="detalle-caso.html" style="border:1px solid #DCE3E1;border-radius:16px;background:#fff;overflow:hidden;display:flex;flex-direction:column;text-decoration:none">
+        <div style="position:relative;aspect-ratio:16/7;background-color:#F4F7F6;background-image:url(assets/case-1.jpg);background-size:cover;background-position:center">
+          <span style="position:absolute;top:14px;left:14px;background:#fff;color:#0D4A57;font-family:Lato,sans-serif;font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:6px 12px;border-radius:6px">Financiamiento progresivo</span>
+        </div>
+        <div style="padding:22px 24px 26px;display:flex;flex-direction:column;flex:1">
+          <div style="display:flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:#516268;margin-bottom:10px">
+            <span style="width:6px;height:6px;border-radius:50%;background:#8BC53F"></span>Chile
+          </div>
+          <h3 style="font-family:Lato,sans-serif;font-weight:700;font-size:21px;color:#0D4A57;margin:0 0 18px;line-height:1.3">Subvención Escolar Preferencial (SEP)</h3>
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:20px">
+            <span style="font-family:Lato,sans-serif;font-weight:700;font-size:30px;color:#0D4A57;line-height:1">2008</span>
+            <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:500;color:#516268;line-height:1.4">año de entrada en vigencia</span>
+          </div>
+          <p style="font-size:14px;line-height:1.6;color:#516268;margin:0 0 auto">Transferencia adicional por estudiante prioritario o preferente que las escuelas deben usar en mejora pedagógica comprobable.</p>
+          <div style="margin-top:18px;display:flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57">Ver caso <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </a>
+      <a href="detalle-caso.html" style="border:1px solid #DCE3E1;border-radius:16px;background:#fff;overflow:hidden;display:flex;flex-direction:column;text-decoration:none">
+        <div style="position:relative;aspect-ratio:16/7;background-color:#F4F7F6;background-image:url(assets/case-2.jpg);background-size:cover;background-position:center">
+          <span style="position:absolute;top:14px;left:14px;background:#fff;color:#0D4A57;font-family:Lato,sans-serif;font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:6px 12px;border-radius:6px">Financiamiento progresivo</span>
+        </div>
+        <div style="padding:22px 24px 26px;display:flex;flex-direction:column;flex:1">
+          <div style="display:flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:#516268;margin-bottom:10px">
+            <span style="width:6px;height:6px;border-radius:50%;background:#8BC53F"></span>Brasil
+          </div>
+          <h3 style="font-family:Lato,sans-serif;font-weight:700;font-size:21px;color:#0D4A57;margin:0 0 18px;line-height:1.3">FUNDEB — Fondo de Mantenimiento y Desarrollo de la Educación Básica</h3>
+          <div style="display:flex;align-items:center;gap:9px;margin-bottom:20px">
+            <span style="font-family:Lato,sans-serif;font-weight:700;font-size:30px;color:#0D4A57;line-height:1">2007</span>
+            <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:500;color:#516268;line-height:1.4">año de implementación</span>
+          </div>
+          <p style="font-size:14px;line-height:1.6;color:#516268;margin:0 0 auto">Fondo federal-estadual con ponderadores por etapa educativa y ubicación que redistribuye recursos hacia municipios con menor capacidad fiscal.</p>
+          <div style="margin-top:18px;display:flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57">Ver caso <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ ESPECIALISTAS -->
+  <section style="margin:0 0 clamp(56px,7vw,88px)">
+    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Especialistas a cargo del contenido</div>
+    <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 14px;max-width:640px">El contenido de esta línea fue desarrollado por expertos internacionales</h2>
+    <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0 0 28px;max-width:720px">Para asegurar la solidez académica y la pertinencia regional de cada línea de reforma, SUMMA contrató especialistas con trayectoria comprobada en investigación y política educativa comparada.</p>
+    <div class="expert-grid">
+      <div class="expert-card">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="expert-avatar teal">JS</div>
+          <div>
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dr. Juan Pablo Silva</div>
+            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Economista de la educación</div>
+          </div>
+        </div>
+        <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Especialista en sistemas de financiamiento escolar y análisis de equidad educativa en contextos latinoamericanos. Investigador principal en PREAL y consultor del Banco Mundial en más de 12 países de la región.</p>
+      </div>
+      <div class="expert-card">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="expert-avatar green">AC</div>
+          <div>
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dra. Alejandra Cardini</div>
+            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Politóloga educativa</div>
+          </div>
+        </div>
+        <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Especializada en política educativa comparada y gobernanza de sistemas educativos. Directora del Programa de Educación de CIPPEC y docente en la Universidad Torcuato Di Tella, Argentina.</p>
+      </div>
+      <div class="expert-card">
+        <div style="display:flex;align-items:center;gap:14px">
+          <div class="expert-avatar olive">MG</div>
+          <div>
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Lic. Mario Garnier</div>
+            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Político y reformador educativo</div>
+          </div>
+        </div>
+        <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Ex Ministro de Educación de Costa Rica (2006–2014) y artífice de una de las reformas de financiamiento progresivo más exitosas de la región. Investigador afiliado en el DiáLogos Education Network.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ COMITÉ DE REVISIÓN -->
+  <section style="margin:0 0 clamp(72px,9vw,110px)">
+    <div style="background:#F4F7F6;border-radius:16px;padding:clamp(32px,4vw,48px)">
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Comité de revisión y validación</div>
+      <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 14px;max-width:640px">Pares académicos que validaron el rigor de los contenidos</h2>
+      <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0 0 28px;max-width:700px">Un comité de revisión externo, compuesto por académicos e investigadores de reconocida trayectoria internacional, evaluó los contenidos de cada línea para garantizar su calidad, precisión y pertinencia para la región.</p>
+      <div class="expert-grid">
+        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div class="expert-avatar" style="background:#374649">BB</div>
+            <div>
+              <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dra. Bárbara Bruns</div>
+              <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Center for Global Development</div>
+            </div>
+          </div>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Senior Fellow en CGD y execonomista principal de educación del Banco Mundial. Autora de <em>Great Teachers</em> y experta en evaluación docente y financiamiento educativo comparado.</p>
+        </div>
+        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div class="expert-avatar" style="background:#516268">EF</div>
+            <div>
+              <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dr. Emiliano Ferrero</div>
+              <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Banco Mundial — LAC Education</div>
+            </div>
+          </div>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Especialista principal en educación para América Latina en el Banco Mundial. Ha liderado operaciones de reforma de financiamiento en Colombia, Perú y México con enfoque en equidad territorial.</p>
+        </div>
+        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;align-items:center;gap:14px">
+            <div class="expert-avatar" style="background:#0D4A57">FJ</div>
+            <div>
+              <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dra. Francesca Jensana</div>
+              <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">UNESCO OREALC</div>
+            </div>
+          </div>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Coordinadora regional de políticas educativas en la Oficina Regional de Educación para América Latina y el Caribe. Especialista en seguimiento de ODS 4 e indicadores de equidad en sistemas de financiamiento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- ══════════════════════════════════════════════ FOOTER -->
+<footer style="background:#0D4A57;margin-top:0;padding:clamp(38px,4.4vw,54px) clamp(20px,4vw,40px) clamp(34px,4vw,46px)">
+    <div data-m="footer-row" style="max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:26px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img src="assets/logo-summa-footer.png" alt="SUMMA — Laboratorio de Investigación e Innovación en Educación para América Latina y el Caribe" style="height:72px;width:auto">
+        <span style="display:flex;flex-direction:column;justify-content:center;line-height:1.2;font-family:Lato,sans-serif;color:rgba(255,255,255,.9);padding-left:14px;border-left:1.5px solid rgba(255,255,255,.3);align-self:stretch">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase">Plataforma de</span>
+          <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
+        </span>
+      </div>
+    </div>
+    <div data-m="footer-col" style="display:flex;flex-direction:column;align-items:flex-end;gap:18px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://summaedu.org/contacto/" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;background:linear-gradient(90deg,#8BC53F 0%,#D4FBA1 100%);background-size:180% 100%;background-position:0% 0%;color:#0D4A57;border:1.5px solid transparent;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;text-decoration:none;transition:background-position .35s ease" style-hover="background-position:100% 0%">CONTÁCTANOS</a>
+        <a href="https://summaedu.org/trabaja-con-nosotros/" style="font-family:Lato,sans-serif;border:1.5px solid #fff;color:#fff;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;text-decoration:none;transition:background .15s,color .15s" style-hover="background:#fff;color:#0D4A57">TRABAJA CON NOSOTROS</a>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:18px;margin-top:2px">
+        <a href="#" style="font-family:Lato,sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;color:#fff;border-bottom:1px solid transparent;transition:color .15s,border-color .15s" style-hover="color:#D4FBA1;border-color:#D4FBA1">Plataforma de Prácticas Educativas Efectivas →</a>
+      </div>
+      <div style="display:flex;gap:10px">
+        <a href="#" aria-label="LinkedIn" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"></path></svg>
+        </a>
+        <a href="#" aria-label="X" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.24 2H21l-6.55 7.48L22.5 22h-6.3l-4.93-6.44L5.6 22H2.84l7.02-8.02L1.5 2h6.46l4.46 5.9zm-.97 18h1.53L7.02 3.6H5.38z"></path></svg>
+        </a>
+        <a href="#" aria-label="YouTube" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.6-.46-5.33a2.78 2.78 0 0 0-1.95-1.96C18.86 4.25 12 4.25 12 4.25s-6.86 0-8.59.46A2.78 2.78 0 0 0 1.46 6.67C1 8.4 1 12 1 12s0 3.6.46 5.33a2.78 2.78 0 0 0 1.95 1.96c1.73.46 8.59.46 8.59.46s6.86 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96C23 15.6 23 12 23 12zM9.75 15.27V8.73L15.5 12z"></path></svg>
+        </a>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"navShadow":"0 1px 0 #DCE3E1","concepts":[]}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      navShadow: this.props.navShadow,
+      concepts: this.props.concepts,
+    };
+  }
+}
+</script>
+</body>
+</html>

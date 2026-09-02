@@ -1,0 +1,118 @@
+/* Ajustes responsive. No altera la versión desktop (>900px). */
+
+[data-m="hamburger"]{display:none}
+
+@media (max-width:900px){
+  [data-m="navlinks"],
+  [data-m="navcta"]{display:none !important}
+  [data-m="hamburger"]{display:inline-flex;align-items:center}
+  [data-m="spacer"]{height:74px !important}
+
+  /* Cabecera en una sola fila */
+  [data-m="topnav"]{
+    flex-wrap:nowrap !important;
+    gap:12px !important;
+    padding-top:14px !important;
+    padding-bottom:14px !important;
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+  [data-m="brand"] img{height:30px !important}
+
+  /* Hero del inicio */
+  [data-m="hero-text"]{max-width:100% !important}
+  [data-m="hero-img"]{display:none !important}
+}
+
+@media (max-width:760px){
+  /* Heros con ilustración lateral */
+  [data-m="hero-split"]{
+    height:auto !important;
+    min-height:0 !important;
+    grid-template-columns:1fr !important;
+  }
+  [data-m="hero-art"]{
+    order:-1;
+    min-height:0 !important;
+    height:180px !important;
+    align-self:center !important;
+  }
+
+  /* Pie de página */
+  [data-m="footer-row"]{flex-direction:column;gap:28px}
+  [data-m="footer-col"]{align-items:flex-start !important;width:100%}
+  [data-m="footer-col"] > div{width:100%}
+
+  /* Pestañas y filas de chips deslizables */
+  [data-m="scroll-x"]{
+    flex-wrap:nowrap !important;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    padding-bottom:2px;
+  }
+  [data-m="scroll-x"]::-webkit-scrollbar{display:none}
+  [data-m="scroll-x"] > *{flex:0 0 auto}
+
+  /* Objetivos táctiles (React serializa "border-radius: 999px", con espacio) */
+  a[style*="999px"],
+  button[style*="999px"],
+  select,
+  [role="tab"]{min-height:44px}
+  a[style*="999px"],
+  button[style*="999px"]{display:inline-flex;align-items:center;justify-content:center}
+  /* Puntos del carrusel: área táctil de 42px con el punto visible de 10px */
+  [data-m="hero-dots"]{gap:0 !important;left:calc(clamp(20px,4vw,64px) - 16px) !important;top:calc(100% + 14px) !important}
+  [data-m="hero-dots"] button{
+    width:42px !important;height:42px !important;
+    padding:16px !important;
+    background-clip:content-box !important;
+    box-sizing:border-box !important;
+  }
+
+  [data-m="topnav"] button[style*="50%"],
+  footer a[style*="50%"]{width:44px !important;height:44px !important}
+
+  /* Portadas alternativas */
+  [data-m="hero-b-grid"]{grid-template-columns:1fr !important;gap:22px !important}
+  [data-m="hero-b-item"]{border-right:none !important;padding-right:0 !important;padding-bottom:22px;border-bottom:1px solid #DCE3E1}
+  [data-m="hero-b-item"]:last-child{border-bottom:none;padding-bottom:0}
+  [data-m="hero-c-text"] h1{font-size:24px !important}
+  [data-m="hero-d-cards"]{grid-template-columns:1fr !important}
+  [data-m="access-card"]{grid-template-columns:1fr !important}
+  [data-m="access-img"]{min-height:150px !important;order:-1}
+  [data-m="wise-flow"]{grid-template-columns:1fr !important;gap:12px !important}
+  [data-m="stat-row"]{grid-template-columns:1fr !important}
+
+  [data-m="wise-arrow"]{transform:rotate(90deg)}
+  [data-m="hero-story"]{padding:24px 20px 26px !important}
+  [data-m="hero-story"] h1{font-size:23px !important;min-height:0 !important}
+
+  /* Etiquetas cortas en el gráfico */
+  [data-m="label-full"]{display:none !important}
+  [data-m="label-short"]{display:block !important}
+
+  /* Botones de icono */
+  [data-m="icon-btn"]{width:44px !important;height:44px !important}
+
+  /* Gráfico de tendencias */
+  [data-m="chart-plot"]{
+    min-width:0;
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    gap:6px !important;
+    padding:0 4px !important;
+  }
+  [data-m="chart-plot"] span{font-size:10px !important;line-height:1.2 !important;overflow-wrap:anywhere}
+
+  /* Tablas anchas */
+  table{font-size:13px}
+}
+
+@media (max-width:560px){
+  [data-m="hero-art"]{height:150px !important}
+  h1{font-size:clamp(25px,7.4vw,32px) !important;line-height:1.2 !important}
+  [data-m="stat-row"]{gap:22px 26px !important}
+  [data-m="compare-bar"]{padding:12px 16px !important}
+  [data-m="compare-bar"] [data-m="bar-actions"]{width:100%}
+  [data-m="compare-bar"] [data-m="bar-actions"] > *{flex:1}
+}

@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#fff;color:#17242A;font-family:Lato,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:#0D4A57;text-decoration:none}
+  a:hover{color:#6FA030}
+  button{font:inherit}
+  select{font:inherit}
+  :focus-visible{outline:2px solid #6FA030;outline-offset:2px}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  [role="dialog"][data-noprint]{top:0!important;bottom:0!important}
+  @media print{[data-noprint]{display:none !important}}
+</style>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#0D4A57"/><g fill="none" stroke="#8BC53F" stroke-width="6"><rect x="30" y="34" width="24" height="52" rx="3"/><rect x="66" y="48" width="24" height="38" rx="3"/></g></svg></template>
+</helmet>
+
+<div style="width:100%;position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:{{ navShadow }};transition:box-shadow .25s ease" data-noprint>
+  <nav data-m="topnav" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px clamp(20px,4vw,40px);max-width:1240px;margin:0 auto">
+    <a href="index.html" style="display:flex;align-items:center;gap:14px" data-m="brand">
+      <img src="assets/logo-summa-lab.png" alt="SUMMA — Laboratorio de Investigación e Innovación en Educación para América Latina y el Caribe" style="height:56px;width:auto">
+      <span style="display:flex;flex-direction:column;justify-content:center;line-height:1.2;font-family:Lato,sans-serif;color:#0D4A57;padding-left:14px;border-left:1.5px solid #DCE3E1;align-self:stretch">
+        <span style="font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase">Plataforma de</span>
+        <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
+      </span>
+    </a>
+    <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
+      <a href="marco-wise.html" style="color:#0D4A57">Marco WISE</a>
+      <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <x-import component-from-global-scope="site-search" from="./site-search.js" hint-size="40px,40px"></x-import>
+      <span data-m="hamburger"><x-import component-from-global-scope="mobile-nav" from="./mobile-nav.js" hint-size="44px,44px"></x-import></span>
+      <a href="casos.html" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;background:#0D4A57;color:#fff;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s" style-hover="background:none;color:#0D4A57" data-m="navcta">EXPLORAR CASOS</a>
+    </div>
+  </nav>
+</div>
+
+<div data-m="spacer" aria-hidden="true" style="height:81px" data-noprint></div>
+
+<div data-casos-content style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:30px 0 22px">
+    <div>
+      <h1 style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(26px,3.2vw,34px);line-height:1.2;color:#0D4A57;margin:0 0 6px">Casos</h1>
+      <p style="font-size:14.5px;color:#516268;margin:0">{{ countLabel }}</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap" data-noprint>
+      <button onClick="{{ startTour }}" style="display:inline-flex;align-items:center;gap:8px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;color:#4F6B72;background:none;border:1.5px solid #DCE3E1;border-radius:999px;padding:9px 16px;cursor:pointer;transition:border-color .15s,color .15s" style-hover="border-color:#0D4A57;color:#0D4A57">
+¿Cómo usar esta vista?
+      </button>
+    <div role="tablist" aria-label="Modo de vista" data-tour="modo" style="display:flex;gap:4px;background:#F0F4F3;border-radius:999px;padding:4px">
+      <sc-for list="{{ modes }}" as="m" hint-placeholder-count="2">
+        <button role="tab" aria-selected="{{ m.selected }}" onClick="{{ m.select }}" style="{{ m.style }}">{{ m.label }}</button>
+      </sc-for>
+    </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <div data-tour="filtros" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;border:1px solid #DCE3E1;border-radius:16px;padding:20px 22px;margin-bottom:28px" data-noprint>
+      <label style="display:block">
+        <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4F6B72;margin-bottom:8px">Línea de reforma</span>
+        <select onChange="{{ setLinea }}" value="{{ fLinea }}" style="width:100%;font-family:Lato,sans-serif;font-size:14px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:11px 14px;cursor:pointer">
+          <sc-for list="{{ optLinea }}" as="o" hint-placeholder-count="3">
+            <option value="{{ o.value }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+      </label>
+
+      <label style="display:block">
+        <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4F6B72;margin-bottom:8px">País o región</span>
+        <select onChange="{{ setPais }}" value="{{ fPais }}" style="width:100%;font-family:Lato,sans-serif;font-size:14px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:11px 14px;cursor:pointer">
+          <sc-for list="{{ optPais }}" as="o" hint-placeholder-count="8">
+            <option value="{{ o.value }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+      </label>
+      <label style="display:block">
+        <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4F6B72;margin-bottom:8px">Ordenar por</span>
+        <select onChange="{{ setSort }}" value="{{ fSort }}" style="width:100%;font-family:Lato,sans-serif;font-size:14px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:11px 14px;cursor:pointer">
+          <option value="linea">Línea de reforma</option>
+          <option value="recientes">Más recientes</option>
+          <option value="antiguos">Más antiguos</option>
+          <option value="pais">País (A–Z)</option>
+        </select>
+      </label>
+    </div>
+
+    <sc-if value="{{ hasChips }}">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-8px 0 28px" data-noprint>
+        <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5">Filtros activos</span>
+        <sc-for list="{{ chips }}" as="c" hint-placeholder-count="2">
+          <button onClick="{{ c.clear }}" style="display:inline-flex;align-items:center;gap:8px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;color:#0D4A57;background:#EAF1F2;border:1px solid #CBDBE1;border-radius:999px;padding:7px 12px 7px 14px;cursor:pointer">{{ c.label }}<span aria-hidden="true" style="font-size:13px;line-height:1;color:#4F6B72">✕</span></button>
+        </sc-for>
+        <button onClick="{{ clearAll }}" style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;color:#4F6B72;background:none;border:none;cursor:pointer;text-decoration:underline;padding:7px 4px">Limpiar todo</button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ noResults }}">
+      <div style="border:1px dashed #DCE3E1;background:#F4F7F6;border-radius:16px;padding:44px 32px;text-align:center;margin-bottom:32px">
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:17px;color:#0D4A57;margin-bottom:8px">Ningún caso coincide con estos filtros</div>
+        <p style="font-size:14px;color:#516268;margin:0 0 18px">Prueba con una combinación más amplia o vuelve al listado completo.</p>
+        <button onClick="{{ clearAll }}" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">LIMPIAR FILTROS</button>
+      </div>
+    </sc-if>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px;margin-bottom:clamp(56px,7vw,88px)">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="6">
+        <div style="border:1px solid #DCE3E1;border-radius:16px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s ease,transform .25s ease" style-hover="box-shadow:0 16px 32px -8px rgba(13,74,87,.16);transform:translateY(-5px)">
+          <a href="{{ c.href }}" style="display:block;position:relative;aspect-ratio:16/7;background-color:#F4F7F6;background-image:{{ c.imgUrl }};background-size:cover;background-position:center;text-decoration:none">
+            <span style="position:absolute;top:14px;left:14px;background:#fff;color:#0D4A57;font-family:Lato,sans-serif;font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:6px 12px;border-radius:6px">{{ c.linea }}</span>
+          </a>
+          <div style="padding:22px 24px 24px;display:flex;flex-direction:column;flex:1">
+            <div style="display:flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:#516268;margin-bottom:10px">
+              <span style="width:6px;height:6px;border-radius:50%;background:#8BC53F"></span>{{ c.country }} · {{ c.region }}
+            </div>
+            <a href="{{ c.href }}" style="text-decoration:none"><h3 style="font-family:Lato,sans-serif;font-weight:700;font-size:20px;color:#0D4A57;margin:0 0 14px;line-height:1.3;min-height:2.6em">{{ c.title }}</h3></a>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">
+              <sc-for list="{{ c.wise }}" as="w" hint-placeholder-count="2">
+                <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#4F6B72;background:#F0F4F3;padding:5px 10px;border-radius:6px">{{ w.label }}</span>
+              </sc-for>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:18px">
+              <span style="font-family:Lato,sans-serif;font-weight:700;font-size:28px;color:{{ c.statColor }};line-height:1">{{ c.stat }}</span>
+              <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:500;color:#516268;line-height:1.4">{{ c.statLabel }}</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid #ECF1EF">
+              <a href="{{ c.href }}" style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:{{ c.ctaColor }};text-decoration:none">{{ c.cta }}</a>
+              <button onClick="{{ c.toggleCompare }}" aria-pressed="{{ c.inCompare }}" data-tour="{{ c.tourTag }}" style="{{ c.compareStyle }}" data-noprint>{{ c.compareLabel }}</button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isCompare }}">
+  <div style="margin-bottom:clamp(56px,7vw,88px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;border:1px solid #DCE3E1;border-radius:16px;padding:20px 22px;margin-bottom:20px" data-noprint>
+      <label style="display:block">
+        <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4F6B72;margin-bottom:8px">Ordenar por criterio</span>
+        <select onChange="{{ setCriterio }}" value="{{ criterio }}" style="width:100%;font-family:Lato,sans-serif;font-size:14px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:11px 14px;cursor:pointer">
+          <sc-for list="{{ criterioOpts }}" as="o" hint-placeholder-count="4">
+            <option value="{{ o.value }}">{{ o.label }}</option>
+          </sc-for>
+        </select>
+      </label>
+      <div style="display:flex;align-items:flex-end;gap:10px;flex-wrap:wrap">
+        <button onClick="{{ exportCsv }}" disabled="{{ cmpEmpty }}" style="{{ csvStyle }}">EXPORTAR CSV</button>
+        <button onClick="{{ resetCompare }}" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:7px;border:none;color:#4F6B72;background:none;font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:11px 8px;cursor:pointer;transition:color .15s" style-hover="color:#0D4A57">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>LIMPIAR
+        </button>
+      </div>
+    </div>
+
+    <div data-m="cmp-header" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px" data-noprint>
+      <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5">Casos disponibles</span>
+    </div>
+    <div data-m="cmp-pool-wrap" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px" data-noprint>
+      <sc-for list="{{ cmpPool }}" as="p" hint-placeholder-count="3">
+        <button onClick="{{ p.toggle }}" aria-pressed="{{ p.on }}" style="{{ p.style }}">{{ p.icon }} {{ p.title }} <span style="font-weight:500;opacity:.75">· {{ p.linea }}</span></button>
+      </sc-for>
+    </div>
+    <p data-m="cmp-hint" style="font-size:12.5px;color:#8CA0A5;margin:0 0 24px" data-noprint>Puedes comparar hasta tres casos a la vez, de cualquier línea de reforma.</p>
+
+    <sc-if value="{{ cmpEmpty }}">
+      <div style="border:1px dashed #DCE3E1;background:#F4F7F6;border-radius:16px;padding:52px 32px;text-align:center">
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:17px;color:#0D4A57;margin-bottom:8px">{{ cmpEmptyTitle }}</div>
+        <p style="font-size:14px;color:#516268;margin:0">{{ cmpEmptyText }}</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ cmpReady }}">
+      <div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
+          <sc-for list="{{ cmpCards }}" as="c" hint-placeholder-count="3">
+            <div style="border:1px solid #DCE3E1;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;background:#fff;animation:fadeUp .3s ease-out both">
+              <div style="height:6px;background:{{ c.color }}"></div>
+              <div style="padding:22px 24px 24px;display:flex;flex-direction:column;flex:1">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px">
+                  <div>
+                    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:#516268;margin-bottom:4px">{{ c.country }} · {{ c.years }}</div>
+                    <h3 style="font-family:Lato,sans-serif;font-weight:700;font-size:19px;color:#0D4A57;margin:0;line-height:1.3;min-height:2.6em">{{ c.title }}</h3>
+                  </div>
+                  <button onClick="{{ c.remove }}" data-m="icon-btn" aria-label="Quitar de la comparación" style="width:30px;height:30px;flex-shrink:0;border-radius:50%;border:1px solid #DCE3E1;background:#fff;color:#4F6B72;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s" style-hover="border-color:#0D4A57;color:#0D4A57" data-noprint>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  </button>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0">
+                  <sc-for list="{{ c.tiles }}" as="t" hint-placeholder-count="4">
+                    <div style="background:{{ t.bg }};border-radius:12px;padding:14px 15px;min-height:108px;display:flex;flex-direction:column">
+                      <div style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:{{ t.labelColor }};margin-bottom:6px;line-height:1.3">{{ t.label }}</div>
+                      <div style="font-family:Lato,sans-serif;font-weight:700;font-size:19px;color:{{ t.valueColor }};line-height:1.15">{{ t.value }}</div>
+                      <div style="font-size:11.5px;color:#516268;line-height:1.4;margin-top:4px">{{ t.hint }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:0;margin-bottom:18px">
+                  <sc-for list="{{ c.rows }}" as="r" hint-placeholder-count="5">
+                    <div style="padding:12px 0;border-bottom:1px solid #F0F4F3;min-height:96px">
+                      <div style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#8CA0A5;margin-bottom:5px">{{ r.label }}</div>
+                      <div style="font-size:13.5px;line-height:1.55;color:#33444A">{{ r.value }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+                <a href="{{ c.href }}" style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:{{ c.ctaColor }};margin-top:auto;text-decoration:none">{{ c.cta }}</a>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <p style="font-size:12.5px;color:#8CA0A5;margin:22px 0 0">Ordenado por <strong style="color:#516268">{{ criterioLabel }}</strong>. Las cifras son ilustrativas.</p>
+      </div>
+    </sc-if>
+  </div>
+  </sc-if>
+
+</div>
+
+<sc-if value="{{ tourOn }}">
+  <div role="dialog" aria-modal="true" aria-label="Guía de uso de la vista de casos" style="position:fixed;top:0;right:0;bottom:0;left:0;z-index:9999;pointer-events:none" data-noprint>
+    <div onClick="{{ endTour }}" style="position:absolute;left:{{ spot.left }};top:{{ spot.top }};width:{{ spot.width }};height:{{ spot.height }};border-radius:14px;box-shadow:0 0 0 9999px rgba(13,36,42,.62);outline:2.5px solid #8BC53F;outline-offset:3px;pointer-events:auto;transition:all .32s cubic-bezier(.4,1,.4,1)"></div>
+    <div style="position:fixed;left:{{ tip.left }};top:{{ tip.top }};transform:{{ tip.transform }};width:340px;max-width:calc(100vw - {{ tip.left }} - 16px);box-sizing:border-box;background:#fff;border-radius:16px;padding:22px 24px;box-shadow:0 20px 46px -14px rgba(13,74,87,.45);pointer-events:auto;animation:fadeUp .25s ease-out both">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px">
+        <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#6FA030">{{ tourCounter }}</span>
+        <button onClick="{{ endTour }}" aria-label="Cerrar guía" data-m="icon-btn" style="width:28px;height:28px;border-radius:50%;border:1px solid #DCE3E1;background:#fff;color:#4F6B72;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s,color .15s" style-hover="border-color:#0D4A57;color:#0D4A57">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <h3 style="font-family:Lato,sans-serif;font-weight:700;font-size:17px;color:#0D4A57;margin:0 0 8px;line-height:1.3">{{ tourTitle }}</h3>
+      <p style="font-size:13.5px;line-height:1.6;color:#516268;margin:0 0 20px">{{ tourText }}</p>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <div style="display:flex;gap:5px" aria-hidden="true">
+          <sc-for list="{{ tourDots }}" as="d" hint-placeholder-count="4">
+            <span style="width:7px;height:7px;border-radius:50%;background:{{ d.bg }};transition:background .2s"></span>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:8px">
+          <sc-if value="{{ tourHasPrev }}">
+            <button onClick="{{ tourPrev }}" style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;border:1.5px solid #DCE3E1;color:#4F6B72;background:none;padding:9px 16px;border-radius:999px;cursor:pointer;transition:border-color .15s,color .15s" style-hover="border-color:#0D4A57;color:#0D4A57">Atrás</button>
+          </sc-if>
+          <button onClick="{{ tourNext }}" style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;border:1.5px solid #0D4A57;background:#0D4A57;color:#fff;padding:9px 18px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s" style-hover="background:none;color:#0D4A57">{{ tourNextLabel }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<sc-if value="{{ showFab }}">
+  <button onClick="{{ startTour }}" aria-label="Cómo usar esta vista" style="position:fixed;right:22px;bottom:{{ fabBottom }};z-index:70;width:52px;height:52px;border-radius:50%;border:none;background:#0D4A57;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -8px rgba(13,74,87,.55);transition:background .18s" style-hover="background:#17242A" data-noprint>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M8.4 8a3.6 3.6 0 1 1 5 3.3c-.9.5-1.5 1.3-1.5 2.3v.6"></path><line x1="12" y1="18.4" x2="12" y2="18.41"></line></svg>
+  </button>
+</sc-if>
+
+<sc-if value="{{ showBar }}">
+  <div data-m="compare-bar" style="position:fixed;left:0;right:0;bottom:0;z-index:60;background:#0D4A57;padding:16px clamp(20px,4vw,40px);animation:fadeUp .25s ease-out both" data-noprint>
+    <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#D4FBA1">{{ barCount }}</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ barItems }}" as="b" hint-placeholder-count="2">
+            <button onClick="{{ b.remove }}" style="display:inline-flex;align-items:center;gap:8px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:7px 12px 7px 14px;cursor:pointer">{{ b.title }}<span aria-hidden="true" style="font-size:13px;line-height:1;opacity:.8">✕</span></button>
+          </sc-for>
+        </div>
+      </div>
+      <div data-m="bar-actions" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <button onClick="{{ clearCompare }}" style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;color:#fff;background:none;border:1.5px solid rgba(255,255,255,.5);border-radius:999px;padding:10px 18px;cursor:pointer;transition:background .15s,color .15s" style-hover="background:#fff;color:#0D4A57">VACIAR</button>
+        <button onClick="{{ goCompare }}" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#8BC53F 0%,#D4FBA1 100%);background-size:180% 100%;background-position:0% 0%;color:#0D4A57;border:none;font-size:13px;font-weight:600;letter-spacing:.03em;padding:12px 24px;border-radius:999px;cursor:pointer;transition:background-position .35s ease" style-hover="background-position:100% 0%">{{ barCta }}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</sc-if>
+
+<footer style="background:#0D4A57;margin-top:0;padding:clamp(38px,4.4vw,54px) clamp(20px,4vw,40px) clamp(34px,4vw,46px)">
+    <div data-m="footer-row" style="max-width:1240px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:26px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img src="assets/logo-summa-footer.png" alt="SUMMA — Laboratorio de Investigación e Innovación en Educación para América Latina y el Caribe" style="height:72px;width:auto">
+        <span style="display:flex;flex-direction:column;justify-content:center;line-height:1.2;font-family:Lato,sans-serif;color:rgba(255,255,255,.9);padding-left:14px;border-left:1.5px solid rgba(255,255,255,.3);align-self:stretch">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase">Plataforma de</span>
+          <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
+        </span>
+      </div>
+    </div>
+    <div data-m="footer-col" style="display:flex;flex-direction:column;align-items:flex-end;gap:18px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a href="https://summaedu.org/contacto/" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;background:linear-gradient(90deg,#8BC53F 0%,#D4FBA1 100%);background-size:180% 100%;background-position:0% 0%;color:#0D4A57;border:1.5px solid transparent;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;text-decoration:none;transition:background-position .35s ease" style-hover="background-position:100% 0%">CONTÁCTANOS</a>
+        <a href="https://summaedu.org/trabaja-con-nosotros/" style="font-family:Lato,sans-serif;border:1.5px solid #fff;color:#fff;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;text-decoration:none;transition:background .15s,color .15s" style-hover="background:#fff;color:#0D4A57">TRABAJA CON NOSOTROS</a>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);padding-top:18px;margin-top:2px">
+        <a href="#" style="font-family:Lato,sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;color:#fff;border-bottom:1px solid transparent;transition:color .15s,border-color .15s" style-hover="color:#D4FBA1;border-color:#D4FBA1">Plataforma de Prácticas Educativas Efectivas →</a>
+      </div>
+      <div style="display:flex;gap:10px">
+        <a href="#" aria-label="LinkedIn" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.3c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9z"></path></svg>
+        </a>
+        <a href="#" aria-label="X" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.24 2H21l-6.55 7.48L22.5 22h-6.3l-4.93-6.44L5.6 22H2.84l7.02-8.02L1.5 2h6.46l4.46 5.9zm-.97 18h1.53L7.02 3.6H5.38z"></path></svg>
+        </a>
+        <a href="#" aria-label="YouTube" style="width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:border-color .15s,background .15s,color .15s" style-hover="background:#fff;border-color:#fff;color:#0D4A57">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.6-.46-5.33a2.78 2.78 0 0 0-1.95-1.96C18.86 4.25 12 4.25 12 4.25s-6.86 0-8.59.46A2.78 2.78 0 0 0 1.46 6.67C1 8.4 1 12 1 12s0 3.6.46 5.33a2.78 2.78 0 0 0 1.95 1.96c1.73.46 8.59.46 8.59.46s6.86 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96C23 15.6 23 12 23 12zM9.75 15.27V8.73L15.5 12z"></path></svg>
+        </a>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const DC = location.pathname.indexOf('.dc.html') > -1;
+function P(dc, plain){ return DC ? dc : plain; }
+
+const LINEAS = {
+  fin:{label:'Financiamiento progresivo', color:'#0D4A57', href:P('Financiamiento Progresivo.dc.html','financiamiento-progresivo.html')},
+  lec:{label:'Lectoescritura', color:'#4E7220', href:P('Lineas de Reforma.dc.html','lineas-de-reforma.html')}
+};
+
+const CASES = [
+  {id:'sep', linea:'fin', title:'Subvención Escolar Preferencial (SEP)', country:'Chile', region:'América del Sur',
+   years:'2008 – actualidad', start:2008, img:'assets/case-1.jpg', ready:true,
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   wise:['insumos','habilitantes'],
+   stat:'2008', statColor:'#0D4A57', statLabel:'año de entrada en vigencia',
+   tiles:[
+     {label:'Escala', value:'Nacional', hint:'Sistema subvencionado completo'},
+     {label:'Costo de implementación', value:'Medio', hint:'Fórmula sobre subvención vigente'},
+     {label:'Costo por estudiante', value:'USD 18', hint:'Estimación anual ilustrativa'},
+     {label:'Alcance', value:'Individual', hint:'Alumnos prioritarios y preferentes'}
+   ],
+   rows:[
+     {label:'Unidad de focalización', value:'Individual: alumnos prioritarios y preferentes del Registro Social de Hogares.'},
+     {label:'Libertad de uso', value:'Restringido a las cuatro áreas del Plan de Mejoramiento Educativo.'},
+     {label:'Respaldo legal', value:'Ley N°20.248 (2008), modificada en 2011 y 2015.'},
+     {label:'Evidencia de equidad', value:'Progresivo incluso a nivel de estudiante.'},
+     {label:'Evidencia de aprendizajes', value:'Efecto positivo mayor en escuelas más desaventajadas.'}
+   ],
+   scores:{escala:3, costo:2, costoEst:2, alcance:3, reciente:2008}},
+
+  {id:'fundeb', linea:'fin', title:'FUNDEB', country:'Brasil', region:'América del Sur',
+   years:'2007 / 2020', start:2007, img:'assets/case-2.jpg', ready:true,
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   wise:['insumos','habilitantes'],
+   stat:'2020', statColor:'#E8A33D', statLabel:'rango constitucional permanente',
+   tiles:[
+     {label:'Escala', value:'Federal', hint:'Todos los estados y municipios'},
+     {label:'Costo de implementación', value:'Bajo', hint:'Redistribución de impuestos existentes'},
+     {label:'Costo por estudiante', value:'USD 9', hint:'Estimación anual ilustrativa'},
+     {label:'Alcance', value:'Jurisdiccional', hint:'Estados bajo el mínimo por alumno'}
+   ],
+   rows:[
+     {label:'Unidad de focalización', value:'Jurisdiccional: estados bajo el mínimo de gasto por alumno.'},
+     {label:'Libertad de uso', value:'Al menos 70% en remuneraciones de profesionales de la educación.'},
+     {label:'Respaldo legal', value:'Enmienda Constitucional 108/2020 y Ley 14.113/2020.'},
+     {label:'Evidencia de equidad', value:'Complementación altamente progresiva, pero pequeña frente al gasto total.'},
+     {label:'Evidencia de aprendizajes', value:'Efectos positivos concentrados en los cuartiles bajos.'}
+   ],
+   scores:{escala:3, costo:3, costoEst:3, alcance:1, reciente:2007}},
+
+  {id:'title1', linea:'fin', title:'Title I, Part A', country:'Estados Unidos', region:'América del Norte',
+   years:'1965 / 2015', start:1965, img:'assets/case-3.jpg', ready:true,
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   wise:['insumos','habilitantes'],
+   stat:'1965', statColor:'#6C90A3', statLabel:'fondo federal más antiguo vigente',
+   tiles:[
+     {label:'Escala', value:'Federal', hint:'Distritos de alta pobreza'},
+     {label:'Costo de implementación', value:'Alto', hint:'Cuatro fórmulas y reporte federal'},
+     {label:'Costo por estudiante', value:'USD 26', hint:'Estimación anual ilustrativa'},
+     {label:'Alcance', value:'Institucional', hint:'Distritos y escuelas elegibles'}
+   ],
+   rows:[
+     {label:'Unidad de focalización', value:'Institucional: distritos y escuelas con alta concentración de pobreza.'},
+     {label:'Libertad de uso', value:'Schoolwide desde 40% de alumnos elegibles; si no, asistencia focalizada.'},
+     {label:'Respaldo legal', value:'ESEA (1965), reautorizada como ESSA (2015).'},
+     {label:'Evidencia de equidad', value:'Depende de la distribución final; las garantías históricas limitan la focalización.'},
+     {label:'Evidencia de aprendizajes', value:'Resultados mixtos, sensibles a la capacidad del distrito.'}
+   ],
+   scores:{escala:3, costo:1, costoEst:1, alcance:2, reciente:1965}},
+
+  {id:'pta', linea:'lec', title:'Programa Todos a Aprender (PTA)', country:'Colombia', region:'América del Sur',
+   years:'2012 – actualidad', start:2012, img:'assets/case-2.jpg', ready:true,
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   wise:['apoyo','practicas'],
+   stat:'+23%', statColor:'#6FA030', statLabel:'mejora en pruebas de lectura',
+   tiles:[
+     {label:'Escala', value:'Nacional', hint:'Escuelas focalizadas'},
+     {label:'Costo de implementación', value:'Medio', hint:'Red de tutores y materiales'},
+     {label:'Costo por estudiante', value:'USD 21', hint:'Estimación anual ilustrativa'},
+     {label:'Alcance', value:'Institucional', hint:'Sedes educativas priorizadas'}
+   ],
+   rows:[
+     {label:'Componentes', value:'Acompañamiento situado en la escuela, materiales y formación centrada en la práctica.'},
+     {label:'Modelo de acompañamiento', value:'Tutores que trabajan con docentes en el aula y en comunidades de aprendizaje.'},
+     {label:'Materiales', value:'Textos y guías alineados al currículo, entregados a estudiantes y docentes.'},
+     {label:'Componente comunitario', value:'Acotado: foco principal en la práctica docente.'},
+     {label:'Evidencia de aprendizajes', value:'Mejoras documentadas en lenguaje en escuelas participantes.'}
+   ],
+   scores:{escala:3, costo:2, costoEst:2, alcance:2, reciente:2012}},
+
+  {id:'peru', linea:'lec', title:'Estrategia Nacional de Comprensión Lectora', country:'Perú', region:'América del Sur',
+   years:'2014 – actualidad', start:2014, img:'assets/case-3.jpg', ready:true,
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   wise:['apoyo','practicas'],
+   stat:'1.200', statColor:'#E8A33D', statLabel:'escuelas rurales incorporadas',
+   tiles:[
+     {label:'Escala', value:'Focalizada', hint:'Rural y multigrado'},
+     {label:'Costo de implementación', value:'Bajo', hint:'Materiales y visitas periódicas'},
+     {label:'Costo por estudiante', value:'USD 14', hint:'Estimación anual ilustrativa'},
+     {label:'Alcance', value:'Territorial', hint:'Regiones con mayor brecha'}
+   ],
+   rows:[
+     {label:'Componentes', value:'Refuerzo de comprensión lectora en primaria con foco rural y multigrado.'},
+     {label:'Modelo de acompañamiento', value:'Especialistas regionales con visitas periódicas a la escuela.'},
+     {label:'Materiales', value:'Cuadernos de trabajo y bibliotecas de aula.'},
+     {label:'Componente comunitario', value:'Presente en zonas rurales mediante trabajo con familias.'},
+     {label:'Evidencia de aprendizajes', value:'Avances en la evaluación censal, con brechas rurales persistentes.'}
+   ],
+   scores:{escala:1, costo:3, costoEst:3, alcance:2, reciente:2014}},
+
+  {id:'guatemala', linea:'lec', title:'Programa Leamos Juntos', country:'Guatemala', region:'Centroamérica',
+   years:'2019 – actualidad', start:2019, img:'assets/case-1.jpg', ready:true,
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   wise:['apoyo','practicas'],
+   stat:'2019', statColor:'#0D4A57', statLabel:'año de lanzamiento',
+   tiles:[
+     {label:'Escala', value:'Focalizada', hint:'Escuelas rurales e indígenas'},
+     {label:'Costo de implementación', value:'Medio', hint:'Materiales bilingües y mentoría'},
+     {label:'Costo por estudiante', value:'USD 18', hint:'Estimación anual ilustrativa'},
+     {label:'Alcance', value:'Territorial', hint:'Comunidades de lengua maya'}
+   ],
+   rows:[
+     {label:'Componentes', value:'Alfabetización temprana con materiales bilingües y círculos de lectura.'},
+     {label:'Modelo de acompañamiento', value:'Formación docente continua con mentoría entre pares.'},
+     {label:'Materiales', value:'Materiales bilingües en cuatro idiomas mayas y español.'},
+     {label:'Componente comunitario', value:'Central: círculos de lectura liderados por familias y líderes locales.'},
+     {label:'Evidencia de aprendizajes', value:'Mejoras reportadas en comprensión lectora en escuelas participantes.'}
+   ],
+   scores:{escala:1, costo:2, costoEst:2, alcance:2, reciente:2019}}
+];
+
+const WISE = {
+  insumos:'Insumos y condiciones estructurales',
+  habilitantes:'Condiciones habilitantes',
+  apoyo:'Apoyo pedagógico',
+  practicas:'Prácticas de aula',
+  resultados:'Resultados'
+};
+
+const CRITERIOS = [
+  {value:'escala', label:'Escala', tile:'Escala'},
+  {value:'costo', label:'Costo de implementación', tile:'Costo de implementación'},
+  {value:'costoEst', label:'Costo por estudiante', tile:'Costo por estudiante'},
+  {value:'alcance', label:'Alcance', tile:'Alcance'}
+];
+
+const TOUR = [
+  {target:'[data-tour="filtros"]', title:'Filtra el listado',
+   text:'Selecciona la línea de reforma y el país para acotar los resultados. Al elegir una línea, los países disponibles se actualizan automáticamente.'},
+  {target:'[data-tour="modo"]', title:'Cambia a comparador',
+   text:'Este interruptor alterna entre el listado de casos y la vista de comparación lado a lado.'},
+  {target:'[data-tour="comparar"]', title:'Suma casos a la comparación',
+   text:'Marca “Comparar” en las tarjetas —hasta tres casos de una misma línea— y usa la barra inferior para abrir el comparador.'}
+];
+
+class Component extends DCLogic {
+  state = {
+    scrolled:false, mode:'lista',
+    fLinea:'todas', fPais:'todos', fSort:'linea',
+    compare:[], criterio:'escala',
+    tour:-1, rect:null
+  };
+
+  sihOffset(){
+    var sih = document.getElementById('sih');
+    return sih ? sih.offsetHeight : 0;
+  }
+  measure(){
+    const step = TOUR[this.state.tour];
+    if(!step) return;
+    const el = document.querySelector(step.target);
+    if(!el){ this.setState({rect:null}); return; }
+    const r = el.getBoundingClientRect();
+    const pad = 8;
+    const sihH = this.sihOffset();
+    this.setState({rect:{
+      left: Math.max(8, r.left - pad), top: Math.max(8, r.top - pad),
+      width: r.width + pad*2, height: r.height + pad*2
+    }});
+  }
+  goStep(i){
+    if(i < 0 || i >= TOUR.length){
+      this.setState({tour:-1, rect:null});
+      try{ localStorage.setItem('summa-casos-tour', '1'); }catch(e){}
+      return;
+    }
+    const self = this;
+    this.setState({tour:i, mode:'lista'}, function(){
+      const step = TOUR[i];
+      const el = document.querySelector(step.target);
+      if(el){
+        const r = el.getBoundingClientRect();
+        const sihH = self.sihOffset();
+        const topAdj = r.top - sihH;
+        if(topAdj < 120 || r.bottom - sihH > window.innerHeight - 120){
+          window.scrollTo({top: window.pageYOffset + topAdj - window.innerHeight/2 + r.height/2, behavior:'smooth'});
+          setTimeout(function(){ self.measure(); }, 420);
+          return;
+        }
+      }
+      self.measure();
+    });
+  }
+
+  componentDidMount(){
+    this.onScroll = () => {
+      const sc = window.scrollY > 8;
+      if(sc !== this.state.scrolled) this.setState({scrolled:sc});
+    };
+    window.addEventListener('scroll', this.onScroll, {passive:true});
+    this.onTourMove = () => { if(this.state.tour > -1) this.measure(); };
+    window.addEventListener('scroll', this.onTourMove, {passive:true});
+    window.addEventListener('resize', this.onTourMove);
+    this.onTourKey = (e) => {
+      if(this.state.tour < 0) return;
+      if(e.key === 'Escape') this.goStep(-1);
+      if(e.key === 'ArrowRight') this.goStep(this.state.tour + 1);
+      if(e.key === 'ArrowLeft') this.goStep(this.state.tour - 1);
+    };
+    window.addEventListener('keydown', this.onTourKey);
+    this.onScroll();
+    let seen = '1';
+    try{ seen = localStorage.getItem('summa-casos-tour'); }catch(e){}
+    if(!seen) setTimeout(() => this.goStep(0), 700);
+    const q = new URLSearchParams(location.search);
+    const patch = {};
+    if(q.get('vista') === 'comparador') patch.mode = 'comparador';
+    const pre = q.get('caso');
+    if(pre && this.byId(pre)){
+      patch.compare = [pre];
+    }
+    const prePais = q.get('pais');
+    if(prePais) patch.fPais = prePais;
+    if(Object.keys(patch).length) this.setState(patch);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('scroll', this.onTourMove);
+    window.removeEventListener('resize', this.onTourMove);
+    window.removeEventListener('keydown', this.onTourKey);
+  }
+
+  byId(id){ return CASES.filter(function(c){ return c.id === id; })[0]; }
+
+  toggle(id){
+    const c = this.byId(id);
+    let sel = this.state.compare.slice();
+    if(sel.indexOf(id) > -1){
+      sel = sel.filter(function(x){ return x !== id; });
+      this.setState({compare:sel});
+      return;
+    }
+    if(sel.length >= 3) sel = sel.slice(1);
+    sel.push(id);
+    this.setState({compare:sel});
+  }
+
+  renderVals(){
+    const self = this;
+    const s = this.state;
+
+    const paises = [];
+    CASES.forEach(function(c){ if(paises.indexOf(c.country) < 0) paises.push(c.country); });
+    const regiones = [];
+    CASES.forEach(function(c){ if(regiones.indexOf(c.region) < 0) regiones.push(c.region); });
+
+    let list = CASES.filter(function(c){
+      if(s.fLinea !== 'todas' && c.linea !== s.fLinea) return false;
+
+      if(s.fPais !== 'todos' && c.country !== s.fPais && c.region !== s.fPais) return false;
+      return true;
+    });
+    if(s.fSort === 'recientes') list = list.slice().sort(function(a,b){ return b.start - a.start; });
+    else if(s.fSort === 'antiguos') list = list.slice().sort(function(a,b){ return a.start - b.start; });
+    else if(s.fSort === 'pais') list = list.slice().sort(function(a,b){ return a.country.localeCompare(b.country); });
+
+    const chips = [];
+    if(s.fLinea !== 'todas') chips.push({label:LINEAS[s.fLinea].label, clear:function(){ self.setState({fLinea:'todas', fPais:'todos'}); }});
+    if(s.fPais !== 'todos') chips.push({label:s.fPais, clear:function(){ self.setState({fPais:'todos'}); }});
+
+    const cmpAll = CASES;
+    const selected = s.compare.slice();
+    const crit = CRITERIOS.filter(function(x){ return x.value === s.criterio; })[0];
+    const ordered = selected.map(function(id){ return self.byId(id); }).sort(function(a,b){
+      return (b.scores[s.criterio] || 0) - (a.scores[s.criterio] || 0);
+    });
+
+    return {
+      navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
+      countLabel: (s.mode === 'lista'
+        ? list.length + (list.length === 1 ? ' caso' : ' casos') + ' en ' + (s.fLinea === 'todas' ? 'todas las líneas de reforma' : LINEAS[s.fLinea].label.toLowerCase())
+        : 'Compara hasta tres casos de cualquier línea de reforma'),
+
+      modes: [['lista','Listado'],['comparador','Comparador']].map(function(m){
+        const on = s.mode === m[0];
+        return {
+          label:m[1], selected: on ? 'true' : 'false',
+          select:function(){ self.setState({mode:m[0]}); window.scrollTo({top:0, behavior:'smooth'}); },
+          style:"font-family:Lato,sans-serif;font-size:13px;font-weight:600;letter-spacing:.02em;border:none;padding:10px 22px;border-radius:999px;cursor:pointer;transition:background .18s,color .18s;" +
+            (on ? 'background:#0D4A57;color:#fff' : 'background:none;color:#4F6B72')
+        };
+      }),
+      isList: s.mode === 'lista',
+      isCompare: s.mode === 'comparador',
+
+      fLinea:s.fLinea, fPais:s.fPais, fSort:s.fSort,
+      optLinea: [{value:'todas', label:'Todas las líneas'}].concat(
+        Object.keys(LINEAS).map(function(k){ return {value:k, label:LINEAS[k].label}; })),
+      optPais: (function(){
+        var casesInLinea = s.fLinea === 'todas' ? CASES : CASES.filter(function(c){ return c.linea === s.fLinea; });
+        var pp = []; casesInLinea.forEach(function(c){ if(pp.indexOf(c.country) < 0) pp.push(c.country); });
+        var rr = []; casesInLinea.forEach(function(c){ if(rr.indexOf(c.region) < 0) rr.push(c.region); });
+        return [{value:'todos', label:'Todos los países'}]
+          .concat(pp.map(function(p){ return {value:p, label:p}; }))
+          .concat(rr.map(function(r){ return {value:r, label:'Región · ' + r}; }));
+      })(),
+      setLinea:function(e){
+        var newLinea = e.target.value;
+        var avail = newLinea === 'todas' ? paises
+          : CASES.filter(function(c){ return c.linea === newLinea; }).map(function(c){ return c.country; });
+        self.setState({fLinea:newLinea, fPais:avail.indexOf(s.fPais) > -1 ? s.fPais : 'todos'});
+      },
+      setPais:function(e){ self.setState({fPais:e.target.value}); },
+      setSort:function(e){ self.setState({fSort:e.target.value}); },
+
+      hasChips: chips.length > 0,
+      chips: chips,
+      clearAll:function(){ self.setState({fLinea:'todas', fPais:'todos'}); },
+      noResults: list.length === 0,
+
+      cards: list.map(function(c, ci){
+        const on = s.compare.indexOf(c.id) > -1;
+        return {
+          tourTag: ci === 0 ? 'comparar' : 'card',
+          linea:LINEAS[c.linea].label, country:c.country, region:c.region, title:c.title,
+          href:c.href, imgUrl:'url(' + c.img + ')',
+          stat:c.stat, statColor:c.statColor, statLabel:c.statLabel,
+          wise:c.wise.map(function(w){ return {label:WISE[w]}; }),
+          cta: 'Ver caso →',
+          ctaColor: '#0D4A57',
+          inCompare: on ? 'true' : 'false',
+          compareLabel: on ? '✓ Comparando' : '+ Comparar',
+          compareStyle:"font-family:Lato,sans-serif;font-size:12px;font-weight:600;padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;border:1.5px solid " +
+            (on ? '#8BC53F;background:#8BC53F;color:#17242A' : '#DCE3E1;background:#fff;color:#4F6B72'),
+          toggleCompare:function(){ self.toggle(c.id); }
+        };
+      }),
+
+      showBar: s.compare.length > 0 && s.mode === 'lista',
+      barCount: s.compare.length === 1 ? '1 caso seleccionado' : s.compare.length + ' casos seleccionados',
+      barCta: s.compare.length < 2 ? 'ELIGE OTRO CASO' : 'COMPARAR AHORA',
+      barItems: s.compare.map(function(id){
+        const c = self.byId(id);
+        return {title:c.title, remove:function(){ self.toggle(id); }};
+      }),
+      clearCompare:function(){ self.setState({compare:[]}); },
+      goCompare:function(){
+        if(s.compare.length < 2) return;
+        self.setState({mode:'comparador'});
+        window.scrollTo({top:0, behavior:'smooth'});
+      },
+
+      criterio:s.criterio, criterioLabel:crit.label,
+      criterioOpts: CRITERIOS.map(function(x){ return {value:x.value, label:x.label}; }),
+      setCriterio:function(e){ self.setState({criterio:e.target.value}); },
+
+      cmpPool: cmpAll.map(function(c){
+        const on = selected.indexOf(c.id) > -1;
+        return {
+          title:c.title, linea:LINEAS[c.linea].label, on: on ? 'true' : 'false', icon: on ? '✓' : '+',
+          toggle:function(){ self.toggle(c.id); },
+          style:"font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;padding:9px 16px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;border:1.5px solid " +
+            (on ? '#0D4A57;background:#0D4A57;color:#fff' : '#DCE3E1;background:#fff;color:#4F6B72')
+        };
+      }),
+      cmpEmpty: ordered.length < 2,
+      cmpEmptyTitle: ordered.length === 1
+        ? 'Agrega otro caso para comparar con ' + ordered[0].title
+        : 'Elige al menos dos casos para comparar',
+      cmpEmptyText: ordered.length === 1
+        ? 'Ya tienes un caso seleccionado. Elige uno o dos más de la misma línea de reforma en los botones de arriba.'
+        : 'Selecciónalos arriba o marca “Comparar” en las tarjetas del listado.',
+      cmpReady: ordered.length >= 2,
+      cmpCards: ordered.map(function(c, idx){
+        return {
+          title:c.title, country:c.country, years:LINEAS[c.linea].label, color:LINEAS[c.linea].color,
+          href:c.href, isTop: idx === 0,
+          cta: 'Ver caso completo →',
+          ctaColor: '#0D4A57',
+          remove:function(){ self.toggle(c.id); },
+          tiles: c.tiles.map(function(t){
+            const hot = t.label === crit.tile;
+            return {
+              label:t.label, value:t.value, hint:t.hint,
+              bg: hot ? '#EEF6E2' : '#F4F7F6',
+              labelColor: hot ? '#4E7220' : '#8CA0A5',
+              valueColor: hot ? '#4E7220' : '#0D4A57'
+            };
+          }),
+          rows:c.rows
+        };
+      }),
+
+      csvStyle: ordered.length < 2
+        ? "font-family:Lato,sans-serif;border:1.5px solid #ECF1EF;color:#B4C2C4;background:none;font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:not-allowed"
+        : "font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s",
+      exportCsv:function(){
+        if(ordered.length < 2) return;
+        const labels = ordered[0].rows.map(function(r){ return r.label; });
+        const head = ['Dimensión'].concat(ordered.map(function(c){ return c.title + ' (' + c.country + ')'; }));
+        const rows = [];
+        ordered[0].tiles.forEach(function(t, i){
+          rows.push([t.label].concat(ordered.map(function(c){ return c.tiles[i] ? c.tiles[i].value : ''; })));
+        });
+        labels.forEach(function(l, i){
+          rows.push([l].concat(ordered.map(function(c){ return c.rows[i] ? c.rows[i].value : ''; })));
+        });
+        const csv = [head].concat(rows).map(function(r){
+          return r.map(function(v){ return '"' + String(v).split('"').join('""') + '"'; }).join(',');
+        }).join('\n');
+        const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'comparacion-casos.csv';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 1000);
+      },
+      tourOn: s.tour > -1 && !!s.rect,
+      showFab: s.tour < 0,
+      fabBottom: (s.compare.length > 0 && s.mode === 'lista') ? '104px' : '22px',
+      startTour:function(){ self.goStep(0); },
+      endTour:function(){ self.goStep(-1); },
+      tourNext:function(){ self.goStep(s.tour + 1); },
+      tourPrev:function(){ self.goStep(s.tour - 1); },
+      tourNextLabel: s.tour >= TOUR.length - 1 ? 'Entendido' : 'Siguiente',
+      tourHasPrev: s.tour > 0,
+      tourTitle: TOUR[s.tour] ? TOUR[s.tour].title : '',
+      tourText: TOUR[s.tour] ? TOUR[s.tour].text : '',
+      tourCounter: 'Paso ' + (s.tour + 1) + ' de ' + TOUR.length,
+      tourDots: TOUR.map(function(t, i){ return {bg: i === s.tour ? '#8BC53F' : '#DCE3E1'}; }),
+      spot: s.rect ? {
+        left:s.rect.left + 'px', top:s.rect.top + 'px',
+        width:s.rect.width + 'px', height:s.rect.height + 'px'
+      } : {left:'-9999px', top:'0px', width:'0px', height:'0px'},
+      tip: (function(){
+        const r = s.rect;
+        if(!r) return {left:'50%', top:'50%', transform:'translate(-50%,-50%)'};
+        const below = r.top + r.height + 16;
+        const fitsBelow = below + 240 < window.innerHeight;
+        if(window.innerWidth < 700){
+          const topY = fitsBelow ? Math.min(below, window.innerHeight - 260) : Math.max(8, r.top - 16);
+          return {left:'16px', top: topY + 'px', transform: fitsBelow ? 'none' : 'translateY(-100%)'};
+        }
+        const winH = window.innerHeight || 768;
+        const rCenter = r.left + r.width / 2;
+        const tipLeft = Math.max(16, rCenter - 170);
+        const topBelow = Math.min(below, winH - 260);
+        return fitsBelow
+          ? {left:tipLeft + 'px', top:topBelow + 'px', transform:'none'}
+          : {left:tipLeft + 'px', top:Math.max(8, r.top - 16) + 'px', transform:'translateY(-100%)'};
+      })(),
+
+      resetCompare:function(){ self.setState({compare:[], criterio:'escala'}); }
+    };
+  }
+}
+</script>
+</body>
+</html>
