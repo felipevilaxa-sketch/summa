@@ -89,7 +89,7 @@
   <section id="matriz" style="margin:0 0 clamp(52px,6.5vw,82px);scroll-margin-top:110px">
     <div style="margin-bottom:4px">
       <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Criterios por caso</div>
-      <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:560px">Qué criterio aplica a cada reforma</h2>
+      <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:560px">Resumen de Evaluación de Casos</h2>
     </div>
 
     <p data-m="cds-inst" style="font-family:Lato,sans-serif;font-size:13.5px;color:#4F6B72;margin:20px 0 0">Selecciona primero la línea de reforma y luego el caso.</p>
@@ -111,46 +111,113 @@
       </div>
     </div>
 
-    <div data-m="table-scroll" style="border:1px solid #DCE3E1;border-radius:16px;overflow-x:auto;-webkit-overflow-scrolling:touch">
-      <div role="table" style="display:grid;grid-template-columns:210px {{ colGridTemplate }};min-width:{{ tableMin }}">
-        <div role="row" style="display:contents">
-          <div role="columnheader" style="text-align:left;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#4F6B72;padding:20px 18px 14px 22px;border-bottom:1.5px solid #DCE3E1;width:210px;background:#fff;position:sticky;left:0;z-index:2">Criterio</div>
-          <sc-for list="{{ cols }}" as="c" hint-placeholder-count="3">
-            <div role="columnheader" style="text-align:left;padding:20px 18px 14px;border-bottom:1.5px solid #DCE3E1;border-left:1px solid #F0F4F3;min-width:190px">
-              <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:600;color:#8CA0A5;margin-bottom:5px">{{ c.country }}</span>
-              <a href="{{ c.href }}" style="font-family:Lato,sans-serif;font-size:14.5px;font-weight:700;color:#0D4A57;line-height:1.3;text-decoration:none">{{ c.title }}</a>
+    <!-- VISTA RESUMEN -->
+    <sc-if value="{{ showSummary }}">
+      <div style="border:1px solid #DCE3E1;border-radius:16px;overflow:hidden">
+        <!-- Encabezado -->
+        <div style="display:grid;grid-template-columns:minmax(200px,1.4fr) minmax(140px,.9fr) 110px 110px 110px 150px;background:#0D4A57">
+          <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:16px 20px">Caso</div>
+          <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:16px 12px">Mecanismo</div>
+          <div style="padding:16px 12px">
+            <div style="display:flex;align-items:center;justify-content:center;gap:5px">
+              <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75)">{{ e1Label }}</span>
+              <button onClick="{{ sortE1 }}" style="{{ sortE1BtnStyle }}">{{ sortE1Icon }}</button>
             </div>
-          </sc-for>
+          </div>
+          <div style="padding:16px 12px">
+            <div style="display:flex;align-items:center;justify-content:center;gap:5px">
+              <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75)">{{ e2Label }}</span>
+              <button onClick="{{ sortE2 }}" style="{{ sortE2BtnStyle }}">{{ sortE2Icon }}</button>
+            </div>
+          </div>
+          <div style="padding:16px 12px">
+            <div style="display:flex;align-items:center;justify-content:center;gap:5px">
+              <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75)">{{ e3Label }}</span>
+              <button onClick="{{ sortE3 }}" style="{{ sortE3BtnStyle }}">{{ sortE3Icon }}</button>
+            </div>
+          </div>
+          <div style="padding:16px 12px"></div>
         </div>
-        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
-          <div role="row" style="display:contents">
-            <div role="rowheader" style="text-align:left;padding:16px 18px 16px 22px;border-bottom:1px solid #F0F4F3;background:{{ r.rowBg }};position:sticky;left:0;z-index:1">
-              <sc-if value="{{ r.isGroup }}" hint-placeholder-val="{{ false }}">
-                <span style="display:block;font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:{{ r.groupColor }}">{{ r.group }}</span>
-              </sc-if>
-              <span style="display:block;font-family:Lato,sans-serif;font-size:13.5px;font-weight:700;color:#17242A;line-height:1.35;margin-top:{{ r.nameTop }}">{{ r.name }}</span>
-              <button onClick="{{ r.toggle }}" aria-expanded="{{ r.open }}" style="display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-family:Lato,sans-serif;font-size:11.5px;font-weight:600;color:#4F6B72;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline" data-noprint>{{ r.defLabel }}</button>
-              <sc-if value="{{ r.open }}">
-                <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:8px;padding-left:10px;border-left:2px solid #8BC53F;animation:fadeUp .24s ease-out both">{{ r.definition }}</span>
+        <!-- Filas -->
+        <sc-for list="{{ summaryRows }}" as="sr" hint-placeholder-count="3">
+          <div style="{{ sr.rowGridStyle }}">
+            <div style="padding:18px 20px;border-bottom:1px solid #F0F4F3;vertical-align:middle">
+              <div style="font-family:Lato,sans-serif;font-size:14px;font-weight:700;color:#17242A;line-height:1.3">{{ sr.caseTitle }}</div>
+              <div style="font-family:Lato,sans-serif;font-size:12px;color:#8CA0A5;margin-top:3px">{{ sr.country }}</div>
+            </div>
+            <div style="padding:18px 12px;border-bottom:1px solid #F0F4F3;font-family:Lato,sans-serif;font-size:13px;color:#516268;line-height:1.4;display:flex;align-items:center">{{ sr.mecanismo }}</div>
+            <div style="padding:18px 12px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:center">
+              <span style="{{ sr.e1ChipStyle }}">{{ sr.e1Label }}</span>
+            </div>
+            <div style="padding:18px 12px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:center">
+              <span style="{{ sr.e2ChipStyle }}">{{ sr.e2Label }}</span>
+            </div>
+            <div style="padding:18px 12px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:center">
+              <span style="{{ sr.e3ChipStyle }}">{{ sr.e3Label }}</span>
+            </div>
+            <div style="padding:18px 14px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:flex-end">
+              <sc-if value="{{ sr.hasVerDetalle }}">
+                <button onClick="{{ sr.verDetalle }}" style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:#0D4A57;background:none;border:1.5px solid #0D4A57;padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">Ver detalle →</button>
               </sc-if>
             </div>
-            <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3">
-              <div role="cell" style="padding:16px 18px;border-bottom:1px solid #F0F4F3;border-left:1px solid #F0F4F3;background:{{ c.bg }}">
-                <span style="display:inline-flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:{{ c.color }};background:{{ c.chipBg }};padding:5px 11px;border-radius:6px;line-height:1.3">{{ c.value }}</span>
-                <sc-if value="{{ c.hasNote }}">
-                  <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:7px">{{ c.note }}</span>
-                </sc-if>
-              </div>
-            </sc-for>
           </div>
         </sc-for>
       </div>
-    </div>
+      <!-- Leyenda -->
+      <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:14px;padding:0 4px">
+        <span style="font-family:Lato,sans-serif;font-size:12px;color:#8CA0A5;font-weight:600">Nivel de evidencia:</span>
+        <span style="display:inline-flex;align-items:center;gap:5px;font-family:Lato,sans-serif;font-size:12px;font-weight:700;color:#4E7220;background:#EEF6E2;padding:4px 10px;border-radius:6px">Sí · 2 Robusta</span>
+        <span style="display:inline-flex;align-items:center;gap:5px;font-family:Lato,sans-serif;font-size:12px;font-weight:700;color:#8A5C14;background:#FBF0DF;padding:4px 10px;border-radius:6px">Parcial · 1</span>
+        <span style="display:inline-flex;align-items:center;gap:5px;font-family:Lato,sans-serif;font-size:12px;font-weight:700;color:#9A4630;background:#F6E2DC;padding:4px 10px;border-radius:6px">No · 0</span>
+      </div>
+    </sc-if>
 
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px">
-      <p style="font-size:12.5px;color:#4F6B72;margin:0;max-width:560px">Cada caso nuevo de la línea se suma como una columna más. Los criterios sin aplicación en la línea se marcan como “No aplica”.</p>
-      <button onClick="{{ exportCsv }}" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap" style-hover="background:#0D4A57;color:#fff" data-noprint>EXPORTAR CSV</button>
-    </div>
+    <!-- VISTA DETALLE -->
+    <sc-if value="{{ showDetail }}">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:20px" data-noprint>
+        <button onClick="{{ goBack }}" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#0D4A57;background:none;border:1.5px solid #DCE3E1;padding:10px 18px;border-radius:999px;cursor:pointer;transition:border-color .15s,background .15s" style-hover="border-color:#0D4A57;background:#EAF1F2">← Volver al resumen</button>
+        <a href="{{ detailCaseHref }}" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#fff;background:#0D4A57;border:1.5px solid #0D4A57;padding:10px 18px;border-radius:999px;text-decoration:none;transition:background .15s,border-color .15s" style-hover="background:#6FA030;border-color:#6FA030">Ver caso completo →</a>
+      </div>
+      <div data-m="table-scroll" style="border:1px solid #DCE3E1;border-radius:16px;overflow-x:auto;-webkit-overflow-scrolling:touch">
+        <div role="table" style="display:grid;grid-template-columns:210px {{ colGridTemplate }};min-width:{{ tableMin }}">
+          <div role="row" style="display:contents">
+            <div role="columnheader" style="text-align:left;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#4F6B72;padding:20px 18px 14px 22px;border-bottom:1.5px solid #DCE3E1;width:210px;background:#fff;position:sticky;left:0;z-index:2">Criterio</div>
+            <sc-for list="{{ cols }}" as="c" hint-placeholder-count="3">
+              <div role="columnheader" style="text-align:left;padding:20px 18px 14px;border-bottom:1.5px solid #DCE3E1;border-left:1px solid #F0F4F3;min-width:190px">
+                <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:600;color:#8CA0A5;margin-bottom:5px">{{ c.country }}</span>
+                <a href="{{ c.href }}" style="font-family:Lato,sans-serif;font-size:14.5px;font-weight:700;color:#0D4A57;line-height:1.3;text-decoration:none">{{ c.title }}</a>
+              </div>
+            </sc-for>
+          </div>
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
+            <div role="row" style="display:contents">
+              <div role="rowheader" style="text-align:left;padding:16px 18px 16px 22px;border-bottom:1px solid #F0F4F3;background:{{ r.rowBg }};position:sticky;left:0;z-index:1">
+                <sc-if value="{{ r.isGroup }}" hint-placeholder-val="{{ false }}">
+                  <span style="display:block;font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:{{ r.groupColor }}">{{ r.group }}</span>
+                </sc-if>
+                <span style="display:block;font-family:Lato,sans-serif;font-size:13.5px;font-weight:700;color:#17242A;line-height:1.35;margin-top:{{ r.nameTop }}">{{ r.name }}</span>
+                <button onClick="{{ r.toggle }}" aria-expanded="{{ r.open }}" style="display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-family:Lato,sans-serif;font-size:11.5px;font-weight:600;color:#4F6B72;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline" data-noprint>{{ r.defLabel }}</button>
+                <sc-if value="{{ r.open }}">
+                  <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:8px;padding-left:10px;border-left:2px solid #8BC53F;animation:fadeUp .24s ease-out both">{{ r.definition }}</span>
+                </sc-if>
+              </div>
+              <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3">
+                <div role="cell" style="padding:16px 18px;border-bottom:1px solid #F0F4F3;border-left:1px solid #F0F4F3;background:{{ c.bg }}">
+                  <span style="display:inline-flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:{{ c.color }};background:{{ c.chipBg }};padding:5px 11px;border-radius:6px;line-height:1.3">{{ c.value }}</span>
+                  <sc-if value="{{ c.hasNote }}">
+                    <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:7px">{{ c.note }}</span>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px">
+        <p style="font-size:12.5px;color:#4F6B72;margin:0;max-width:560px">Cada caso nuevo de la línea se suma como una columna más. Los criterios sin aplicación en la línea se marcan como "No aplica".</p>
+        <button onClick="{{ exportCsv }}" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap" style-hover="background:#0D4A57;color:#fff" data-noprint>EXPORTAR CSV</button>
+      </div>
+    </sc-if>
   </section>
 
   <section style="margin:0 0 clamp(52px,6.5vw,82px)">
@@ -239,11 +306,9 @@ const LINEAS = [
    intro:'En esta línea la elegibilidad exige intervenir en más de una dimensión —formación docente, materiales y acompañamiento— y cubrir al menos los primeros grados de primaria.'}
 ];
 
-/* Estructura y vocabulario de la ficha de registro (hojas Ficha_Financiamiento
-   y Ficha_Alfabetización). Cada caso nuevo se agrega aquí: la tabla suma una
-   columna automáticamente. */
 const CASES = [
   {id:'sep', linea:'fin', title:'Subvención Escolar Preferencial (SEP)', country:'Chile', state:'Publicado',
+   mecanismo:'Subvención por alumno vulnerable',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
      anio:{value:'2008', neutral:true},
@@ -263,6 +328,7 @@ const CASES = [
      elegibilidad:{value:'Elegible'}
    }},
   {id:'fundeb', linea:'fin', title:'FUNDEB', country:'Brasil', state:'Publicado',
+   mecanismo:'Fondo redistributivo federal',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
      anio:{value:'2007', neutral:true},
@@ -282,6 +348,7 @@ const CASES = [
      elegibilidad:{value:'Elegible'}
    }},
   {id:'title1', linea:'fin', title:'Title I, Part A', country:'Estados Unidos', state:'Publicado',
+   mecanismo:'Focalización federal por pobreza',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
      anio:{value:'1965', neutral:true},
@@ -302,6 +369,7 @@ const CASES = [
    }},
 
   {id:'pta', linea:'lec', title:'Programa Todos a Aprender (PTA)', country:'Colombia', state:'Publicado',
+   mecanismo:'Acompañamiento docente',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
      anio:{value:'2012', neutral:true},
@@ -321,6 +389,7 @@ const CASES = [
      elegibilidad:{value:'Elegible'}
    }},
   {id:'peru', linea:'lec', title:'Estrategia Nacional de Comprensión Lectora', country:'Perú', state:'Publicado',
+   mecanismo:'Estrategia curricular focalizada',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
      anio:{value:'2014', neutral:true},
@@ -340,6 +409,7 @@ const CASES = [
      elegibilidad:{value:'Elegible'}
    }},
   {id:'guatemala', linea:'lec', title:'Programa Leamos Juntos', country:'Guatemala', state:'Publicado',
+   mecanismo:'Programa focalizado multigrado',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
      anio:{value:'2019', neutral:true},
@@ -422,7 +492,7 @@ const POSITIVE = ['Sí','Elegible','Sistémico','Nacional','Vigente','Rediseñad
 const PARTIAL = ['Parcial','Revisar','Focalizado a escala significativa','Discontinuada','Programa'];
 
 class Component extends DCLogic {
-  state = {scrolled:false, linea:'fin', caso:CASES.filter(function(c){return c.linea==='fin';})[0].id, open:{}};
+  state = {scrolled:false, linea:'fin', caso:CASES.filter(function(c){return c.linea==='fin';})[0].id, open:{}, view:'summary', sortCol:null};
 
   componentDidMount(){
     this.onScroll = () => {
@@ -438,7 +508,7 @@ class Component extends DCLogic {
     const l = caso ? caso.linea : q.get('linea');
     if(l && validL.indexOf(l) > -1){
       const self = this;
-      this.setState({linea:l, caso: caso ? caso.id : 'todos'}, function(){
+      this.setState({linea:l, caso: caso ? caso.id : CASES.filter(function(c){return c.linea===l;})[0].id}, function(){
         const el = document.getElementById('matriz');
         if(el) setTimeout(function(){
           window.scrollTo({top: el.getBoundingClientRect().top + window.pageYOffset - 100, behavior:'smooth'});
@@ -452,9 +522,7 @@ class Component extends DCLogic {
     const s = this.state, self = this;
     const linea = LINEAS.filter(function(x){ return x.id === s.linea; })[0];
     const lineaCases = CASES.filter(function(c){ return c.linea === s.linea; });
-    const cases = s.caso === 'todos'
-      ? lineaCases
-      : lineaCases.filter(function(c){ return c.id === s.caso; });
+    const cases = lineaCases.filter(function(c){ return c.id === s.caso; });
 
     function chip(cell, rowId){
       if(!cell) return {label:'—', color:'#4F6B72', chipBg:'#F0F4F3'};
@@ -469,6 +537,42 @@ class Component extends DCLogic {
       return Object.assign(base, {color:'#0D4A57', chipBg:'#EAF1F2'});
     }
 
+    function dotStyle(val){
+      if(val === '2') return {label:'Sí', color:'#4E7220', bg:'#EEF6E2'};
+      if(val === '1') return {label:'Parcial', color:'#8A5C14', bg:'#FBF0DF'};
+      return {label:'No', color:'#9A4630', bg:'#F6E2DC'};
+    }
+    function sortWeight(val){ return val === '2' ? 0 : val === '1' ? 1 : 2; }
+
+    var sortCol = s.sortCol;
+    var summaryBase = lineaCases.filter(function(c){ return !s.caso || s.caso === c.id; });
+    if(sortCol){
+      summaryBase = summaryBase.slice().sort(function(a,b){
+        return sortWeight(a.v[sortCol].value) - sortWeight(b.v[sortCol].value);
+      });
+    }
+    var GRID = 'display:grid;grid-template-columns:minmax(200px,1.4fr) minmax(140px,.9fr) 110px 110px 110px 150px;border-bottom:1px solid #F0F4F3';
+    var summaryRows = summaryBase.map(function(c){
+      var d1 = dotStyle(c.v.e1.value), d2 = dotStyle(c.v.e2.value), d3 = dotStyle(c.v.e3.value);
+      var qualifies = c.v.e1.value === '2' && c.v.e2.value === '2' && (c.v.e3.value === '2' || c.v.e3.value === '1');
+      var interactive = c.id === 'sep';
+      var chipBase = 'font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:6px;line-height:1.3;';
+      return {
+        rowGridStyle: GRID,
+        caseTitle: c.title, country: c.country, mecanismo: c.mecanismo || '',
+        e1Label: d1.label, e1ChipStyle: chipBase + 'color:' + d1.color + ';background:' + d1.bg,
+        e2Label: d2.label, e2ChipStyle: chipBase + 'color:' + d2.color + ';background:' + d2.bg,
+        e3Label: d3.label, e3ChipStyle: chipBase + 'color:' + d3.color + ';background:' + d3.bg,
+        hasVerDetalle: qualifies && interactive,
+        verDetalle: function(){ self.setState({view:'detail'}); }
+      };
+    });
+
+    var sortBtnBase = 'background:none;border:none;cursor:pointer;padding:2px 3px;line-height:1;font-size:13px;border-radius:3px;transition:color .15s;';
+    var e1Names = {fin:'Equidad', lec:'Aprendizajes'};
+    var e2Names = {fin:'Resultados', lec:'Acceso'};
+    var e3Names = {fin:'Justicia', lec:'Equidad'};
+
     return {
       navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
 
@@ -476,7 +580,7 @@ class Component extends DCLogic {
         const on = s.linea === l.id;
         return {
           label:l.label, selected: on ? 'true' : 'false',
-          select:function(){ var fc=CASES.filter(function(c){return c.linea===l.id;})[0]; self.setState({linea:l.id, caso:fc?fc.id:'', open:{}}); },
+          select:function(){ var fc=CASES.filter(function(c){return c.linea===l.id;})[0]; self.setState({linea:l.id, caso:fc?fc.id:'', open:{}, view:'summary', sortCol:null}); },
           style:"font-family:Lato,sans-serif;font-size:clamp(14px,1.5vw,17px);font-weight:700;background:none;border:none;padding:16px 2px;cursor:pointer;transition:all .15s;border-bottom:3px solid " +
             (on ? '#8BC53F' : 'transparent') + ';color:' + (on ? '#0D4A57' : '#7C8B8D')
         };
@@ -486,7 +590,7 @@ class Component extends DCLogic {
         const on = s.caso === o.id;
         return {
           label:o.label, pressed: on ? 'true' : 'false',
-          select:function(){ self.setState({caso:o.id}); },
+          select:function(){ self.setState({caso:o.id, view:'summary'}); },
           style:"font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;padding:8px 16px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;border:1.5px solid " +
             (on ? '#0D4A57;background:#0D4A57;color:#fff' : '#DCE3E1;background:#fff;color:#4F6B72')
         };
@@ -494,6 +598,27 @@ class Component extends DCLogic {
       lineaIntro: linea.intro,
       tableMin: (210 + cases.length * 215) + 'px',
       colGridTemplate: 'repeat(' + cases.length + ',minmax(190px,1fr))',
+
+      showSummary: s.view === 'summary',
+      showDetail: s.view === 'detail',
+
+      e1Label: e1Names[s.linea] || 'Equidad',
+      e2Label: e2Names[s.linea] || 'Resultados',
+      e3Label: e3Names[s.linea] || 'Justicia',
+
+      sortE1: function(){ self.setState({sortCol: s.sortCol === 'e1' ? null : 'e1'}); },
+      sortE2: function(){ self.setState({sortCol: s.sortCol === 'e2' ? null : 'e2'}); },
+      sortE3: function(){ self.setState({sortCol: s.sortCol === 'e3' ? null : 'e3'}); },
+      sortE1BtnStyle: sortBtnBase + 'color:' + (s.sortCol === 'e1' ? '#8BC53F' : 'rgba(255,255,255,.45)'),
+      sortE2BtnStyle: sortBtnBase + 'color:' + (s.sortCol === 'e2' ? '#8BC53F' : 'rgba(255,255,255,.45)'),
+      sortE3BtnStyle: sortBtnBase + 'color:' + (s.sortCol === 'e3' ? '#8BC53F' : 'rgba(255,255,255,.45)'),
+      sortE1Icon: s.sortCol === 'e1' ? '↑' : '⇅',
+      sortE2Icon: s.sortCol === 'e2' ? '↑' : '⇅',
+      sortE3Icon: s.sortCol === 'e3' ? '↑' : '⇅',
+      summaryRows: summaryRows,
+
+      goBack: function(){ self.setState({view:'summary'}); },
+      detailCaseHref: (lineaCases.filter(function(c){ return c.id===s.caso; })[0] || {}).href || '',
 
       cols: cases.map(function(c){
         return {title:c.title, country:c.country, href:c.href};
