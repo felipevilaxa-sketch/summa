@@ -492,7 +492,7 @@ const POSITIVE = ['Sí','Elegible','Sistémico','Nacional','Vigente','Rediseñad
 const PARTIAL = ['Parcial','Revisar','Focalizado a escala significativa','Discontinuada','Programa'];
 
 class Component extends DCLogic {
-  state = {scrolled:false, linea:'fin', caso:CASES.filter(function(c){return c.linea==='fin';})[0].id, open:{}, view:'summary', sortCol:null};
+  state = {scrolled:false, linea:'fin', caso:'', open:{}, view:'summary', sortCol:null};
 
   componentDidMount(){
     this.onScroll = () => {
@@ -508,7 +508,7 @@ class Component extends DCLogic {
     const l = caso ? caso.linea : q.get('linea');
     if(l && validL.indexOf(l) > -1){
       const self = this;
-      this.setState({linea:l, caso: caso ? caso.id : CASES.filter(function(c){return c.linea===l;})[0].id}, function(){
+      this.setState({linea:l, caso: caso ? caso.id : ''}, function(){
         const el = document.getElementById('matriz');
         if(el) setTimeout(function(){
           window.scrollTo({top: el.getBoundingClientRect().top + window.pageYOffset - 100, behavior:'smooth'});
@@ -522,7 +522,7 @@ class Component extends DCLogic {
     const s = this.state, self = this;
     const linea = LINEAS.filter(function(x){ return x.id === s.linea; })[0];
     const lineaCases = CASES.filter(function(c){ return c.linea === s.linea; });
-    const cases = lineaCases.filter(function(c){ return c.id === s.caso; });
+    const cases = s.caso ? lineaCases.filter(function(c){ return c.id === s.caso; }) : lineaCases;
 
     function chip(cell, rowId){
       if(!cell) return {label:'—', color:'#4F6B72', chipBg:'#F0F4F3'};
@@ -545,7 +545,7 @@ class Component extends DCLogic {
     function sortWeight(val){ return val === '2' ? 0 : val === '1' ? 1 : 2; }
 
     var sortCol = s.sortCol;
-    var summaryBase = lineaCases.filter(function(c){ return !s.caso || s.caso === c.id; });
+    var summaryBase = s.caso ? lineaCases.filter(function(c){ return c.id === s.caso; }) : lineaCases;
     if(sortCol){
       summaryBase = summaryBase.slice().sort(function(a,b){
         return sortWeight(a.v[sortCol].value) - sortWeight(b.v[sortCol].value);
@@ -564,7 +564,7 @@ class Component extends DCLogic {
         e2Label: d2.label, e2ChipStyle: chipBase + 'color:' + d2.color + ';background:' + d2.bg,
         e3Label: d3.label, e3ChipStyle: chipBase + 'color:' + d3.color + ';background:' + d3.bg,
         hasVerDetalle: qualifies && interactive,
-        verDetalle: function(){ self.setState({view:'detail'}); }
+        verDetalle: function(){ self.setState({view:'detail', caso:c.id}); }
       };
     });
 

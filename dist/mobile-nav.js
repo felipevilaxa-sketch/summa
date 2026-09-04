@@ -465,13 +465,20 @@
 
         function buildDtCasoOpts(btns) {
           while (casosSelDt.options.length > 0) casosSelDt.remove(0);
+          /* Placeholder */
+          var ph = document.createElement('option');
+          ph.value = '__ph'; ph.disabled = true;
+          ph.textContent = 'Selecciona un caso';
+          casosSelDt.appendChild(ph);
+          var anyPressed = false;
           btns.forEach(function(btn, i) {
             var opt = document.createElement('option');
             opt.value = i;
             opt.textContent = btn.textContent.trim();
-            if (btn.getAttribute('aria-pressed') === 'true') opt.selected = true;
+            if (btn.getAttribute('aria-pressed') === 'true') { opt.selected = true; anyPressed = true; }
             casosSelDt.appendChild(opt);
           });
+          if (!anyPressed) casosSelDt.value = '__ph';
           activeDtBtns = btns;
         }
         buildDtCasoOpts(activeDtBtns);
@@ -484,7 +491,7 @@
         casoOuterDt.appendChild(casosSelDt);
         casoOuterDt.appendChild(chevDt);
 
-        /* Cuando cambia la línea, reconstruir opciones de casos */
+        /* Cuando cambia la línea, reconstruir opciones de casos y resetear placeholder */
         var lineaSelDt = w1.querySelector('select');
         if (lineaSelDt) {
           lineaSelDt.addEventListener('change', function() {
