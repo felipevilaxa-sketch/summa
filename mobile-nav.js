@@ -461,24 +461,17 @@
         chevDt.innerHTML = CHEVRON_SVG;
         chevDt.style.cssText = 'position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex;align-items:center';
 
-        var activeDtBtns = casosBtns.filter(function(b){ return b.textContent.trim() !== 'Todos los casos'; });
+        var activeDtBtns = casosBtns;
 
         function buildDtCasoOpts(btns) {
           while (casosSelDt.options.length > 0) casosSelDt.remove(0);
-          /* Placeholder */
-          var ph = document.createElement('option');
-          ph.value = '__ph'; ph.disabled = true;
-          ph.textContent = 'Selecciona un caso';
-          casosSelDt.appendChild(ph);
-          var anyPressed = false;
           btns.forEach(function(btn, i) {
             var opt = document.createElement('option');
             opt.value = i;
             opt.textContent = btn.textContent.trim();
-            if (btn.getAttribute('aria-pressed') === 'true') { opt.selected = true; anyPressed = true; }
+            if (btn.getAttribute('aria-pressed') === 'true') opt.selected = true;
             casosSelDt.appendChild(opt);
           });
-          if (!anyPressed) casosSelDt.value = '__ph';
           activeDtBtns = btns;
         }
         buildDtCasoOpts(activeDtBtns);
@@ -496,8 +489,7 @@
         if (lineaSelDt) {
           lineaSelDt.addEventListener('change', function() {
             setTimeout(function() {
-              var newBtns = Array.from(casosEl.querySelectorAll('button'))
-                .filter(function(b){ return b.textContent.trim() !== 'Todos los casos'; });
+              var newBtns = Array.from(casosEl.querySelectorAll('button'));
               buildDtCasoOpts(newBtns);
               updateDtCaseHeader();
               addDtCellBorders();

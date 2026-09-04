@@ -585,7 +585,7 @@ class Component extends DCLogic {
             (on ? '#8BC53F' : 'transparent') + ';color:' + (on ? '#0D4A57' : '#7C8B8D')
         };
       }),
-      casoChips: lineaCases.map(function(c){ return {id:c.id, label:c.title}; })
+      casoChips: [{id:'', label:'Todos los casos'}].concat(lineaCases.map(function(c){ return {id:c.id, label:c.title}; }))
       .map(function(o){
         const on = s.caso === o.id;
         return {
