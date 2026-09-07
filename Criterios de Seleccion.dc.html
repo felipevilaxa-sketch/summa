@@ -22,6 +22,8 @@
   @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
   @media print{[data-noprint]{display:none !important}}
   [data-m="cds-linea-intro"]{display:none!important}
+  @media(max-width:900px){[data-m="summary-desktop"]{display:none!important}}
+  @media(min-width:901px){[data-m="summary-mobile"]{display:none!important}}
 </style>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#0D4A57"/><g fill="none" stroke="#8BC53F" stroke-width="5" stroke-linecap="round"><path d="M40 60l10 10 22-24"/><circle cx="60" cy="60" r="26"/></g></svg></template>
 </helmet>
@@ -113,7 +115,7 @@
 
     <!-- VISTA RESUMEN -->
     <sc-if value="{{ showSummary }}">
-      <div style="border:1px solid #DCE3E1;border-radius:16px;overflow:hidden">
+      <div data-m="summary-desktop" style="border:1px solid #DCE3E1;border-radius:16px;overflow:hidden">
         <!-- Encabezado -->
         <div style="display:grid;grid-template-columns:minmax(200px,1.4fr) minmax(140px,.9fr) 110px 110px 110px 150px;background:#0D4A57">
           <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:16px 20px">Caso</div>
@@ -163,6 +165,43 @@
           </div>
         </sc-for>
       </div>
+      <!-- CARDS MOBILE -->
+      <div data-m="summary-mobile">
+        <sc-for list="{{ summaryRows }}" as="sr" hint-placeholder-count="3">
+          <div style="border:1px solid #DCE3E1;border-radius:16px;padding:18px 20px;margin-bottom:12px">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #F0F4F3">
+              <div>
+                <div style="font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:#17242A;line-height:1.3">{{ sr.caseTitle }}</div>
+                <div style="font-family:Lato,sans-serif;font-size:12px;color:#8CA0A5;margin-top:3px">{{ sr.country }}</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
+              <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;min-width:82px;flex-shrink:0">Mecanismo</span>
+              <span style="font-family:Lato,sans-serif;font-size:13px;color:#516268;line-height:1.4">{{ sr.mecanismo }}</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:4px">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5">{{ e1Label }}</span>
+                <span style="{{ sr.e1ChipStyle }}">{{ sr.e1Label }}</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5">{{ e2Label }}</span>
+                <span style="{{ sr.e2ChipStyle }}">{{ sr.e2Label }}</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5">{{ e3Label }}</span>
+                <span style="{{ sr.e3ChipStyle }}">{{ sr.e3Label }}</span>
+              </div>
+            </div>
+            <sc-if value="{{ sr.hasVerDetalle }}">
+              <div style="margin-top:14px;padding-top:12px;border-top:1px solid #F0F4F3">
+                <button onClick="{{ sr.verDetalle }}" style="width:100%;font-family:Lato,sans-serif;font-size:13.5px;font-weight:700;color:#0D4A57;background:none;border:1.5px solid #0D4A57;padding:11px 18px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="background:#0D4A57;color:#fff">Ver detalle →</button>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+
       <!-- Leyenda -->
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:14px;padding:0 4px">
         <span style="font-family:Lato,sans-serif;font-size:12px;color:#8CA0A5;font-weight:600">Nivel de evidencia:</span>
