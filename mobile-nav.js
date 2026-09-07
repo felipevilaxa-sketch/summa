@@ -402,44 +402,15 @@
         w2.style.cssText = 'position:relative;width:100%';
 
         var casosSel = w2.querySelector('select');
-        var tableScroll = document.querySelector('[data-m="table-scroll"]');
-        var exportRow = tableScroll && tableScroll.nextElementSibling;
 
-        /* Crear mensaje de placeholder */
-        var msgDiv = document.createElement('div');
-        msgDiv.style.cssText = 'font-family:Lato,sans-serif;font-size:14px;color:#4F6B72;padding:28px 20px;text-align:center;border:1px solid #DCE3E1;border-radius:16px;display:none';
-        msgDiv.textContent = 'Selecciona un caso para ver sus criterios de selección';
-
-        function syncTableVisibility() {
-          var hasCase = casosSel && casosSel.value !== '__ph';
-          if (tableScroll) tableScroll.style.display = hasCase ? '' : 'none';
-          if (exportRow && exportRow.querySelector('button')) exportRow.style.display = hasCase ? '' : 'none';
-          msgDiv.style.display = hasCase ? 'none' : 'block';
-        }
-
+        /* Al cambiar la línea, volver a Todos los casos (índice 0) */
         if (casosSel) {
-          /* Eliminar "Todos los casos" */
-          var todosOpt = Array.from(casosSel.options).find(function(o){ return o.text.trim() === 'Todos los casos'; });
-          if (todosOpt) casosSel.removeChild(todosOpt);
-          /* Insertar placeholder deshabilitado */
-          var ph = document.createElement('option');
-          ph.value = '__ph'; ph.disabled = true; ph.selected = true;
-          ph.textContent = 'Selecciona un caso';
-          casosSel.insertBefore(ph, casosSel.firstChild);
-          casosSel.value = '__ph';
-
-          /* Cuando cambia el caso, sincronizar visibilidad */
-          casosSel.addEventListener('change', function() { syncTableVisibility(); });
-
-          /* Cuando cambia la línea, resetear el select de casos a placeholder */
           var lineaSel = w1.querySelector('select');
           if (lineaSel) {
             lineaSel.addEventListener('change', function() {
               setTimeout(function() {
-                /* Resetear al placeholder tras re-render */
-                casosSel.value = '__ph';
-                syncTableVisibility();
-              }, 80);
+                if (casosSel.options.length > 0) casosSel.selectedIndex = 0;
+              }, 180);
             });
           }
         }
@@ -447,8 +418,6 @@
         row.appendChild(w1);
         row.appendChild(w2);
         instrEl.insertAdjacentElement('afterend', row);
-        if (tableScroll) tableScroll.insertAdjacentElement('beforebegin', msgDiv);
-        syncTableVisibility();
       } else {
         /* ── Desktop: caso único, layout 4 columnas ── */
 
