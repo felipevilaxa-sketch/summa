@@ -6,13 +6,13 @@ class ReformGlobe extends HTMLElement {
       <style>.rg-case-card{transition:box-shadow .25s,transform .25s}.rg-case-card:hover{box-shadow:0 16px 32px -8px rgba(13,74,87,.16);transform:translateY(-4px)}</style>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:center">
         <div>
-          <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Cobertura regional</div>
-          <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,34px);line-height:1.25;color:#0D4A57;margin:0 0 16px">Países cubiertos</h2>
-          <p style="font-family:Lato,sans-serif;font-size:14.5px;color:#516268;max-width:400px;margin:0 0 28px;line-height:1.6">Explora los países con casos documentados y descubre qué reforma implementaron.</p>
+          <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Cobertura geográfica</div>
+          <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,34px);line-height:1.25;color:#0D4A57;margin:0 0 16px">Explora casos y ejemplos por país</h2>
+          <p style="font-family:Lato,sans-serif;font-size:14.5px;color:#516268;max-width:400px;margin:0 0 28px;line-height:1.6">Consulta casos en profundidad y ejemplos documentados de distintos países</p>
           <select class="country-select" aria-label="Selecciona un país" style="font-family:Lato,sans-serif;width:100%;max-width:360px;font-size:14px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:12px 16px;margin-bottom:20px;cursor:pointer">
             <option value="">Selecciona un país…</option>
           </select>
-          <div class="country-info" style="border:1px solid #DCE3E1;border-radius:16px;padding:24px;max-width:400px;min-height:150px;display:flex;align-items:center;justify-content:center;color:#8CA0A5;font-size:13.5px;text-align:center;font-family:Lato,sans-serif">Elige un país del selector o haz clic en un pin del globo.</div>
+          <div class="country-info" style="border:1px solid #DCE3E1;border-radius:16px;padding:24px;max-width:400px;min-height:150px;display:flex;align-items:center;justify-content:center;color:#8CA0A5;font-size:13.5px;text-align:center;font-family:Lato,sans-serif">Selecciona un país o explora el mapa para conocer los contenidos disponibles.</div>
         </div>
         <div style="display:flex;justify-content:center">
           <div class="globe-canvas-wrap" style="position:relative;display:inline-block">
@@ -98,7 +98,7 @@ class ReformGlobe extends HTMLElement {
       if(!pin){
         infoEl.style.display='flex'; infoEl.style.flexDirection='row'; infoEl.style.alignItems='center'; infoEl.style.textAlign='center'; infoEl.style.color='#8CA0A5';
         infoEl.style.border='1px solid #DCE3E1'; infoEl.style.padding='24px'; infoEl.style.gap='0';
-        infoEl.innerHTML = 'Elige un país del selector o haz clic en un pin del globo.';
+        infoEl.innerHTML = 'Selecciona un país o explora el mapa para conocer los contenidos disponibles.';
         return;
       }
       infoEl.style.display='flex'; infoEl.style.flexDirection='column'; infoEl.style.alignItems='stretch'; infoEl.style.gap='16px';

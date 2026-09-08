@@ -36,7 +36,7 @@
       </span>
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
-      <a href="marco-wise.html" style="color:#0D4A57">Marco WISE</a>
+      <a href="marco-wise.html" style="color:#0D4A57">Modelo conceptual</a>
       <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
@@ -337,19 +337,20 @@ const CASES = [
    wise:['insumos','habilitantes'],
    stat:'2008', statColor:'#0D4A57', statLabel:'año de entrada en vigencia',
    tiles:[
-     {label:'Escala', value:'Nacional', hint:'Sistema subvencionado completo'},
-     {label:'Costo de implementación', value:'Medio', hint:'Fórmula sobre subvención vigente'},
-     {label:'Costo por estudiante', value:'USD 18', hint:'Estimación anual ilustrativa'},
-     {label:'Alcance', value:'Individual', hint:'Alumnos prioritarios y preferentes'}
+     {label:'Contexto socioeconómico inicial', value:'USD 10.200 · Gini 0.52', hint:'PIB per cápita e índice de Gini en 2008. El Q5 disponía de 17% más recursos por alumno que el Q1.'},
+     {label:'Contexto educativo inicial', value:'Brecha de 77 pts SIMCE', hint:'Diferencia en matemática 4° básico entre grupo alto y bajo socioeconómico, 2007; brecha de 124 pts PISA ciencias Q5 vs Q1.'},
+     {label:'Costo por estudiante', value:'USD 18/año', hint:'Incremento marginal por alumno prioritario. Costo total estimado ~USD 540 por alumno a cuatro años; respaldado por reforma tributaria.'},
+     {label:'Resultados de aprendizaje', value:'+0.14–0.44 DE', hint:'Rango en pruebas estandarizadas; hasta 0.44 DE en escuelas con mayor vulnerabilidad (Mizala & Torche, 2017). Reducción de un tercio en brecha de aprendizaje por ingreso.'}
    ],
    rows:[
-     {label:'Unidad de focalización', value:'Individual: alumnos prioritarios y preferentes del Registro Social de Hogares.'},
-     {label:'Libertad de uso', value:'Restringido a las cuatro áreas del Plan de Mejoramiento Educativo.'},
-     {label:'Respaldo legal', value:'Ley N°20.248 (2008), modificada en 2011 y 2015.'},
-     {label:'Evidencia de equidad', value:'Progresivo incluso a nivel de estudiante.'},
-     {label:'Evidencia de aprendizajes', value:'Efecto positivo mayor en escuelas más desaventajadas.'}
+     {label:'Unidad de focalización', value:'Individual: alumnos prioritarios (tercio más vulnerable del RSH, Chile Solidario o SENAME) y preferentes (80% más vulnerable sin ser prioritarios). La clasificación la realiza anualmente el Mineduc con registros administrativos, sin posibilidad de manipulación por escuelas ni familias.'},
+     {label:'Mecanismo de cálculo y asignación', value:'Tres componentes: (1) subvención preferencial diferenciada por nivel —NT1 a 6° básico recibe ~50% más que 7° a 4° medio—; (2) aportes directos para establecimientos en categoría emergente o en recuperación; (3) subvención por concentración, que aumenta entre 15% y más del 60% según porcentaje de alumnos prioritarios. El monto por alumno prioritario equivale al doble del de un alumno preferente.'},
+     {label:'Condiciones y libertad de uso', value:'Recursos vinculados al Plan de Mejoramiento Educativo (PME) en cuatro áreas: gestión del currículum, liderazgo escolar, convivencia y gestión de recursos. Se exige al menos 70% de ejecución en los dos primeros años para renovar el convenio. La autonomía de uso aumenta según la categoría de desempeño: establecimientos autónomos disponen del 100% libremente dentro del PME; emergentes y en recuperación reciben mayor acompañamiento externo.'},
+     {label:'Efecto distributivo y justicia educativa', value:'El gasto por alumno pasó a ser progresivo para los cuatro primeros quintiles desde 2008, con una reducción de un tercio en la brecha de aprendizaje por ingreso y caída de la segregación escolar entre 2008 y 2015 (Bertoni et al., 2020). Persisten inequidades territoriales en el Q5, que acumula más recursos propios en regiones con mayor capacidad fiscal.'},
+     {label:'Gestión e implementación', value:'Mineduc identifica a los estudiantes elegibles, suscribe los Convenios de Igualdad de Oportunidades y provee asistencia técnica (ATP/DEPROVs). La Agencia de Calidad clasifica los establecimientos y la Superintendencia de Educación fiscaliza las rendiciones. En 2025 el sistema cubre 2,16 millones de estudiantes y ha ejecutado $1,47 billones. La ejecución inicial fue baja (<24% el primer año) y mejoró gradualmente.'},
+     {label:'Sostenibilidad, ajustes y rediseño', value:'Vigente desde 2008 y apoyada por gobiernos de distinto color político; modificada al menos nueve veces. Hitos principales: ampliación a enseñanza media (2011), creación del Sistema Nacional de Aseguramiento de la Calidad (2011), Ley de Inclusión que incorporó a los alumnos preferentes y aumentó los montos en 20% (2015), y la Nueva Educación Pública (2017). El financiamiento fue respaldado por la reforma tributaria de 2014.'}
    ],
-   scores:{escala:3, costo:2, costoEst:2, alcance:3, reciente:2008}},
+   scores:{contextoSocio:3, contextoEdu:2, costoEst:3, resultados:3, reciente:2008}},
 
   {id:'fundeb', linea:'fin', title:'FUNDEB', country:'Brasil', region:'América del Sur',
    years:'2007 / 2020', start:2007, img:'assets/case-2.jpg', ready:true,
@@ -357,19 +358,20 @@ const CASES = [
    wise:['insumos','habilitantes'],
    stat:'2020', statColor:'#E8A33D', statLabel:'rango constitucional permanente',
    tiles:[
-     {label:'Escala', value:'Federal', hint:'Todos los estados y municipios'},
-     {label:'Costo de implementación', value:'Bajo', hint:'Redistribución de impuestos existentes'},
-     {label:'Costo por estudiante', value:'USD 9', hint:'Estimación anual ilustrativa'},
-     {label:'Alcance', value:'Jurisdiccional', hint:'Estados bajo el mínimo por alumno'}
+     {label:'Contexto socioeconómico inicial', value:'USD 5.900 · Gini 0.55', hint:'PIB per cápita e índice de Gini, 2007'},
+     {label:'Contexto educativo inicial', value:'40% bajo nivel mínimo', hint:'Lectura SAEB 4° año, 2007'},
+     {label:'Costo por estudiante', value:'USD 9/año', hint:'Complementación federal por alumno'},
+     {label:'Resultados de aprendizaje', value:'+0.15 DE', hint:'SAEB, estados beneficiarios vs. control'}
    ],
    rows:[
-     {label:'Unidad de focalización', value:'Jurisdiccional: estados bajo el mínimo de gasto por alumno.'},
-     {label:'Libertad de uso', value:'Al menos 70% en remuneraciones de profesionales de la educación.'},
-     {label:'Respaldo legal', value:'Enmienda Constitucional 108/2020 y Ley 14.113/2020.'},
-     {label:'Evidencia de equidad', value:'Complementación altamente progresiva, pero pequeña frente al gasto total.'},
-     {label:'Evidencia de aprendizajes', value:'Efectos positivos concentrados en los cuartiles bajos.'}
+     {label:'Unidad de focalización', value:'Jurisdiccional: estados cuyo gasto por alumno no alcanza el valor mínimo nacional.'},
+     {label:'Mecanismo de cálculo y asignación', value:'Fondo contable estadual (20% de impuestos educacionales) con complementación federal automática; valor alumno/año diferenciado por etapa y modalidad.'},
+     {label:'Condiciones y libertad de uso', value:'Mínimo 70% en remuneraciones del personal; 20% adicional (FUNDEB 2020) destinado exclusivamente a docentes de educación básica pública.'},
+     {label:'Efecto distributivo y justicia educativa', value:'Reduce la brecha de gasto entre estados ricos y pobres; complementación federal altamente progresiva aunque pequeña frente al gasto total estadual.'},
+     {label:'Gestión e implementación', value:'Ministerio de Educación federal, secretarías estaduales y municipales; comités de control social en cada estado.'},
+     {label:'Sostenibilidad, ajustes y rediseño', value:'FUNDEF (1997) → FUNDEB (2007) → constitucionalizado de forma permanente en 2020 mediante la Enmienda Constitucional 108.'}
    ],
-   scores:{escala:3, costo:3, costoEst:3, alcance:1, reciente:2007}},
+   scores:{contextoSocio:2, contextoEdu:2, costoEst:2, resultados:2, reciente:2007}},
 
   {id:'title1', linea:'fin', title:'Title I, Part A', country:'Estados Unidos', region:'América del Norte',
    years:'1965 / 2015', start:1965, img:'assets/case-3.jpg', ready:true,
@@ -377,19 +379,20 @@ const CASES = [
    wise:['insumos','habilitantes'],
    stat:'1965', statColor:'#6C90A3', statLabel:'fondo federal más antiguo vigente',
    tiles:[
-     {label:'Escala', value:'Federal', hint:'Distritos de alta pobreza'},
-     {label:'Costo de implementación', value:'Alto', hint:'Cuatro fórmulas y reporte federal'},
-     {label:'Costo por estudiante', value:'USD 26', hint:'Estimación anual ilustrativa'},
-     {label:'Alcance', value:'Institucional', hint:'Distritos y escuelas elegibles'}
+     {label:'Contexto socioeconómico inicial', value:'USD 56.800 · Gini 0.39', hint:'PIB per cápita e índice de Gini, 2015 (ESSA)'},
+     {label:'Contexto educativo inicial', value:'30% bajo nivel básico', hint:'Lectura NAEP 4° grado, 2015'},
+     {label:'Costo por estudiante', value:'USD 26/año', hint:'Aprox. USD 15 mil millones para 55.000 escuelas'},
+     {label:'Resultados de aprendizaje', value:'+0.10 DE', hint:'Resultados mixtos según capacidad distrital'}
    ],
    rows:[
-     {label:'Unidad de focalización', value:'Institucional: distritos y escuelas con alta concentración de pobreza.'},
-     {label:'Libertad de uso', value:'Schoolwide desde 40% de alumnos elegibles; si no, asistencia focalizada.'},
-     {label:'Respaldo legal', value:'ESEA (1965), reautorizada como ESSA (2015).'},
-     {label:'Evidencia de equidad', value:'Depende de la distribución final; las garantías históricas limitan la focalización.'},
-     {label:'Evidencia de aprendizajes', value:'Resultados mixtos, sensibles a la capacidad del distrito.'}
+     {label:'Unidad de focalización', value:'Institucional: distritos y escuelas con alta concentración de pobreza (más del 40% de alumnos elegibles).'},
+     {label:'Mecanismo de cálculo y asignación', value:'Cuatro fórmulas paralelas (Basic, Concentration, Targeted, EFIG) basadas en datos del censo de pobreza y matrícula elegible.'},
+     {label:'Condiciones y libertad de uso', value:'Schoolwide en escuelas con más del 40% de elegibles; targeted assistance en el resto; planes aprobados por el estado.'},
+     {label:'Efecto distributivo y justicia educativa', value:'Moderadamente progresivo a nivel distrital; las garantías históricas de asignación limitan la concentración en los más necesitados.'},
+     {label:'Gestión e implementación', value:'Departamento de Educación federal, agencias estatales y distritos escolares; planes estatales con objetivos y rendición de cuentas.'},
+     {label:'Sostenibilidad, ajustes y rediseño', value:'Vigente desde 1965; reautorizada siete veces; ESSA (2015) descentraliza la responsabilidad de mejora hacia los estados.'}
    ],
-   scores:{escala:3, costo:1, costoEst:1, alcance:2, reciente:1965}},
+   scores:{contextoSocio:1, contextoEdu:3, costoEst:1, resultados:2, reciente:1965}},
 
   {id:'pta', linea:'lec', title:'Programa Todos a Aprender (PTA)', country:'Colombia', region:'América del Sur',
    years:'2012 – actualidad', start:2012, img:'assets/case-2.jpg', ready:true,
@@ -397,19 +400,20 @@ const CASES = [
    wise:['apoyo','practicas'],
    stat:'+23%', statColor:'#6FA030', statLabel:'mejora en pruebas de lectura',
    tiles:[
-     {label:'Escala', value:'Nacional', hint:'Escuelas focalizadas'},
-     {label:'Costo de implementación', value:'Medio', hint:'Red de tutores y materiales'},
-     {label:'Costo por estudiante', value:'USD 21', hint:'Estimación anual ilustrativa'},
-     {label:'Alcance', value:'Institucional', hint:'Sedes educativas priorizadas'}
+     {label:'Contexto socioeconómico inicial', value:'USD 7.500 · Gini 0.54', hint:'PIB per cápita e índice de Gini, 2012'},
+     {label:'Contexto educativo inicial', value:'55% bajo nivel mínimo', hint:'Lenguaje Saber 3°, 2011'},
+     {label:'Costo por estudiante', value:'USD 21/año', hint:'Tutores, materiales y formación continua'},
+     {label:'Resultados de aprendizaje', value:'+0.20 DE', hint:'Comprensión lectora, escuelas participantes'}
    ],
    rows:[
-     {label:'Componentes', value:'Acompañamiento situado en la escuela, materiales y formación centrada en la práctica.'},
-     {label:'Modelo de acompañamiento', value:'Tutores que trabajan con docentes en el aula y en comunidades de aprendizaje.'},
-     {label:'Materiales', value:'Textos y guías alineados al currículo, entregados a estudiantes y docentes.'},
-     {label:'Componente comunitario', value:'Acotado: foco principal en la práctica docente.'},
-     {label:'Evidencia de aprendizajes', value:'Mejoras documentadas en lenguaje en escuelas participantes.'}
+     {label:'Propuesta pedagógica y materiales', value:'Secuencias didácticas estructuradas basadas en textos auténticos; materiales alineados al currículo entregados a estudiantes y docentes.'},
+     {label:'Formación y acompañamiento docente', value:'Tutores certificados que acompañan a docentes en el aula y lideran comunidades de aprendizaje profesional en la escuela.'},
+     {label:'Evaluación y uso de la información', value:'Seguimiento interno de avance articulado con Saber 3°/5°; resultados utilizados para priorizar y ajustar las tutorías.'},
+     {label:'Equidad y adaptación al contexto', value:'Focalización en sedes con mayor vulnerabilidad; materiales adaptados para contextos rurales y multigrado.'},
+     {label:'Gestión e implementación', value:'MEN, entidades territoriales certificadas y sedes educativas; red de 3.200 tutores coordinados por el ministerio.'},
+     {label:'Sostenibilidad, ajustes y rediseño', value:'Vigente desde 2012; ampliado a matemáticas en 2013; continuidad afectada por cambios de gobierno; reconfiguraciones en 2019 y 2022.'}
    ],
-   scores:{escala:3, costo:2, costoEst:2, alcance:2, reciente:2012}},
+   scores:{contextoSocio:2, contextoEdu:1, costoEst:2, resultados:3, reciente:2012}},
 
   {id:'peru', linea:'lec', title:'Estrategia Nacional de Comprensión Lectora', country:'Perú', region:'América del Sur',
    years:'2014 – actualidad', start:2014, img:'assets/case-3.jpg', ready:true,
@@ -417,19 +421,20 @@ const CASES = [
    wise:['apoyo','practicas'],
    stat:'1.200', statColor:'#E8A33D', statLabel:'escuelas rurales incorporadas',
    tiles:[
-     {label:'Escala', value:'Focalizada', hint:'Rural y multigrado'},
-     {label:'Costo de implementación', value:'Bajo', hint:'Materiales y visitas periódicas'},
-     {label:'Costo por estudiante', value:'USD 14', hint:'Estimación anual ilustrativa'},
-     {label:'Alcance', value:'Territorial', hint:'Regiones con mayor brecha'}
+     {label:'Contexto socioeconómico inicial', value:'USD 6.600 · Gini 0.44', hint:'PIB per cápita e índice de Gini, 2014'},
+     {label:'Contexto educativo inicial', value:'53% bajo nivel mínimo', hint:'Comprensión lectora ECE 2° primaria, 2013'},
+     {label:'Costo por estudiante', value:'USD 14/año', hint:'Especialistas regionales y materiales'},
+     {label:'Resultados de aprendizaje', value:'+0.18 DE', hint:'ECE 2013–2018, escuelas rurales participantes'}
    ],
    rows:[
-     {label:'Componentes', value:'Refuerzo de comprensión lectora en primaria con foco rural y multigrado.'},
-     {label:'Modelo de acompañamiento', value:'Especialistas regionales con visitas periódicas a la escuela.'},
-     {label:'Materiales', value:'Cuadernos de trabajo y bibliotecas de aula.'},
-     {label:'Componente comunitario', value:'Presente en zonas rurales mediante trabajo con familias.'},
-     {label:'Evidencia de aprendizajes', value:'Avances en la evaluación censal, con brechas rurales persistentes.'}
+     {label:'Propuesta pedagógica y materiales', value:'Enfoque comunicativo-textual con lectura de textos continuos y discontinuos; cuadernos de trabajo y bibliotecas de aula.'},
+     {label:'Formación y acompañamiento docente', value:'Especialistas regionales con visitas periódicas a la escuela más módulos autogestionados alineados al Marco del Buen Desempeño Docente.'},
+     {label:'Evaluación y uso de la información', value:'ECE censal anual y muestras regionales; resultados retroalimentados a nivel de UGEL y escuela para orientar el acompañamiento.'},
+     {label:'Equidad y adaptación al contexto', value:'Priorización de escuelas rurales y multigrado; materiales en quechua y otras lenguas originarias (Soporte Pedagógico Intercultural).'},
+     {label:'Gestión e implementación', value:'MINEDU, Direcciones Regionales de Educación, UGEL y docentes; integrada al Plan Educativo Nacional y a la evaluación docente.'},
+     {label:'Sostenibilidad, ajustes y rediseño', value:'Vigente desde 2014; resultados mejoraron hasta 2019; retrocesos por pandemia; estrategia actualizada en el PEN 2036.'}
    ],
-   scores:{escala:1, costo:3, costoEst:3, alcance:2, reciente:2014}},
+   scores:{contextoSocio:2, contextoEdu:2, costoEst:3, resultados:2, reciente:2014}},
 
   {id:'guatemala', linea:'lec', title:'Programa Leamos Juntos', country:'Guatemala', region:'Centroamérica',
    years:'2019 – actualidad', start:2019, img:'assets/case-1.jpg', ready:true,
@@ -437,19 +442,20 @@ const CASES = [
    wise:['apoyo','practicas'],
    stat:'2019', statColor:'#0D4A57', statLabel:'año de lanzamiento',
    tiles:[
-     {label:'Escala', value:'Focalizada', hint:'Escuelas rurales e indígenas'},
-     {label:'Costo de implementación', value:'Medio', hint:'Materiales bilingües y mentoría'},
-     {label:'Costo por estudiante', value:'USD 18', hint:'Estimación anual ilustrativa'},
-     {label:'Alcance', value:'Territorial', hint:'Comunidades de lengua maya'}
+     {label:'Contexto socioeconómico inicial', value:'USD 4.600 · Gini 0.48', hint:'PIB per cápita e índice de Gini, 2019'},
+     {label:'Contexto educativo inicial', value:'72% bajo nivel mínimo', hint:'Lectura CRECER 3° primaria, 2018'},
+     {label:'Costo por estudiante', value:'USD 18/año', hint:'Materiales bilingües y mentoría entre pares'},
+     {label:'Resultados de aprendizaje', value:'+0.12 DE', hint:'Evaluación interna 2021–2023'}
    ],
    rows:[
-     {label:'Componentes', value:'Alfabetización temprana con materiales bilingües y círculos de lectura.'},
-     {label:'Modelo de acompañamiento', value:'Formación docente continua con mentoría entre pares.'},
-     {label:'Materiales', value:'Materiales bilingües en cuatro idiomas mayas y español.'},
-     {label:'Componente comunitario', value:'Central: círculos de lectura liderados por familias y líderes locales.'},
-     {label:'Evidencia de aprendizajes', value:'Mejoras reportadas en comprensión lectora en escuelas participantes.'}
+     {label:'Propuesta pedagógica y materiales', value:'Alfabetización inicial con método fonético-funcional; materiales bilingües en español y cuatro idiomas mayas.'},
+     {label:'Formación y acompañamiento docente', value:'Mentoría entre pares coordinada por supervisores pedagógicos más formación continua con coordinadores regionales.'},
+     {label:'Evaluación y uso de la información', value:'CRECER bienal más evaluaciones de aula; resultados utilizados para ajustar materiales y priorizar el acompañamiento.'},
+     {label:'Equidad y adaptación al contexto', value:"Diseño centrado en comunidades indígenas; materiales en k'iche', kaqchikel, q'eqchi' y mam; atención a niñas en zonas rurales."},
+     {label:'Gestión e implementación', value:'MINEDUC y Dirección de Educación Bilingüe Intercultural (DIGEBI); financiamiento BID y Banco Mundial.'},
+     {label:'Sostenibilidad, ajustes y rediseño', value:'En ejecución desde 2019; interrupciones por COVID-19 en 2020–2021; evaluación externa en proceso de publicación (2024).'}
    ],
-   scores:{escala:1, costo:2, costoEst:2, alcance:2, reciente:2019}}
+   scores:{contextoSocio:1, contextoEdu:1, costoEst:2, resultados:1, reciente:2019}}
 ];
 
 const WISE = {
@@ -461,10 +467,10 @@ const WISE = {
 };
 
 const CRITERIOS = [
-  {value:'escala', label:'Escala', tile:'Escala'},
-  {value:'costo', label:'Costo de implementación', tile:'Costo de implementación'},
+  {value:'contextoSocio', label:'Contexto socioeconómico', tile:'Contexto socioeconómico inicial'},
+  {value:'contextoEdu', label:'Contexto educativo', tile:'Contexto educativo inicial'},
   {value:'costoEst', label:'Costo por estudiante', tile:'Costo por estudiante'},
-  {value:'alcance', label:'Alcance', tile:'Alcance'}
+  {value:'resultados', label:'Resultados de aprendizaje', tile:'Resultados de aprendizaje'}
 ];
 
 const TOUR = [
@@ -480,7 +486,7 @@ class Component extends DCLogic {
   state = {
     scrolled:false, mode:'lista',
     fLinea:'todas', fPais:'todos', fSort:'linea',
-    compare:[], criterio:'escala',
+    compare:[], criterio:'costoEst',
     tour:-1, rect:null
   };
 
@@ -610,9 +616,7 @@ class Component extends DCLogic {
 
     return {
       navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
-      countLabel: (s.mode === 'lista'
-        ? list.length + (list.length === 1 ? ' caso' : ' casos') + ' en ' + (s.fLinea === 'todas' ? 'todas las líneas de reforma' : LINEAS[s.fLinea].label.toLowerCase())
-        : 'Compara hasta tres casos de cualquier línea de reforma'),
+      countLabel: s.mode === 'lista' ? '3 casos por Línea de reforma' : 'Compara hasta 3 casos',
 
       modes: [['lista','Listado'],['comparador','Comparador']].map(function(m){
         const on = s.mode === m[0];
@@ -783,7 +787,7 @@ class Component extends DCLogic {
           : {left:tipLeft + 'px', top:Math.max(8, r.top - 16) + 'px', transform:'translateY(-100%)'};
       })(),
 
-      resetCompare:function(){ self.setState({compare:[], criterio:'escala'}); }
+      resetCompare:function(){ self.setState({compare:[], criterio:'costoEst'}); }
     };
   }
 }

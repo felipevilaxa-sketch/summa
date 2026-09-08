@@ -28,7 +28,7 @@
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" fill="#0D4A57"/><g fill="none" stroke="#8BC53F" stroke-width="5" stroke-linecap="round"><path d="M40 60l10 10 22-24"/><circle cx="60" cy="60" r="26"/></g></svg></template>
 </helmet>
 
-<div style="width:100%;position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:{{ navShadow }};transition:box-shadow .25s ease" data-noprint>
+<div style="width:100%;position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;box-shadow:{{ navShadow }};transition:box-shadow .25s ease" data-noprint data-plat-header>
   <nav data-m="topnav" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:20px clamp(20px,4vw,40px);max-width:1240px;margin:0 auto">
     <a href="index.html" style="display:flex;align-items:center;gap:14px" data-m="brand">
       <img src="assets/logo-summa-lab.png" alt="SUMMA — Laboratorio de Investigación e Innovación en Educación para América Latina y el Caribe" style="height:56px;width:auto">
@@ -38,7 +38,7 @@
       </span>
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
-      <a href="marco-wise.html" style="color:#0D4A57">Marco WISE</a>
+      <a href="marco-wise.html" style="color:#0D4A57">Modelo conceptual</a>
       <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
@@ -58,7 +58,7 @@
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(20px,3vw,40px);flex-wrap:wrap">
       <div style="max-width:640px">
         <h1 data-m="h1" style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(30px,4.2vw,42px);line-height:1.16;letter-spacing:-.01em;color:#0D4A57;margin:24px 0 16px;text-wrap:pretty">Criterios de selección de casos</h1>
-        <p style="font-size:16px;line-height:1.65;color:#3D4E52;margin:0;max-width:540px;text-wrap:pretty">Qué debe cumplir una reforma para entrar a la plataforma, y qué criterio aplica a cada caso ya seleccionado.</p>
+        <p style="font-size:16px;line-height:1.65;color:#3D4E52;margin:0;max-width:540px;text-wrap:pretty">Esta sección explica los criterios utilizados para seleccionar los casos en profundidad y cómo se aplican a cada reforma. La selección considera la pertinencia de cada reforma para la línea, su trayectoria, la evidencia disponible sobre sus resultados y los aprendizajes que aporta al análisis comparado.</p>
       </div>
       <a href="#matriz" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#8BC53F 0%,#D4FBA1 100%);background-size:180% 100%;background-position:0% 0%;color:#0D4A57;font-size:13px;letter-spacing:.04em;padding:14px 26px;border-radius:999px;transition:background-position .35s ease;white-space:nowrap" style-hover="background-position:100% 0%">VER CRITERIOS POR CASO
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="5 12 12 19 19 12"></polyline></svg>
@@ -68,22 +68,22 @@
 
   <section style="margin:0 0 clamp(52px,6.5vw,82px)">
     <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Cómo funciona</div>
-    <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0 0 22px;max-width:620px">Tres filtros sucesivos, aplicados en orden</h2>
+    <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0 0 22px;max-width:620px">Tres etapas de revisión</h2>
     <div data-m="cds-filters" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
       <div style="border:1px solid #DCE3E1;border-radius:16px;padding:22px 24px;border-top:4px solid #0D4A57">
-        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">Filtro 1 · Elegibilidad</div>
-        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Vigencia, naturaleza y alcance</div>
-        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Define qué es una reforma admisible. Si no se cumple, el caso no avanza.</p>
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">1 · Elegibilidad</div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Vigencia, escala territorial, nivel educativo y cobertura de la implementación</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Se verifica que la iniciativa corresponda a la definición de reforma educativa y reúna las condiciones establecidas para la línea.</p>
       </div>
       <div style="border:1px solid #DCE3E1;border-radius:16px;padding:22px 24px;border-top:4px solid #8BC53F">
-        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">Filtro 2 · Obligatorio</div>
-        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Criterios primarios</div>
-        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Equidad, resultados y justicia educativa: deben cumplirse para que el caso sea seleccionable.</p>
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">2 · Criterios primarios</div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Equidad, resultados educativos y justicia educativa</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Se aplican a todos los casos y son obligatorios para su selección.</p>
       </div>
       <div style="border:1px solid #DCE3E1;border-radius:16px;padding:22px 24px;border-top:4px solid #E8A33D">
-        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">Filtro 3 · Desempate</div>
-        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Criterios secundarios</div>
-        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Diferencian entre casos que ya pasaron los filtros. No excluyen: ordenan por prioridad.</p>
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:8px">3 · Criterios adicionales</div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Costo-efectividad, sostenibilidad y resiliencia, e innovación y adaptabilidad</div>
+        <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Complementan los criterios primarios y aportan elementos para priorizar entre los casos que cumplen los requisitos de selección.</p>
       </div>
     </div>
   </section>
@@ -91,10 +91,10 @@
   <section id="matriz" style="margin:0 0 clamp(52px,6.5vw,82px);scroll-margin-top:110px">
     <div style="margin-bottom:4px">
       <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Criterios por caso</div>
-      <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:560px">Resumen de Evaluación de Casos</h2>
+      <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:560px">Criterios y evidencia</h2>
     </div>
 
-    <p data-m="cds-inst" style="font-family:Lato,sans-serif;font-size:13.5px;color:#4F6B72;margin:20px 0 0">Selecciona primero la línea de reforma y luego el caso.</p>
+    <p data-m="cds-inst" style="font-family:Lato,sans-serif;font-size:13.5px;color:#4F6B72;margin:20px 0 0">La matriz muestra los criterios aplicados a cada caso y la evidencia que respalda las valoraciones. Permite consultar todos los casos de una línea o uno en particular.</p>
 
     <div role="tablist" aria-label="Línea de reforma" data-m="cds-linea-tabs" data-m2="scroll-x" style="display:flex;gap:clamp(14px,2.2vw,28px);border-bottom:1px solid #DCE3E1;margin:22px 0 22px;flex-wrap:wrap" data-noprint>
       <sc-for list="{{ lineaTabs }}" as="t" hint-placeholder-count="2">
@@ -224,44 +224,48 @@
           <a href="{{ detailCaseHref }}" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#fff;background:#0D4A57;border:1.5px solid #0D4A57;padding:10px 18px;border-radius:999px;text-decoration:none;transition:background .15s,border-color .15s" style-hover="background:#6FA030;border-color:#6FA030">Ver caso completo →</a>
         </div>
       </div>
-      <div data-m="table-scroll" style="border:1px solid #DCE3E1;border-radius:16px;overflow-x:auto;-webkit-overflow-scrolling:touch">
-        <div role="table" style="display:grid;grid-template-columns:210px {{ colGridTemplate }};min-width:{{ tableMin }}">
-          <div role="row" style="display:contents">
-            <div role="columnheader" style="text-align:left;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#4F6B72;padding:20px 18px 14px 22px;border-bottom:1.5px solid #DCE3E1;width:210px;background:#fff;position:sticky;left:0;z-index:2">Criterio</div>
-            <sc-for list="{{ cols }}" as="c" hint-placeholder-count="3">
-              <div role="columnheader" style="text-align:left;padding:20px 18px 14px;border-bottom:1.5px solid #DCE3E1;border-left:1px solid #F0F4F3;min-width:190px">
-                <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:600;color:#8CA0A5;margin-bottom:5px">{{ c.country }}</span>
-                <a href="{{ c.href }}" style="font-family:Lato,sans-serif;font-size:14.5px;font-weight:700;color:#0D4A57;line-height:1.3;text-decoration:none">{{ c.title }}</a>
-              </div>
-            </sc-for>
-          </div>
-          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
-            <div role="row" style="display:contents">
-              <div role="rowheader" style="text-align:left;padding:16px 18px 16px 22px;border-bottom:1px solid #F0F4F3;background:{{ r.rowBg }};position:sticky;left:0;z-index:1">
-                <sc-if value="{{ r.isGroup }}" hint-placeholder-val="{{ false }}">
-                  <span style="display:block;font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:{{ r.groupColor }}">{{ r.group }}</span>
-                </sc-if>
-                <span style="display:block;font-family:Lato,sans-serif;font-size:13.5px;font-weight:700;color:#17242A;line-height:1.35;margin-top:{{ r.nameTop }}">{{ r.name }}</span>
-                <button onClick="{{ r.toggle }}" aria-expanded="{{ r.open }}" style="display:inline-flex;align-items:center;gap:5px;margin-top:7px;font-family:Lato,sans-serif;font-size:11.5px;font-weight:600;color:#4F6B72;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline" data-noprint>{{ r.defLabel }}</button>
-                <sc-if value="{{ r.open }}">
-                  <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:8px;padding-left:10px;border-left:2px solid #8BC53F;animation:fadeUp .24s ease-out both">{{ r.definition }}</span>
+      <div data-m="table-scroll" style="border:1px solid #DCE3E1;border-radius:16px;overflow:hidden">
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
+          <div style="border-top:{{ r.rowTopBorder }}">
+            <sc-if value="{{ r.isGroup }}" hint-placeholder-val="{{ false }}">
+              <div style="background:{{ r.rowBg }}">
+                <div style="padding:18px 22px 4px;font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:{{ r.groupColor }}">{{ r.group }}</div>
+                <sc-if value="{{ r.hasGroupDef }}">
+                  <div style="padding:0 22px 10px">
+                    <button onClick="{{ r.groupToggle }}" aria-expanded="{{ r.groupOpen }}" style="display:inline-flex;align-items:center;gap:5px;font-family:Lato,sans-serif;font-size:11.5px;font-weight:600;color:#4F6B72;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline" data-noprint>{{ r.groupDefLabel }}</button>
+                    <sc-if value="{{ r.groupOpen }}">
+                      <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:6px;padding-left:10px;border-left:2px solid #8BC53F;animation:fadeUp .24s ease-out both;white-space:pre-line">{{ r.groupDefinition }}</span>
+                    </sc-if>
+                  </div>
                 </sc-if>
               </div>
-              <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="3">
-                <div role="cell" style="padding:16px 18px;border-bottom:1px solid #F0F4F3;border-left:1px solid #F0F4F3;background:{{ c.bg }}">
-                  <span style="display:inline-flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:{{ c.color }};background:{{ c.chipBg }};padding:5px 11px;border-radius:6px;line-height:1.3">{{ c.value }}</span>
-                  <sc-if value="{{ c.hasNote }}">
-                    <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:7px">{{ c.note }}</span>
+            </sc-if>
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:12px 22px 14px;border-bottom:1px solid #F0F4F3">
+              <div style="flex:1;min-width:0">
+                <div style="font-family:Lato,sans-serif;font-size:13.5px;font-weight:700;color:#17242A;line-height:1.35">{{ r.name }}</div>
+                <sc-if value="{{ r.hasDef }}">
+                  <button onClick="{{ r.toggle }}" aria-expanded="{{ r.open }}" style="display:inline-flex;align-items:center;gap:5px;margin-top:6px;font-family:Lato,sans-serif;font-size:11.5px;font-weight:600;color:#4F6B72;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline" data-noprint>{{ r.defLabel }}</button>
+                  <sc-if value="{{ r.open }}">
+                    <span style="display:block;font-size:12.5px;line-height:1.55;color:#516268;margin-top:8px;padding-left:10px;border-left:2px solid #8BC53F;animation:fadeUp .24s ease-out both">{{ r.definition }}</span>
                   </sc-if>
-                </div>
-              </sc-for>
+                </sc-if>
+              </div>
+              <div style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+                <sc-for list="{{ r.cells }}" as="c" hint-placeholder-count="1">
+                  <div>
+                    <span style="display:inline-flex;align-items:center;font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:{{ c.color }};background:{{ c.chipBg }};padding:5px 11px;border-radius:6px;line-height:1.3">{{ c.value }}</span>
+                    <sc-if value="{{ c.hasNote }}">
+                      <span style="display:block;font-size:12px;line-height:1.5;color:#516268;margin-top:5px;max-width:220px;text-align:right">{{ c.note }}</span>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
             </div>
-          </sc-for>
-        </div>
+          </div>
+        </sc-for>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:16px">
-        <p style="font-size:12.5px;color:#4F6B72;margin:0;max-width:560px">Cada caso nuevo de la línea se suma como una columna más. Los criterios sin aplicación en la línea se marcan como "No aplica".</p>
-        <button onClick="{{ exportCsv }}" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap" style-hover="background:#0D4A57;color:#fff" data-noprint>EXPORTAR CSV</button>
+<button onClick="{{ exportCsv }}" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:12.5px;font-weight:600;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap" style-hover="background:#0D4A57;color:#fff" data-noprint>EXPORTAR CSV</button>
       </div>
     </sc-if>
   </section>
@@ -298,7 +302,7 @@
   </section>
 
   <section style="display:flex;align-items:center;justify-content:space-between;gap:20px;background:#F4F7F6;border-radius:16px;padding:28px 32px;margin:0 0 clamp(52px,6.5vw,82px);flex-wrap:wrap" data-noprint>
-    <p style="font-family:Lato,sans-serif;font-size:17px;color:#0D4A57;margin:0;max-width:560px">Revisa los casos que pasaron este filtro y compáralos entre sí.</p>
+    <p style="font-family:Lato,sans-serif;font-size:17px;color:#0D4A57;margin:0;max-width:560px">Explora los casos seleccionados por separado o compáralos entre sí.</p>
     <a href="casos.html?vista=comparador" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">COMPARAR CASOS
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
@@ -557,55 +561,39 @@ const CASES = [
 ];
 
 const ROWS = [
-  {id:'anio', group:'Identificación', groupColor:'#4F6B72', name:'Año de inicio',
-   def:{fin:'Año de implementación de la iniciativa.', lec:'Año de implementación de la iniciativa.'}},
+  {id:'anio',        group:'Identificación', groupColor:'#4F6B72', name:'Año de inicio',                  noDef:true},
+  {id:'region',                                                     name:'Región',                         noDef:true},
+  {id:'denominacion',                                               name:'Denominación de la iniciativa',  noDef:true},
 
-  {id:'vigencia', group:'Elegibilidad', groupColor:'#0D4A57', name:'Vigencia',
-   def:{fin:'Estado actual: vigente, discontinuada o rediseñada. Se excluyen reformas con menos de cinco años de vigencia.',
-        lec:'Estado actual: vigente, discontinuada o rediseñada. Se excluyen reformas con menos de cinco años de vigencia.'}},
-  {id:'tipo', name:'Tipo',
-   def:{fin:'Naturaleza de la iniciativa: reforma, política o programa. Se excluyen programas acotados o parciales.',
-        lec:'Naturaleza de la iniciativa: reforma, política o programa. Debe intervenir en más de una dimensión —formación docente, materiales, acompañamiento— y combinar enseñanza del código con comprensión y estrategias dialógicas.'}},
-  {id:'alcance', name:'Alcance',
-   def:{fin:'Nivel de gobierno que implementa la iniciativa: nacional o subnacional.',
-        lec:'Nivel de gobierno que implementa la iniciativa: nacional o subnacional.'}},
-  {id:'nivel', name:'Nivel educativo',
-   def:{fin:'Niveles que cubre: preescolar, primaria inicial (1º-3º/4º), primaria completa, secundaria o todos los niveles.',
-        lec:'Niveles que cubre. Debe cubrir al menos los primeros grados de primaria, desde kínder al primer ciclo básico.'}},
-  {id:'cobertura', name:'Cobertura',
-   def:{fin:'Sistémico: aplica a todo el sistema público o a una categoría amplia y estable. Focalizado a escala significativa: segmento acotado pero con volumen relevante y sostenido. Piloto acotado: unas pocas escuelas sin escalamiento, se excluye salvo que haya escalado después.',
-        lec:'Sistémico: aplica a todo el sistema público o a una categoría amplia y estable. Focalizado a escala significativa: segmento acotado pero con volumen relevante y sostenido. Piloto acotado: unas pocas escuelas sin escalamiento, se excluye salvo que haya escalado después.'}},
-  {id:'region', name:'Región',
-   def:{fin:'LAC u otra región. Dato de registro: aún no pondera en la selección.',
-        lec:'LAC u otra región. Dato de registro: aún no pondera en la selección.'}},
+  {id:'vigencia',    group:'Elegibilidad',   groupColor:'#0D4A57', name:'Vigencia',
+   def:'Estado actual de la reforma y continuidad a lo largo del tiempo. Categorías: vigente, rediseñada o descontinuada.'},
+  {id:'alcance',                                                    name:'Escala territorial',
+   def:'Ámbito territorial en el que se desarrolla la reforma. Categorías: nacional o subnacional.'},
+  {id:'nivel',                                                      name:'Nivel educativo',
+   def:'Niveles, ciclos o tramos educativos comprendidos por la reforma. Categorías: educación inicial, primaria inicial, primaria completa, secundaria o todos los niveles.'},
+  {id:'cobertura',                                                  name:'Cobertura de la implementación',
+   def:'Extensión alcanzada por la reforma, considerando la población y las unidades educativas involucradas. Categorías: cobertura generalizada, cobertura focalizada a escala significativa o piloto acotado.'},
 
-  {id:'e1', group:'Criterios primarios · nivel de evidencia 0-2', groupColor:'#4E7220',
-   name:{fin:'Equidad en financiamiento', lec:'Aprendizajes'},
-   def:{fin:'¿Llegó más recurso per cápita a las escuelas más vulnerables? 2 = evidencia robusta (evaluación experimental o cuasi-experimental). 1 = evidencia parcial (datos descriptivos, correlacionales o informe institucional sin diseño causal). 0 = sin evidencia.',
-        lec:'Efecto en aprendizajes de lectura y escritura. 2 = evidencia robusta (evaluación experimental o cuasi-experimental). 1 = evidencia parcial (datos descriptivos, correlacionales o informe institucional sin diseño causal). 0 = sin evidencia.'}},
-  {id:'e2', name:{fin:'Resultados educativos', lec:'Acceso y trayectorias'},
-   def:{fin:'Acceso, permanencia y aprendizajes atribuibles al mecanismo, en la misma escala de evidencia 0-2.',
-        lec:'Acceso, permanencia y trayectorias escolares atribuibles al mecanismo, en la misma escala de evidencia 0-2.'}},
-  {id:'e3', name:{fin:'Justicia educativa', lec:'Equidad y justicia educativa'},
-   def:{fin:'Reducción de brechas de aprendizaje por nivel socioeconómico, en la misma escala de evidencia 0-2.',
-        lec:'Reducción de brechas por nivel socioeconómico, geografía, lengua, etnia y discapacidad, en la misma escala de evidencia 0-2.'}},
+  {id:'e1', group:'Criterios primarios · Nivel de evidencia 0–2', groupColor:'#4E7220',
+   groupDef:'2 · Evidencia robusta: Información suficientemente documentada y sustentada en métodos apropiados para el criterio analizado.\n1 · Evidencia parcial: Información relevante, pero limitada por su alcance, metodología, cobertura o nivel de documentación.\n0 · Sin evidencia identificada: No se encontró información suficiente sobre el criterio analizado.',
+   name:'Equidad',
+   def:'Distribución de recursos, apoyos y oportunidades según las distintas necesidades de estudiantes, escuelas o territorios.'},
+  {id:'e2', name:'Resultados educativos',
+   def:'Cambios asociados con la reforma en los aprendizajes, el acceso, la permanencia, la finalización y las trayectorias educativas.'},
+  {id:'e3', name:'Justicia educativa',
+   def:'Contribución de la reforma a reducir las brechas de resultados entre grupos socioeconómicos, territoriales, lingüísticos, étnicos, de género o definidos por otras condiciones de desigualdad.'},
 
-  {id:'s1', group:'Criterios secundarios · Sí / Parcial / No', groupColor:'#B4791F', name:'Costo-efectividad',
-   def:{fin:'Resultados obtenidos con uso eficiente de los recursos. El umbral exacto se acuerda con la contraparte.',
-        lec:'Resultados obtenidos con uso eficiente de los recursos. El umbral exacto se acuerda con la contraparte.'}},
+  {id:'s1', group:'Criterios adicionales · Sí / Parcial / No', groupColor:'#B4791F',
+   groupDef:'Sí: El criterio está claramente presente y documentado.\nParcial: El criterio se observa de manera limitada, desigual o incompleta.\nNo: La evidencia disponible indica que el criterio no está presente.\nSin información: No existe evidencia suficiente para valorar el criterio.',
+   name:'Costo-efectividad',
+   def:'Relación entre los recursos utilizados y los resultados alcanzados, considerando los costos de diseño, implementación y gestión de la reforma.'},
   {id:'s2', name:'Sostenibilidad y resiliencia',
-   def:{fin:'Institucionalización como política de Estado y capacidad de adaptación a crisis.',
-        lec:'Institucionalización como política de Estado y capacidad de adaptación a crisis.'}},
-  {id:'s3', name:'Innovación y replicabilidad',
-   def:{fin:'Grado de innovación y potencial de adaptación a otros contextos de la región.',
-        lec:'Grado de innovación y potencial de adaptación a otros contextos de la región.'}},
+   def:'Continuidad e institucionalización de la reforma, así como su capacidad para adaptarse a cambios políticos, institucionales o contextuales sin perder sus objetivos principales.'},
+  {id:'s3', name:'Innovación y adaptabilidad',
+   def:'Incorporación de enfoques o combinaciones novedosas en su contexto y posibilidad de adaptar sus componentes a otros entornos, considerando las condiciones necesarias para su funcionamiento.'},
 
-  {id:'fuentes', group:'Registro', groupColor:'#4F6B72', name:'Nº de fuentes registradas',
-   def:{fin:'Cuenta automática de las fuentes cargadas para el caso en la hoja Fuentes de la línea.',
-        lec:'Cuenta automática de las fuentes cargadas para el caso en la hoja Fuentes de la línea.'}},
-  {id:'elegibilidad', name:'Elegibilidad',
-   def:{fin:'Resultado del filtro: elegible, revisar con contraparte o excluir. Se calcula a partir de los criterios anteriores.',
-        lec:'Resultado del filtro: elegible, revisar con contraparte o excluir. Se calcula a partir de los criterios anteriores.'}}
+  {id:'fuentes', name:'Número de fuentes registradas',
+   def:'Cantidad de fuentes únicas incorporadas al registro del caso y utilizadas para documentar su trayectoria o sustentar el análisis de los criterios.'},
 ];
 
 const EVIDENCIA = {
@@ -618,7 +606,7 @@ const POSITIVE = ['Sí','Elegible','Sistémico','Nacional','Vigente','Rediseñad
 const PARTIAL = ['Parcial','Revisar','Focalizado a escala significativa','Discontinuada','Programa'];
 
 class Component extends DCLogic {
-  state = {scrolled:false, linea:'fin', caso:'', open:{}, view:'summary', sortCol:null};
+  state = {scrolled:false, linea:'fin', caso:'', open:{}, groupOpen:{}, view:'summary', sortCol:null};
 
   componentDidMount(){
     this.onScroll = () => {
@@ -706,7 +694,7 @@ class Component extends DCLogic {
         const on = s.linea === l.id;
         return {
           label:l.label, selected: on ? 'true' : 'false',
-          select:function(){ var fc=CASES.filter(function(c){return c.linea===l.id;})[0]; self.setState({linea:l.id, caso:fc?fc.id:'', open:{}, view:'summary', sortCol:null}); },
+          select:function(){ var fc=CASES.filter(function(c){return c.linea===l.id;})[0]; self.setState({linea:l.id, caso:fc?fc.id:'', open:{}, groupOpen:{}, view:'summary', sortCol:null}); },
           style:"font-family:Lato,sans-serif;font-size:clamp(14px,1.5vw,17px);font-weight:700;background:none;border:none;padding:16px 2px;cursor:pointer;transition:all .15s;border-bottom:3px solid " +
             (on ? '#8BC53F' : 'transparent') + ';color:' + (on ? '#0D4A57' : '#7C8B8D')
         };
@@ -754,17 +742,29 @@ class Component extends DCLogic {
 
       rows: ROWS.map(function(r, ri){
         const open = !!s.open[r.id];
+        const groupOpen = !!s.groupOpen[r.id];
         return {
-          name: typeof r.name === 'string' ? r.name : r.name[s.linea],
+          name: r.name,
           isGroup: !!r.group, group:r.group || '', groupColor:r.groupColor || '#8CA0A5',
           nameTop: r.group ? '7px' : '0px',
           rowBg: r.group ? '#FBFCFC' : '#fff',
           open:open,
+          rowTopBorder: r.group ? '2px solid ' + (r.groupColor || '#8CA0A5') : 'none',
+          rowPaddingTop: r.group ? '20px' : '16px',
+          hasDef: !r.noDef && !!r.def,
           defLabel: open ? 'Ocultar definición' : 'Ver definición',
-          definition: r.def[s.linea],
+          definition: r.def || '',
           toggle:function(){
             const o = Object.assign({}, s.open); o[r.id] = !open;
             self.setState({open:o});
+          },
+          hasGroupDef: !!r.groupDef,
+          groupOpen:groupOpen,
+          groupDefLabel: groupOpen ? 'Ocultar escala' : 'Ver escala',
+          groupDefinition: r.groupDef || '',
+          groupToggle:function(){
+            const go = Object.assign({}, s.groupOpen); go[r.id] = !groupOpen;
+            self.setState({groupOpen:go});
           },
           cells: cases.map(function(c){
             const cell = c.v[r.id] || {value:'—'};
@@ -772,7 +772,8 @@ class Component extends DCLogic {
             return {
               value:col.label, color:col.color, chipBg:col.chipBg,
               bg: r.group ? '#FBFCFC' : '#fff',
-              hasNote: !!cell.note, note:cell.note || ''
+              topBorder: r.group ? '2px solid ' + (r.groupColor || '#8CA0A5') : 'none',
+              hasNote: EV_ROWS.indexOf(r.id) === -1 && !!cell.note, note:cell.note || ''
             };
           })
         };

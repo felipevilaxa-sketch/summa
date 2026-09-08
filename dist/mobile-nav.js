@@ -1,6 +1,6 @@
 (function(){
   var LINKS = [
-    ['Marco WISE', 'Marco WISE.dc.html', 'marco-wise.html'],
+    ['Modelo conceptual', 'Marco WISE.dc.html', 'marco-wise.html'],
     ['Líneas de Reforma', 'Lineas de Reforma.dc.html', 'lineas-de-reforma.html']
   ];
   var DC = location.pathname.indexOf('.dc.html') > -1;
@@ -204,6 +204,7 @@
       /* Carousel container – stay within parent padding, no negative margins */
       container.style.cssText = container.getAttribute('style') || '';
       container.style.display = 'flex';
+      container.style.flexDirection = 'row';
       container.style.overflowX = 'auto';
       container.style.WebkitOverflowScrolling = 'touch';
       container.style.scrollSnapType = 'x mandatory';
@@ -225,7 +226,7 @@
 
       /* Dots – idénticos al home: 8px círculos, scale(1.5) activo */
       var dotsWrap = document.createElement('div');
-      dotsWrap.style.cssText = 'display:flex;justify-content:center;align-items:center;gap:8px;margin-top:18px';
+      dotsWrap.style.cssText = 'display:flex;justify-content:center;align-items:center;gap:8px;margin-top:18px;margin-bottom:24px';
       var dotBtns = [];
 
       function setActive(i) {
@@ -271,8 +272,9 @@
   window.__patchCarousel = patchCarousel;
 
   /* ── patchTabsAsSelect: convierte un tablist en <select> desplegable ─ */
-  function patchTabsAsSelect(tablistSel) {
+  function patchTabsAsSelect(tablistSel, opts) {
     if (window.innerWidth > 900) return;
+    opts = opts || {};
     function tryPatch() {
       var tablist = document.querySelector(tablistSel);
       if (!tablist || tablist.dataset.mobSelect) return false;
@@ -282,10 +284,15 @@
       tablist.style.display = 'none';
 
       var wrap = document.createElement('div');
-      wrap.style.cssText = 'position:relative;margin:22px 0 22px';
+      wrap.style.cssText = 'position:relative;' + (opts.wrapStyle || 'margin:22px 0 22px');
 
+      var selColor = opts.color || '#0D4A57';
+      var borderStyle = opts.border || '1.5px solid #0D4A57';
+      var fontSize = opts.fontSize || '15px';
+      var fontWeight = opts.fontWeight || '600';
+      var padding = opts.padding || '13px 42px 13px 16px';
       var sel = document.createElement('select');
-      sel.style.cssText = 'width:100%;appearance:none;-webkit-appearance:none;font-family:Lato,sans-serif;font-size:15px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #0D4A57;border-radius:10px;padding:13px 42px 13px 16px;cursor:pointer;outline:none;box-sizing:border-box';
+      sel.style.cssText = 'width:100%;appearance:none;-webkit-appearance:none;font-family:Lato,sans-serif;font-size:' + fontSize + ';font-weight:' + fontWeight + ';color:' + selColor + ';background:#fff;border:' + borderStyle + ';border-radius:10px;padding:' + padding + ';cursor:pointer;outline:none;box-sizing:border-box';
 
       btns.forEach(function(btn, i) {
         var opt = document.createElement('option');
@@ -295,8 +302,9 @@
         sel.appendChild(opt);
       });
 
+      var chevronColor = opts.chevronColor || '#0D4A57';
       var chevron = document.createElement('div');
-      chevron.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D4A57" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+      chevron.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="' + chevronColor + '" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>';
       chevron.style.cssText = 'position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex;align-items:center';
 
       sel.addEventListener('change', function() {
@@ -304,9 +312,17 @@
         if (btn) btn.click();
       });
 
+      if (opts.hint) {
+        var hint = document.createElement('p');
+        hint.textContent = opts.hint;
+        hint.style.cssText = 'margin:0 0 10px;font-family:Lato,sans-serif;font-size:12.5px;color:#7C8B8D;line-height:1.45';
+        wrap.appendChild(hint);
+      }
       wrap.appendChild(sel);
       wrap.appendChild(chevron);
-      tablist.insertAdjacentElement('afterend', wrap);
+      var placeholder = opts.placeholder ? document.getElementById(opts.placeholder) : null;
+      if (placeholder) { placeholder.appendChild(wrap); }
+      else { tablist.insertAdjacentElement('afterend', wrap); }
 
       /* Sync select when aria-selected changes programmatically */
       var mo = new MutationObserver(function() {
@@ -330,12 +346,31 @@
   /* ── Marco WISE premises cards carousel ─────────────────────────── */
   patchCarousel('[data-m="premises"]');
 
-  /* ── Líneas de Reforma: pasos carousel ──────────────────────────── */
+  /* ── Líneas de Reforma: criterios y pasos carousel ─────────────── */
+  patchCarousel('[data-m="lr-criteria"]');
   patchCarousel('[data-m="lr-steps"]');
 
-  /* ── Criterios de Selección: filtros carousel (desktop only) ───────── */
-  /* En mobile las cards stackean solas con auto-fit grid; carousel/dots innecesarios */
-  if (window.innerWidth > 900) patchCarousel('[data-m="cds-filters"]');
+  /* ── Criterios de Selección: filtros carousel ──────────────────── */
+  patchCarousel('[data-m="cds-filters"]');
+
+  /* ── Detalle de Caso: main tabs → select principal ───────────────── */
+  patchTabsAsSelect('[data-m="dc-main-tabs"]', {
+    hint: 'Este caso está organizado en secciones. Usa el menú para navegar entre ellas.',
+    placeholder: '__mob-main-sel',
+    wrapStyle: 'margin:12px 0 16px'
+  });
+
+  /* ── Detalle de Caso: secondary tabs → select secundario ─────────── */
+  patchTabsAsSelect('[data-m="dc-sec-tabs"]', {
+    color: '#4F6B72',
+    border: '1px solid #DCE3E1',
+    fontSize: '13px',
+    fontWeight: '500',
+    padding: '10px 36px 10px 14px',
+    chevronColor: '#4F6B72',
+    placeholder: '__mob-sec-sel',
+    wrapStyle: 'margin:0 0 32px'
+  });
 
   /* ── Criterios de Selección: dos selectores (línea + caso) ─────────
      Aplica en desktop y mobile. Los controles originales quedan ocultos

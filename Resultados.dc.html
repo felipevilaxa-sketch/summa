@@ -33,7 +33,7 @@
       </span>
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
-      <a href="marco-wise.html" style="color:#0D4A57">Marco WISE</a>
+      <a href="marco-wise.html" style="color:#0D4A57">Modelo conceptual</a>
       <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
@@ -149,9 +149,9 @@ const INDEX = [
    desc:'Reformas sistémicas que buscan cambiar la enseñanza de la lectura y la escritura en los primeros grados, articulando currículo, formación docente y materiales.',
    href:P('Lineas de Reforma.dc.html','lineas-de-reforma.html'), ready:true,
    terms:'lectoescritura alfabetizacion inicial lectura escritura colombia peru guatemala formacion docente pta comprension lectora linea de reforma practicas de aula'},
-  {type:'Marco', title:'Marco WISE: dimensiones y tendencias', meta:'5 dimensiones · Índice Global de Educación',
+  {type:'Marco', title:'Modelo conceptual: dimensiones y tendencias', meta:'5 dimensiones · Índice Global de Educación',
    desc:'Las cinco dimensiones que ordenan cada análisis —insumos, condiciones habilitantes, apoyo pedagógico, prácticas de aula y resultados— y la distribución de las reformas de la región.',
-   href:P('Marco WISE.dc.html','marco-wise.html'), ready:true,
+   href:P('Modelo conceptual.dc.html','marco-wise.html'), ready:true,
    terms:'marco wise dimensiones subdimensiones indicadores tendencias insumos condiciones habilitantes apoyo pedagogico practicas de aula resultados indice global concepto'},
   {type:'Marco', title:'Criterios de selección de casos', meta:'Metodología · Inclusión y exclusión',
    desc:'Qué debe cumplir una reforma para entrar a la plataforma y qué criterio aplica a cada caso: matriz por línea de reforma con elegibilidad, criterios primarios y secundarios.',
@@ -267,7 +267,7 @@ class Component extends DCLogic {
         };
       }),
 
-      hints: ['Financiamiento progresivo','Lectoescritura','Chile','Marco WISE','Equidad vertical'].map(function(t){
+      hints: ['Financiamiento progresivo','Lectoescritura','Chile','Modelo conceptual','Equidad vertical'].map(function(t){
         return {label:t, href:(DC ? 'Resultados.dc.html' : 'resultados.html') + '?q=' + encodeURIComponent(t)};
       })
     };

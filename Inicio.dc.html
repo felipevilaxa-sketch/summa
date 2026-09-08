@@ -35,7 +35,7 @@
       </span>
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
-      <a href="marco-wise.html" style="color:#0D4A57">Marco WISE</a>
+      <a href="marco-wise.html" style="color:#0D4A57">Modelo conceptual</a>
       <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
@@ -57,7 +57,8 @@
       <div data-m="hero-story" style="position:relative;padding:clamp(30px,4vw,56px);max-width:760px;width:100%;margin:0 auto;text-align:center">
         <div style="opacity:{{ storyOpacity }};transform:translateY({{ storyShift }});transition:opacity .34s ease,transform .34s ease">
           <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#D4FBA1;margin-bottom:14px">{{ storyEyebrow }}</div>
-          <h1 style="font-family:Lato,sans-serif;font-size:clamp(27px,3.9vw,40px);line-height:1.2;font-weight:600;color:#fff;margin:0;letter-spacing:-.01em;text-wrap:pretty;white-space:pre-line;min-height:2.4em">{{ storyTitle }}</h1>
+          <h1 style="font-family:Lato,sans-serif;font-size:clamp(27px,3.9vw,40px);line-height:1.2;font-weight:600;color:#fff;margin:0;letter-spacing:-.01em;white-space:pre-line;height:2.4em;overflow:hidden">{{ storyTitle }}</h1>
+          <p style="font-size:clamp(13px,1.4vw,15px);line-height:1.55;color:rgba(255,255,255,.82);margin:10px 0 0;text-wrap:pretty;min-height:3.1em">{{ storySubtitle }}</p>
         </div>
         <div role="tablist" aria-label="Pasos de la portada" style="display:flex;justify-content:center;gap:10px;margin:26px 0 0">
           <sc-for list="{{ storyBars }}" as="b" hint-placeholder-count="3">
@@ -80,18 +81,18 @@
       <a href="lineas-de-reforma.html" data-m="access-card" style="border:1px solid #DCE3E1;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 38%;text-decoration:none;transition:box-shadow .25s ease,transform .25s ease" style-hover="box-shadow:0 16px 32px -8px rgba(13,74,87,.16);transform:translateY(-4px)">
         <div style="padding:clamp(24px,2.6vw,30px);display:flex;flex-direction:column;gap:11px">
           <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#6FA030">Líneas de reforma</div>
-          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(19px,2.1vw,23px);color:#0D4A57;line-height:1.25">Conoce las temáticas prioritarias</div>
-          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Cada línea reúne el contexto del problema y los casos analizados bajo un mismo marco.</p>
-          <span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57;margin-top:auto;padding-top:6px">Ver líneas →</span>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(19px,2.1vw,23px);color:#0D4A57;line-height:1.25">Explora las líneas de reforma</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Cada línea reúne reformas vinculadas a un mismo tema y las analiza con una estructura común</p>
+          <span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57;margin-top:auto;padding-top:6px">VER LÍNEAS →</span>
         </div>
         <div role="img" aria-label="Comunidad educativa" data-m="access-img" style="background-image:url(assets/card-lineas.png);background-size:cover;background-position:center;min-height:190px"></div>
       </a>
       <a href="casos.html" data-m="access-card" style="border:1px solid #DCE3E1;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 38%;text-decoration:none;transition:box-shadow .25s ease,transform .25s ease" style-hover="box-shadow:0 16px 32px -8px rgba(13,74,87,.16);transform:translateY(-4px)">
         <div style="padding:clamp(24px,2.6vw,30px);display:flex;flex-direction:column;gap:11px">
           <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#6FA030">Casos</div>
-          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(19px,2.1vw,23px);color:#0D4A57;line-height:1.25">Explora y compara reformas</div>
-          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Filtra por línea, dimensión WISE o país, y compara hasta tres casos lado a lado.</p>
-          <span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57;margin-top:auto;padding-top:6px">Explorar casos →</span>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(19px,2.1vw,23px);color:#0D4A57;line-height:1.25">Conoce reformas educativas en profundidad</div>
+          <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">Explora los casos por país o línea de reforma, y conoce su contexto, diseño, implementación, resultados y lecciones.</p>
+          <span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57;margin-top:auto;padding-top:6px">EXPLORAR CASOS →</span>
         </div>
         <div role="img" aria-label="Estudiantes en el aula" data-m="access-img" style="background-image:url(assets/card-casos.png);background-size:cover;background-position:center;min-height:190px"></div>
       </a>
@@ -117,8 +118,8 @@
       <div>
         <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Qué es la plataforma</div>
         <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(26px,3.4vw,36px);line-height:1.22;color:#0D4A57;margin:0 0 18px;text-wrap:pretty">Un ecosistema de evidencia para decidir política educativa</h2>
-        <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0 0 16px;max-width:520px">La Plataforma de Reformas Educativas analiza en profundidad reformas de gran escala en áreas prioritarias para América Latina y el Caribe. Cada línea reúne tres casos estudiados con la misma estructura, más un análisis comparado entre ellos.</p>
-        <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0 0 28px;max-width:520px">No es un repositorio de casos aislados: la comparabilidad es el punto. Por eso todos los casos siguen el ciclo de la política pública, desde el contexto hasta las lecciones de transferibilidad.</p>
+        <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0 0 16px;max-width:520px">La Plataforma de Reformas Educativas reúne distintas herramientas y niveles de análisis: un modelo conceptual, casos en profundidad, ejemplos documentados, comparaciones y tendencias históricas.</p>
+        <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0 0 28px;max-width:520px">Su objetivo es ayudar a comprender cómo se diseñan, implementan y evolucionan las reformas educativas en diferentes contextos. Permite analizar sus dimensiones, contrastar trayectorias e identificar patrones y condiciones relevantes. Así aporta evidencia y contexto para informar decisiones de política educativa.</p>
         <a href="criterios-de-seleccion.html" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:8px;border:1.5px solid #0D4A57;color:#fff;background:#0D4A57;font-size:13px;letter-spacing:.03em;padding:12px 24px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s" style-hover="background:none;color:#0D4A57">VER CRITERIOS DE SELECCIÓN DE CASOS
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
         </a>
@@ -148,7 +149,7 @@
   <section style="margin:0 0 clamp(90px,13vw,170px)">
     <div style="margin:0 0 18px">
       <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Para quiénes</div>
-      <h3 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.4vw,26px);line-height:1.3;color:#0D4A57;margin:0;max-width:620px">Cuatro perfiles que usan la evidencia en distintos momentos del ciclo de política</h3>
+      <h3 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(21px,2.4vw,26px);line-height:1.3;color:#0D4A57;margin:0;max-width:620px">Perfiles y usos de la plataforma</h3>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px">
       <sc-for list="{{ audience }}" as="a" hint-placeholder-count="4">
@@ -171,10 +172,10 @@
 
   <section id="marco" style="padding:0 0 clamp(90px,13vw,170px);position:relative">
     <div style="max-width:660px;margin:0 0 clamp(32px,4vw,48px)">
-      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Marco WISE</div>
-      <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,34px);line-height:1.25;color:#0D4A57;margin:0 0 16px">Marco WISE: la base de cada caso</h2>
-      <p style="font-family:Lato,sans-serif;font-size:15px;line-height:1.65;color:#516268;margin:0 0 26px">Las cinco dimensiones que ordenan cada análisis, y la distribución de las reformas documentadas en la región.</p>
-      <a href="marco-wise.html" style="font-family:Lato,sans-serif;display:inline-block;border:1.5px solid #0D4A57;color:#fff;background:#0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;text-decoration:none;transition:background .15s,color .15s" style-hover="background:none;color:#0D4A57">VER MARCO WISE</a>
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Modelo conceptual</div>
+      <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(26px,3.2vw,34px);line-height:1.25;color:#0D4A57;margin:0 0 16px">Comprender cómo mejoran los sistemas educativos</h2>
+      <p style="font-family:Lato,sans-serif;font-size:15px;line-height:1.65;color:#516268;margin:0 0 26px">El modelo analiza cómo los sistemas complejos y multinivel movilizan sus condiciones y recursos para generar oportunidades de aprendizaje y bienestar. Cada trayectoria de mejora depende de las relaciones dentro del sistema y de su contexto.</p>
+      <a href="marco-wise.html" style="font-family:Lato,sans-serif;display:inline-block;border:1.5px solid #0D4A57;color:#fff;background:#0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;text-decoration:none;transition:background .15s,color .15s" style-hover="background:none;color:#0D4A57">VER MODELO CONCEPTUAL</a>
     </div>
 
     <div data-m="wise-flow" style="display:grid;grid-template-columns:1fr 34px 1.15fr 34px 1fr;align-items:stretch;gap:0">
@@ -260,9 +261,9 @@
 <script type="text/x-dc" data-dc-script data-props="{}">
 const DUR = 6200;
 const STORY = [
-  {eyebrow:'01 — El problema', title:'América Latina atraviesa una crisis educativa.'},
-  {eyebrow:'02 — La pregunta', title:'Se necesitan reformas.\n¿Por dónde empezar?'},
-  {eyebrow:'03 — La respuesta', title:'Sistematizamos lo que ya funcionó, para decidir con base en evidencia.'}
+  {eyebrow:'EL DESAFÍO', title:'América Latina atraviesa una crisis educativa.', subtitle:'Solo 1 de cada 5 jóvenes completa la secundaria con aprendizajes básicos. Entre los más pobres, apenas 1 de cada 20.'},
+  {eyebrow:'LA PREGUNTA', title:'¿Cómo impulsar reformas\nque respondan a los desafíos de cada contexto?', subtitle:''},
+  {eyebrow:'LA PROPUESTA', title:'Evidencia, contexto y comparación para informar decisiones.', subtitle:''}
 ];
 
 class Component extends DCLogic {
@@ -323,6 +324,7 @@ class Component extends DCLogic {
 
       storyEyebrow: st.eyebrow,
       storyTitle: st.title,
+      storySubtitle: st.subtitle,
       storyOpacity: s.fading ? 0 : 1,
       storyShift: s.fading ? '10px' : '0px',
       storyCtaOpacity: s.fading ? 0 : 1,
@@ -342,16 +344,16 @@ class Component extends DCLogic {
       }),
 
       pillars:[
-        {accent:'#0D4A57', title:'Reformas de gran escala y con foco de largo plazo', desc:'Se analizan políticas que cambiaron el sistema: su proceso histórico, social y legislativo.'},
-        {accent:'#8BC53F', title:'Una estructura común para todos los casos', desc:'Contexto, diseño, implementación, resultados y lecciones, siguiendo el ciclo de la política pública.'},
-        {accent:'#E8A33D', title:'Evidencia, indicadores y voces', desc:'Cada caso reúne evaluaciones, indicadores comparables y entrevistas a quienes lo diseñaron e implementaron.'},
-        {accent:'#6C90A3', title:'Comparabilidad entre casos', desc:'Matrices comparadas por línea que permiten leer las lecciones aprendidas en conjunto.'}
+        {accent:'#0D4A57', title:'Comprender y fortalecer la mejora de los sistemas educativos', desc:'El modelo conceptual analiza cómo los sistemas complejos y multinivel transforman sus condiciones y recursos en oportunidades de aprendizaje y bienestar. También examina las relaciones, interdependencias, trayectorias y procesos de retroalimentación que intervienen en la mejora educativa.'},
+        {accent:'#8BC53F', title:'Conocer las reformas en profundidad', desc:'Los casos en profundidad combinan evidencia, indicadores, fuentes documentales y entrevistas a quienes participaron en el diseño, la conducción y la implementación de las reformas. Esta información permite reconstruir sus decisiones, actores, tensiones, procesos de implementación y resultados. Los ejemplos documentados ofrecen una aproximación más sintética y amplían la cobertura temática y geográfica de la plataforma.'},
+        {accent:'#E8A33D', title:'Comparar trayectorias y contextos', desc:'Una estructura de análisis compartida permite contrastar el contexto, el diseño, la implementación y los resultados de distintas reformas. La comparación ayuda a identificar patrones, diferencias y condiciones contextuales. Su finalidad es analítica y favorece una interpretación situada de cada experiencia.'},
+        {accent:'#6C90A3', title:'Explorar tendencias históricas de reforma', desc:'Con datos de la base WERD, la plataforma analiza qué reformas se registraron, en qué países y períodos, y en qué dimensiones se concentró la acción de política durante los años cubiertos por la base.'}
       ],
       audience:[
-        {n:'01', title:'Técnicos y asesores', desc:'Jefes de unidad, especialistas sectoriales y cooperación internacional.', i1:1, i2:0, i3:0, i4:0},
-        {n:'02', title:'Tomadores de decisión', desc:'Autoridades que definen la agenda y priorizan reformas.', i1:0, i2:1, i3:0, i4:0},
-        {n:'03', title:'Implementadores', desc:'Equipos de nivel intermedio que llevan la política al territorio.', i1:0, i2:0, i3:1, i4:0},
-        {n:'04', title:'Investigadores', desc:'Academia que busca evidencia específica de la región.', i1:0, i2:0, i3:0, i4:1}
+        {n:'01', title:'Tomadores de decisión', desc:'Autoridades responsables de definir prioridades, orientar políticas y asignar recursos. La plataforma aporta evidencia y contexto para analizar alternativas e informar decisiones.', i1:0, i2:1, i3:0, i4:0},
+        {n:'02', title:'Equipos técnicos y asesores', desc:'Especialistas que diseñan opciones, elaboran recomendaciones y acompañan la toma de decisiones. Pueden analizar evidencia, capacidades, condiciones de implementación y experiencias comparadas.', i1:1, i2:0, i3:0, i4:0},
+        {n:'03', title:'Equipos de implementación', desc:'Actores de los niveles nacional, intermedio y local que coordinan, adaptan y sostienen las reformas. La plataforma permite comprender procesos, actores, mediaciones y desafíos de implementación.', i1:0, i2:0, i3:1, i4:0},
+        {n:'04', title:'Investigadores y evaluadores', desc:'Académicos, centros de estudio y especialistas que analizan las trayectorias, los procesos y los resultados de las reformas a partir de casos, fuentes e indicadores comparables.', i1:0, i2:0, i3:0, i4:1}
       ],
       stats:[
         {value:s.counts[0], label:'Líneas de Reforma'},

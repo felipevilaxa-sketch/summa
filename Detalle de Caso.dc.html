@@ -32,7 +32,7 @@
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#F4F7F6"/><rect x="30" y="28" width="40" height="8" rx="4" fill="#0D4A57"/><rect x="30" y="44" width="30" height="6" rx="3" fill="#8BC53F"/><rect x="30" y="56" width="36" height="6" rx="3" fill="#0D4A57" opacity=".4"/><rect x="30" y="68" width="22" height="6" rx="3" fill="#0D4A57" opacity=".25"/></svg></template>
 </helmet>
 
-<div style="width:100%;position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #ECF1EF;box-shadow:{{ navShadow }};transition:box-shadow .2s ease" data-noprint>
+<div style="width:100%;position:fixed;top:0;left:0;right:0;z-index:50;background:#fff;border-bottom:1px solid #ECF1EF;box-shadow:{{ navShadow }};transition:box-shadow .2s ease" data-noprint data-plat-header>
   <nav data-m="topnav" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px clamp(20px,4vw,40px);max-width:1240px;margin:0 auto">
     <a href="index.html" style="display:flex;align-items:center;gap:14px" data-m="brand">
       <img src="assets/logo-summa-lab.png" alt="SUMMA — Laboratorio de Investigación e Innovación en Educación para América Latina y el Caribe" style="height:56px;width:auto">
@@ -42,7 +42,7 @@
       </span>
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
-      <a href="marco-wise.html" style="color:#0D4A57">Marco WISE</a>
+      <a href="marco-wise.html" style="color:#0D4A57">Modelo conceptual</a>
       <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
@@ -52,6 +52,8 @@
     </div>
   </nav>
 </div>
+
+<div data-m="spacer" aria-hidden="true" style="height:88px" data-noprint></div>
 
 <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
 
@@ -65,8 +67,8 @@
     <p style="font-size:16.5px;line-height:1.6;color:#3D4E52;max-width:700px;margin:0 0 32px;text-wrap:pretty">Reforma que incorporó la equidad vertical en el mecanismo principal de financiamiento escolar de Chile: un pago adicional por cada estudiante prioritario, con uso condicionado a un plan de mejoramiento y rendición de cuentas.</p>
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid #DCE3E1">
       <div style="display:flex;flex-wrap:wrap;gap:20px 40px">
-        <div><span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:6px">País</span><span style="font-family:Lato,sans-serif;font-size:15px;font-weight:600">Chile</span></div>
         <div><span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:6px">Línea de reforma</span><span style="font-family:Lato,sans-serif;font-size:15px;font-weight:600">Financiamiento progresivo</span></div>
+        <div><span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:6px">País</span><span style="font-family:Lato,sans-serif;font-size:15px;font-weight:600">Chile</span></div>
         <div><span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:6px">Vigencia</span><span style="font-family:Lato,sans-serif;font-size:15px;font-weight:600">2008 – actualidad</span></div>
         <div><span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:6px">Tipo de mecanismo</span><span style="font-family:Lato,sans-serif;font-size:15px;font-weight:600">Weighted Student Funding</span></div>
       </div>
@@ -81,16 +83,18 @@
     </div>
   </header>
 
-  <div role="tablist" aria-label="Secciones del estudio de caso" data-m="scroll-x" style="display:flex;gap:8px;background:#F4F7F6;border:1px solid #DCE3E1;border-radius:16px;padding:8px;margin:48px 0 10px;flex-wrap:wrap" data-noprint>
+  <div role="tablist" aria-label="Secciones del estudio de caso" data-m="dc-main-tabs" style="display:flex;gap:8px;background:#F4F7F6;border:1px solid #DCE3E1;border-radius:16px;padding:8px;margin:48px 0 10px;flex-wrap:wrap" data-noprint>
     <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
       <button role="tab" aria-selected="{{ t.selected }}" onClick="{{ t.select }}" style="{{ t.style }}">{{ t.label }}</button>
     </sc-for>
   </div>
-  <div role="tablist" aria-label="Materiales de apoyo" data-m="scroll-x" style="display:flex;gap:6px;padding:0 2px;margin:0 0 40px;flex-wrap:wrap" data-noprint>
+  <div id="__mob-main-sel" data-noprint></div>
+  <div role="tablist" aria-label="Materiales de apoyo" data-m="dc-sec-tabs" style="display:flex;gap:6px;padding:0 2px;margin:10px 0 40px;flex-wrap:wrap" data-noprint>
     <sc-for list="{{ secTabs }}" as="t" hint-placeholder-count="3">
       <button role="tab" aria-selected="{{ t.selected }}" onClick="{{ t.select }}" style="{{ t.style }}">{{ t.label }}</button>
     </sc-for>
   </div>
+  <div id="__mob-sec-sel" data-noprint></div>
 
   <div style="position:relative;max-width:700px;margin:0 auto">
     <nav aria-label="Índice de la sección" style="position:absolute;top:0;left:-230px;width:175px;height:100%;display:{{ tocDisplay }}" data-noprint>
@@ -651,7 +655,7 @@
     </div>
 
     <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;border:1px dashed #DCE3E1;border-radius:16px;padding:24px 28px;flex-wrap:wrap" data-noprint>
-      <p style="font-family:Lato,sans-serif;font-size:16px;color:#0D4A57;margin:0">El análisis completo sigue el marco de SUMMA: contexto, diseño, implementación, resultados y lecciones.</p>
+      <p style="font-family:Lato,sans-serif;font-size:16px;color:#0D4A57;margin:0">El análisis del caso se organiza en seis secciones: contexto, diseño, financiamiento, implementación, resultados y lecciones.</p>
       <button onClick="{{ goContexto }}" style="font-family:Lato,sans-serif;background:#0D4A57;color:#fff;border:1.5px solid #0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s" style-hover="background:#fff;color:#0D4A57">EMPEZAR POR CONTEXTO
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </button>
@@ -660,7 +664,7 @@
   </sc-if>
 
   <sc-if value="{{ isResultados }}">
-  <div>
+  <article>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:20px">
       <sc-for list="{{ kpis }}" as="k" hint-placeholder-count="4">
         <div style="{{ k.style }}">
@@ -808,7 +812,7 @@
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </button>
     </div>
-  </div>
+  </article>
   </sc-if>
 
   <sc-if value="{{ isMedia }}">
@@ -877,16 +881,13 @@
         </span>
         <div>
           <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15.5px;color:#17242A">Informe completo del caso</div>
-          <div style="font-size:12.5px;color:#8CA0A5;margin-top:2px">PDF · 47 páginas · 3.4 MB</div>
+          <div style="font-size:12.5px;color:#8CA0A5;margin-top:2px">PDF · 43 páginas · 0.84 MB</div>
         </div>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button onClick="{{ doPrint }}" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:13px;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="4" y1="20" x2="20" y2="20"></line></svg>DESCARGAR RESUMEN
-        </button>
-        <button style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:13px;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">
+<a href="assets/sep-informe-completo.pdf" download="sep-informe-completo.pdf" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;background:none;font-size:13px;letter-spacing:.03em;padding:11px 20px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s;text-decoration:none" style-hover="background:#0D4A57;color:#fff">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="4" y1="20" x2="20" y2="20"></line></svg>DESCARGAR PDF COMPLETO
-        </button>
+        </a>
       </div>
     </div>
 
@@ -958,8 +959,8 @@
   </div>
   </sc-if>
 
-  <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;background:#F4F7F6;border-radius:16px;padding:28px 32px;margin:64px 0 0;flex-wrap:wrap" data-noprint>
-    <p style="font-family:Lato,sans-serif;font-size:17px;color:#0D4A57;margin:0">¿Cómo se compara con otros mecanismos de financiamiento progresivo?</p>
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;background:#F4F7F6;border-radius:16px;padding:28px 32px;margin:64px 0 64px;flex-wrap:wrap" data-noprint>
+    <p style="font-family:Lato,sans-serif;font-size:17px;color:#0D4A57;margin:0">¿Cómo se compara este caso con otras reformas de financiamiento progresivo?</p>
     <button onClick="{{ openCompare }}" style="font-family:Lato,sans-serif;background:none;color:#0D4A57;border:1.5px solid #0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">COMPARAR CON OTROS CASOS
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
     </button>
@@ -1146,7 +1147,7 @@ const TABS = [
 const SEC_TABS = [
   ['recursos','Recursos'],
   ['bibliografia','Bibliografía'],
-  ['multimedia','Multimedia']
+  ['multimedia','Entrevistas']
 ];
 const ALL_TABS = TABS.concat(SEC_TABS);
 const NEXT = {
@@ -1666,7 +1667,6 @@ class Component extends DCLogic {
       ],
 
       goContexto:function(){ self.setState({tab:'contexto', activeToc:0}); window.scrollTo({top:0, behavior:'smooth'}); },
-      doPrint:function(){ window.print(); },
       copyPromptLabel: s.copied.prompt ? 'Copiado ✓' : 'Copiar',
       copyPromptStyle: this.copyBtnStyle('prompt'),
       copyPrompt:function(){
