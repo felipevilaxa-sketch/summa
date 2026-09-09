@@ -54,8 +54,8 @@
     <div style="background:linear-gradient(105deg,#0D4A57 0%,#1E6E7C 46%,#7EA3AE 100%);border-radius:16px;padding:clamp(32px,4vw,52px) clamp(26px,3.6vw,52px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.4vw,48px);align-items:center;height:clamp(420px,38vw,460px);overflow:hidden;margin-bottom:36px" data-m="hero-split">
       <div>
         <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#D4FBA1;margin-bottom:10px">Modelo conceptual</div>
-        <h1 style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(30px,4.2vw,42px);line-height:1.16;letter-spacing:-.01em;color:#fff;margin:0 0 18px;text-wrap:pretty">El marco que ordena cada análisis</h1>
-        <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,.85);margin:0;max-width:460px;text-wrap:pretty">Mide el espacio entre las condiciones de un sistema educativo y sus resultados: los procesos que las convierten en aprendizaje real.</p>
+        <h1 style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(30px,4.2vw,42px);line-height:1.16;letter-spacing:-.01em;color:#fff;margin:0 0 18px;text-wrap:pretty">Comprender cómo mejoran los sistemas educativos</h1>
+        <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,.85);margin:0;max-width:460px;text-wrap:pretty">Una propuesta para comprender cómo los sistemas educativos movilizan recursos y capacidades para ampliar las oportunidades de aprendizaje y bienestar en cada contexto.</p>
       </div>
       <div data-m="hero-art" style="position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center">
         <svg viewBox="0 0 500 560" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;max-width:none" role="img" aria-label="Retícula isométrica que representa las dimensiones del marco WISE">
@@ -89,29 +89,81 @@
         </svg>
       </div>
     </div>
+  </header>
+
+  <section style="margin:0 0 clamp(48px,6vw,80px)">
+    <div style="margin-bottom:28px">
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:10px">Concepción del modelo</div>
+      <h2 style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(22px,2.8vw,30px);line-height:1.2;color:#0D4A57;margin:0 0 12px">Siete premisas para comprender la mejora educativa</h2>
+      <p style="font-size:15px;line-height:1.65;color:#516268;margin:0;max-width:620px">El modelo se apoya en siete premisas sobre cómo funcionan y cambian los sistemas educativos.</p>
+    </div>
     <div data-m="premises" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
-      <sc-for list="{{ premises }}" as="p" hint-placeholder-count="3">
+      <sc-for list="{{ premises }}" as="p" hint-placeholder-count="7">
         <div style="border:1px solid #DCE3E1;border-radius:16px;padding:20px 22px;border-top:4px solid {{ p.accent }}">
           <div style="font-family:Lato,sans-serif;font-weight:700;font-size:14.5px;color:#0D4A57;margin-bottom:6px;line-height:1.35">{{ p.title }}</div>
           <p style="margin:0;font-size:13.5px;line-height:1.6;color:#516268">{{ p.desc }}</p>
         </div>
       </sc-for>
     </div>
-  </header>
+  </section>
+
+  <section style="margin:0 0 clamp(48px,6vw,80px)">
+    <div style="margin-bottom:28px">
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:10px">Alcance del cambio</div>
+      <h2 style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(22px,2.8vw,30px);line-height:1.2;color:#0D4A57;margin:0 0 12px">Modo adaptativo y modo transformador</h2>
+      <p style="font-size:15px;line-height:1.65;color:#516268;margin:0;max-width:620px">Los mecanismos y las capacidades del sistema pueden impulsar cambios de distinto alcance. El modelo distingue dos modos de cambio.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0;border:1.5px solid #DCE3E1;border-radius:20px;overflow:hidden">
+      <div style="padding:clamp(24px,3vw,40px);background:#F3F8F6;border-right:1.5px solid #DCE3E1">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #DCE3E1;border-radius:999px;padding:6px 14px;margin-bottom:20px">
+          <span style="width:8px;height:8px;border-radius:50%;background:#8BC53F;flex-shrink:0"></span>
+          <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4E7220">Modo adaptativo</span>
+        </div>
+        <p style="font-size:15px;line-height:1.7;color:#33444A;margin:0">Mejora prácticas y procesos dentro de la lógica de funcionamiento existente.</p>
+      </div>
+      <div style="padding:clamp(24px,3vw,40px);background:#0D4A57">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;margin-bottom:20px">
+          <span style="width:8px;height:8px;border-radius:50%;background:#D4FBA1;flex-shrink:0"></span>
+          <span style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#D4FBA1">Modo transformador</span>
+        </div>
+        <p style="font-size:15px;line-height:1.7;color:rgba(255,255,255,.88);margin:0">Cambia esa lógica al modificar las relaciones entre actores, la distribución de roles o los saberes que orientan la acción.</p>
+      </div>
+    </div>
+    <p style="font-size:14px;line-height:1.65;color:#516268;margin:16px 0 0;max-width:680px">La distinción ayuda a reconocer la profundidad y la naturaleza del cambio que impulsa una reforma. Cada modo responde a propósitos y condiciones diferentes.</p>
+  </section>
+
+  <section style="margin:0 0 clamp(48px,6vw,80px)">
+    <div style="margin-bottom:28px">
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:10px">Retroalimentación del sistema educativo</div>
+      <h2 style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(22px,2.8vw,30px);line-height:1.2;color:#0D4A57;margin:0 0 12px">Aprender de la implementación</h2>
+      <p style="font-size:15px;line-height:1.65;color:#516268;margin:0;max-width:620px">Los resultados y la implementación de los apoyos producen información que vuelve al sistema en distintos momentos. Esa información puede orientar decisiones, ajustes y aprendizajes.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-bottom:20px">
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:24px 26px;border-left:4px solid #1E6E7C;background:#fff">
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:12px">01</div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:10px;line-height:1.3">Bucle de retroalimentación corto</div>
+        <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">La información sobre los resultados y la implementación permite revisar las condiciones habilitantes y ajustar el financiamiento, la política docente, la evaluación, la regulación o los estándares.</p>
+      </div>
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:24px 26px;border-left:4px solid #8BC53F;background:#fff">
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5;margin-bottom:12px">02</div>
+        <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:10px;line-height:1.3">Bucle de retroalimentación largo</div>
+        <p style="margin:0;font-size:14px;line-height:1.65;color:#516268">A más largo plazo, la acumulación de cambios y resultados puede incidir en condiciones externas, como las expectativas y la participación ciudadana, la estructura económica o la gobernanza del Estado.</p>
+      </div>
+    </div>
+    <p style="font-size:14px;line-height:1.65;color:#516268;margin:0;max-width:680px">Ambos bucles requieren capacidades y mecanismos institucionales para procesar información, aprender de la implementación y convertir ese aprendizaje en ajustes.</p>
+  </section>
 
   <section id="esquema" style="margin:0 0 clamp(56px,7vw,88px);scroll-margin-top:110px">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px">
-      <div>
-        <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Dimensiones y subdimensiones</div>
-        <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:600px">Las cinco dimensiones en detalle</h2>
-      </div>
+    <div style="margin-bottom:28px">
+      <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:10px">Arquitectura del modelo</div>
+      <h2 data-m="h2" style="font-family:Lato,sans-serif;font-weight:700;font-size:clamp(22px,2.8vw,30px);line-height:1.2;color:#0D4A57;margin:0 0 12px">Tres espacios para comprender la mejora educativa</h2>
+      <p style="font-size:15px;line-height:1.65;color:#516268;margin:0;max-width:680px">El modelo organiza esta mirada en tres espacios relacionados: las condiciones en las que opera el sistema, los procesos que movilizan recursos y capacidades, y los resultados que busca promover. Las relaciones entre estos espacios pueden darse en distintas direcciones y generar ajustes a lo largo del tiempo.</p>
     </div>
 
     <div>
       <div data-m="wise-flow" style="display:grid;grid-template-columns:1fr 40px 1.15fr 40px 1fr;align-items:center;gap:0;margin-bottom:18px">
         <button onClick="{{ pIns.toggle }}" aria-expanded="{{ pIns.expanded }}" style="{{ pIns.style }}" style-hover="border-color:#8BC53F">
-          <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4E7220">Entrada</span>
-          <span style="font-family:Lato,sans-serif;font-size:clamp(17px,1.9vw,20px);font-weight:700;color:{{ pIns.titleColor }};line-height:1.25">Insumos y condiciones estructurales</span>
+          <span style="font-family:Lato,sans-serif;font-size:clamp(17px,1.9vw,20px);font-weight:700;color:{{ pIns.titleColor }};line-height:1.25">Condiciones estructurales y externas</span>
           <span style="font-size:13px;line-height:1.5;color:{{ pIns.blurbColor }}">{{ pIns.blurb }}</span>
           <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pIns.cta }};margin-top:auto;padding-top:8px">{{ pIns.label }}</span>
         </button>
@@ -122,6 +174,7 @@
 
         <div style="display:flex;flex-direction:column;gap:10px;border:1.5px dashed #CBDBE1;border-radius:16px;padding:14px;background:#FAFCFB">
           <div style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4E7220;padding:0 4px">Procesos</div>
+          <p style="font-size:12px;line-height:1.5;color:#516268;margin:0;padding:0 4px">Aquí se organizan los recursos, se desarrollan capacidades y se conectan las políticas con la experiencia educativa.</p>
           <button onClick="{{ pHab.toggle }}" aria-expanded="{{ pHab.expanded }}" style="{{ pHab.style }}" style-hover="border-color:#8BC53F">
             <span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#3A5518">Nivel 3</span>
             <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pHab.titleColor }};line-height:1.3">Condiciones habilitantes</span>
@@ -129,12 +182,12 @@
           </button>
           <button onClick="{{ pApo.toggle }}" aria-expanded="{{ pApo.expanded }}" style="{{ pApo.style }}" style-hover="border-color:#8BC53F">
             <span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#334C13">Nivel 2</span>
-            <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pApo.titleColor }};line-height:1.3">Apoyo pedagógico</span>
+            <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pApo.titleColor }};line-height:1.3">Mediación sistémica</span>
             <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pApo.cta }}">{{ pApo.label }}</span>
           </button>
           <button onClick="{{ pPra.toggle }}" aria-expanded="{{ pPra.expanded }}" style="{{ pPra.style }}" style-hover="border-color:#8BC53F">
             <span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF">Nivel 1</span>
-            <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pPra.titleColor }};line-height:1.3">Prácticas de aula</span>
+            <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pPra.titleColor }};line-height:1.3">Prácticas pedagógicas</span>
             <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pPra.cta }}">{{ pPra.label }}</span>
           </button>
         </div>
@@ -144,7 +197,6 @@
         </div>
 
         <button onClick="{{ pRes.toggle }}" aria-expanded="{{ pRes.expanded }}" style="{{ pRes.style }}" style-hover="border-color:#8BC53F">
-          <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8BC53F">Salida</span>
           <span style="font-family:Lato,sans-serif;font-size:clamp(17px,1.9vw,20px);font-weight:700;color:{{ pRes.titleColor }};line-height:1.25">Resultados</span>
           <span style="font-size:13px;line-height:1.5;color:{{ pRes.blurbColor }}">{{ pRes.blurb }}</span>
           <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pRes.cta }};margin-top:auto;padding-top:8px">{{ pRes.label }}</span>
@@ -192,7 +244,7 @@
         </div>
       </sc-if>
       <sc-if value="{{ detailClosed }}">
-        <p data-m="wise-hint" style="font-size:13px;color:#8CA0A5;margin:0;line-height:1.5" data-noprint>Haz clic en una dimensión para desplegar sus subdimensiones e indicadores.</p>
+        <p data-m="wise-hint" style="font-size:13px;color:#8CA0A5;margin:0;line-height:1.5" data-noprint>Selecciona un bloque para explorar sus dimensiones, subdimensiones e indicadores.</p>
       </sc-if>
     </div>
   </section>
@@ -304,9 +356,9 @@
 <script type="text/x-dc" data-dc-script data-props="{}">
 const PILLARS = [
   {
-    id:'insumos', domain:'Insumos · Condiciones estructurales', name:'Insumos y condiciones estructurales',
+    id:'insumos', domain:'Condiciones estructurales y externas', name:'Condiciones estructurales y externas',
     color:'#3E6B78', headBg:'#E6F0F3', headColor:'#0D4A57', headMuted:'#3E6B78',
-    blurb:'Recursos y características relativamente estables que configuran las posibilidades de acción del sistema.',
+    blurb:'Factores externos y relativamente estables que configuran las posibilidades de acción del sistema educativo.',
     rule:'Un elemento es condición estructural cuando representa un recurso o característica estable que configura oportunidades y restricciones.',
     groups:[
       {title:'Contexto económico', items:[
@@ -353,7 +405,7 @@ const PILLARS = [
     ]
   },
   {
-    id:'apoyo', domain:'Procesos · Nivel 2', name:'Apoyo pedagógico',
+    id:'apoyo', domain:'Procesos · Nivel 2', name:'Mediación sistémica',
     color:'#2E5E6B', headBg:'#93BDC8', headColor:'#0D4A57', headMuted:'#1F4B55',
     blurb:'Procesos organizacionales y profesionales mediante los cuales la capacidad del sistema llega a las escuelas.',
     rule:'Un elemento es mecanismo de apoyo cuando fortalece las capacidades necesarias para implementar la enseñanza y el aprendizaje.',
@@ -377,7 +429,7 @@ const PILLARS = [
     ]
   },
   {
-    id:'practicas', domain:'Procesos · Nivel 1', name:'Prácticas de aula',
+    id:'practicas', domain:'Procesos · Nivel 1', name:'Prácticas pedagógicas',
     color:'#2E6473', headBg:'#3E7F90', headColor:'#FFFFFF', headMuted:'#FFFFFF',
     blurb:'Las interacciones y decisiones pedagógicas mediante las cuales las y los estudiantes viven el aprendizaje.',
     rule:'Evita que el índice se limite a políticas declaradas: pregunta en qué medida la capacidad alcanza la experiencia educativa.',
@@ -402,7 +454,7 @@ const PILLARS = [
   {
     id:'resultados', domain:'Resultados', name:'Resultados',
     color:'#0D4A57', headBg:'#0D4A57', headColor:'#FFFFFF', headMuted:'#FFFFFF',
-    blurb:'Capacidades, trayectorias y condiciones que el sistema busca promover en las personas y en la sociedad.',
+    blurb:'Aprendizajes, capacidades, trayectorias y condiciones de bienestar que el sistema busca promover en las personas y en la sociedad.',
     rule:'Un elemento es resultado cuando representa una capacidad, competencia, trayectoria o condición que el sistema busca desarrollar.',
     groups:[
       {title:'Resultados individuales', items:[
@@ -471,9 +523,13 @@ class Component extends DCLogic {
       navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
 
       premises:[
-        {accent:'#0D4A57', title:'Los recursos no se traducen solos en aprendizaje', desc:'Sistemas con gasto, infraestructura y dotación docente comparables siguen trayectorias de resultados muy distintas.'},
-        {accent:'#8BC53F', title:'El foco está en los procesos', desc:'WISE hace visible el espacio menos desarrollado por otros índices: cómo el sistema organiza y moviliza lo que tiene.'},
-        {accent:'#E8A33D', title:'No hay una secuencia universal de mejora', desc:'La pertinencia de una intervención depende del contexto y del estadio de desarrollo de cada sistema.'}
+        {accent:'#0D4A57', title:'Relacional', desc:'El currículo, los recursos, la formación docente, la evaluación y el liderazgo inciden a través de las relaciones que establecen entre sí.'},
+        {accent:'#1E6E7C', title:'Multinivel', desc:'Las decisiones recorren distintos niveles del sistema. En ese recorrido, los actores las interpretan y transforman. Las estructuras de apoyo, las redes y el liderazgo conectan las políticas con las escuelas y las aulas.'},
+        {accent:'#8BC53F', title:'Dependiente del contexto', desc:'Cada sistema parte de condiciones, capacidades y culturas institucionales propias. Por eso, una misma intervención puede dar lugar a procesos y resultados diferentes.'},
+        {accent:'#6FA030', title:'Retroalimentación, ajuste y aprendizaje', desc:'La información que circula entre actores y niveles permite observar qué ocurre durante la implementación y hacer ajustes. Aprender de ese proceso también forma parte de la mejora.'},
+        {accent:'#E8A33D', title:'Múltiples trayectorias y relevancia de la evidencia', desc:'Hay distintos caminos para mejorar. La evidencia ayuda a analizar qué intervenciones son pertinentes según el contexto, las capacidades disponibles y el momento del sistema.'},
+        {accent:'#C47E1A', title:'Coherencia sistémica', desc:'La mejora se sostiene cuando las políticas, las capacidades y las prácticas se articulan entre sí y con lo que ocurre en el aula. Esa articulación debe orientarse al aprendizaje de todas y todos los estudiantes.'},
+        {accent:'#7EA3AE', title:'Funcional', desc:'El modelo se centra en las funciones que el sistema necesita desarrollar, más allá de qué actores u organismos las realicen. Así puede utilizarse en sistemas con distintas formas de organización y gobernanza.'}
       ],
 
       flow: PILLARS.map(function(p){
