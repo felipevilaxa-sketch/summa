@@ -51,7 +51,7 @@
 <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
 
   <div style="margin:32px 0 clamp(64px,9vw,110px)">
-    <div style="position:relative;border-radius:16px;overflow:hidden;min-height:clamp(320px,33vw,400px);display:flex;align-items:center">
+    <div data-m="hero-container" style="position:relative;border-radius:16px;overflow:hidden;min-height:clamp(320px,33vw,400px);display:flex;align-items:center">
       <div aria-hidden="true" style="position:absolute;inset:0;background-image:url(assets/hero-story.png);background-size:cover;background-position:center 42%;filter:grayscale(1)"></div>
       <div aria-hidden="true" style="position:absolute;inset:0;background:rgba(10,20,24,.52)"></div>
       <div data-m="hero-story" style="position:relative;padding:clamp(30px,4vw,56px);max-width:760px;width:100%;margin:0 auto;text-align:center">
@@ -269,14 +269,38 @@ const STORY = [
 class Component extends DCLogic {
   state = {slide:0, run:0, fading:false, scrolled:false, counts:[0,0,0], counted:false};
 
+  pauseHero(){
+    clearTimeout(this.timer);
+    this._pausedRemaining = this._slideStartedAt ? Math.max(400, DUR - (Date.now() - this._slideStartedAt)) : DUR;
+    const bar = document.querySelector('[data-story-fill="run"]');
+    if(bar) bar.style.animationPlayState = 'paused';
+  }
+  resumeHero(){
+    if(!this._pausedRemaining) return;
+    const remaining = this._pausedRemaining;
+    this._pausedRemaining = null;
+    this._slideStartedAt = Date.now() - (DUR - remaining);
+    const bar = document.querySelector('[data-story-fill="run"]');
+    if(bar) bar.style.animationPlayState = 'running';
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      this.go((this.state.slide + 1) % STORY.length);
+    }, remaining);
+  }
   componentDidMount(){
     this.tick = () => {
       clearTimeout(this.timer);
+      this._slideStartedAt = Date.now();
       this.timer = setTimeout(() => {
         this.go((this.state.slide + 1) % STORY.length);
       }, DUR);
     };
     this.tick();
+    this._heroEl = document.querySelector('[data-m="hero-container"]');
+    if(this._heroEl){
+      this._heroEl.addEventListener('mouseenter', () => this.pauseHero());
+      this._heroEl.addEventListener('mouseleave', () => this.resumeHero());
+    }
     this.onScroll = () => {
       const sc = window.scrollY > 8;
       if(sc !== this.state.scrolled) this.setState({scrolled:sc});
