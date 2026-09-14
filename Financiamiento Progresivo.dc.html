@@ -51,6 +51,11 @@
   .expert-avatar.green{background:#6FA030}
   .expert-avatar.teal{background:#0D4A57}
   .expert-avatar.olive{background:#3B6B42}
+  .especialista-layout{display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,56px);align-items:center}
+  @media(max-width:680px){
+    .especialista-layout{grid-template-columns:1fr;gap:24px}
+    .especialista-layout .expert-card{width:100%!important}
+  }
 
   /* ── Stat cards ────────────────────────────────────────────── */
   .stat-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:0 0 28px}
@@ -299,13 +304,13 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════ CARACTERÍSTICAS DE IMPLEMENTACIÓN -->
+  <!-- ══════════════════════════ CONDICIONES HABILITANTES -->
   <section style="margin:0 0 clamp(56px,7vw,88px)">
-    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Características de implementación</div>
-    <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 36px">Cinco etapas para instalar un sistema de financiamiento progresivo</h2>
+    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Condiciones habilitantes</div>
+    <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 16px">¿Qué condiciones hacen posible su implementación?</h2>
+    <p style="font-family:Lato,sans-serif;font-size:15.5px;line-height:1.72;color:#516268;margin:0 0 36px;max-width:780px">La distribución progresiva de recursos necesita condiciones que sostengan su implementación y permitan orientar el uso de los fondos hacia las prioridades educativas.</p>
     <div style="display:flex;flex-direction:column;gap:0">
 
-      <!-- Etapa 1: espaciador transparent arriba (centra), línea real abajo extendida al gap -->
       <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch;padding-bottom:20px">
         <div style="display:flex;flex-direction:column;align-items:center">
           <div style="flex:1;width:2px;background:transparent"></div>
@@ -315,12 +320,11 @@
           <div style="flex:1;width:2px;background:#DCE3E1;margin-top:6px;margin-bottom:-20px"></div>
         </div>
         <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
-          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Diagnóstico y línea de base</div>
-          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Antes de rediseñar el esquema de asignación, el sistema debe levantar información confiable sobre la distribución actual de recursos: cuánto recibe cada escuela, cómo se calcula, qué variables determinan las diferencias y qué brechas existen entre establecimientos de distinto perfil socioeconómico.</p>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Estabilidad fiscal y sostenibilidad</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Los recursos tienen que estar disponibles de forma previsible y sostenible. Los presupuestos plurianuales favorecen una planificación de mediano plazo.</p>
         </div>
       </div>
 
-      <!-- Etapa 2: línea real arriba y abajo extendida al gap -->
       <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch;padding-bottom:20px">
         <div style="display:flex;flex-direction:column;align-items:center">
           <div style="flex:1;width:2px;background:#DCE3E1;margin-bottom:6px"></div>
@@ -330,12 +334,11 @@
           <div style="flex:1;width:2px;background:#DCE3E1;margin-top:6px;margin-bottom:-20px"></div>
         </div>
         <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
-          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Diseño del mecanismo de distribución</div>
-          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Se definen los criterios, ponderadores y fórmulas que determinarán la asignación diferenciada: qué variables de vulnerabilidad se incorporan, qué peso relativo tienen, cuál es el monto base universal y cuánto adicional recibirán los estudiantes en situación prioritaria. Esta etapa involucra negociación política y técnica entre el ministerio, las jurisdicciones y actores de la sociedad civil.</p>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Marco legal e institucional</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Las reglas de distribución, los ponderadores y las exigencias de rendición de cuentas requieren respaldo normativo para reducir la dependencia de decisiones anuales.</p>
         </div>
       </div>
 
-      <!-- Etapa 3: línea real arriba y abajo extendida al gap -->
       <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch;padding-bottom:20px">
         <div style="display:flex;flex-direction:column;align-items:center">
           <div style="flex:1;width:2px;background:#DCE3E1;margin-bottom:6px"></div>
@@ -345,12 +348,11 @@
           <div style="flex:1;width:2px;background:#DCE3E1;margin-top:6px;margin-bottom:-20px"></div>
         </div>
         <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
-          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Implementación piloto y ajuste técnico</div>
-          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">La fórmula se aplica en un conjunto acotado de jurisdicciones o establecimientos seleccionados para probar su funcionamiento real. Se identifican los cuellos de botella administrativos, se ajustan los registros de estudiantes y se fortalece la capacidad de las escuelas para rendir cuenta del uso de los recursos adicionales.</p>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Capacidades técnicas</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Gobiernos y escuelas necesitan capacidades para planificar, gestionar y rendir cuentas. Cuando esas capacidades son limitadas, la autonomía puede ampliarse de manera gradual y con apoyo técnico.</p>
         </div>
       </div>
 
-      <!-- Etapa 4: línea real arriba y abajo extendida al gap -->
       <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch;padding-bottom:20px">
         <div style="display:flex;flex-direction:column;align-items:center">
           <div style="flex:1;width:2px;background:#DCE3E1;margin-bottom:6px"></div>
@@ -360,12 +362,11 @@
           <div style="flex:1;width:2px;background:#DCE3E1;margin-top:6px;margin-bottom:-20px"></div>
         </div>
         <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
-          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Escalamiento y consolidación normativa</div>
-          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Validada la fórmula en el piloto, el mecanismo se extiende al conjunto del sistema. Esta etapa requiere anclar el diseño en legislación o normativa presupuestaria que garantice su continuidad más allá de los ciclos de gobierno. La sostenibilidad depende de que los criterios de asignación estén institucionalizados y no dependan de decisiones discrecionales anuales.</p>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Información y focalización</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">Los datos deben permitir identificar las necesidades, monitorear el uso de los recursos y actualizar los indicadores sin generar incentivos a la manipulación.</p>
         </div>
       </div>
 
-      <!-- Etapa 5: línea real arriba, espaciador transparent abajo (centra), sin extensión -->
       <div style="display:grid;grid-template-columns:56px 1fr;gap:24px;align-items:stretch">
         <div style="display:flex;flex-direction:column;align-items:center">
           <div style="flex:1;width:2px;background:#DCE3E1;margin-bottom:6px"></div>
@@ -375,8 +376,8 @@
           <div style="flex:1;width:2px;background:transparent"></div>
         </div>
         <div style="align-self:center;background:#fff;border:1px solid #DCE3E1;border-radius:16px;padding:26px 28px">
-          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Evaluación de impacto y mejora continua</div>
-          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">El sistema incorpora mecanismos periódicos de evaluación que permiten verificar si los recursos adicionales llegaron a los estudiantes previstos y si se tradujeron en mejoras medibles de aprendizaje, retención o equidad. Los resultados retroalimentan el diseño de la fórmula: los ponderadores se actualizan según la evolución de las condiciones socioeconómicas y los criterios de focalización se refinan con nueva evidencia.</p>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:16px;color:#0D4A57;margin-bottom:8px">Rendición de cuentas y transparencia</div>
+          <p style="margin:0;font-size:14.5px;line-height:1.7;color:#516268">El seguimiento del gasto y de sus resultados permite ajustar la política. Debe ser proporcional, para evitar que la burocracia limite la gestión.</p>
         </div>
       </div>
 
@@ -465,39 +466,18 @@
 
   <!-- ════════════════════════════════════════ ESPECIALISTAS -->
   <section style="margin:0 0 clamp(56px,7vw,88px)">
-    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Especialistas a cargo del contenido</div>
-    <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 14px;max-width:640px">El contenido de este área fue desarrollado por expertos internacionales</h2>
-    <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0 0 28px;max-width:720px">Para asegurar la solidez académica y la pertinencia regional de cada área de reforma, SUMMA contrató especialistas con trayectoria comprobada en investigación y política educativa comparada.</p>
-    <div class="expert-grid">
-      <div class="expert-card">
-        <div style="display:flex;align-items:center;gap:14px">
-          <div class="expert-avatar teal">JS</div>
-          <div>
-            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dr. Juan Pablo Silva</div>
-            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Economista de la educación</div>
-          </div>
-        </div>
-        <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Especialista en sistemas de financiamiento escolar y análisis de equidad educativa en contextos latinoamericanos. Investigador principal en PREAL y consultor del Banco Mundial en más de 12 países de la región.</p>
+    <div class="especialista-layout">
+      <div>
+        <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Especialista a cargo del contenido</div>
+        <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 14px">El contenido de este área fue desarrollado por una especialista con trayectoria en política educativa</h2>
+        <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0;max-width:560px">Para asegurar la solidez académica y la pertinencia regional de cada área de reforma, SUMMA contrató a una especialista con trayectoria comprobada en investigación y política pública educativa.</p>
       </div>
-      <div class="expert-card">
-        <div style="display:flex;align-items:center;gap:14px">
-          <div class="expert-avatar green">AC</div>
-          <div>
-            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dra. Alejandra Cardini</div>
-            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Politóloga educativa</div>
-          </div>
+      <div class="expert-card" style="width:clamp(260px,30vw,340px);flex-shrink:0">
+        <div>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Tania J. Hernández</div>
+          <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Especialista en políticas públicas de educación</div>
         </div>
-        <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Especializada en política educativa comparada y gobernanza de sistemas educativos. Directora del Programa de Educación de CIPPEC y docente en la Universidad Torcuato Di Tella, Argentina.</p>
-      </div>
-      <div class="expert-card">
-        <div style="display:flex;align-items:center;gap:14px">
-          <div class="expert-avatar olive">MG</div>
-          <div>
-            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Lic. Mario Garnier</div>
-            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Político y reformador educativo</div>
-          </div>
-        </div>
-        <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Ex Ministro de Educación de Costa Rica (2006–2014) y artífice de una de las reformas de financiamiento progresivo más exitosas de la región. Investigador afiliado en el DiáLogos Education Network.</p>
+        <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Ingeniera Civil Industrial y Magíster en Economía Aplicada por la Universidad de Chile y MPA/ID por Harvard University. Especialista en políticas públicas de educación y empleo público.</p>
       </div>
     </div>
   </section>
@@ -509,35 +489,40 @@
       <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(22px,2.8vw,30px);line-height:1.28;color:#0D4A57;margin:0 0 14px;max-width:640px">Pares académicos que validaron el rigor de los contenidos</h2>
       <p style="font-size:15.5px;line-height:1.7;color:#516268;margin:0 0 28px;max-width:700px">Un comité de revisión externo, compuesto por académicos e investigadores de reconocida trayectoria internacional, evaluó los contenidos de cada área para garantizar su calidad, precisión y pertinencia para la región.</p>
       <div class="expert-grid">
-        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;align-items:center;gap:14px">
-            <div class="expert-avatar" style="background:#374649">BB</div>
-            <div>
-              <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dra. Bárbara Bruns</div>
-              <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Center for Global Development</div>
-            </div>
+        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Paulo Santiago</div>
+            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">OCDE</div>
           </div>
-          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Senior Fellow en CGD y execonomista principal de educación del Banco Mundial. Autora de <em>Great Teachers</em> y experta en evaluación docente y financiamiento educativo comparado.</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Jefe de la División de Asesoramiento e Implementación de Políticas de la OCDE. Doctor en Economía por Northwestern University. Se especializa en política docente, financiamiento escolar y uso de recursos, y ha coordinado revisiones de políticas educativas en más de 25 países.</p>
         </div>
-        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;align-items:center;gap:14px">
-            <div class="expert-avatar" style="background:#516268">EF</div>
-            <div>
-              <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dr. Emiliano Ferrero</div>
-              <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Banco Mundial — LAC Education</div>
-            </div>
+        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Juan Pablo Valenzuela</div>
+            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">CIAE — U. de Chile</div>
           </div>
-          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Especialista principal en educación para América Latina en el Banco Mundial. Ha liderado operaciones de reforma de financiamiento en Colombia, Perú y México con enfoque en equidad territorial.</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Director del Centro de Investigación Avanzada en Educación (CIAE) y profesor titular de la Universidad de Chile. Doctor en Economía por la Universidad de Michigan. Investiga calidad y equidad educativa, segregación escolar, liderazgo y políticas docentes.</p>
         </div>
-        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;align-items:center;gap:14px">
-            <div class="expert-avatar" style="background:#0D4A57">FJ</div>
-            <div>
-              <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Dra. Francesca Jensana</div>
-              <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">UNESCO OREALC</div>
-            </div>
+        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Jonathan M. Sharples</div>
+            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Manchester Met / EEF</div>
           </div>
-          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Coordinadora regional de políticas educativas en la Oficina Regional de Educación para América Latina y el Caribe. Especialista en seguimiento de ODS 4 e indicadores de equidad en sistemas de financiamiento.</p>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Profesor de liderazgo informado por evidencia en Manchester Metropolitan University e investigador asociado de la Education Endowment Foundation. Se especializa en movilización de evidencia e implementación de mejoras escolares. Autor de <em>A School's Guide to Implementation</em>.</p>
+        </div>
+        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Xavier Bonal</div>
+            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">Univ. Autònoma de Barcelona</div>
+          </div>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Catedrático de Sociología de la Universitat Autònoma de Barcelona. Investiga sociología y política educativa, desigualdades y segregación escolar, globalización y derecho a la educación. Ha colaborado con UNESCO, UNICEF, OCDE y la Comisión Europea.</p>
+        </div>
+        <div style="border:1px solid #DCE3E1;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px">
+          <div>
+            <div style="font-family:Lato,sans-serif;font-weight:700;font-size:15px;color:#17242A">Alejandro Morduchowicz</div>
+            <div style="font-family:Lato,sans-serif;font-size:12.5px;color:#6FA030;font-weight:700;margin-top:2px">U. Torcuato Di Tella</div>
+          </div>
+          <p style="margin:0;font-size:13.5px;line-height:1.65;color:#516268">Economista y profesor de la Universidad Torcuato Di Tella. Se especializa en planeamiento, financiamiento y economía de la educación. Fue subsecretario del Ministerio de Educación de Argentina y especialista líder en educación del BID.</p>
         </div>
       </div>
     </div>

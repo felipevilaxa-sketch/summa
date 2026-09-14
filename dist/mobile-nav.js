@@ -1,7 +1,7 @@
 (function(){
   var LINKS = [
     ['Modelo conceptual', 'Marco WISE.dc.html', 'marco-wise.html'],
-    ['Líneas de Reforma', 'Lineas de Reforma.dc.html', 'lineas-de-reforma.html']
+    ['Áreas de Reforma', 'Lineas de Reforma.dc.html', 'lineas-de-reforma.html']
   ];
   var DC = location.pathname.indexOf('.dc.html') > -1;
   function href(l){ return DC ? l[1] : l[2]; }
