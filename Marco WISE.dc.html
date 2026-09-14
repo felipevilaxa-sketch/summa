@@ -36,7 +36,7 @@
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
       <a href="marco-wise.html" style="color:#0D4A57;font-weight:700;border-bottom:2px solid #8BC53F;padding-bottom:2px">Modelo conceptual</a>
-      <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
+      <a href="lineas-de-reforma.html" style="color:#0D4A57">Áreas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
       <x-import component-from-global-scope="site-search" from="./site-search.js" hint-size="40px,40px"></x-import>
@@ -54,7 +54,7 @@
     <div style="background:linear-gradient(105deg,#0D4A57 0%,#1E6E7C 46%,#7EA3AE 100%);border-radius:16px;padding:clamp(32px,4vw,52px) clamp(26px,3.6vw,52px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.4vw,48px);align-items:center;height:clamp(420px,38vw,460px);overflow:hidden;margin-bottom:36px" data-m="hero-split">
       <div>
         <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#D4FBA1;margin-bottom:10px">Modelo conceptual</div>
-        <h1 style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(30px,4.2vw,42px);line-height:1.16;letter-spacing:-.01em;color:#fff;margin:0 0 18px;text-wrap:pretty">Comprender cómo mejoran los sistemas educativos</h1>
+        <h1 style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(30px,4.2vw,42px);line-height:1.16;letter-spacing:-.01em;color:#fff;margin:0 0 18px;text-wrap:pretty">¿Cómo entendemos la mejora educativa?</h1>
         <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,.85);margin:0;max-width:460px;text-wrap:pretty">Una propuesta para comprender cómo los sistemas educativos movilizan recursos y capacidades para ampliar las oportunidades de aprendizaje y bienestar en cada contexto.</p>
       </div>
       <div data-m="hero-art" style="position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center">
@@ -175,20 +175,20 @@
         <div style="display:flex;flex-direction:column;gap:10px;border:1.5px dashed #CBDBE1;border-radius:16px;padding:14px;background:#FAFCFB">
           <div style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#4E7220;padding:0 4px">Procesos</div>
           <p style="font-size:12px;line-height:1.5;color:#516268;margin:0;padding:0 4px">Aquí se organizan los recursos, se desarrollan capacidades y se conectan las políticas con la experiencia educativa.</p>
-          <button onClick="{{ pHab.toggle }}" aria-expanded="{{ pHab.expanded }}" style="{{ pHab.style }}" style-hover="border-color:#8BC53F">
-            <span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#3A5518">Nivel 3</span>
-            <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pHab.titleColor }};line-height:1.3">Condiciones habilitantes</span>
-            <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pHab.cta }}">{{ pHab.label }}</span>
+          <button onClick="{{ pPra.toggle }}" aria-expanded="{{ pPra.expanded }}" style="{{ pPra.style }}" style-hover="border-color:#8BC53F">
+            <span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF">Nivel 1</span>
+            <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pPra.titleColor }};line-height:1.3">Prácticas pedagógicas</span>
+            <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pPra.cta }}">{{ pPra.label }}</span>
           </button>
           <button onClick="{{ pApo.toggle }}" aria-expanded="{{ pApo.expanded }}" style="{{ pApo.style }}" style-hover="border-color:#8BC53F">
             <span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#334C13">Nivel 2</span>
             <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pApo.titleColor }};line-height:1.3">Mediación sistémica</span>
             <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pApo.cta }}">{{ pApo.label }}</span>
           </button>
-          <button onClick="{{ pPra.toggle }}" aria-expanded="{{ pPra.expanded }}" style="{{ pPra.style }}" style-hover="border-color:#8BC53F">
-            <span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#FFFFFF">Nivel 1</span>
-            <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pPra.titleColor }};line-height:1.3">Prácticas pedagógicas</span>
-            <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pPra.cta }}">{{ pPra.label }}</span>
+          <button onClick="{{ pHab.toggle }}" aria-expanded="{{ pHab.expanded }}" style="{{ pHab.style }}" style-hover="border-color:#8BC53F">
+            <span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#3A5518">Nivel 3</span>
+            <span style="font-family:Lato,sans-serif;font-size:15.5px;font-weight:700;color:{{ pHab.titleColor }};line-height:1.3">Condiciones habilitantes</span>
+            <span style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;color:{{ pHab.cta }}">{{ pHab.label }}</span>
           </button>
         </div>
 
@@ -328,6 +328,7 @@
           <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
         </span>
       </div>
+      <img src="assets/logo-gpe-kix.png" alt="GPE KIX" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:.85">
     </div>
     <div data-m="footer-col" style="display:flex;flex-direction:column;align-items:flex-end;gap:18px">
       <div style="display:flex;gap:10px;flex-wrap:wrap">

@@ -144,7 +144,7 @@ class ReformGlobe extends HTMLElement {
     var deg2rad = Math.PI/180;
     var yaw = 70*deg2rad;
     var pitch = -0.15;
-    var autoRotate = true;
+    var autoRotate = false;
     var dragging = false;
     var lastX, lastY;
     var vYaw = 0;
@@ -270,6 +270,17 @@ class ReformGlobe extends HTMLElement {
         if(dxp*dxp+dyp*dyp < 90){ showCountry(lastVisiblePins[k].index); break; }
       }
     });
+
+    /* Start static; begin rotating when canvas enters viewport */
+    function _checkVisible(){
+      var rect = canvas.getBoundingClientRect();
+      if(rect.top < window.innerHeight * 0.88 && rect.bottom > 80){
+        autoRotate = true;
+        window.removeEventListener('scroll', _checkVisible);
+      }
+    }
+    window.addEventListener('scroll', _checkVisible, {passive:true});
+    setTimeout(_checkVisible, 200);
 
     tick();
   }

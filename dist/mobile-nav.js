@@ -225,7 +225,18 @@
       });
 
       /* Dots – idénticos al home: 8px círculos, scale(1.5) activo */
+      /* Remove ALL stale dot rows after the container (any flex-center row of buttons) */
+      var sib = container.nextElementSibling;
+      while (sib) {
+        var nextSib = sib.nextElementSibling;
+        if (sib.children.length > 0 && sib.children[0].tagName === 'BUTTON' &&
+            sib.style.display === 'flex' && sib.style.justifyContent === 'center') {
+          sib.parentNode.removeChild(sib);
+        }
+        sib = nextSib;
+      }
       var dotsWrap = document.createElement('div');
+      dotsWrap.dataset.mobCarDots = '1';
       dotsWrap.style.cssText = 'display:flex;justify-content:center;align-items:center;gap:8px;margin-top:18px;margin-bottom:24px';
       var dotBtns = [];
 
@@ -259,6 +270,19 @@
         var idx = Math.round(container.scrollLeft / w);
         setActive(Math.max(0, Math.min(idx, dotBtns.length - 1)));
       }, { passive: true });
+
+      /* Delayed cleanup: remove any DC-runtime-created dots that appear after ours */
+      setTimeout(function() {
+        var s = container.nextElementSibling;
+        while (s) {
+          var ns = s.nextElementSibling;
+          if (s !== dotsWrap && s.children.length > 0 && s.children[0].tagName === 'BUTTON' &&
+              s.style.display === 'flex' && s.style.justifyContent === 'center') {
+            s.parentNode.removeChild(s);
+          }
+          s = ns;
+        }
+      }, 600);
 
       return true;
     }
@@ -343,8 +367,37 @@
   }
   window.__patchTabsAsSelect = patchTabsAsSelect;
 
+  /* ── Inicio: plataforma pillar cards carousel ───────────────────── */
+  patchCarousel('[data-m="plat-pillars"]');
+
+  /* ── Inicio: audience/profile cards carousel ────────────────────── */
+  patchCarousel('[data-m="audience-cards"]');
+
   /* ── Marco WISE premises cards carousel ─────────────────────────── */
   patchCarousel('[data-m="premises"]');
+
+  /* ── Inicio: financiamiento section — fix mobile layout ─────────── */
+  if (window.innerWidth <= 900) {
+    (function patchFinanciamiento() {
+      var sections = document.querySelectorAll('section');
+      var finSection = null;
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].innerText.indexOf('financiamiento de:') >= 0) {
+          finSection = sections[i];
+          break;
+        }
+      }
+      if (!finSection) return;
+      var box = finSection.querySelector('div[style*="flex-wrap"]');
+      if (!box) return;
+      box.style.flexDirection = 'column';
+      box.style.alignItems = 'center';
+      box.style.textAlign = 'center';
+      box.style.gap = '16px';
+      var divider = box.querySelector('div[aria-hidden="true"]');
+      if (divider) divider.style.display = 'none';
+    })();
+  }
 
   /* ── Líneas de Reforma: criterios y pasos carousel ─────────────── */
   patchCarousel('[data-m="lr-criteria"]');

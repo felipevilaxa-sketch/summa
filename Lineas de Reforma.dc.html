@@ -35,7 +35,7 @@
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
       <a href="marco-wise.html" style="color:#0D4A57">Modelo conceptual</a>
-      <a href="lineas-de-reforma.html" style="color:#0D4A57;font-weight:700;border-bottom:2px solid #8BC53F;padding-bottom:2px">Líneas de Reforma</a>
+      <a href="lineas-de-reforma.html" style="color:#0D4A57;font-weight:700;border-bottom:2px solid #8BC53F;padding-bottom:2px">Áreas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
       <x-import component-from-global-scope="site-search" from="./site-search.js" hint-size="40px,40px"></x-import>
@@ -52,9 +52,9 @@
   <header style="margin:40px 0 clamp(56px,7vw,88px)">
     <div style="background:linear-gradient(105deg,#8BC53F 0%,#B6E37A 45%,#DDF6AE 100%);border-radius:16px;padding:clamp(32px,4vw,52px) clamp(26px,3.6vw,52px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,3.4vw,48px);align-items:center;height:clamp(420px,38vw,460px);overflow:hidden" data-m="hero-split">
       <div>
-        <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0D4A57;margin-bottom:10px">Líneas de reforma</div>
+        <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0D4A57;margin-bottom:10px">Áreas de reforma</div>
         <h1 style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(30px,4.2vw,42px);line-height:1.16;letter-spacing:-.01em;color:#0D4A57;margin:0 0 18px;text-wrap:pretty">Comprender reformas, aprender de sus trayectorias</h1>
-        <p style="font-size:16px;line-height:1.65;color:#0D4A57;margin:0 0 28px;max-width:440px;text-wrap:pretty">Cada línea reúne reformas de un mismo campo de política y permite analizar su alcance, sus decisiones, su implementación y sus resultados en contexto.</p>
+        <p style="font-size:16px;line-height:1.65;color:#0D4A57;margin:0 0 28px;max-width:440px;text-wrap:pretty">Cada área reúne reformas de un mismo campo de política y permite analizar su alcance, sus decisiones, su implementación y sus resultados en contexto.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a href="#lineas" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:8px;background:#0D4A57;border:1.5px solid #0D4A57;color:#D4FBA1;font-size:13px;letter-spacing:.04em;padding:14px 26px;border-radius:999px;transition:background .18s ease,color .18s ease" style-hover="background:none;color:#0D4A57">VER LAS LÍNEAS
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="5 12 12 19 19 12"></polyline></svg>
@@ -62,7 +62,7 @@
         </div>
       </div>
       <div data-m="hero-art" style="position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center">
-        <svg viewBox="112 62 340 280" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;max-width:none" role="img" aria-label="Cubos isométricos ascendentes que representan las líneas de reforma y sus etapas">
+        <svg viewBox="112 62 340 280" preserveAspectRatio="xMidYMid meet" style="position:absolute;inset:0;width:100%;height:100%;max-width:none" role="img" aria-label="Cubos isométricos ascendentes que representan las áreas de reforma y sus etapas">
           <g fill="none" stroke="#0D4A57" stroke-linecap="round" stroke-linejoin="round">
             <g stroke-width="1.8" opacity=".5" stroke-dasharray="5 7">
               <path d="M378,72 L442,108 L378,144 L314,108 Z"></path>
@@ -136,7 +136,7 @@
   </section>
 
   <section style="margin:0 0 clamp(56px,7vw,88px)">
-    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Cómo se construye una línea</div>
+    <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Cómo se construye un Área de Reforma</div>
     <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0 0 26px;max-width:600px">Cuatro pasos para analizar reformas con criterios comunes y en contexto</h2>
     <div data-m="lr-steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
       <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
@@ -152,8 +152,8 @@
   <section id="lineas" style="margin:0 0 clamp(56px,7vw,88px);scroll-margin-top:100px">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px">
       <div>
-        <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Líneas disponibles</div>
-        <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:560px">Conoce cada línea y sus casos</h2>
+        <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Áreas disponibles</div>
+        <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0;max-width:560px">Conoce las primeras áreas de reforma y sus casos de estudio</h2>
       </div>
     </div>
 
@@ -171,7 +171,7 @@
               <span style="font-family:Lato,sans-serif;font-size:40px;font-weight:700;color:#0D4A57;line-height:1">{{ l.caseCount }}</span>
               <span style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;color:#516268;line-height:1.25">casos<br>documentados</span>
             </div>
-            <span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57">Ver línea →</span>
+            <span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57">Ver área →</span>
           </div>
         </a>
       </sc-for>
@@ -183,7 +183,7 @@
           <span style="display:inline-flex;align-items:center;gap:7px;background:none;border:1.5px solid #0D4A57;color:#0D4A57;font-family:Lato,sans-serif;font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;padding:5px 12px;border-radius:6px;margin-bottom:10px">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>En crecimiento
           </span>
-          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:18px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Nuevas líneas en preparación</div>
+          <div style="font-family:Lato,sans-serif;font-weight:700;font-size:18px;color:#0D4A57;line-height:1.3;margin-bottom:6px">Nuevas áreas en preparación</div>
           <p style="margin:0;font-size:14px;line-height:1.6;color:#516268">La plataforma se amplía por etapas. Cada nueva temática define su alcance conceptual, incorpora casos seleccionados y los compara teniendo en cuenta sus contextos.</p>
         </div>
       </div>
@@ -214,6 +214,7 @@
           <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
         </span>
       </div>
+      <img src="assets/logo-gpe-kix.png" alt="GPE KIX" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:.85">
     </div>
     <div data-m="footer-col" style="display:flex;flex-direction:column;align-items:flex-end;gap:18px">
       <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -310,10 +311,10 @@ class Component extends DCLogic {
       navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
 
       steps:[
-        {n:'Paso 01', accent:'#0D4A57', title:'Delimitar la temática', desc:'Se define el problema de política, el alcance de la línea y los tipos de cambio que comprende.'},
-        {n:'Paso 02', accent:'#1E6E7C', title:'Revisar y seleccionar casos', desc:'Se identifican reformas relevantes y se aplican criterios comunes. La selección considera su trayectoria y la evidencia disponible.'},
+        {n:'Paso 01', accent:'#0D4A57', title:'Delimitar la temática', desc:'Se define el problema de política, el alcance del área y los tipos de cambio que comprende.'},
+        {n:'Paso 02', accent:'#1E6E7C', title:'Revisar y seleccionar casos', desc:'Se identifican reformas relevantes y se analiza la solidez de la evidencia disponible sobre su implementación, resultados y contribución a la equidad. Los casos se seleccionan mediante criterios comunes y explícitos.'},
         {n:'Paso 03', accent:'#E8A33D', title:'Reconstruir cada trayectoria', desc:'Cada caso se analiza a partir de su contexto, diseño, financiamiento, implementación, resultados y lecciones.'},
-        {n:'Paso 04', accent:'#8BC53F', title:'Comparar en contexto', desc:'La comparación permite reconocer patrones, diferencias, mecanismos y condiciones sin convertir las experiencias en recetas.'}
+        {n:'Paso 04', accent:'#8BC53F', title:'Comparar en contexto', desc:'La comparación permite reconocer patrones, diferencias, mecanismos y condiciones, y comprender los aprendizajes que aporta cada trayectoria en su contexto.'}
       ],
 
       lines: LINES.map(function(l){

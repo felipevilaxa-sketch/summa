@@ -34,7 +34,7 @@
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
       <a href="marco-wise.html" style="color:#0D4A57">Modelo conceptual</a>
-      <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
+      <a href="lineas-de-reforma.html" style="color:#0D4A57">Áreas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
       <x-import component-from-global-scope="site-search" from="./site-search.js" hint-size="40px,40px"></x-import>
@@ -90,8 +90,8 @@
   </sc-if>
 
   <section style="display:flex;align-items:center;justify-content:space-between;gap:20px;background:#F4F7F6;border-radius:16px;padding:28px 32px;margin:0 0 clamp(56px,7vw,88px);flex-wrap:wrap">
-    <p style="font-family:Lato,sans-serif;font-size:17px;color:#0D4A57;margin:0;max-width:580px">¿No encuentras lo que buscas? Explora las líneas de reforma para ver todos los casos documentados.</p>
-    <a href="lineas-de-reforma.html" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">VER LÍNEAS DE REFORMA
+    <p style="font-family:Lato,sans-serif;font-size:17px;color:#0D4A57;margin:0;max-width:580px">¿No encuentras lo que buscas? Explora las áreas de reforma para ver todos los casos documentados.</p>
+    <a href="lineas-de-reforma.html" style="font-family:Lato,sans-serif;border:1.5px solid #0D4A57;color:#0D4A57;font-size:13px;letter-spacing:.03em;padding:11px 22px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">VER ÁREAS DE REFORMA
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
   </section>
@@ -107,6 +107,7 @@
           <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
         </span>
       </div>
+      <img src="assets/logo-gpe-kix.png" alt="GPE KIX" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:.85">
     </div>
     <div data-m="footer-col" style="display:flex;flex-direction:column;align-items:flex-end;gap:18px">
       <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -141,26 +142,26 @@ const INDEX = [
    desc:'Weighted Student Funding integrado en la fórmula principal de subvención: pago adicional por alumno prioritario, condicionado a un Plan de Mejoramiento Educativo.',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'), ready:true,
    terms:'sep subvencion escolar preferencial chile financiamiento progresivo weighted student funding alumno prioritario plan de mejoramiento equidad vertical ley 20248 caso'},
-  {type:'Línea de reforma', title:'Financiamiento progresivo', meta:'3 casos · Chile, Brasil, Estados Unidos',
+  {type:'Área de reforma', title:'Financiamiento progresivo', meta:'3 casos · Chile, Brasil, Estados Unidos',
    desc:'Mecanismos que alteran cómo se distribuyen los recursos del sistema para dar más a quienes más lo necesitan, y las condiciones institucionales que los sostienen.',
    href:P('Financiamiento Progresivo.dc.html','financiamiento-progresivo.html'), ready:true,
-   terms:'financiamiento progresivo linea de reforma equidad vertical horizontal adecuacion distribucion fundeb title i brasil estados unidos chile weighted student funding condiciones habilitantes'},
-  {type:'Línea de reforma', title:'Lectoescritura', meta:'3 casos · Colombia, Perú, Guatemala',
+   terms:'financiamiento progresivo area de reforma equidad vertical horizontal adecuacion distribucion fundeb title i brasil estados unidos chile weighted student funding condiciones habilitantes'},
+  {type:'Área de reforma', title:'Lectoescritura', meta:'3 casos · Colombia, Perú, Guatemala',
    desc:'Reformas sistémicas que buscan cambiar la enseñanza de la lectura y la escritura en los primeros grados, articulando currículo, formación docente y materiales.',
    href:P('Lineas de Reforma.dc.html','lineas-de-reforma.html'), ready:true,
-   terms:'lectoescritura alfabetizacion inicial lectura escritura colombia peru guatemala formacion docente pta comprension lectora linea de reforma practicas de aula'},
+   terms:'lectoescritura alfabetizacion inicial lectura escritura colombia peru guatemala formacion docente pta comprension lectora area de reforma practicas de aula'},
   {type:'Marco', title:'Modelo conceptual: dimensiones y tendencias', meta:'5 dimensiones · Índice Global de Educación',
    desc:'Las cinco dimensiones que ordenan cada análisis —insumos, condiciones habilitantes, apoyo pedagógico, prácticas de aula y resultados— y la distribución de las reformas de la región.',
    href:P('Modelo conceptual.dc.html','marco-wise.html'), ready:true,
    terms:'marco wise dimensiones subdimensiones indicadores tendencias insumos condiciones habilitantes apoyo pedagogico practicas de aula resultados indice global concepto'},
   {type:'Marco', title:'Criterios de selección de casos', meta:'Metodología · Inclusión y exclusión',
-   desc:'Qué debe cumplir una reforma para entrar a la plataforma y qué criterio aplica a cada caso: matriz por línea de reforma con elegibilidad, criterios primarios y secundarios.',
+   desc:'Qué debe cumplir una reforma para entrar a la plataforma y qué criterio aplica a cada caso: matriz por área de reforma con elegibilidad, criterios primarios y secundarios.',
    href:P('Criterios de Seleccion.dc.html','criterios-de-seleccion.html'), ready:true,
    terms:'criterios de seleccion inclusion exclusion metodologia elegibilidad vigencia alcance cobertura nivel educativo criterios primarios secundarios costo efectividad sostenibilidad innovacion replicabilidad justicia educativa equidad'},
   {type:'Marco', title:'Explorar casos y comparador', meta:'Todos los casos · Filtros y comparación',
-   desc:'Listado completo de casos con filtros por línea de reforma, dimensión WISE y país, más el comparador de casos de una misma línea.',
+   desc:'Listado completo de casos con filtros por área de reforma, dimensión WISE y país, más el comparador de casos de una misma área.',
    href:P('Casos.dc.html','casos.html'), ready:true,
-   terms:'casos explorar listado comparador comparar filtros linea de reforma dimension wise pais region exportar csv'},
+   terms:'casos explorar listado comparador comparar filtros area de reforma dimension wise pais region exportar csv'},
   {type:'Caso', title:'FUNDEB', meta:'Brasil · 2007 / 2020',
    desc:'Fondo compensatorio entre jurisdicciones, elevado a rango constitucional en 2020, con complementación federal creciente.',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'), ready:true,
@@ -193,11 +194,11 @@ const INDEX = [
 
 const TAGS = {
   'Caso':{bg:'#EAF1F2', color:'#0D4A57'},
-  'Línea de reforma':{bg:'#EEF6E2', color:'#4E7220'},
+  'Área de reforma':{bg:'#EEF6E2', color:'#4E7220'},
   'Marco':{bg:'#FBF0DF', color:'#B4791F'},
   'Recurso':{bg:'#F1F3F2', color:'#516268'}
 };
-const FILTERS = ['Todo','Caso','Línea de reforma','Marco','Recurso'];
+const FILTERS = ['Todo','Caso','Área de reforma','Marco','Recurso'];
 
 function norm(s){
   return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');

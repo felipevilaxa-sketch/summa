@@ -37,7 +37,7 @@
     </a>
     <div data-m="navlinks" style="display:flex;align-items:center;gap:clamp(16px,2.5vw,34px);font-family:Lato,sans-serif;font-size:14.5px;color:#0D4A57">
       <a href="marco-wise.html" style="color:#0D4A57">Modelo conceptual</a>
-      <a href="lineas-de-reforma.html" style="color:#0D4A57">Líneas de Reforma</a>
+      <a href="lineas-de-reforma.html" style="color:#0D4A57">Áreas de Reforma</a>
     </div>
     <div style="display:flex;align-items:center;gap:14px">
       <x-import component-from-global-scope="site-search" from="./site-search.js" hint-size="40px,40px"></x-import>
@@ -72,7 +72,7 @@
   <div>
     <div data-tour="filtros" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;border:1px solid #DCE3E1;border-radius:16px;padding:20px 22px;margin-bottom:28px" data-noprint>
       <label style="display:block">
-        <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4F6B72;margin-bottom:8px">Línea de reforma</span>
+        <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4F6B72;margin-bottom:8px">Área de reforma</span>
         <select onChange="{{ setLinea }}" value="{{ fLinea }}" style="width:100%;font-family:Lato,sans-serif;font-size:14px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:11px 14px;cursor:pointer">
           <sc-for list="{{ optLinea }}" as="o" hint-placeholder-count="3">
             <option value="{{ o.value }}">{{ o.label }}</option>
@@ -91,7 +91,7 @@
       <label style="display:block">
         <span style="display:block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#4F6B72;margin-bottom:8px">Ordenar por</span>
         <select onChange="{{ setSort }}" value="{{ fSort }}" style="width:100%;font-family:Lato,sans-serif;font-size:14px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:11px 14px;cursor:pointer">
-          <option value="linea">Línea de reforma</option>
+          <option value="linea">Área de reforma</option>
           <option value="recientes">Más recientes</option>
           <option value="antiguos">Más antiguos</option>
           <option value="pais">País (A–Z)</option>
@@ -175,7 +175,7 @@
         <button onClick="{{ p.toggle }}" aria-pressed="{{ p.on }}" style="{{ p.style }}">{{ p.icon }} {{ p.title }} <span style="font-weight:500;opacity:.75">· {{ p.linea }}</span></button>
       </sc-for>
     </div>
-    <p data-m="cmp-hint" style="font-size:12.5px;color:#8CA0A5;margin:0 0 24px" data-noprint>Puedes comparar hasta tres casos a la vez, de cualquier línea de reforma.</p>
+    <p data-m="cmp-hint" style="font-size:12.5px;color:#8CA0A5;margin:0 0 24px" data-noprint>Puedes comparar hasta tres casos a la vez, de cualquier área de reforma.</p>
 
     <sc-if value="{{ cmpEmpty }}">
       <div style="border:1px dashed #DCE3E1;background:#F4F7F6;border-radius:16px;padding:52px 32px;text-align:center">
@@ -296,6 +296,7 @@
           <span style="font-size:15px;font-weight:700;letter-spacing:.02em;text-transform:uppercase">Reformas Educativas</span>
         </span>
       </div>
+      <img src="assets/logo-gpe-kix.png" alt="GPE KIX" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:.85">
     </div>
     <div data-m="footer-col" style="display:flex;flex-direction:column;align-items:flex-end;gap:18px">
       <div style="display:flex;gap:10px;flex-wrap:wrap">
@@ -475,7 +476,7 @@ const CRITERIOS = [
 
 const TOUR = [
   {target:'[data-tour="filtros"]', title:'Filtra el listado',
-   text:'Selecciona la línea de reforma y el país para acotar los resultados. Al elegir una línea, los países disponibles se actualizan automáticamente.'},
+   text:'Selecciona el área de reforma y el país para acotar los resultados. Al elegir un área, los países disponibles se actualizan automáticamente.'},
   {target:'[data-tour="modo"]', title:'Cambia a comparador',
    text:'Este interruptor alterna entre el listado de casos y la vista de comparación lado a lado.'},
   {target:'[data-tour="comparar"]', title:'Suma casos a la comparación',
@@ -616,7 +617,7 @@ class Component extends DCLogic {
 
     return {
       navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
-      countLabel: s.mode === 'lista' ? '3 casos por Línea de reforma' : 'Compara hasta 3 casos',
+      countLabel: s.mode === 'lista' ? '3 casos por Área de reforma' : 'Compara hasta 3 casos',
 
       modes: [['lista','Listado'],['comparador','Comparador']].map(function(m){
         const on = s.mode === m[0];
@@ -631,7 +632,7 @@ class Component extends DCLogic {
       isCompare: s.mode === 'comparador',
 
       fLinea:s.fLinea, fPais:s.fPais, fSort:s.fSort,
-      optLinea: [{value:'todas', label:'Todas las líneas'}].concat(
+      optLinea: [{value:'todas', label:'Todas las áreas'}].concat(
         Object.keys(LINEAS).map(function(k){ return {value:k, label:LINEAS[k].label}; })),
       optPais: (function(){
         var casesInLinea = s.fLinea === 'todas' ? CASES : CASES.filter(function(c){ return c.linea === s.fLinea; });
@@ -705,7 +706,7 @@ class Component extends DCLogic {
         ? 'Agrega otro caso para comparar con ' + ordered[0].title
         : 'Elige al menos dos casos para comparar',
       cmpEmptyText: ordered.length === 1
-        ? 'Ya tienes un caso seleccionado. Elige uno o dos más de la misma línea de reforma en los botones de arriba.'
+        ? 'Ya tienes un caso seleccionado. Elige uno o dos más de la misma área de reforma en los botones de arriba.'
         : 'Selecciónalos arriba o marca “Comparar” en las tarjetas del listado.',
       cmpReady: ordered.length >= 2,
       cmpCards: ordered.map(function(c, idx){
