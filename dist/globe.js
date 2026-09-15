@@ -104,7 +104,7 @@ class ReformGlobe extends HTMLElement {
     function analizadosCardHTML(pin, analizados){
       var n = analizados.length;
       var label = n === 1 ? '1 caso analizado' : n + ' casos analizados';
-      return '<div class="rg-case-card rg-ficha-card" style="display:block;border:1px solid #DCE3E1;border-radius:16px;padding:22px;text-align:left;text-decoration:none;color:inherit;cursor:pointer">' +
+      return '<div class="rg-case-card rg-ficha-card" style="display:block;background:#F2F7F5;border:1px solid #B5CFCA;border-radius:16px;padding:22px;text-align:left;cursor:pointer">' +
         '<div style="display:inline-flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:11px;font-weight:700;color:#0D4A57;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px"><span style="width:7px;height:7px;border-radius:50%;background:#8BC53F;display:inline-block"></span>' + pin.name + '</div>' +
         '<h4 style="font-family:Lato,sans-serif;font-size:17px;font-weight:700;color:#17242A;margin:0 0 14px;line-height:1.2">' + label + '</h4>' +
         '<span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57">Ver casos analizados →</span>' +
@@ -146,7 +146,7 @@ class ReformGlobe extends HTMLElement {
         ov = document.createElement('div');
         ov.id = 'rg-modal-ov';
         ov.setAttribute('style','position:fixed;inset:0;background:rgba(13,40,50,.55);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box');
-        ov.innerHTML = "<div style='background:#fff;border-radius:20px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px -12px rgba(13,40,50,.35)'><div style='display:flex;align-items:flex-start;justify-content:space-between;padding:24px 28px 16px;border-bottom:1px solid #DCE3E1'><span id='rg-modal-title' style='font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:#0D4A57;line-height:1.4;max-width:86%'></span><button id='rg-modal-close' aria-label='Cerrar' style='flex-shrink:0;margin-left:12px;width:32px;height:32px;border-radius:50%;border:none;background:#F4F7F6;cursor:pointer;font-size:16px;color:#516268;line-height:1'>×</button></div><div id='rg-modal-selector' style='display:none;padding:16px 28px 0;gap:8px;flex-wrap:wrap'></div><div id='rg-modal-body' style='padding:0 0 8px'></div></div>";
+        ov.innerHTML = "<div style='background:#fff;border-radius:20px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px -12px rgba(13,40,50,.35)'><div style='display:flex;align-items:flex-start;justify-content:space-between;padding:24px 28px 16px;border-bottom:1px solid #DCE3E1'><span id='rg-modal-title' style='font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:#0D4A57;line-height:1.4;max-width:86%'></span><button id='rg-modal-close' aria-label='Cerrar' style='flex-shrink:0;margin-left:12px;width:32px;height:32px;border-radius:50%;border:none;background:#F4F7F6;cursor:pointer;font-size:16px;color:#516268;line-height:1'>×</button></div><div id='rg-modal-selector' style='display:none;padding:16px 28px 0'></div><div id='rg-modal-body' style='padding:0 0 8px'></div></div>";
         document.body.appendChild(ov);
         document.getElementById('rg-modal-close').addEventListener('click', function(){ ov.style.display='none'; });
         ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; } });
@@ -161,21 +161,17 @@ class ReformGlobe extends HTMLElement {
         titleEl.textContent = analizados[idx].titulo;
         bodyEl.innerHTML = renderModalCase(analizados[idx]);
         if(analizados.length > 1){
-          selectorEl.querySelectorAll('button').forEach(function(btn, i){
-            btn.style.background = i === idx ? '#0D4A57' : '#F4F7F6';
-            btn.style.color = i === idx ? '#fff' : '#0D4A57';
-            btn.style.borderColor = i === idx ? '#0D4A57' : '#DCE3E1';
-          });
+          var sel = selectorEl.querySelector('select');
+          if(sel) sel.value = idx;
         }
       }
       if(analizados.length > 1){
-        selectorEl.style.display = 'flex';
-        selectorEl.innerHTML = analizados.map(function(c, i){
-          return '<button style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:999px;border:1.5px solid #DCE3E1;cursor:pointer;transition:all .15s;background:#F4F7F6;color:#0D4A57">' + c.titulo + '</button>';
+        selectorEl.style.display = 'block';
+        var opts = analizados.map(function(c, i){
+          return '<option value="' + i + '">' + c.titulo + '</option>';
         }).join('');
-        selectorEl.querySelectorAll('button').forEach(function(btn, i){
-          btn.addEventListener('click', function(){ showCase(i); });
-        });
+        selectorEl.innerHTML = '<select style="font-family:Lato,sans-serif;font-size:13.5px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:10px 14px;width:100%;cursor:pointer;appearance:auto">' + opts + '</select>';
+        selectorEl.querySelector('select').addEventListener('change', function(){ showCase(parseInt(this.value, 10)); });
       } else {
         selectorEl.style.display = 'none';
         selectorEl.innerHTML = '';

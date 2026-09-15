@@ -56,7 +56,7 @@
         <h1 style="font-family:Lato,sans-serif;font-weight:600;font-size:clamp(30px,4.2vw,42px);line-height:1.16;letter-spacing:-.01em;color:#0D4A57;margin:0 0 18px;text-wrap:pretty">Comprender reformas, aprender de sus trayectorias</h1>
         <p style="font-size:16px;line-height:1.65;color:#0D4A57;margin:0 0 28px;max-width:440px;text-wrap:pretty">Cada área reúne reformas de un mismo campo de política y permite analizar su alcance, sus decisiones, su implementación y sus resultados en contexto.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a href="#lineas" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:8px;background:#0D4A57;border:1.5px solid #0D4A57;color:#D4FBA1;font-size:13px;letter-spacing:.04em;padding:14px 26px;border-radius:999px;transition:background .18s ease,color .18s ease" style-hover="background:none;color:#0D4A57">VER LAS LÍNEAS
+          <a href="#lineas" style="font-family:Lato,sans-serif;display:inline-flex;align-items:center;gap:8px;background:#0D4A57;border:1.5px solid #0D4A57;color:#D4FBA1;font-size:13px;letter-spacing:.04em;padding:14px 26px;border-radius:999px;transition:background .18s ease,color .18s ease" style-hover="background:none;color:#0D4A57">VER LAS ÁREAS
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="5 12 12 19 19 12"></polyline></svg>
           </a>
         </div>
@@ -260,6 +260,7 @@ const LINES = [
     comparedDesc:'Matriz que cruza las siete dimensiones de comparación entre los tres casos, con las lecciones transferibles a otros sistemas.',
     comparedCta:'VER ANÁLISIS COMPARADO',
     comparedHref:'#',
+    caseCount:2,
     cases:[
       {country:'Chile', years:'2008 – actualidad', title:'Subvención Escolar Preferencial (SEP)', desc:'Weighted Student Funding integrado en la fórmula principal: pago adicional por alumno prioritario, condicionado a un plan de mejoramiento.', href:'Detalle de Caso.dc.html', cta:'Ver caso →', ready:true},
       {country:'Brasil', years:'2007 / 2020', title:'FUNDEB', desc:'Fondo compensatorio entre jurisdicciones, elevado a rango constitucional en 2020, con complementación federal creciente.', href:'Detalle de Caso.dc.html', cta:'Próximamente', ready:false},
@@ -320,7 +321,7 @@ class Component extends DCLogic {
       lines: LINES.map(function(l){
         return {
           dimension:l.dimension, title:l.title, desc:l.desc, href:l.href,
-          caseCount:l.cases.length,
+          caseCount:l.caseCount !== undefined ? l.caseCount : l.cases.length,
           iconFin: l.id === 'financiamiento' ? 1 : 0,
           iconLec: l.id === 'lectoescritura' ? 1 : 0
         };
