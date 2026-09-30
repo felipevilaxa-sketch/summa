@@ -361,7 +361,7 @@ class Component extends DCLogic {
     window.removeEventListener('scroll', this.onScroll);
   }
   countUp(){
-    const targets = [2, 12, 6];
+    const targets = [2, 15, 2];
     const start = Date.now();
     clearInterval(this.countTimer);
     this.countTimer = setInterval(() => {
@@ -432,8 +432,8 @@ class Component extends DCLogic {
       }),
 
       lines:[
-        {dimension:'Insumos · Condiciones habilitantes', title:'Financiamiento progresivo', desc:'Mecanismos que alteran cómo se distribuyen los recursos del sistema para dar más a quienes más lo necesitan.', caseCount:3, iconFin:1, iconLec:0, href:'Financiamiento Progresivo.dc.html'},
-        {dimension:'Procesos · Prácticas de aula', title:'Lectoescritura', desc:'Reformas sistémicas que buscan cambiar la enseñanza de la lectura y la escritura en los primeros grados.', caseCount:3, iconFin:0, iconLec:1, href:'Lineas de Reforma.dc.html'}
+        {dimension:'Insumos · Condiciones habilitantes', title:'Financiamiento progresivo', desc:'Mecanismos que alteran cómo se distribuyen los recursos del sistema para dar más a quienes más lo necesitan.', caseCount:1, iconFin:1, iconLec:0, href:'Financiamiento Progresivo.dc.html'},
+        {dimension:'Procesos · Prácticas de aula', title:'Alfabetización Inicial', desc:'Reformas sistémicas que buscan cambiar la enseñanza de la lectura y la escritura en los primeros grados.', caseCount:1, iconFin:0, iconLec:1, href:'Lineas de Reforma.dc.html'}
       ]
     };
   }

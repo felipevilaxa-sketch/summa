@@ -117,7 +117,7 @@
     <sc-if value="{{ showSummary }}">
       <div data-m="summary-desktop" style="border:1px solid #DCE3E1;border-radius:16px;overflow:hidden">
         <!-- Encabezado -->
-        <div style="display:grid;grid-template-columns:minmax(200px,1.4fr) minmax(140px,.9fr) 110px 110px 110px 150px;background:#0D4A57">
+        <div style="{{ summaryHeaderGridStyle }}">
           <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:16px 20px">Caso</div>
           <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);padding:16px 12px">Mecanismo</div>
           <div style="padding:16px 12px">
@@ -138,7 +138,14 @@
               <button onClick="{{ sortE3 }}" style="{{ sortE3BtnStyle }}">{{ sortE3Icon }}</button>
             </div>
           </div>
-          <div style="padding:16px 12px"></div>
+          <sc-if value="{{ showLecCols }}">
+            <div style="padding:14px 8px;display:flex;align-items:center;justify-content:center"><span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);text-align:center;line-height:1.2">{{ s1Label }}</span></div>
+            <div style="padding:14px 8px;display:flex;align-items:center;justify-content:center"><span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);text-align:center;line-height:1.2">{{ s2Label }}</span></div>
+            <div style="padding:14px 8px;display:flex;align-items:center;justify-content:center"><span style="font-family:Lato,sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);text-align:center;line-height:1.2">Elegibilidad</span></div>
+          </sc-if>
+          <sc-if value="{{ showFinCol }}">
+            <div style="padding:16px 12px"></div>
+          </sc-if>
         </div>
         <!-- Filas -->
         <sc-for list="{{ summaryRows }}" as="sr" hint-placeholder-count="3">
@@ -157,11 +164,27 @@
             <div style="padding:18px 12px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:center">
               <span style="{{ sr.e3ChipStyle }}">{{ sr.e3Label }}</span>
             </div>
-            <div style="padding:18px 14px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:flex-end">
-              <sc-if value="{{ sr.hasVerDetalle }}">
-                <button onClick="{{ sr.verDetalle }}" style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:#0D4A57;background:none;border:1.5px solid #0D4A57;padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">Ver detalle →</button>
-              </sc-if>
-            </div>
+            <sc-if value="{{ sr.showLecCols }}">
+              <div style="padding:15px 8px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:center">
+                <span style="{{ sr.s1ChipStyle }}">{{ sr.s1Label }}</span>
+              </div>
+              <div style="padding:15px 8px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:center">
+                <span style="{{ sr.s2ChipStyle }}">{{ sr.s2Label }}</span>
+              </div>
+              <div style="padding:15px 8px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px">
+                <span style="{{ sr.elegibilidadChipStyle }}">{{ sr.elegibilidadLabel }}</span>
+                <sc-if value="{{ sr.hasVerDetalleDisabled }}">
+                  <button disabled style="font-family:Lato,sans-serif;font-size:11.5px;font-weight:700;color:#8CA0A5;background:none;border:1.5px solid #D0DADC;padding:5px 10px;border-radius:999px;cursor:not-allowed;white-space:nowrap;opacity:.6;margin-top:2px">Ver detalle →</button>
+                </sc-if>
+              </div>
+            </sc-if>
+            <sc-if value="{{ sr.showFinCol }}">
+              <div style="padding:18px 14px;border-bottom:1px solid #F0F4F3;display:flex;align-items:center;justify-content:flex-end">
+                <sc-if value="{{ sr.hasVerDetalle }}">
+                  <button onClick="{{ sr.verDetalle }}" style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;color:#0D4A57;background:none;border:1.5px solid #0D4A57;padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s" style-hover="background:#0D4A57;color:#fff">Ver detalle →</button>
+                </sc-if>
+              </div>
+            </sc-if>
           </div>
         </sc-for>
       </div>
@@ -193,9 +216,28 @@
                 <span style="{{ sr.e3ChipStyle }}">{{ sr.e3Label }}</span>
               </div>
             </div>
+            <sc-if value="{{ sr.showLecCols }}">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px">
+                <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5">{{ s1Label }}</span>
+                <span style="{{ sr.s1ChipStyle }}">{{ sr.s1Label }}</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px">
+                <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5">{{ s2Label }}</span>
+                <span style="{{ sr.s2ChipStyle }}">{{ sr.s2Label }}</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:9px">
+                <span style="font-family:Lato,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8CA0A5">Elegibilidad</span>
+                <span style="{{ sr.elegibilidadChipStyle }}">{{ sr.elegibilidadLabel }}</span>
+              </div>
+            </sc-if>
             <sc-if value="{{ sr.hasVerDetalle }}">
               <div style="margin-top:14px;padding-top:12px;border-top:1px solid #F0F4F3">
                 <button onClick="{{ sr.verDetalle }}" style="width:100%;font-family:Lato,sans-serif;font-size:13.5px;font-weight:700;color:#0D4A57;background:none;border:1.5px solid #0D4A57;padding:11px 18px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s;display:flex;align-items:center;justify-content:center;gap:6px" style-hover="background:#0D4A57;color:#fff">Ver detalle →</button>
+              </div>
+            </sc-if>
+            <sc-if value="{{ sr.hasVerDetalleDisabled }}">
+              <div style="margin-top:12px;padding-top:12px;border-top:1px solid #F0F4F3">
+                <button disabled style="width:100%;font-family:Lato,sans-serif;font-size:13.5px;font-weight:700;color:#8CA0A5;background:none;border:1.5px solid #D0DADC;padding:11px 18px;border-radius:999px;cursor:not-allowed;display:flex;align-items:center;justify-content:center;gap:6px;opacity:.6">Ver detalle →</button>
               </div>
             </sc-if>
           </div>
@@ -358,11 +400,14 @@ function P(dc, plain){ return DC ? dc : plain; }
 const LINEAS = [
   {id:'fin', label:'Financiamiento progresivo', color:'#0D4A57',
    intro:'En esta línea la elegibilidad exige progresividad verificable a nivel de estudiante, y los tres criterios primarios incluyen la equidad en la distribución del recurso.'},
-  {id:'lec', label:'Lectoescritura', color:'#4E7220',
+  {id:'lec', label:'Alfabetización Inicial', color:'#4E7220',
    intro:'En esta línea la elegibilidad exige intervenir en más de una dimensión —formación docente, materiales y acompañamiento— y cubrir al menos los primeros grados de primaria.'}
 ];
 
 const CASES = [
+  // ============================================================
+  // FINANCIAMIENTO PROGRESIVO
+  // ============================================================
   {id:'sep', linea:'fin', title:'Subvención Escolar Preferencial (SEP)', country:'Chile', state:'Publicado',
    mecanismo:'Subvención por alumno vulnerable',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
@@ -383,6 +428,26 @@ const CASES = [
      fuentes:{value:'2', neutral:true},
      elegibilidad:{value:'Elegible'}
    }},
+  {id:'australia', linea:'fin', title:'Schooling Resource Standard (SRS)', country:'Australia', state:'Publicado',
+   mecanismo:'Estándar de recursos por necesidades estudiantiles',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2013', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'0', note:'La brecha de financiamiento entre escuelas favorecidas y desfavorecidas se ha ampliado.'},
+     e2:{value:'0', note:'Sin evidencia robusta de mejora en resultados atribuible al SRS.'},
+     e3:{value:'0', note:'No se han reducido las brechas de equidad entre escuelas.'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     s3:{value:'Parcial'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Revisar'}
+   }},
   {id:'fundeb', linea:'fin', title:'FUNDEB', country:'Brasil', state:'Publicado',
    mecanismo:'Fondo redistributivo federal',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
@@ -395,13 +460,73 @@ const CASES = [
      cobertura:{value:'Sistémico'},
      region:{value:'LAC', neutral:true},
      e1:{value:'2', note:'Complementación federal dirigida a estados bajo el mínimo por alumno.'},
-     e2:{value:'1', note:'Efectos positivos reportados, concentrados en los cuartiles bajos.'},
-     e3:{value:'1', note:'Reduce brechas entre estados; menos evidencia dentro de cada uno.'},
+     e2:{value:'2', note:'Efectos positivos en resultados educativos, concentrados en los cuartiles bajos.'},
+     e3:{value:'2', note:'Reduce brechas entre estados; evidencia de mejora en equidad distributiva.'},
      s1:{value:'Sí'},
      s2:{value:'Sí'},
      s3:{value:'Sí'},
      fuentes:{value:'3', neutral:true},
      elegibilidad:{value:'Elegible'}
+   }},
+  {id:'lcff', linea:'fin', title:'Local Control Funding Formula (LCFF)', country:'Estados Unidos · California', state:'Publicado',
+   mecanismo:'Fórmula de financiamiento local con suplemento por vulnerabilidad',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2013', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Subnacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'2', note:'Progresividad verificable mediante suplemento por concentración de vulnerabilidad.'},
+     e2:{value:'2', note:'Mejoras en resultados en distritos con alta concentración de estudiantes vulnerables.'},
+     e3:{value:'2', note:'Reducción de brechas de financiamiento entre distritos.'},
+     s1:{value:'Sí'},
+     s2:{value:'Sí'},
+     s3:{value:'Sí'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'ceara', linea:'fin', title:'Redistribución del ICMS por resultados educativos', country:'Brasil · Ceará', state:'Publicado',
+   mecanismo:'ICMS por resultados educativos más asistencia técnica municipal',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2007', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Subnacional'},
+     nivel:{value:'Primaria completa'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'LAC', neutral:true},
+     e1:{value:'1', note:'El incentivo favorece municipios con menor desempeño base, pero redistribución parcial.'},
+     e2:{value:'2', note:'Ceará muestra las mejoras más notables en resultados de primaria en Brasil.'},
+     e3:{value:'2', note:'Reducción verificada de brechas entre municipios de mayor y menor vulnerabilidad.'},
+     s1:{value:'Sí'},
+     s2:{value:'Sí'},
+     s3:{value:'Sí'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'southkorea', linea:'fin', title:'Plan Cero para estudiantes bajo el nivel básico', country:'Corea del Sur', state:'Publicado',
+   mecanismo:'Apoyo intensivo focalizado en estudiantes de bajo rendimiento',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2012', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Política'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Focalizado a escala significativa'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'1', note:'Focalización en estudiantes bajo el nivel básico con progresividad verificable.'},
+     e2:{value:'1', note:'Resultados mixtos según modalidad; mejoras reportadas en algunos grupos.'},
+     e3:{value:'i', note:'Evidencia insuficiente para concluir sobre reducción de brechas de equidad.'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     s3:{value:'Sí'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Revisar'}
    }},
   {id:'title1', linea:'fin', title:'Title I, Part A', country:'Estados Unidos', state:'Publicado',
    mecanismo:'Focalización federal por pobreza',
@@ -423,69 +548,207 @@ const CASES = [
      fuentes:{value:'4', neutral:true},
      elegibilidad:{value:'Elegible'}
    }},
-  {id:'sgp', linea:'fin', title:'Sistema General de Participaciones (SGP)', country:'Colombia', state:'Ejemplo',
-   mecanismo:'Transferencia territorial por matrícula',
+  {id:'france', linea:'fin', title:'Redes de Educación Prioritaria (REP / REP+)', country:'Francia', state:'Publicado',
+   mecanismo:'Financiamiento diferenciado a zonas de alta vulnerabilidad',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
-     anio:{value:'2001', neutral:true},
+     anio:{value:'1981', neutral:true},
+     vigencia:{value:'Rediseñada', note:'Reformado y ampliado como REP+ en 2015.'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Focalizado a escala significativa'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'2', note:'Progresividad verificable: asignación por índice de vulnerabilidad territorial.'},
+     e2:{value:'1', note:'Efectos positivos en lectura y matemáticas, pero heterogéneos por escuela.'},
+     e3:{value:'2', note:'Reducción de brechas documentada en zonas prioritarias consolidadas.'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     s3:{value:'Sí'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'england', linea:'fin', title:'Pupil Premium', country:'Inglaterra', state:'Publicado',
+   mecanismo:'Prima por alumno desfavorecido',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2011', neutral:true},
      vigencia:{value:'Vigente'},
      tipo:{value:'Reforma'},
      alcance:{value:'Nacional'},
      nivel:{value:'Todos los niveles'},
      cobertura:{value:'Sistémico'},
-     region:{value:'LAC', neutral:true},
-     e1:{value:'1', note:'Distribución por matrícula sin ajuste explícito por vulnerabilidad socioeconómica.'},
-     e2:{value:'2', note:'Mejoras en cobertura y permanencia atribuibles a la transferencia.'},
-     e3:{value:'0', note:'Sin evidencia de reducción de brechas entre municipios.'},
-     s1:{value:'Parcial'},
-     s2:{value:'Sí'},
-     s3:{value:'No'},
-     fuentes:{value:'2', neutral:true},
-     elegibilidad:{value:'Elegible'}
-   }},
-  {id:'fonid', linea:'fin', title:'Fondo Nacional de Incentivo Docente (FONID)', country:'Argentina', state:'Ejemplo',
-   mecanismo:'Incentivo salarial docente',
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
-   v:{
-     anio:{value:'1998', neutral:true},
-     vigencia:{value:'Rediseñada', note:'Reestructurado como compensación salarial en 2008.'},
-     tipo:{value:'Política'},
-     alcance:{value:'Nacional'},
-     nivel:{value:'Todos los niveles'},
-     cobertura:{value:'Sistémico'},
-     region:{value:'LAC', neutral:true},
-     e1:{value:'0', note:'Sin evidencia de progresividad en la distribución entre provincias.'},
-     e2:{value:'1', note:'Asociación débil con retención docente en zonas rurales.'},
-     e3:{value:'2', note:'Reducción de brechas salariales docentes entre provincias pobres y ricas.'},
-     s1:{value:'No'},
-     s2:{value:'Parcial'},
-     s3:{value:'Sí'},
-     fuentes:{value:'2', neutral:true},
-     elegibilidad:{value:'Elegible'}
-   }},
-
-  {id:'pta', linea:'lec', title:'Programa Todos a Aprender (PTA)', country:'Colombia', state:'Publicado',
-   mecanismo:'Acompañamiento docente',
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
-   v:{
-     anio:{value:'2012', neutral:true},
-     vigencia:{value:'Vigente'},
-     tipo:{value:'Política'},
-     alcance:{value:'Nacional'},
-     nivel:{value:'Primaria completa'},
-     cobertura:{value:'Focalizado a escala significativa', note:'Escuelas priorizadas por resultados y vulnerabilidad.'},
-     region:{value:'LAC', neutral:true},
-     e1:{value:'2', note:'Mejoras documentadas en lenguaje en escuelas participantes.'},
-     e2:{value:'1', note:'Datos administrativos de permanencia, sin diseño causal.'},
-     e3:{value:'1', note:'Avance mayor en escuelas de menor nivel socioeconómico.'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'2', note:'Transferencia directa por estudiante elegible; progresividad verificable por alumno.'},
+     e2:{value:'1', note:'Ganancias moderadas en logro académico, heterogéneas por escuela.'},
+     e3:{value:'2', note:'Reducción de brecha de logro entre alumnos elegibles y no elegibles.'},
      s1:{value:'Sí'},
-     s2:{value:'Parcial'},
+     s2:{value:'Sí'},
      s3:{value:'Sí'},
      fuentes:{value:'3', neutral:true},
      elegibilidad:{value:'Elegible'}
    }},
-  {id:'peru', linea:'lec', title:'Estrategia Nacional de Comprensión Lectora', country:'Perú', state:'Publicado',
-   mecanismo:'Estrategia curricular focalizada',
+  {id:'chapter70', linea:'fin', title:'Foundation Budget (Capítulo 70)', country:'Estados Unidos · Massachusetts', state:'Publicado',
+   mecanismo:'Presupuesto base por estudiante con ajuste por necesidades',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'1993', neutral:true},
+     vigencia:{value:'Rediseñada', note:'Reformado en 2019 para actualizar ponderadores por vulnerabilidad.'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Subnacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'2', note:'Ponderadores explícitos por pobreza, inglés como segunda lengua y educación especial.'},
+     e2:{value:'2', note:'Massachusetts lidera resultados en NAEP; mejoras en distritos de alta necesidad.'},
+     e3:{value:'1', note:'Reducción de brechas entre distritos, aunque persisten desigualdades intradistritoriales.'},
+     s1:{value:'Sí'},
+     s2:{value:'Sí'},
+     s3:{value:'Sí'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'netherlands', linea:'fin', title:'Sistema de ponderación estudiantil', country:'Países Bajos', state:'Publicado',
+   mecanismo:'Ponderación por característica socioeconómica del estudiante',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'1985', neutral:true},
+     vigencia:{value:'Rediseñada', note:'Sistema de ponderadores reformado en 2006 y 2019.'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Primaria completa'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'2', note:'Ponderadores por nivel educativo de padres y origen; progresividad verificable.'},
+     e2:{value:'1', note:'Resultados mixtos; mejoras en escuelas de alta concentración de vulnerabilidad.'},
+     e3:{value:'1', note:'Reducción parcial de brechas; persistencia de desigualdades en transición educativa.'},
+     s1:{value:'Sí'},
+     s2:{value:'Sí'},
+     s3:{value:'Sí'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'portugal', linea:'fin', title:'Territorios Educativos de Intervención Prioritaria (TEIP)', country:'Portugal', state:'Publicado',
+   mecanismo:'Recursos adicionales a agrupaciones escolares en contexto desfavorecido',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'1996', neutral:true},
+     vigencia:{value:'Rediseñada', note:'Segunda generación TEIP desde 2009; tercera desde 2016.'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Focalizado a escala significativa'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'1', note:'Focalización por índice territorial con progresividad parcial.'},
+     e2:{value:'1', note:'Mejoras en abandono escolar; impacto en aprendizajes heterogéneo.'},
+     e3:{value:'0', note:'Sin evidencia robusta de reducción de brechas entre grupos.'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     s3:{value:'Sí'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+
+  // ============================================================
+  // ALFABETIZACIÓN INICIAL
+  // ============================================================
+  {id:'sobral', linea:'lec', title:'Sobral (reforma municipal)', country:'Brasil', state:'Publicado',
+   mecanismo:'Reforma municipal integral de alfabetización',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2000', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Subnacional'},
+     nivel:{value:'Primaria inicial (1º-3º)'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'LAC', neutral:true},
+     e1:{value:'1'},
+     e2:{value:'1'},
+     e3:{value:'1'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'canada', linea:'lec', title:'Literacy and Numeracy Strategy (Ontario)', country:'Canadá', state:'Publicado',
+   mecanismo:'Estrategia provincial de literacidad y numeracia',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2003', neutral:true},
+     vigencia:{value:'Rediseñada'},
+     tipo:{value:'Política'},
+     alcance:{value:'Subnacional'},
+     nivel:{value:'Primaria completa'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'1'},
+     e2:{value:'1'},
+     e3:{value:'1'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'estonia', linea:'lec', title:'Currículo nacional e iniciativas de literacidad', country:'Estonia', state:'Publicado',
+   mecanismo:'Reforma curricular nacional con enfoque en literacidad',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2011', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Primaria completa'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'1'},
+     e2:{value:'1'},
+     e3:{value:'1'},
+     s1:{value:'Sí'},
+     s2:{value:'Sí'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'india', linea:'lec', title:'Read India / Teaching at the Right Level (TaRL)', country:'India', state:'Publicado',
+   mecanismo:'Programa de nivelación lectora por grupos de competencia',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2000', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Política'},
+     alcance:{value:'Subnacional'},
+     nivel:{value:'Primaria inicial (1º-3º)'},
+     cobertura:{value:'Focalizado a escala significativa'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'2'},
+     e2:{value:'0'},
+     e3:{value:'2'},
+     s1:{value:'Sí'},
+     s2:{value:'Parcial'},
+     fuentes:{value:'3', neutral:true},
+     elegibilidad:{value:'Revisar'}
+   }},
+  {id:'irlanda', linea:'lec', title:'National Literacy and Numeracy Strategy', country:'Irlanda', state:'Publicado',
+   mecanismo:'Estrategia nacional de literacidad y numeracia',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2011', neutral:true},
+     vigencia:{value:'Rediseñada'},
+     tipo:{value:'Política'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'2'},
+     e2:{value:'1'},
+     e3:{value:'1'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+  {id:'kenia', linea:'lec', title:'Tusome', country:'Kenia', state:'Publicado',
+   mecanismo:'Programa nacional de alfabetización inicial con coaching docente',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
      anio:{value:'2014', neutral:true},
@@ -493,59 +756,18 @@ const CASES = [
      tipo:{value:'Política'},
      alcance:{value:'Nacional'},
      nivel:{value:'Primaria inicial (1º-3º)'},
-     cobertura:{value:'Focalizado a escala significativa', note:'Escuelas rurales y multigrado.'},
-     region:{value:'LAC', neutral:true},
-     e1:{value:'1', note:'Avances en la evaluación censal, con atribución aún en discusión.'},
-     e2:{value:'1', note:'Cobertura ampliada en zonas rurales, sin evaluación de impacto.'},
-     e3:{value:'1', note:'Brechas rurales persistentes pese a la mejora general.'},
-     s1:{value:'Sí'},
-     s2:{value:'Parcial'},
-     s3:{value:'Parcial'},
-     fuentes:{value:'2', neutral:true},
-     elegibilidad:{value:'Elegible'}
-   }},
-  {id:'guatemala', linea:'lec', title:'Programa Leamos Juntos', country:'Guatemala', state:'Publicado',
-   mecanismo:'Programa focalizado multigrado',
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
-   v:{
-     anio:{value:'2019', neutral:true},
-     vigencia:{value:'Vigente'},
-     tipo:{value:'Política'},
-     alcance:{value:'Nacional'},
-     nivel:{value:'Primaria inicial (1º-3º)'},
-     cobertura:{value:'Focalizado a escala significativa', note:'Escuelas rurales e indígenas.'},
-     region:{value:'LAC', neutral:true},
-     e1:{value:'1', note:'Mejora en comprensión lectora reportada por evaluación externa en curso.'},
-     e2:{value:'1', note:'Datos de matrícula y permanencia en escuelas participantes.'},
-     e3:{value:'2', note:'Reducción de brechas por lengua materna y ruralidad.'},
-     s1:{value:'Parcial'},
-     s2:{value:'Parcial'},
-     s3:{value:'Sí'},
-     fuentes:{value:'2', neutral:true},
-     elegibilidad:{value:'Elegible'}
-   }},
-  {id:'pnle', linea:'lec', title:'Programa Nacional de Lectura y Escritura', country:'México', state:'Ejemplo',
-   mecanismo:'Dotación de materiales y biblioteca',
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
-   v:{
-     anio:{value:'2013', neutral:true},
-     vigencia:{value:'Vigente'},
-     tipo:{value:'Política'},
-     alcance:{value:'Nacional'},
-     nivel:{value:'Primaria completa'},
      cobertura:{value:'Sistémico'},
-     region:{value:'LAC', neutral:true},
-     e1:{value:'2', note:'Ganancias robustas en comprensión lectora en zonas de alta marginación.'},
-     e2:{value:'0', note:'Sin datos sistemáticos de permanencia atribuibles al programa.'},
-     e3:{value:'1', note:'Mejora en escuelas rurales, pero brecha urbano-rural persiste.'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'2'},
+     e2:{value:'0'},
+     e3:{value:'1'},
      s1:{value:'Sí'},
      s2:{value:'No'},
-     s3:{value:'Parcial'},
      fuentes:{value:'3', neutral:true},
-     elegibilidad:{value:'Elegible'}
+     elegibilidad:{value:'Revisar'}
    }},
-  {id:'pna_arg', linea:'lec', title:'Plan Nacional de Alfabetización', country:'Argentina', state:'Ejemplo',
-   mecanismo:'Formación continua y acompañamiento',
+  {id:'marruecos', linea:'lec', title:'Reading for Success', country:'Marruecos', state:'Publicado',
+   mecanismo:'Programa de lectura con materiales estructurados',
    href:P('Detalle de Caso.dc.html','detalle-caso.html'),
    v:{
      anio:{value:'2016', neutral:true},
@@ -553,19 +775,55 @@ const CASES = [
      tipo:{value:'Política'},
      alcance:{value:'Nacional'},
      nivel:{value:'Primaria inicial (1º-3º)'},
-     cobertura:{value:'Focalizado a escala significativa', note:'Provincias con mayor rezago lector.'},
-     region:{value:'LAC', neutral:true},
-     e1:{value:'0', note:'Sin evaluación de impacto en aprendizajes publicada.'},
-     e2:{value:'2', note:'Aumento de matrícula en primer ciclo en provincias participantes.'},
-     e3:{value:'1', note:'Cierre parcial de brechas entre provincias, aún en curso de evaluación.'},
+     cobertura:{value:'Focalizado a escala significativa'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'1'},
+     e2:{value:'0'},
+     e3:{value:'1'},
+     s1:{value:'No'},
+     s2:{value:'No'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Excluir'}
+   }},
+  {id:'mauricio', linea:'lec', title:'Nine-Year Continuous Basic Education', country:'Mauricio', state:'Publicado',
+   mecanismo:'Reforma de educación básica de nueve años',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2017', neutral:true},
+     vigencia:{value:'Vigente'},
+     tipo:{value:'Reforma'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Primaria completa'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'1'},
+     e2:{value:'1'},
+     e3:{value:'1'},
      s1:{value:'No'},
      s2:{value:'Sí'},
-     s3:{value:'Parcial'},
      fuentes:{value:'2', neutral:true},
      elegibilidad:{value:'Elegible'}
-   }}
-];
-
+   }},
+  {id:'portugal_lec', linea:'lec', title:'Plano Nacional de Leitura + PNEP', country:'Portugal', state:'Publicado',
+   mecanismo:'Plan Nacional de Lectura con formación docente especializada',
+   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+   v:{
+     anio:{value:'2006', neutral:true},
+     vigencia:{value:'Rediseñada'},
+     tipo:{value:'Política'},
+     alcance:{value:'Nacional'},
+     nivel:{value:'Todos los niveles'},
+     cobertura:{value:'Sistémico'},
+     region:{value:'Otra', neutral:true},
+     e1:{value:'1'},
+     e2:{value:'1'},
+     e3:{value:'1'},
+     s1:{value:'Parcial'},
+     s2:{value:'Sí'},
+     fuentes:{value:'2', neutral:true},
+     elegibilidad:{value:'Elegible'}
+   }},
+]
 const ROWS = [
   {id:'anio',        group:'Identificación', groupColor:'#4F6B72', name:'Año de inicio',                  noDef:true},
   {id:'region',                                                     name:'Región',                         noDef:true},
@@ -656,7 +914,20 @@ class Component extends DCLogic {
     function dotStyle(val){
       if(val === '2') return {label:'Sí', color:'#4E7220', bg:'#EEF6E2'};
       if(val === '1') return {label:'Parcial', color:'#4F6B72', bg:'#F0F4F3'};
+      if(val === 'i') return {label:'', color:'#8CA0A5', bg:'#F0F4F3'};
       return {label:'No', color:'#9A4630', bg:'#F6E2DC'};
+    }
+    function directDot(val){
+      if(val === 'Sí') return {label:'Sí', color:'#4E7220', bg:'#EEF6E2'};
+      if(val === 'Parcial') return {label:'Parcial', color:'#4F6B72', bg:'#F0F4F3'};
+      if(val === 'No') return {label:'No', color:'#9A4630', bg:'#F6E2DC'};
+      return {label:'—', color:'#8CA0A5', bg:'#F0F4F3'};
+    }
+    function elegDot(val){
+      if(val === 'Elegible') return {label:'Elegible', color:'#4E7220', bg:'#EEF6E2'};
+      if(val === 'Revisar') return {label:'Revisar', color:'#B4791F', bg:'#FDF5E6'};
+      if(val === 'Excluir') return {label:'Excluir', color:'#9A4630', bg:'#F6E2DC'};
+      return {label:'—', color:'#8CA0A5', bg:'#F0F4F3'};
     }
     function sortWeight(val){ return val === '2' ? 0 : val === '1' ? 1 : 2; }
 
@@ -667,19 +938,32 @@ class Component extends DCLogic {
         return sortWeight(a.v[sortCol].value) - sortWeight(b.v[sortCol].value);
       });
     }
-    var GRID = 'display:grid;grid-template-columns:minmax(200px,1.4fr) minmax(140px,.9fr) 110px 110px 110px 150px;border-bottom:1px solid #F0F4F3';
+    var isLec = s.linea === 'lec';
+    var GRID = isLec
+      ? 'display:grid;grid-template-columns:minmax(170px,1.1fr) minmax(130px,.9fr) 88px 88px 88px 88px 88px 108px;border-bottom:1px solid #F0F4F3'
+      : 'display:grid;grid-template-columns:minmax(200px,1.4fr) minmax(140px,.9fr) 110px 110px 110px 150px;border-bottom:1px solid #F0F4F3';
     var summaryRows = summaryBase.map(function(c){
       var d1 = dotStyle(c.v.e1.value), d2 = dotStyle(c.v.e2.value), d3 = dotStyle(c.v.e3.value);
       var qualifies = c.v.e1.value === '2' && c.v.e2.value === '2' && (c.v.e3.value === '2' || c.v.e3.value === '1');
       var interactive = c.id === 'sep';
+      var interactiveDisabled = c.id === 'sobral';
       var chipBase = 'font-family:Lato,sans-serif;font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:6px;line-height:1.3;';
+      var ds1 = directDot(c.v.s1 ? c.v.s1.value : '');
+      var ds2 = directDot(c.v.s2 ? c.v.s2.value : '');
+      var deleg = elegDot(c.v.elegibilidad ? c.v.elegibilidad.value : '');
       return {
         rowGridStyle: GRID,
         caseTitle: c.title, country: c.country, mecanismo: c.mecanismo || '',
         e1Label: d1.label, e1ChipStyle: chipBase + 'color:' + d1.color + ';background:' + d1.bg,
         e2Label: d2.label, e2ChipStyle: chipBase + 'color:' + d2.color + ';background:' + d2.bg,
         e3Label: d3.label, e3ChipStyle: chipBase + 'color:' + d3.color + ';background:' + d3.bg,
+        s1Label: ds1.label, s1ChipStyle: chipBase + 'color:' + ds1.color + ';background:' + ds1.bg,
+        s2Label: ds2.label, s2ChipStyle: chipBase + 'color:' + ds2.color + ';background:' + ds2.bg,
+        elegibilidadLabel: deleg.label, elegibilidadChipStyle: chipBase + 'color:' + deleg.color + ';background:' + deleg.bg,
         hasVerDetalle: qualifies && interactive,
+        hasVerDetalleDisabled: interactiveDisabled,
+        showLecCols: isLec,
+        showFinCol: !isLec,
         verDetalle: function(){ self.setState({view:'detail', caso:c.id}); }
       };
     });
@@ -696,7 +980,7 @@ class Component extends DCLogic {
         const on = s.linea === l.id;
         return {
           label:l.label, selected: on ? 'true' : 'false',
-          select:function(){ var fc=CASES.filter(function(c){return c.linea===l.id;})[0]; self.setState({linea:l.id, caso:fc?fc.id:'', open:{}, groupOpen:{}, view:'summary', sortCol:null}); },
+          select:function(){ var fc=CASES.filter(function(c){return c.linea===l.id;})[0]; self.setState({linea:l.id, caso:'', open:{}, groupOpen:{}, view:'summary', sortCol:null}); },
           style:"font-family:Lato,sans-serif;font-size:clamp(14px,1.5vw,17px);font-weight:700;background:none;border:none;padding:16px 2px;cursor:pointer;transition:all .15s;border-bottom:3px solid " +
             (on ? '#8BC53F' : 'transparent') + ';color:' + (on ? '#0D4A57' : '#7C8B8D')
         };
@@ -718,6 +1002,13 @@ class Component extends DCLogic {
       showSummary: s.view === 'summary',
       showDetail: s.view === 'detail',
       showFinDisclaimer: s.view === 'summary' && s.linea === 'fin',
+      summaryHeaderGridStyle: isLec
+        ? 'display:grid;grid-template-columns:minmax(170px,1.1fr) minmax(130px,.9fr) 88px 88px 88px 88px 88px 108px;background:#0D4A57'
+        : 'display:grid;grid-template-columns:minmax(200px,1.4fr) minmax(140px,.9fr) 110px 110px 110px 150px;background:#0D4A57',
+      showLecCols: isLec,
+      showFinCol: !isLec,
+      s1Label: isLec ? 'Costo-efect.' : '',
+      s2Label: isLec ? 'Sostenibilidad' : '',
 
       e1Label: e1Names[s.linea] || 'Equidad',
       e2Label: e2Names[s.linea] || 'Resultados',

@@ -16,7 +16,7 @@ class ReformGlobe extends HTMLElement {
         </div>
         <div style="display:flex;justify-content:center">
           <div class="globe-canvas-wrap" style="position:relative;display:inline-block">
-            <canvas width="480" height="480" style="width:480px;max-width:100%;height:480px;cursor:grab;touch-action:none"></canvas>
+            <canvas width="480" height="480" style="width:480px;max-width:100%;height:480px;cursor:all-scroll;touch-action:none"></canvas>
           </div>
         </div>
       </div>`;
@@ -33,61 +33,149 @@ class ReformGlobe extends HTMLElement {
 
     var pins = [
       {name:'Chile', lat:-33.45, lon:-70.66, casos:[
-        {linea:'Financiamiento Progresivo', caso:'Subvención Escolar Preferencial (SEP)', href:'Detalle de Caso.dc.html'},
-        {linea:'Lectoescritura', caso:'Plan de Fortalecimiento de la Lectoescritura Inicial', href:'Detalle de Caso.dc.html'}
-      ]},
-      {name:'México', lat:19.43, lon:-99.13, casos:[
-        {linea:'Financiamiento Progresivo', caso:'Programa Escuelas de Calidad (PEC)', href:'Detalle de Caso.dc.html'}
-      ], analizados:[
-        {titulo:'Programa Escuelas de Calidad (PEC)', tabla:[
-          {campo:'Año de implementación',valor:'2001 – 2014. Operó durante 13 ciclos escolares; discontinuado en 2014 con la reforma educativa.'},
-          {campo:'Categoría de mecanismo',valor:'Subsidio competitivo federal a escuelas públicas de educación básica vinculado a un proyecto de mejora escolar con corresponsabilidad entre gobierno federal, estatal y escuela.'},
-          {campo:'Criterios de focalización',valor:'Escuelas públicas de educación básica con Proyecto Escolar de Transformación Educativa (PETE) aprobado, con énfasis en zonas de alta y muy alta marginación.'},
-          {campo:'Mecanismo de cálculo',valor:'Aportaciones federales y estatales en proporción 50/50, canalizadas directamente a las escuelas para materiales educativos, infraestructura menor, formación docente y gestión escolar.'},
-          {campo:'Usos permitidos',valor:'Cuatro dimensiones del proyecto escolar: gestión curricular, convivencia escolar, liderazgo directivo y administración de recursos. Máximo 30% en infraestructura.'},
-          {campo:'Evidencia de resultados',valor:'Evaluaciones externas muestran mejoras marginales en aprendizaje en escuelas beneficiarias respecto a grupos control. Impacto limitado por falta de seguimiento sistemático y discontinuidad presupuestal (Sánchez-Cervantes, 2012; CONEVAL, 2014).'}
-        ]},
-        {titulo:'Programa Nacional de Lectura y Escritura (PNLE)', tabla:[
-          {campo:'Año de implementación',valor:'2016 – actualidad (reformulado en 2019 como Programa Nacional de Lectura para la Educación Básica).'},
-          {campo:'Categoría de mecanismo',valor:'Programa federal de fomento lector con dotación de bibliotecas de aula, formación docente y producción de materiales en lectura y escritura.'},
-          {campo:'Criterios de focalización',valor:'Escuelas de educación básica pública, con prioridad en zonas rurales, indígenas y de alta marginación. Cobertura nacional ampliada progresivamente desde su lanzamiento.'},
-          {campo:'Mecanismo de cálculo',valor:'Dotación de acervos bibliográficos por escuela y grupo, complementada con talleres de formación para docentes y asesores técnico-pedagógicos (ATP) organizados por zona escolar.'},
-          {campo:'Usos permitidos',valor:'Fomento a la lectura y escritura en contexto curricular, incorporación de bibliotecas de aula como recurso pedagógico y producción de textos propios por parte de estudiantes.'},
-          {campo:'Evidencia de resultados',valor:'Mejoras en hábitos lectores y comprensión lectora en escuelas con alta intensidad de implementación (SEP-INEE, 2018). Resultados heterogéneos según dotación real de libros y continuidad formativa docente.'}
-        ]}
-      ]},
-      {name:'Colombia', lat:4.71, lon:-74.07, casos:[
-        {linea:'Lectoescritura', caso:'Programa Todos a Aprender (PTA)', href:'Detalle de Caso.dc.html'}
-      ]},
-      {name:'Perú', lat:-12.05, lon:-77.03, casos:[
-        {linea:'Lectoescritura', caso:'Estrategia Nacional de Comprensión Lectora', href:'Detalle de Caso.dc.html'}
-      ]},
-      {name:'Argentina', lat:-34.6, lon:-58.38, casos:[
-        {linea:'Lectoescritura', caso:'Plan Nacional de Lectura', href:'Detalle de Caso.dc.html'}
-      ]},
-      {name:'Guatemala', lat:14.63, lon:-90.51, casos:[
-        {linea:'Lectoescritura', caso:'Programa Leamos Juntos', href:'Detalle de Caso.dc.html'}
+        {linea:'Financiamiento Progresivo', caso:'Subvención Escolar Preferencial (SEP)', href:'Detalle de Caso.dc.html'}
       ]},
       {name:'Brasil', lat:-15.79, lon:-47.88, casos:[
-        {linea:'Lectoescritura', caso:'Pacto Nacional pela Alfabetização na Idade Certa', href:'Detalle de Caso.dc.html'}
+        {linea:'Alfabetización Inicial', caso:'Modelo Sobral de Alfabetización', href:'Detalle de Caso.dc.html'}
+      ], analizados:[
+        {titulo:'Redistribución del ICMS por resultados educativos – Ceará', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Estado de Ceará, Brasil (subnacional)'},
+          {campo:'Categoría de mecanismo', valor:'Financiamiento basado en resultados mediante redistribución de transferencias tributarias'},
+          {campo:'Año de implementación', valor:'Legislación estatal 14.023/2007; implementación plena desde 2009. Se desplegó junto con el programa PAIC (Pacto pela Alfabetização na Idade Certa, iniciado en 2007).'},
+          {campo:'Criterios de focalización', valor:'Interjurisdiccional y por resultados. La cuota del ICMS se redistribuye según el desempeño educativo agregado de cada municipio. Los municipios que mejoran sus resultados educativos capturan una mayor porción del ICMS.'},
+          {campo:'Mecanismo de cálculo', valor:'El 25% del ICMS estatal redistributivo se divide: 18 pp para Educación, 5 pp para Salud y 2 pp para Medioambiente. La distribución sigue una fórmula basada en un índice de calidad educativa municipal que combina niveles y mejoras de aprendizaje y progresión de los estudiantes.'},
+          {campo:'Usos permitidos de los recursos', valor:'Transferencia de uso libre: los alcaldes pueden emplear los recursos en cualquier sector, incluso ajeno a la educación. El diseño premia el resultado, no condiciona el gasto.'},
+          {campo:'Evidencia de resultados disponible', valor:'Efectos positivos significativos: 5,47–7,49 puntos en portugués y 3,94–5,6 en matemáticas (Petterini & Irffi, 2013). Municipios de Ceará gastan menos de un tercio que los estados más ricos y obtienen resultados mejores (Banco Mundial).'}
+        ]},
+        {titulo:'Fondo de Manutenção e Desenvolvimento da Educação Básica (FUNDEB)', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Brasil (federal: Unión, 26 estados y Distrito Federal)'},
+          {campo:'Categoría de mecanismo', valor:'Fondo redistributivo federal con complementación automática del gobierno central'},
+          {campo:'Año de implementación', valor:'FUNDEF (1997) → FUNDEB (2007) → constitucionalizado de forma permanente en 2020 mediante la Enmienda Constitucional 108.'},
+          {campo:'Criterios de focalización', valor:'Jurisdiccional: estados cuyo gasto por alumno no alcanza el valor mínimo nacional. La complementación federal es automática para los estados que quedan bajo el piso de referencia.'},
+          {campo:'Mecanismo de cálculo', valor:'Fondo contable estadual integrado por 20% de impuestos educacionales estaduales y municipales. El gobierno federal complementa automáticamente hasta el valor mínimo alumno/año, diferenciado por etapa y modalidad educativa.'},
+          {campo:'Usos permitidos de los recursos', valor:'Mínimo 70% en remuneraciones del personal docente y técnico. El FUNDEB 2020 reservó 20% adicional exclusivamente para docentes de educación básica pública en ejercicio.'},
+          {campo:'Evidencia de resultados disponible', valor:'Reduce la brecha de gasto entre estados ricos y pobres. Efectos positivos en resultados educativos, concentrados en los cuartiles bajos (+0.15 DE en SAEB, estados beneficiarios vs. control). Constitucionalizado por amplio consenso político en 2020.'}
+        ]}
       ]},
-      {name:'Rep. Dominicana', lat:18.49, lon:-69.89, casos:[
-        {linea:'Financiamiento Progresivo', caso:'Plan Nacional de Alfabetización', href:'Detalle de Caso.dc.html'}
+      {name:'Australia', lat:-35.28, lon:149.13, casos:[], analizados:[
+        {titulo:'Needs-Based Funding – Schooling Resource Standard (SRS)', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Australia (federal: Commonwealth, seis estados y dos territorios)'},
+          {campo:'Categoría de mecanismo', valor:'Fondo Focalizado desde el Gobierno central (Commonwealth), para escuelas públicas y privadas, como complemento al financiamiento de gobiernos estatales y locales'},
+          {campo:'Año de implementación', valor:'El Schooling Resource Standard (SRS) entró en vigor con el Australian Education Act 2013, y fue revisado por el Australian Education Amendment Act 2017 (reforma Gonski 2.0).'},
+          {campo:'Criterios de focalización', valor:'El número de estudiantes matriculados determina el monto base. Sobre esa base se aplican seis ponderadores: cuatro a nivel de estudiante (discapacidad; condición de aborigen; desventaja socioeconómica; bajo dominio del inglés) y dos a nivel de escuela (ubicación fuera de grandes áreas urbanas; tamaño).'},
+          {campo:'Mecanismo de cálculo', valor:'El SRS define un monto base por estudiante (diferenciado entre primaria y secundaria). El monto total resulta de multiplicar ese base por la matrícula, sumar los seis loadings y descontar la capacidad de la comunidad escolar de contribuir financieramente.'},
+          {campo:'Usos permitidos de los recursos', valor:'Los fondos se destinan al gasto operacional de la escuela: salarios, desarrollo profesional, materiales didácticos, infraestructura, equipamiento y otros gastos generales de funcionamiento.'},
+          {campo:'Evidencia de resultados disponible', valor:'La brecha de financiamiento entre escuelas favorecidas y desfavorecidas se ha ampliado. La mayoría de las escuelas públicas permanece por debajo del estándar de adecuación. El desempeño promedio en PISA ha disminuido desde 2009 sin que la reforma lo haya revertido.'}
+        ]}
       ]},
-      {name:'Estados Unidos', lat:38.9, lon:-77.0, casos:[], analizados:[{"titulo":"Title I, Part A — Every Student Succeeds Act (ESSA, 2015)","tabla":[{"campo":"Año de implementación","valor":"Title I original: 1965 (ESEA). No Child Left Behind: 2001. ESSA: 2015 (vigente)."},{"campo":"Categoría de mecanismo","valor":"Fondo Focalizado de nivel federal que distribuye recursos adicionales a distritos y escuelas con alta concentración de pobreza sobre el mecanismo estatal de financiamiento. Es el mayor programa federal de apoyo a la educación escolar de EE.UU (CAP 2020)."},{"campo":"Criterios de focalización","valor":"Institucional: distritos e instituciones educativas con estudiantes vulnerables elegibles, y alta concentración de éstos. Los estudiantes elegibles son los de familias que viven en pobreza, los que reciben ayudas temporales (TANF), niños víctimas de negligencia o con antecedentes de delincuencia, y niños en acogida. Además cada componente tiene requisitos basados en mínimos de número y concentración de estos estudiantes."},{"campo":"Mecanismo de cálculo","valor":"Fórmula federal de cuatro componentes: i) Basic grant: en base número de niños elegibles; ii) Concentration grants: para distritos con mayor porcentaje de concentración de pobreza y número de estudiantes elegibles; iii) Targeted Grants: considera de manera más intensiva el número y concentración de niños elegibles, iv) Education Finance Incentive Grants: para distritos con un mínimo de número y concentración de estudiantes elegibles, asignado en base al esfuerzo que realiza el estado relativo a su riqueza y un factor de equidad.\n\nExisten garantías mínimas por distrito, en términos históricos (hold harmless) y de montos mínimos por estado. También se toma en consideración el gasto en educación por alumno de cada estado (Snyder et al., 2019)."},{"campo":"Usos permitidos","valor":"Schoolwide: escuelas con al menos 40% de alumnos elegibles pueden utilizar los recursos en programas transversales a todo el establecimiento, para mejorar el desempeño de todos los estudiantes. En caso contrario, deben dedicar recursos a niños en riesgo académico (Snyder et al., 2019). Bajo ESSA (2015): ambas modalidades requieren intervenciones basadas en evidencia."},{"campo":"Evidencia de resultados","valor":"La complejidad de las fórmulas utilizadas ha resultado en que el programa ha asignado recursos a distritos y estados más ricos, pese a su intención original de mejorar la equidad de recursos. El fondo es pequeño en términos de monto y con demasiada dispersión para hacerse cargo de inequidades de financiamiento a nivel nacional. No genera incentivos suficientes para que los estados sean más progresivos en sus propias fórmulas de asignación de recursos (CAP 2020).\n\nAprendizaje: Estudios con resultados mixtos en términos de efectos. Una de las razones para que no sea tan exitoso como podría es que puede generar una reducción de los fondos locales (crowd out) (Matsudaira et al, 2012, Johnson 2015)."}]}]},
-      {name:'Australia', lat:-35.28, lon:149.13, casos:[], analizados:[{"titulo":"Title I, Part A — Every Student Succeeds Act (ESSA, 2015)","tabla":[{"campo":"Año de implementación","valor":"Title I original: 1965 (ESEA). No Child Left Behind: 2001. ESSA: 2015 (vigente)."},{"campo":"Categoría de mecanismo","valor":"Fondo Focalizado de nivel federal que distribuye recursos adicionales a distritos y escuelas con alta concentración de pobreza sobre el mecanismo estatal de financiamiento. Es el mayor programa federal de apoyo a la educación escolar de EE.UU (CAP 2020)."},{"campo":"Criterios de focalización","valor":"Institucional: distritos e instituciones educativas con estudiantes vulnerables elegibles, y alta concentración de éstos. Los estudiantes elegibles son los de familias que viven en pobreza, los que reciben ayudas temporales (TANF), niños víctimas de negligencia o con antecedentes de delincuencia, y niños en acogida. Además cada componente tiene requisitos basados en mínimos de número y concentración de estos estudiantes."},{"campo":"Mecanismo de cálculo","valor":"Fórmula federal de cuatro componentes: i) Basic grant: en base número de niños elegibles; ii) Concentration grants: para distritos con mayor porcentaje de concentración de pobreza y número de estudiantes elegibles; iii) Targeted Grants: considera de manera más intensiva el número y concentración de niños elegibles, iv) Education Finance Incentive Grants: para distritos con un mínimo de número y concentración de estudiantes elegibles, asignado en base al esfuerzo que realiza el estado relativo a su riqueza y un factor de equidad.\n\nExisten garantías mínimas por distrito, en términos históricos (hold harmless) y de montos mínimos por estado. También se toma en consideración el gasto en educación por alumno de cada estado (Snyder et al., 2019)."},{"campo":"Usos permitidos","valor":"Schoolwide: escuelas con al menos 40% de alumnos elegibles pueden utilizar los recursos en programas transversales a todo el establecimiento, para mejorar el desempeño de todos los estudiantes. En caso contrario, deben dedicar recursos a niños en riesgo académico (Snyder et al., 2019). Bajo ESSA (2015): ambas modalidades requieren intervenciones basadas en evidencia."},{"campo":"Evidencia de resultados","valor":"La complejidad de las fórmulas utilizadas ha resultado en que el programa ha asignado recursos a distritos y estados más ricos, pese a su intención original de mejorar la equidad de recursos. El fondo es pequeño en términos de monto y con demasiada dispersión para hacerse cargo de inequidades de financiamiento a nivel nacional. No genera incentivos suficientes para que los estados sean más progresivos en sus propias fórmulas de asignación de recursos (CAP 2020).\n\nAprendizaje: Estudios con resultados mixtos en términos de efectos. Una de las razones para que no sea tan exitoso como podría es que puede generar una reducción de los fondos locales (crowd out) (Matsudaira et al, 2012, Johnson 2015)."}]}]},
-      {name:'Países Bajos', lat:52.37, lon:4.9, casos:[], analizados:[{"titulo":"Title I, Part A — Every Student Succeeds Act (ESSA, 2015)","tabla":[{"campo":"Año de implementación","valor":"Title I original: 1965 (ESEA). No Child Left Behind: 2001. ESSA: 2015 (vigente)."},{"campo":"Categoría de mecanismo","valor":"Fondo Focalizado de nivel federal que distribuye recursos adicionales a distritos y escuelas con alta concentración de pobreza sobre el mecanismo estatal de financiamiento. Es el mayor programa federal de apoyo a la educación escolar de EE.UU (CAP 2020)."},{"campo":"Criterios de focalización","valor":"Institucional: distritos e instituciones educativas con estudiantes vulnerables elegibles, y alta concentración de éstos. Los estudiantes elegibles son los de familias que viven en pobreza, los que reciben ayudas temporales (TANF), niños víctimas de negligencia o con antecedentes de delincuencia, y niños en acogida. Además cada componente tiene requisitos basados en mínimos de número y concentración de estos estudiantes."},{"campo":"Mecanismo de cálculo","valor":"Fórmula federal de cuatro componentes: i) Basic grant: en base número de niños elegibles; ii) Concentration grants: para distritos con mayor porcentaje de concentración de pobreza y número de estudiantes elegibles; iii) Targeted Grants: considera de manera más intensiva el número y concentración de niños elegibles, iv) Education Finance Incentive Grants: para distritos con un mínimo de número y concentración de estudiantes elegibles, asignado en base al esfuerzo que realiza el estado relativo a su riqueza y un factor de equidad.\n\nExisten garantías mínimas por distrito, en términos históricos (hold harmless) y de montos mínimos por estado. También se toma en consideración el gasto en educación por alumno de cada estado (Snyder et al., 2019)."},{"campo":"Usos permitidos","valor":"Schoolwide: escuelas con al menos 40% de alumnos elegibles pueden utilizar los recursos en programas transversales a todo el establecimiento, para mejorar el desempeño de todos los estudiantes. En caso contrario, deben dedicar recursos a niños en riesgo académico (Snyder et al., 2019). Bajo ESSA (2015): ambas modalidades requieren intervenciones basadas en evidencia."},{"campo":"Evidencia de resultados","valor":"La complejidad de las fórmulas utilizadas ha resultado en que el programa ha asignado recursos a distritos y estados más ricos, pese a su intención original de mejorar la equidad de recursos. El fondo es pequeño en términos de monto y con demasiada dispersión para hacerse cargo de inequidades de financiamiento a nivel nacional. No genera incentivos suficientes para que los estados sean más progresivos en sus propias fórmulas de asignación de recursos (CAP 2020).\n\nAprendizaje: Estudios con resultados mixtos en términos de efectos. Una de las razones para que no sea tan exitoso como podría es que puede generar una reducción de los fondos locales (crowd out) (Matsudaira et al, 2012, Johnson 2015)."}]}]}
+      {name:'Corea del Sur', lat:37.57, lon:126.98, casos:[], analizados:[
+        {titulo:'Zero Plan for Below-Basic Students (Programa Apoyo a Escuelas con Bajo Desempeño)', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Corea del Sur (nacional)'},
+          {campo:'Categoría de mecanismo', valor:'Transferencia focalizada en bajo desempeño escolar'},
+          {campo:'Año de implementación', valor:'Establecido por el Ministerio de Educación en 2010, sobre la base de la primera evaluación nacional censal de logros de aprendizaje aplicada en 2009.'},
+          {campo:'Criterios de focalización', valor:'Institucional, basado en desempeño. Son elegibles las escuelas cuyo promedio de estudiantes en nivel "bajo básico" es igual o superior al doble del promedio nacional en cinco asignaturas evaluadas (lectura, matemática, inglés, estudios sociales y ciencias).'},
+          {campo:'Mecanismo de cálculo', valor:'Incremento aproximado del 20% del financiamiento por alumno. Escuelas con hasta 300 estudiantes reciben Won$50.000.000; las que superan esa matrícula reciben Won$80.000.000.'},
+          {campo:'Usos permitidos de los recursos', valor:'Uso restringido (earmarked) a la promoción del logro académico de los estudiantes. No se permite financiamiento de infraestructura. Las escuelas desarrollaron programas de refuerzo y contrataron tutores temporales.'},
+          {campo:'Evidencia de resultados disponible', valor:'Reducción en la proporción de estudiantes de 6° grado bajo el promedio: -19,7% en matemática, -17,0% en inglés, -16,1% en estudios sociales y -18,1% en ciencias (Sohn et al., 2022). Sin efectos detectados en lectura.'}
+        ]}
+      ]},
+      {name:'Estados Unidos', lat:38.9, lon:-77.0, casos:[], analizados:[
+        {titulo:'Local Control Funding Formula (LCFF) – California', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Estado de California, Estados Unidos (subnacional)'},
+          {campo:'Categoría de mecanismo', valor:'Subvención ponderada por estudiante (weighted student funding) con subvención de concentración'},
+          {campo:'Año de implementación', valor:'Aprobado en 2013; implementación plena en 2019. En 2023-24 se agregó el Equity Multiplier para escuelas de mayor concentración de necesidad.'},
+          {campo:'Criterios de focalización', valor:'Individual; conteo no duplicado de tres categorías de alta necesidad: estudiantes de bajos ingresos elegibles para alimentación gratuita o reducida, aprendices de inglés (English Learners), y jóvenes en sistema de acogida o situación de calle.'},
+          {campo:'Mecanismo de cálculo', valor:'(i) Subvención base por estudiante según grado; (ii) 20% adicional por cada alumno de alta necesidad; (iii) 66% adicional por alumno de alta necesidad que exceda el 55% en el distrito (subvención de concentración).'},
+          {campo:'Usos permitidos de los recursos', valor:'Amplia flexibilidad, condicionada a que los recursos suplementarios y de concentración se dirijan a mejorar servicios para estudiantes de alta necesidad. Rendición de cuentas mediante un LCAP anual por distrito.'},
+          {campo:'Evidencia de resultados disponible', valor:'Mayor gasto en distritos de alta concentración (US$10.000 vs US$6.500 en distritos de baja necesidad). Efectos positivos en logro en matemática y lectura, y en tasas de graduación, con efectos mayores para estudiantes de color (Johnson, 2023).'}
+        ]},
+        {titulo:'Title I, Part A – Every Student Succeeds Act (ESSA)', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Estados Unidos (federal)'},
+          {campo:'Categoría de mecanismo', valor:'Fondo federal focalizado por concentración de pobreza'},
+          {campo:'Año de implementación', valor:'El Title I original data de 1965 (ESEA). Reformulado por la No Child Left Behind Act de 2001 y por la Every Student Succeeds Act (ESSA) de 2015, actualmente vigente.'},
+          {campo:'Criterios de focalización', valor:'Institucional: distritos y escuelas con alta concentración de estudiantes en pobreza (familias en pobreza, beneficiarios de TANF, niños en acogida o bajo cuidado estatal, víctimas de negligencia).'},
+          {campo:'Mecanismo de cálculo', valor:'Fórmula federal de cuatro componentes: (i) Basic Grants (por número de elegibles); (ii) Concentration Grants (mayor porcentaje de pobreza); (iii) Targeted Grants (ponderación intensiva de concentración); (iv) Education Finance Incentive Grants (esfuerzo fiscal y equidad estatal).'},
+          {campo:'Usos permitidos de los recursos', valor:'Schoolwide (40%+ elegibles): uso transversal en todo el establecimiento. Targeted assistance (<40%): recursos para niños en riesgo académico específicamente. Ambas modalidades requieren intervenciones basadas en evidencia bajo la ESSA.'},
+          {campo:'Evidencia de resultados disponible', valor:'Evidencia mixta. La complejidad de las fórmulas ha resultado, paradójicamente, en asignar recursos a distritos más ricos. Sin embargo, evidencia causal de largo plazo (Johnson, 2015) vincula el gasto de Title I con mayor escolaridad, graduación e ingresos adultos, especialmente para estudiantes de escasos recursos.'}
+        ]},
+        {titulo:'Chapter 70 Aid — Foundation Budget – Massachusetts', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Estado de Massachusetts, Estados Unidos (subnacional)'},
+          {campo:'Categoría de mecanismo', valor:'Fórmula de adecuación (foundation budget) con igualación de capacidad fiscal'},
+          {campo:'Año de implementación', valor:'Marco establecido por el Massachusetts Education Reform Act (MERA) de 1993. Actualización mayor: Student Opportunity Act (SOA) de 2019, con implementación gradual a lo largo de siete años.'},
+          {campo:'Criterios de focalización', valor:'Por distrito, basado en necesidad. Se calcula un foundation budget que incorpora incrementos por estudiantes de bajos ingresos (hasta el 185% de la línea federal de pobreza), aprendices de inglés (ELL) y estudiantes de educación especial.'},
+          {campo:'Mecanismo de cálculo', valor:'El estado determina el foundation budget y la contribución local exigible según la riqueza local (renta y propiedad). La ayuda Chapter 70 cubre la diferencia. La SOA duplicó las tasas de financiamiento para estudiantes de bajos ingresos e implicó más de US$1.400 millones adicionales.'},
+          {campo:'Usos permitidos de los recursos', valor:'Los fondos financian el gasto general de operación de los distritos. La SOA introdujo planes de mejora orientados a cerrar brechas de grupos específicos (bajos ingresos, estudiantes de color, aprendices de inglés) con seguimiento de resultados.'},
+          {campo:'Evidencia de resultados disponible', valor:'La ayuda estatal se volvió más consistente con el nivel de necesidades. La inequidad en el financiamiento ha disminuido (Nguyen et al., 2014). Guryan (2001) estima que un aumento de US$1.000 por alumno generó una mejora de 0,5 DE en puntajes de 4° grado.'}
+        ]}
+      ]},
+      {name:'Inglaterra', lat:51.51, lon:-0.13, casos:[], analizados:[
+        {titulo:'Pupil Premium – Inglaterra', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Inglaterra, Reino Unido (nacional)'},
+          {campo:'Categoría de mecanismo', valor:'Financiamiento focalizado por estudiante con rendición de cuentas'},
+          {campo:'Año de implementación', valor:'Introducido en 2011 y se mantiene vigente.'},
+          {campo:'Criterios de focalización', valor:'Individual. Son elegibles: estudiantes con derecho a alimentación escolar gratuita en algún momento de los últimos seis años ("ever-6 FSM"); niños bajo cuidado del Estado (looked-after children); hijos de miembros de las fuerzas armadas.'},
+          {campo:'Mecanismo de cálculo', valor:'Monto fijo anual por alumno elegible: £1.550 para hasta 6° de primaria y £1.100 para 7°–11°. £2.690 para niños bajo cuidado del Estado. £360 para hijos de miembros de las fuerzas armadas.'},
+          {campo:'Usos permitidos de los recursos', valor:'Amplia autonomía; puede beneficiar a otros estudiantes o intervenciones transversales. Rendición de cuentas obligatoria: cada escuela debe publicar anualmente una declaración de estrategia que justifique el uso de los recursos con base en evidencia.'},
+          {campo:'Evidencia de resultados disponible', valor:'Reducción de segregación en años 1 y 6; mejora en logro educativo a los 7 y 11 años. Sin embargo, la brecha se amplió tras la pandemia según la National Audit Office (2024). La evidencia en secundaria es mixta.'}
+        ]}
+      ]},
+      {name:'Países Bajos', lat:52.37, lon:4.9, casos:[], analizados:[
+        {titulo:'Leerlinggewichtenregeling – sistema de ponderación de alumnos', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Países Bajos (nacional)'},
+          {campo:'Categoría de mecanismo', valor:'Subvención ponderada por estudiante (weighted student funding) con indicador socioeducativo'},
+          {campo:'Año de implementación', valor:'Vigente desde mediados de la década de 1980. Reforma en 2006 (se elimina parcialmente la etnicidad como criterio). Reforma en 2019 (el cálculo se traslada a la oficina nacional de estadística, CBS).'},
+          {campo:'Criterios de focalización', valor:'Individual, basado en desventaja socioeducativa. Desde 2019 el CBS calcula un indicador que combina: nivel educativo de los padres, país de nacimiento de la madre, tiempo de residencia, nivel educativo promedio de las madres de la escuela y situación de repactación de deudas.'},
+          {campo:'Mecanismo de cálculo', valor:'Cantidad por estudiante según matrícula del año anterior, más cantidad fija por escuela. La escuela debe superar una concentración mínima de alumnos elegibles. Padres con nivel educativo muy bajo generan más del doble del financiamiento base por alumno.'},
+          {campo:'Usos permitidos de los recursos', valor:'Lump sum: la junta escolar recibe un presupuesto único con alta autonomía para asignar recursos según sus propios objetivos educativos, dentro del marco de la Ley de Educación Primaria.'},
+          {campo:'Evidencia de resultados disponible', valor:'Escuelas con alta proporción de alumnos ponderados tienen ~58% más docentes por alumno. Reducción de brecha de aprendizaje entre focalizados y no focalizados: 24% en matemática y 21% en lenguaje. La evidencia causal sobre la efectividad del gasto adicional es mixta.'}
+        ]}
+      ]},
+      {name:'Portugal', lat:38.72, lon:-9.14, casos:[], analizados:[
+        {titulo:'Territórios Educativos de Intervenção Prioritária (TEIP)', linea:'Financiamiento Progresivo', tabla:[
+          {campo:'País / región', valor:'Portugal (nacional)'},
+          {campo:'Categoría de mecanismo', valor:'Fondo con Focalización territorial (educación compensatoria) por proyecto de agrupamiento'},
+          {campo:'Año de implementación', valor:'Primera generación: 1996/1997. Cuarta generación vigente desde 2024, por un período de 6 años.'},
+          {campo:'Criterios de focalización', valor:'Institucional y territorial: agrupamientos en territorios con alta pobreza y exclusión social. Indicadores: % de estudiantes beneficiarios de acción social escolar; % cuyas madres tienen escolaridad inferior a grado 12°; % de estudiantes migrantes.'},
+          {campo:'Mecanismo de cálculo', valor:'Créditos horarios adicionales: hasta 4 h semanales para agrupamientos en desarrollo (Grupo 1) y hasta 2 h para agrupamientos en transición (Grupo 2). Flexibilidad en uso de recursos en torno al plan de acción.'},
+          {campo:'Usos permitidos de los recursos', valor:'Plan de Acción de 3 años elaborado por la escuela con la autoridad local, en tres ejes: (a) Enseñanza y Aprendizaje; (b) Liderazgo; (c) Comunidad. Cada escuela fija sus propias metas.'},
+          {campo:'Evidencia de resultados disponible', valor:'Evaluaciones oficiales (2007–2011) muestran reducción de abandono escolar, absentismo, repitencia e indisciplina. Sin embargo, las evaluaciones tienen limitaciones metodológicas respecto de la causalidad (Ferraz et al., 2019).'}
+        ]},
+        {titulo:'Programa Nacional de Promoção do Sucesso Escolar (PNPSE)', linea:'Alfabetización Inicial'}
+      ]},
+      {name:'Canadá', lat:45.42, lon:-75.69, casos:[], analizados:[
+        {titulo:'Programa de Alfabetización – Canadá', linea:'Alfabetización Inicial'}
+      ]},
+      {name:'Estonia', lat:59.44, lon:24.75, casos:[], analizados:[
+        {titulo:'Programa de Alfabetización Inicial – Estonia', linea:'Alfabetización Inicial'}
+      ]},
+      {name:'India', lat:28.61, lon:77.21, casos:[], analizados:[
+        {titulo:'National Initiative for Proficiency in Reading with Understanding and Numeracy (NIPUN Bharat)', linea:'Alfabetización Inicial'}
+      ]},
+      {name:'Irlanda', lat:53.33, lon:-6.25, casos:[], analizados:[
+        {titulo:'Literacy and Numeracy Strategy – Irlanda', linea:'Alfabetización Inicial'}
+      ]},
+      {name:'Kenia', lat:-1.29, lon:36.82, casos:[], analizados:[
+        {titulo:'Tusome – Programa Nacional de Alfabetización, Kenia', linea:'Alfabetización Inicial'}
+      ]},
+      {name:'Marruecos', lat:33.99, lon:-6.85, casos:[], analizados:[
+        {titulo:'Programa de Alfabetización Inicial – Marruecos', linea:'Alfabetización Inicial'}
+      ]},
+      {name:'Mauricio', lat:-20.16, lon:57.50, casos:[], analizados:[
+        {titulo:'Programa de Alfabetización Inicial – Mauricio', linea:'Alfabetización Inicial'}
+      ]}
     ];
 
     var selectEl = root.querySelector('.country-select');
     var infoEl = root.querySelector('.country-info');
 
-    pins.forEach(function(pin, i){
-      var opt = document.createElement('option');
-      opt.value = i;
-      opt.textContent = pin.name;
-      selectEl.appendChild(opt);
-    });
+    pins.map(function(pin, i){ return {pin:pin, i:i}; })
+      .sort(function(a, b){ return a.pin.name.localeCompare(b.pin.name, 'es'); })
+      .forEach(function(item){
+        var opt = document.createElement('option');
+        opt.value = item.i;
+        opt.textContent = item.pin.name;
+        selectEl.appendChild(opt);
+      });
 
     function countryCasesCardHTML(pin){
       var n = pin.casos.length;
@@ -104,10 +192,11 @@ class ReformGlobe extends HTMLElement {
     function analizadosCardHTML(pin, analizados){
       var n = analizados.length;
       var label = n === 1 ? '1 caso analizado' : n + ' casos analizados';
-      return '<div class="rg-case-card rg-ficha-card" style="display:block;background:#F2F7F5;border:1px solid #B5CFCA;border-radius:16px;padding:22px;text-align:left;cursor:pointer">' +
+      var hasFicha = analizados.some(function(a){ return a.tabla && a.tabla.length; });
+      return '<div class="rg-case-card rg-ficha-card" style="display:block;background:#F2F7F5;border:1px solid #B5CFCA;border-radius:16px;padding:22px;text-align:left;' + (hasFicha ? 'cursor:pointer' : '') + '">' +
         '<div style="display:inline-flex;align-items:center;gap:6px;font-family:Lato,sans-serif;font-size:11px;font-weight:700;color:#0D4A57;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px"><span style="width:7px;height:7px;border-radius:50%;background:#8BC53F;display:inline-block"></span>' + pin.name + '</div>' +
         '<h4 style="font-family:Lato,sans-serif;font-size:17px;font-weight:700;color:#17242A;margin:0 0 14px;line-height:1.2">' + label + '</h4>' +
-        '<span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57">Ver casos analizados →</span>' +
+        (hasFicha ? '<span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57">Ver casos analizados →</span>' : '') +
       '</div>';
     }
     function showCountry(i){
@@ -125,7 +214,10 @@ class ReformGlobe extends HTMLElement {
       if(pin.analizados && pin.analizados.length){ html += analizadosCardHTML(pin, pin.analizados); }
       infoEl.innerHTML = html;
       infoEl.querySelectorAll('.rg-ficha-card').forEach(function(el){
-        el.addEventListener('click', function(){ openFichaModal(pin.analizados); });
+        var hasFicha = pin.analizados && pin.analizados.some(function(a){ return a.tabla && a.tabla.length; });
+        if(hasFicha){
+          el.addEventListener('click', function(){ openFichaModal(pin.analizados.filter(function(a){ return a.tabla && a.tabla.length; })); });
+        }
       });
       selectEl.value = i;
     }
@@ -146,7 +238,7 @@ class ReformGlobe extends HTMLElement {
         ov = document.createElement('div');
         ov.id = 'rg-modal-ov';
         ov.setAttribute('style','position:fixed;inset:0;background:rgba(13,40,50,.55);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box');
-        ov.innerHTML = "<div style='background:#fff;border-radius:20px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px -12px rgba(13,40,50,.35)'><div style='display:flex;align-items:flex-start;justify-content:space-between;padding:24px 28px 16px;border-bottom:1px solid #DCE3E1'><span id='rg-modal-title' style='font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:#0D4A57;line-height:1.4;max-width:86%'></span><button id='rg-modal-close' aria-label='Cerrar' style='flex-shrink:0;margin-left:12px;width:32px;height:32px;border-radius:50%;border:none;background:#F4F7F6;cursor:pointer;font-size:16px;color:#516268;line-height:1'>×</button></div><div id='rg-modal-selector' style='display:none;padding:16px 28px 0'></div><div id='rg-modal-body' style='padding:0 0 8px'></div></div>";
+        ov.innerHTML = "<div style='background:#fff;border-radius:20px;max-width:760px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px -12px rgba(13,40,50,.35)'><div id='rg-modal-area' style='padding:20px 28px 0'></div><div style='display:flex;align-items:flex-start;justify-content:space-between;padding:10px 28px 16px;border-bottom:1px solid #DCE3E1'><span id='rg-modal-title' style='font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:#0D4A57;line-height:1.4;max-width:86%'></span><button id='rg-modal-close' aria-label='Cerrar' style='flex-shrink:0;margin-left:12px;width:32px;height:32px;border-radius:50%;border:none;background:#F4F7F6;cursor:pointer;font-size:16px;color:#516268;line-height:1'>×</button></div><div id='rg-modal-selector' style='display:none;padding:16px 28px 0'></div><div id='rg-modal-body' style='padding:0 0 8px'></div></div>";
         document.body.appendChild(ov);
         document.getElementById('rg-modal-close').addEventListener('click', function(){ ov.style.display='none'; });
         ov.addEventListener('click', function(e){ if(e.target===ov){ ov.style.display='none'; } });
@@ -159,6 +251,8 @@ class ReformGlobe extends HTMLElement {
       function showCase(idx){
         activeIdx = idx;
         titleEl.textContent = analizados[idx].titulo;
+        var areaEl = document.getElementById('rg-modal-area');
+        if(areaEl){ areaEl.innerHTML = analizados[idx].linea ? '<div style="display:inline-block;font-family:Lato,sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#6FA030;background:#F0F7E8;border:1px solid #B5D98A;border-radius:6px;padding:4px 10px">' + analizados[idx].linea + '</div>' : ''; }
         bodyEl.innerHTML = renderModalCase(analizados[idx]);
         if(analizados.length > 1){
           var sel = selectorEl.querySelector('select');
@@ -168,7 +262,8 @@ class ReformGlobe extends HTMLElement {
       if(analizados.length > 1){
         selectorEl.style.display = 'block';
         var opts = analizados.map(function(c, i){
-          return '<option value="' + i + '">' + c.titulo + '</option>';
+          var label = c.linea ? c.titulo + ' — ' + c.linea : c.titulo;
+          return '<option value="' + i + '">' + label + '</option>';
         }).join('');
         selectorEl.innerHTML = '<select style="font-family:Lato,sans-serif;font-size:13.5px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #DCE3E1;border-radius:10px;padding:10px 14px;width:100%;cursor:pointer;appearance:auto">' + opts + '</select>';
         selectorEl.querySelector('select').addEventListener('change', function(){ showCase(parseInt(this.value, 10)); });
@@ -225,7 +320,8 @@ class ReformGlobe extends HTMLElement {
           var psx = cx + pp.x*R;
           var psy = cy - pp.y*R;
           ctx.beginPath();
-          ctx.arc(psx, psy, 5, 0, Math.PI*2);
+          var pinR = (hoveredPin && hoveredPin.index === j) ? 8 : 5;
+          ctx.arc(psx, psy, pinR, 0, Math.PI*2);
           ctx.fillStyle = '#8BC53F';
           ctx.fill();
           ctx.lineWidth = 2;
@@ -248,7 +344,7 @@ class ReformGlobe extends HTMLElement {
     function pointerDown(x,y){
       dragging = true; autoRotate = false; dragMoved = false;
       lastX = x; lastY = y;
-      canvas.style.cursor = 'grabbing';
+      canvas.style.cursor = 'move';
     }
     function pointerMove(x,y){
       if(!dragging) return;
@@ -262,7 +358,7 @@ class ReformGlobe extends HTMLElement {
     }
     function pointerUp(){
       dragging = false;
-      canvas.style.cursor = 'grab';
+      canvas.style.cursor = 'all-scroll';
     }
 
     canvas.addEventListener('mousedown', function(e){ pointerDown(e.clientX, e.clientY); });
@@ -284,6 +380,8 @@ class ReformGlobe extends HTMLElement {
         var dxp = pinsNow[k].x-mx, dyp = pinsNow[k].y-my;
         if(dxp*dxp+dyp*dyp < 90){ found = pinsNow[k]; break; }
       }
+      hoveredPin = found || null;
+      canvas.style.cursor = found ? 'pointer' : 'all-scroll';
       if(found){
         if(!pinLabelEl){
           pinLabelEl = document.createElement('div');

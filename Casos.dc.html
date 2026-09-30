@@ -328,7 +328,7 @@ function P(dc, plain){ return DC ? dc : plain; }
 
 const LINEAS = {
   fin:{label:'Financiamiento progresivo', color:'#0D4A57', href:P('Financiamiento Progresivo.dc.html','financiamiento-progresivo.html')},
-  lec:{label:'Lectoescritura', color:'#4E7220', href:P('Lineas de Reforma.dc.html','lineas-de-reforma.html')}
+  lec:{label:'Alfabetización Inicial', color:'#4E7220', href:P('Lineas de Reforma.dc.html','lineas-de-reforma.html')}
 };
 
 const CASES = [
@@ -353,112 +353,27 @@ const CASES = [
    ],
    scores:{contextoSocio:3, contextoEdu:2, costoEst:3, resultados:3, reciente:2008}},
 
-  {id:'fundeb', linea:'fin', title:'FUNDEB', country:'Brasil', region:'América del Sur',
-   years:'2007 / 2020', start:2007, img:'assets/case-2.jpg', ready:true,
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
-   wise:['insumos','habilitantes'],
-   stat:'2020', statColor:'#E8A33D', statLabel:'rango constitucional permanente',
-   tiles:[
-     {label:'Contexto socioeconómico inicial', value:'USD 5.900 · Gini 0.55', hint:'PIB per cápita e índice de Gini, 2007'},
-     {label:'Contexto educativo inicial', value:'40% bajo nivel mínimo', hint:'Lectura SAEB 4° año, 2007'},
-     {label:'Costo por estudiante', value:'USD 9/año', hint:'Complementación federal por alumno'},
-     {label:'Resultados de aprendizaje', value:'+0.15 DE', hint:'SAEB, estados beneficiarios vs. control'}
-   ],
-   rows:[
-     {label:'Unidad de focalización', value:'Jurisdiccional: estados cuyo gasto por alumno no alcanza el valor mínimo nacional.'},
-     {label:'Mecanismo de cálculo y asignación', value:'Fondo contable estadual (20% de impuestos educacionales) con complementación federal automática; valor alumno/año diferenciado por etapa y modalidad.'},
-     {label:'Condiciones y libertad de uso', value:'Mínimo 70% en remuneraciones del personal; 20% adicional (FUNDEB 2020) destinado exclusivamente a docentes de educación básica pública.'},
-     {label:'Efecto distributivo y justicia educativa', value:'Reduce la brecha de gasto entre estados ricos y pobres; complementación federal altamente progresiva aunque pequeña frente al gasto total estadual.'},
-     {label:'Gestión e implementación', value:'Ministerio de Educación federal, secretarías estaduales y municipales; comités de control social en cada estado.'},
-     {label:'Sostenibilidad, ajustes y rediseño', value:'FUNDEF (1997) → FUNDEB (2007) → constitucionalizado de forma permanente en 2020 mediante la Enmienda Constitucional 108.'}
-   ],
-   scores:{contextoSocio:2, contextoEdu:2, costoEst:2, resultados:2, reciente:2007}},
-
-  {id:'title1', linea:'fin', title:'Title I, Part A', country:'Estados Unidos', region:'América del Norte',
-   years:'1965 / 2015', start:1965, img:'assets/case-3.jpg', ready:true,
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
-   wise:['insumos','habilitantes'],
-   stat:'1965', statColor:'#6C90A3', statLabel:'fondo federal más antiguo vigente',
-   tiles:[
-     {label:'Contexto socioeconómico inicial', value:'USD 56.800 · Gini 0.39', hint:'PIB per cápita e índice de Gini, 2015 (ESSA)'},
-     {label:'Contexto educativo inicial', value:'30% bajo nivel básico', hint:'Lectura NAEP 4° grado, 2015'},
-     {label:'Costo por estudiante', value:'USD 26/año', hint:'Aprox. USD 15 mil millones para 55.000 escuelas'},
-     {label:'Resultados de aprendizaje', value:'+0.10 DE', hint:'Resultados mixtos según capacidad distrital'}
-   ],
-   rows:[
-     {label:'Unidad de focalización', value:'Institucional: distritos y escuelas con alta concentración de pobreza (más del 40% de alumnos elegibles).'},
-     {label:'Mecanismo de cálculo y asignación', value:'Cuatro fórmulas paralelas (Basic, Concentration, Targeted, EFIG) basadas en datos del censo de pobreza y matrícula elegible.'},
-     {label:'Condiciones y libertad de uso', value:'Schoolwide en escuelas con más del 40% de elegibles; targeted assistance en el resto; planes aprobados por el estado.'},
-     {label:'Efecto distributivo y justicia educativa', value:'Moderadamente progresivo a nivel distrital; las garantías históricas de asignación limitan la concentración en los más necesitados.'},
-     {label:'Gestión e implementación', value:'Departamento de Educación federal, agencias estatales y distritos escolares; planes estatales con objetivos y rendición de cuentas.'},
-     {label:'Sostenibilidad, ajustes y rediseño', value:'Vigente desde 1965; reautorizada siete veces; ESSA (2015) descentraliza la responsabilidad de mejora hacia los estados.'}
-   ],
-   scores:{contextoSocio:1, contextoEdu:3, costoEst:1, resultados:2, reciente:1965}},
-
-  {id:'pta', linea:'lec', title:'Programa Todos a Aprender (PTA)', country:'Colombia', region:'América del Sur',
-   years:'2012 – actualidad', start:2012, img:'assets/case-2.jpg', ready:true,
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
+  {id:'sobral', linea:'lec', title:'Modelo Sobral de Alfabetización', country:'Brasil', region:'América del Sur',
+   years:'2007 – actualidad', start:2007, img:'assets/case-2.jpg', ready:false,
+   href:'#',
    wise:['apoyo','practicas'],
-   stat:'+23%', statColor:'#6FA030', statLabel:'mejora en pruebas de lectura',
+   stat:'2007', statColor:'#4E7220', statLabel:'inicio del modelo de lectoescritura',
    tiles:[
-     {label:'Contexto socioeconómico inicial', value:'USD 7.500 · Gini 0.54', hint:'PIB per cápita e índice de Gini, 2012'},
-     {label:'Contexto educativo inicial', value:'55% bajo nivel mínimo', hint:'Lenguaje Saber 3°, 2011'},
-     {label:'Costo por estudiante', value:'USD 21/año', hint:'Tutores, materiales y formación continua'},
-     {label:'Resultados de aprendizaje', value:'+0.20 DE', hint:'Comprensión lectora, escuelas participantes'}
+     {label:'Contexto socioeconómico inicial', value:'IDH muy bajo (Ceará)', hint:'Sobral, municipio de Ceará, partía de indicadores socioeconómicos entre los más bajos de Brasil en 2000.'},
+     {label:'Contexto educativo inicial', value:'Lectura: < 40% nivel básico', hint:'Menos del 40% de alumnos de 2° año con lectura básica en pruebas municipales, circa 2005.'},
+     {label:'Costo por estudiante', value:'Información pendiente', hint:'Datos en proceso de sistematización.'},
+     {label:'Resultados de aprendizaje', value:'1° lugar IDEB Brasil', hint:'Sobral lidera el Índice de Desenvolvimento da Educação Básica (IDEB) de forma sostenida desde 2007.'}
    ],
    rows:[
-     {label:'Propuesta pedagógica y materiales', value:'Secuencias didácticas estructuradas basadas en textos auténticos; materiales alineados al currículo entregados a estudiantes y docentes.'},
-     {label:'Formación y acompañamiento docente', value:'Tutores certificados que acompañan a docentes en el aula y lideran comunidades de aprendizaje profesional en la escuela.'},
-     {label:'Evaluación y uso de la información', value:'Seguimiento interno de avance articulado con Saber 3°/5°; resultados utilizados para priorizar y ajustar las tutorías.'},
-     {label:'Equidad y adaptación al contexto', value:'Focalización en sedes con mayor vulnerabilidad; materiales adaptados para contextos rurales y multigrado.'},
-     {label:'Gestión e implementación', value:'MEN, entidades territoriales certificadas y sedes educativas; red de 3.200 tutores coordinados por el ministerio.'},
-     {label:'Sostenibilidad, ajustes y rediseño', value:'Vigente desde 2012; ampliado a matemáticas en 2013; continuidad afectada por cambios de gobierno; reconfiguraciones en 2019 y 2022.'}
+     {label:'Propuesta pedagógica y materiales', value:'Pedagogía estructurada con secuencias de enseñanza explícita de la lectura. Materiales curriculares alineados, evaluaciones frecuentes de fluencia lectora y comprensión.'},
+     {label:'Formación y acompañamiento docente', value:'Formación continua intensa con foco en lectoescritura inicial. Supervisión pedagógica cercana y retroalimentación basada en datos de aula.'},
+     {label:'Evaluación y uso de la información', value:'Evaluaciones municipales frecuentes (mensuales/bimestrales) cuyos resultados se usan para ajustar la instrucción y apoyar a los estudiantes con mayor rezago.'},
+     {label:'Equidad y adaptación al contexto', value:'Focalización en los primeros grados de primaria. Atención diferenciada a estudiantes que no alcanzan el nivel esperado al finalizar el 2° año.'},
+     {label:'Gestión e implementación', value:'Secretaría Municipal de Educación de Sobral con fuerte liderazgo pedagógico y capacidad técnica local. Modelo replicado en otros municipios de Ceará y fuera del estado.'},
+     {label:'Sostenibilidad, ajustes y rediseño', value:'El modelo se ha mantenido con continuidad institucional desde 2007. Sobral ha sido referencia para la política de alfabetización del estado de Ceará (PAIC) y para políticas nacionales de Brasil.'}
    ],
-   scores:{contextoSocio:2, contextoEdu:1, costoEst:2, resultados:3, reciente:2012}},
-
-  {id:'peru', linea:'lec', title:'Estrategia Nacional de Comprensión Lectora', country:'Perú', region:'América del Sur',
-   years:'2014 – actualidad', start:2014, img:'assets/case-3.jpg', ready:true,
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
-   wise:['apoyo','practicas'],
-   stat:'1.200', statColor:'#E8A33D', statLabel:'escuelas rurales incorporadas',
-   tiles:[
-     {label:'Contexto socioeconómico inicial', value:'USD 6.600 · Gini 0.44', hint:'PIB per cápita e índice de Gini, 2014'},
-     {label:'Contexto educativo inicial', value:'53% bajo nivel mínimo', hint:'Comprensión lectora ECE 2° primaria, 2013'},
-     {label:'Costo por estudiante', value:'USD 14/año', hint:'Especialistas regionales y materiales'},
-     {label:'Resultados de aprendizaje', value:'+0.18 DE', hint:'ECE 2013–2018, escuelas rurales participantes'}
-   ],
-   rows:[
-     {label:'Propuesta pedagógica y materiales', value:'Enfoque comunicativo-textual con lectura de textos continuos y discontinuos; cuadernos de trabajo y bibliotecas de aula.'},
-     {label:'Formación y acompañamiento docente', value:'Especialistas regionales con visitas periódicas a la escuela más módulos autogestionados alineados al Marco del Buen Desempeño Docente.'},
-     {label:'Evaluación y uso de la información', value:'ECE censal anual y muestras regionales; resultados retroalimentados a nivel de UGEL y escuela para orientar el acompañamiento.'},
-     {label:'Equidad y adaptación al contexto', value:'Priorización de escuelas rurales y multigrado; materiales en quechua y otras lenguas originarias (Soporte Pedagógico Intercultural).'},
-     {label:'Gestión e implementación', value:'MINEDU, Direcciones Regionales de Educación, UGEL y docentes; integrada al Plan Educativo Nacional y a la evaluación docente.'},
-     {label:'Sostenibilidad, ajustes y rediseño', value:'Vigente desde 2014; resultados mejoraron hasta 2019; retrocesos por pandemia; estrategia actualizada en el PEN 2036.'}
-   ],
-   scores:{contextoSocio:2, contextoEdu:2, costoEst:3, resultados:2, reciente:2014}},
-
-  {id:'guatemala', linea:'lec', title:'Programa Leamos Juntos', country:'Guatemala', region:'Centroamérica',
-   years:'2019 – actualidad', start:2019, img:'assets/case-1.jpg', ready:true,
-   href:P('Detalle de Caso.dc.html','detalle-caso.html'),
-   wise:['apoyo','practicas'],
-   stat:'2019', statColor:'#0D4A57', statLabel:'año de lanzamiento',
-   tiles:[
-     {label:'Contexto socioeconómico inicial', value:'USD 4.600 · Gini 0.48', hint:'PIB per cápita e índice de Gini, 2019'},
-     {label:'Contexto educativo inicial', value:'72% bajo nivel mínimo', hint:'Lectura CRECER 3° primaria, 2018'},
-     {label:'Costo por estudiante', value:'USD 18/año', hint:'Materiales bilingües y mentoría entre pares'},
-     {label:'Resultados de aprendizaje', value:'+0.12 DE', hint:'Evaluación interna 2021–2023'}
-   ],
-   rows:[
-     {label:'Propuesta pedagógica y materiales', value:'Alfabetización inicial con método fonético-funcional; materiales bilingües en español y cuatro idiomas mayas.'},
-     {label:'Formación y acompañamiento docente', value:'Mentoría entre pares coordinada por supervisores pedagógicos más formación continua con coordinadores regionales.'},
-     {label:'Evaluación y uso de la información', value:'CRECER bienal más evaluaciones de aula; resultados utilizados para ajustar materiales y priorizar el acompañamiento.'},
-     {label:'Equidad y adaptación al contexto', value:"Diseño centrado en comunidades indígenas; materiales en k'iche', kaqchikel, q'eqchi' y mam; atención a niñas en zonas rurales."},
-     {label:'Gestión e implementación', value:'MINEDUC y Dirección de Educación Bilingüe Intercultural (DIGEBI); financiamiento BID y Banco Mundial.'},
-     {label:'Sostenibilidad, ajustes y rediseño', value:'En ejecución desde 2019; interrupciones por COVID-19 en 2020–2021; evaluación externa en proceso de publicación (2024).'}
-   ],
-   scores:{contextoSocio:1, contextoEdu:1, costoEst:2, resultados:1, reciente:2019}}
+   scores:{contextoSocio:1, contextoEdu:1, costoEst:1, resultados:3, reciente:2007}}
 ];
-
 const WISE = {
   insumos:'Insumos y condiciones estructurales',
   habilitantes:'Condiciones habilitantes',
@@ -487,7 +402,7 @@ class Component extends DCLogic {
   state = {
     scrolled:false, mode:'lista',
     fLinea:'todas', fPais:'todos', fSort:'linea',
-    compare:[], criterio:'costoEst',
+    compare:[], criterio:'',
     tour:-1, rect:null
   };
 
@@ -610,14 +525,15 @@ class Component extends DCLogic {
 
     const cmpAll = CASES;
     const selected = s.compare.slice();
-    const crit = CRITERIOS.filter(function(x){ return x.value === s.criterio; })[0];
+    const crit = CRITERIOS.filter(function(x){ return x.value === s.criterio; })[0] || null;
     const ordered = selected.map(function(id){ return self.byId(id); }).sort(function(a,b){
+      if(!crit) return 0;
       return (b.scores[s.criterio] || 0) - (a.scores[s.criterio] || 0);
     });
 
     return {
       navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
-      countLabel: s.mode === 'lista' ? '3 casos por Área de reforma' : 'Compara hasta 3 casos',
+      countLabel: s.mode === 'lista' ? '2 casos en total (1 por Área de reforma)' : 'Compara hasta 3 casos',
 
       modes: [['lista','Listado'],['comparador','Comparador']].map(function(m){
         const on = s.mode === m[0];
@@ -664,8 +580,8 @@ class Component extends DCLogic {
           href:c.href, imgUrl:'url(' + c.img + ')',
           stat:c.stat, statColor:c.statColor, statLabel:c.statLabel,
           wise:c.wise.map(function(w){ return {label:WISE[w]}; }),
-          cta: 'Ver caso →',
-          ctaColor: '#0D4A57',
+          cta: c.ready ? 'Ver caso →' : 'Próximamente',
+          ctaColor: c.ready ? '#0D4A57' : '#8CA0A5',
           inCompare: on ? 'true' : 'false',
           compareLabel: on ? '✓ Comparando' : '+ Comparar',
           compareStyle:"font-family:Lato,sans-serif;font-size:12px;font-weight:600;padding:8px 14px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;border:1.5px solid " +
@@ -688,8 +604,8 @@ class Component extends DCLogic {
         window.scrollTo({top:0, behavior:'smooth'});
       },
 
-      criterio:s.criterio, criterioLabel:crit.label,
-      criterioOpts: CRITERIOS.map(function(x){ return {value:x.value, label:x.label}; }),
+      criterio:s.criterio, criterioLabel: crit ? crit.label : '',
+      criterioOpts: [{value:'', label:'Sin criterio aplicado'}].concat(CRITERIOS.map(function(x){ return {value:x.value, label:x.label}; })),
       setCriterio:function(e){ self.setState({criterio:e.target.value}); },
 
       cmpPool: cmpAll.map(function(c){
@@ -717,7 +633,7 @@ class Component extends DCLogic {
           ctaColor: '#0D4A57',
           remove:function(){ self.toggle(c.id); },
           tiles: c.tiles.map(function(t){
-            const hot = t.label === crit.tile;
+            const hot = crit && t.label === crit.tile;
             return {
               label:t.label, value:t.value, hint:t.hint,
               bg: hot ? '#EEF6E2' : '#F4F7F6',
@@ -788,7 +704,7 @@ class Component extends DCLogic {
           : {left:tipLeft + 'px', top:Math.max(8, r.top - 16) + 'px', transform:'translateY(-100%)'};
       })(),
 
-      resetCompare:function(){ self.setState({compare:[], criterio:'costoEst'}); }
+      resetCompare:function(){ self.setState({compare:[], criterio:''}); }
     };
   }
 }
