@@ -1275,7 +1275,7 @@
   }
 
   function position(){
-    if (!openState) return;
+    if (!openState || openState.panel.__anchored) return;
     var r = openState.anchor.getBoundingClientRect(), p = openState.panel;
     var vw = document.documentElement.clientWidth, vh = window.innerHeight;
     var w = Math.min(Math.max(r.width, 240), vw - 16);
@@ -1337,10 +1337,21 @@
     });
     panel.addEventListener('mousedown', function(e){ e.stopPropagation(); });
     panel.addEventListener('touchstart', function(e){ e.stopPropagation(); }, { passive: true });
-    document.body.appendChild(panel);
+    var holder = sel.__trigger ? sel.__trigger.parentElement : null;
+    if (holder && holder.hasAttribute('data-select-wrap')) {
+      panel.style.position = 'absolute';
+      panel.style.left = '0'; panel.style.right = '0';
+      panel.style.top = 'calc(100% + 6px)';
+      panel.style.maxHeight = '60vh';
+      panel.__anchored = true;
+      holder.appendChild(panel);
+    } else {
+      document.body.appendChild(panel);
+    }
     openState = { sel: sel, panel: panel, anchor: sel.__trigger || sel };
     sel.setAttribute('aria-expanded', 'true');
     position();
+    if (panel.__anchored) setTimeout(function(){ var pr = panel.getBoundingClientRect(); if (pr.bottom > window.innerHeight - 8) window.scrollBy({ top: Math.min(pr.bottom - window.innerHeight + 16, pr.top - 140), behavior: 'smooth' }); }, 30);
     var cur = panel.querySelector('[aria-selected="true"]');
     if (cur) { cur.scrollIntoView({ block: 'nearest' }); cur.focus({ preventScroll: true }); }
   }
@@ -1365,7 +1376,11 @@
     sel.style.setProperty('display', 'none', 'important');
     var sib = sel.nextElementSibling;
     if (sib && getComputedStyle(sib).position === 'absolute' && getComputedStyle(sib).pointerEvents === 'none') sib.style.setProperty('display', 'none', 'important');
-    sel.insertAdjacentElement('afterend', t);
+    var wrap = document.createElement('div');
+    wrap.setAttribute('data-select-wrap', '');
+    wrap.style.cssText = 'position:relative;width:100%';
+    wrap.appendChild(t);
+    sel.insertAdjacentElement('afterend', wrap);
     sel.__trigger = t;
     t.__sel = sel;
     t.addEventListener('click', function(e){ e.stopPropagation(); open(sel); });
@@ -1374,7 +1389,7 @@
   function syncTriggers(){
     Array.prototype.forEach.call(document.querySelectorAll('[data-select-trigger]'), function(t){
       var s = t.__sel;
-      if (!s || !document.body.contains(s)) { t.remove(); return; }
+      if (!s || !document.body.contains(s)) { (t.parentElement && t.parentElement.hasAttribute('data-select-wrap') ? t.parentElement : t).remove(); return; }
       var o = s.options[s.selectedIndex];
       var txt = o ? o.textContent.trim() : '';
       if (t.__label.textContent !== txt) t.__label.textContent = txt;
