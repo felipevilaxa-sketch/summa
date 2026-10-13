@@ -371,10 +371,10 @@
   window.__patchTabsAsSelect = patchTabsAsSelect;
 
   /* ── Inicio: plataforma pillar cards carousel ───────────────────── */
-  patchCarousel('[data-m="plat-pillars"]');
+  /* plat-pillars: en mobile se muestran en lista vertical (sin carrusel) */
 
   /* ── Inicio: audience/profile cards carousel ────────────────────── */
-  patchCarousel('[data-m="audience-cards"]');
+  /* audience-cards: en mobile se muestran en lista vertical (sin carrusel) */
 
   /* ── Marco WISE premises cards carousel ─────────────────────────── */
   patchCarousel('[data-m="premises"]');
@@ -1272,7 +1272,7 @@
 
   function position(){
     if (!openState) return;
-    var r = openState.sel.getBoundingClientRect(), p = openState.panel;
+    var r = openState.anchor.getBoundingClientRect(), p = openState.panel;
     var vw = document.documentElement.clientWidth, vh = window.innerHeight;
     var w = Math.min(Math.max(r.width, 240), vw - 16);
     var left = Math.min(Math.max(8, r.left), vw - w - 8);
@@ -1294,7 +1294,8 @@
     setValue.call(sel, sel.options[idx].value);           /* setter nativo: React detecta el cambio */
     sel.dispatchEvent(new Event('input', { bubbles: true }));
     sel.dispatchEvent(new Event('change', { bubbles: true }));
-    sel.focus();
+    syncTriggers();
+    if (sel.__trigger) sel.__trigger.focus(); else sel.focus();
   }
 
   function open(sel){
@@ -1333,16 +1334,54 @@
     panel.addEventListener('mousedown', function(e){ e.stopPropagation(); });
     panel.addEventListener('touchstart', function(e){ e.stopPropagation(); }, { passive: true });
     document.body.appendChild(panel);
-    openState = { sel: sel, panel: panel };
+    openState = { sel: sel, panel: panel, anchor: sel.__trigger || sel };
     sel.setAttribute('aria-expanded', 'true');
     position();
     var cur = panel.querySelector('[aria-selected="true"]');
     if (cur) { cur.scrollIntoView({ block: 'nearest' }); cur.focus({ preventScroll: true }); }
   }
 
+  /* Mobile: el <select> se oculta y en su lugar va un botón estándar (ancho completo, 16px, borde turquesa),
+     igual en Criterios, Explorar casos, comparador y Tendencias. Así el teléfono nunca abre su lista nativa. */
+  var CHEV = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D4A57" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+  function makeTrigger(sel){
+    var t = document.createElement('button');
+    t.type = 'button';
+    t.setAttribute('data-select-trigger', '');
+    t.setAttribute('aria-haspopup', 'listbox');
+    t.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;box-sizing:border-box;font-family:Lato,sans-serif;font-size:16px;font-weight:600;line-height:1.3;color:#0D4A57;background:#fff;border:1.5px solid #0D4A57;border-radius:10px;padding:13px 14px 13px 16px;cursor:pointer;text-align:left';
+    var lab = document.createElement('span');
+    lab.style.cssText = 'flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap';
+    var ch = document.createElement('span');
+    ch.innerHTML = CHEV;
+    ch.style.cssText = 'display:flex;flex-shrink:0';
+    t.appendChild(lab); t.appendChild(ch);
+    t.__label = lab;
+    /* ocultar el <select> y su flecha decorativa */
+    sel.style.setProperty('display', 'none', 'important');
+    var sib = sel.nextElementSibling;
+    if (sib && getComputedStyle(sib).position === 'absolute' && getComputedStyle(sib).pointerEvents === 'none') sib.style.setProperty('display', 'none', 'important');
+    sel.insertAdjacentElement('afterend', t);
+    sel.__trigger = t;
+    t.__sel = sel;
+    t.addEventListener('click', function(e){ e.stopPropagation(); open(sel); });
+    syncTriggers();
+  }
+  function syncTriggers(){
+    Array.prototype.forEach.call(document.querySelectorAll('[data-select-trigger]'), function(t){
+      var s = t.__sel;
+      if (!s || !document.body.contains(s)) { t.remove(); return; }
+      var o = s.options[s.selectedIndex];
+      var txt = o ? o.textContent.trim() : '';
+      if (t.__label.textContent !== txt) t.__label.textContent = txt;
+    });
+  }
+  setInterval(function(){ if (isMob()) syncTriggers(); }, 400);   /* refleja cambios hechos por la página (p. ej. limpiar filtros) */
+
   function skin(sel){
     if (sel.__skinned || sel.multiple || sel.closest('#sih') || sel.hasAttribute('data-native')) return;
     sel.__skinned = true;
+    if (isMob()) { makeTrigger(sel); return; }
     sel.setAttribute('aria-haspopup', 'listbox');
     sel.setAttribute('aria-expanded', 'false');
     /* evitar la lista nativa y abrir el panel propio (mouse, toque y teclado) */
@@ -1371,8 +1410,8 @@
       if (rows[n]) { rows[n].focus(); e.preventDefault(); }
     }
   });
-  document.addEventListener('mousedown', function(e){ if (openState && !openState.panel.contains(e.target) && e.target !== openState.sel) close(); });
-  document.addEventListener('touchstart', function(e){ if (openState && !openState.panel.contains(e.target) && e.target !== openState.sel) close(); }, { passive: true });
+  document.addEventListener('mousedown', function(e){ if (openState && !openState.panel.contains(e.target) && !openState.anchor.contains(e.target)) close(); });
+  document.addEventListener('touchstart', function(e){ if (openState && !openState.panel.contains(e.target) && !openState.anchor.contains(e.target)) close(); }, { passive: true });
   window.addEventListener('scroll', function(){ position(); }, { passive: true });
   window.addEventListener('resize', function(){ position(); });
 
@@ -1384,4 +1423,40 @@
   });
   function start(){ scan(document); mo.observe(document.body, { childList: true, subtree: true }); }
   if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
+})();
+
+/* ── Detalle de caso (mobile): frases desplegables dentro del párrafo ───
+   Los botones no pueden fluir en línea con el texto: si la frase es larga se convierten en un bloque
+   del ancho del párrafo con el texto centrado. En mobile el botón pasa a display:contents y el texto
+   va en un span en línea (subrayado punteado), alineado a la izquierda como parte del párrafo.
+   El span conserva el comportamiento de botón (foco, Enter/Espacio y aria-expanded). */
+(function(){
+  if (window.__inlineTermsInit) return;
+  window.__inlineTermsInit = true;
+  function fix(btn){
+    if (btn.__inline || window.innerWidth >= 900) return;
+    btn.__inline = true;
+    var span = document.createElement('span');
+    span.setAttribute('role', 'button');
+    span.setAttribute('tabindex', '0');
+    span.setAttribute('aria-expanded', btn.getAttribute('aria-expanded') || 'false');
+    span.style.cssText = 'color:#0D4A57;font-weight:600;border-bottom:1.5px dotted #0D4A57;cursor:pointer;text-align:left;-webkit-box-decoration-break:clone;box-decoration-break:clone';
+    while (btn.firstChild) span.appendChild(btn.firstChild);
+    btn.appendChild(span);
+    btn.style.setProperty('display', 'contents', 'important');
+    btn.setAttribute('tabindex', '-1');
+    span.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); } });
+    new MutationObserver(function(){ span.setAttribute('aria-expanded', btn.getAttribute('aria-expanded') || 'false'); })
+      .observe(btn, { attributes: true, attributeFilter: ['aria-expanded'] });
+  }
+  function scan(){
+    if (window.innerWidth >= 900) return;
+    Array.prototype.forEach.call(document.querySelectorAll('p > button[aria-expanded]'), fix);
+  }
+  var pending = false;
+  new MutationObserver(function(){
+    if (pending) return; pending = true;
+    setTimeout(function(){ pending = false; scan(); }, 80);
+  }).observe(document.documentElement, { childList: true, subtree: true });
+  [0, 500, 1500].forEach(function(ms){ setTimeout(scan, ms); });
 })();
