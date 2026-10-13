@@ -1372,13 +1372,16 @@
     ch.style.cssText = 'display:flex;flex-shrink:0';
     t.appendChild(lab); t.appendChild(ch);
     t.__label = lab;
+    /* conserva los márgenes del <select> (p. ej. la separación con la ficha del país en Cobertura regional) */
+    var scs = getComputedStyle(sel);
+    var margins = [scs.marginTop, scs.marginRight, scs.marginBottom, scs.marginLeft].join(' ');
     /* ocultar el <select> y su flecha decorativa */
     sel.style.setProperty('display', 'none', 'important');
     var sib = sel.nextElementSibling;
     if (sib && getComputedStyle(sib).position === 'absolute' && getComputedStyle(sib).pointerEvents === 'none') sib.style.setProperty('display', 'none', 'important');
     var wrap = document.createElement('div');
     wrap.setAttribute('data-select-wrap', '');
-    wrap.style.cssText = 'position:relative;width:100%';
+    wrap.style.cssText = 'position:relative;width:100%;box-sizing:border-box;margin:' + margins;
     wrap.appendChild(t);
     sel.insertAdjacentElement('afterend', wrap);
     sel.__trigger = t;
@@ -1386,6 +1389,32 @@
     t.addEventListener('click', function(e){ e.stopPropagation(); open(sel); });
     syncTriggers();
   }
+  function removeTrigger(sel){
+    var t = sel.__trigger;
+    if (!t) return;
+    var wrap = t.parentElement && t.parentElement.hasAttribute('data-select-wrap') ? t.parentElement : t;
+    wrap.remove();
+    sel.__trigger = null;
+    sel.style.removeProperty('display');
+    var sib = sel.nextElementSibling;
+    if (sib && sib.style.getPropertyValue('display') === 'none' && sib.style.getPropertyPriority('display') === 'important') sib.style.removeProperty('display');
+  }
+  function applyMode(){
+    var mob = isMob();
+    close();
+    Array.prototype.forEach.call(document.querySelectorAll('select'), function(sel){
+      if (!sel.__skinned) return;
+      if (mob && !sel.__trigger) makeTrigger(sel);
+      else if (!mob && sel.__trigger) removeTrigger(sel);
+    });
+  }
+  /* el cambio de ancho se detecta por resize, por media query y en la revisión periódica (algunos navegadores no avisan) */
+  var lastMob = isMob();
+  function checkMode(){ var m = isMob(); if (m !== lastMob) { lastMob = m; applyMode(); } }
+  window.addEventListener('resize', checkMode);
+  var mqMob = window.matchMedia('(max-width:899px)');
+  if (mqMob.addEventListener) mqMob.addEventListener('change', checkMode); else if (mqMob.addListener) mqMob.addListener(checkMode);
+
   function syncTriggers(){
     Array.prototype.forEach.call(document.querySelectorAll('[data-select-trigger]'), function(t){
       var s = t.__sel;
@@ -1395,18 +1424,19 @@
       if (t.__label.textContent !== txt) t.__label.textContent = txt;
     });
   }
-  setInterval(function(){ if (isMob()) syncTriggers(); }, 400);   /* refleja cambios hechos por la página (p. ej. limpiar filtros) */
+  setInterval(function(){ checkMode(); if (isMob()) syncTriggers(); }, 400);   /* refleja cambios hechos por la página (p. ej. limpiar filtros) */
 
   function skin(sel){
     if (sel.__skinned || sel.multiple || sel.closest('#sih') || sel.hasAttribute('data-native')) return;
     sel.__skinned = true;
-    if (isMob()) { makeTrigger(sel); return; }
+    if (isMob()) makeTrigger(sel);
     sel.setAttribute('aria-haspopup', 'listbox');
     sel.setAttribute('aria-expanded', 'false');
     /* evitar la lista nativa y abrir el panel propio (mouse, toque y teclado) */
-    sel.addEventListener('mousedown', function(e){ e.preventDefault(); sel.focus(); open(sel); });
-    sel.addEventListener('touchstart', function(e){ e.preventDefault(); open(sel); }, { passive: false });
+    sel.addEventListener('mousedown', function(e){ if (sel.__trigger) return; e.preventDefault(); sel.focus(); open(sel); });
+    sel.addEventListener('touchstart', function(e){ if (sel.__trigger) return; e.preventDefault(); open(sel); }, { passive: false });
     sel.addEventListener('keydown', function(e){
+      if (sel.__trigger) return;
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown' || e.key === 'ArrowUp' || (e.altKey && e.key === 'ArrowDown')) {
         e.preventDefault(); open(sel);
       }
