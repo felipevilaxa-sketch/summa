@@ -116,3 +116,15 @@
   [data-m="compare-bar"] [data-m="bar-actions"]{width:100%}
   [data-m="compare-bar"] [data-m="bar-actions"] > *{flex:1}
 }
+
+/* Botón secundario "Áreas de Reforma" del menú (mismo trato que el botón del buscador) */
+[data-m="navsec"]:hover,[data-m="navsec"]:focus-visible{background:#fff !important;color:#0D4A57 !important}
+@media (max-width:900px){
+  [data-m="navsec"]{display:none !important}
+}
+
+/* Comparador (mobile): los 4 datos destacados de cada caso, uno debajo del otro */
+@media (max-width:760px){
+  [data-m="cmp-tiles"]{grid-template-columns:1fr !important}
+  [data-m="cmp-tiles"] > div{min-height:0 !important}
+}

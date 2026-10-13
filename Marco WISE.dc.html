@@ -252,60 +252,134 @@
   <section style="margin:0 0 clamp(56px,7vw,88px)">
     <div style="font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6FA030;margin-bottom:8px">Tendencias</div>
     <h2 style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(24px,3vw,32px);line-height:1.25;color:#0D4A57;margin:0 0 14px;max-width:640px">Dónde se concentran las reformas de la región</h2>
-    <p style="font-size:15px;line-height:1.7;color:#516268;max-width:640px;margin:0 0 28px">Cada reforma documentada se clasifica en el espacio WISE donde interviene principalmente. La distribución muestra qué partes del sistema reciben atención de política y cuáles quedan comparativamente menos representadas.</p>
+    <p style="font-size:15px;line-height:1.7;color:#516268;max-width:640px;margin:0 0 28px">Cada reforma registrada en WERD se clasifica por foco de intervención y período. Los tres gráficos permiten explorar la distribución a lo largo del tiempo y para cada país o el conjunto de América Latina y el Caribe.</p>
 
-    <div style="border:1px solid #DCE3E1;border-radius:16px;padding:clamp(22px,2.6vw,32px)">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px">
-        <div>
-          <div style="font-family:Lato,sans-serif;font-size:16px;font-weight:700;color:#0D4A57">Reformas por dimensión WISE</div>
-          <div style="font-size:12.5px;color:#8CA0A5;margin-top:3px">{{ chartSubtitle }} · datos de demostración</div>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap" data-noprint>
-          <sc-for list="{{ ranges }}" as="r" hint-placeholder-count="3">
-            <button onClick="{{ r.select }}" aria-pressed="{{ r.pressed }}" style="{{ r.style }}">{{ r.label }}</button>
-          </sc-for>
-          <button onClick="{{ exportCsv }}" style="font-family:Lato,sans-serif;font-size:12px;font-weight:600;border:1px solid #DCE3E1;background:#fff;color:#0D4A57;padding:8px 16px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:border-color .15s" style-hover="border-color:#0D4A57">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="4" y1="20" x2="20" y2="20"></line></svg>Exportar
-          </button>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-end;margin-bottom:24px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8CA0A5">País</label>
+        <div style="position:relative;display:inline-block">
+          <select onChange="{{ werdSetPais }}" style="font-family:Lato,sans-serif;font-size:13.5px;color:#0D4A57;background:#fff;border:1px solid #DCE3E1;border-radius:8px;padding:9px 36px 9px 14px;min-width:230px;appearance:none;cursor:pointer;outline:none">
+            <sc-for list="{{ werdCountryOpts }}" as="o">
+              <option value="{{ o.value }}" selected="{{ o.sel }}">{{ o.label }}</option>
+            </sc-for>
+          </select>
+          <svg style="position:absolute;right:12px;top:50%;transform:translateY(-50%);pointer-events:none;color:#8CA0A5" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </div>
       </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="font-family:Lato,sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8CA0A5">Décadas</div>
+        <div style="position:relative">
+          <button type="button" onClick="{{ werdToggleDecs }}" style="font-family:Lato,sans-serif;font-size:13.5px;color:#0D4A57;background:#fff;border:1px solid #DCE3E1;border-radius:8px;padding:9px 36px 9px 14px;min-width:200px;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:12px">
+            <span>{{ werdDecLabel }}</span>
+            <svg style="color:#8CA0A5;flex-shrink:0;transform:{{ werdArrowRot }};transition:transform .2s" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <sc-if value="{{ werdDecsOpen }}">
+            <div style="position:absolute;top:calc(100% + 6px);left:0;min-width:200px;background:#fff;border:1px solid #DCE3E1;border-radius:12px;padding:6px;z-index:50;box-shadow:0 8px 24px rgba(13,74,87,.1)">
+              <sc-for list="{{ werdDecOpts }}" as="d">
+                <button type="button" onClick="{{ d.toggle }}" style="display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border:none;background:none;cursor:pointer;border-radius:8px;font-family:Lato,sans-serif;font-size:13.5px;color:#0D4A57;text-align:left">
+                  <span style="{{ d.boxStyle }}">
+                    <sc-if value="{{ d.checked }}">
+                      <svg width="9" height="7" viewBox="0 0 9 7" fill="none"><polyline points="1,3.5 3.5,6 8,1" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+                    </sc-if>
+                  </span>
+                  {{ d.label }}
+                </button>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
 
-      <div style="display:flex;gap:14px;align-items:stretch;height:300px">
-        <div style="display:flex;flex-direction:column;justify-content:space-between;font-family:Lato,sans-serif;font-size:11px;color:#8CA0A5;text-align:right;width:26px;padding-bottom:56px;flex-shrink:0">
-          <sc-for list="{{ axis }}" as="a" hint-placeholder-count="5">
-            <span>{{ a.label }}</span>
+    <div style="border:1px solid #DCE3E1;border-radius:16px;padding:clamp(18px,2.2vw,26px);margin-bottom:14px">
+      <div style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(17px,1.8vw,20px);line-height:1.3;color:#0D4A57;margin:0 0 4px">¿Cuántas reformas se registraron en cada década?</div>
+      <div style="font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:#0D4A57;margin-bottom:3px">Reformas registradas por década</div>
+      <div style="font-size:12.5px;color:#8CA0A5;margin-bottom:24px">{{ werdScopeLabel }} · WERD (1.539 registros de ALC)</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;height:180px;align-items:end;padding:0 4px">
+        <sc-for list="{{ werdChart1 }}" as="b">
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:5px">
+            <span style="font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:{{ b.labelColor }}">{{ b.value }}</span>
+            <div style="width:65%;border-radius:4px 4px 0 0;height:{{ b.barH }};background:{{ b.color }};min-height:3px"></div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:8px 4px 0;border-top:1px solid #DCE3E1;margin-top:0">
+        <sc-for list="{{ werdChart1 }}" as="b">
+          <div style="text-align:center;font-family:Lato,sans-serif;font-size:12px;font-weight:500;color:{{ b.labelColor }}">{{ b.label }}</div>
+        </sc-for>
+      </div>
+      <div style="margin-top:10px;font-size:12px;color:#B0BBBF">Las barras grises corresponden a décadas fuera del filtro. Los años 2020–2021 se agrupan en la columna de 2010s.</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">
+
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:clamp(18px,2.2vw,26px)">
+        <div style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(17px,1.8vw,20px);line-height:1.3;color:#0D4A57;margin:0 0 4px">¿En qué focos se concentran las reformas?</div>
+        <div style="font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:#0D4A57;margin-bottom:3px">Foco de las reformas</div>
+        <div style="font-size:12.5px;color:#8CA0A5;margin-bottom:20px">{{ werdDecRangeLabel }} · n = {{ werdChart2N }}</div>
+        <sc-if value="{{ werdChart2Empty }}">
+          <div style="font-size:14px;color:#B0BBBF;padding:28px 0;text-align:center">Sin reformas en esta selección.</div>
+        </sc-if>
+        <sc-if value="{{ werdChart2HasData }}">
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <sc-for list="{{ werdChart2 }}" as="b">
+              <div style="display:grid;grid-template-columns:minmax(110px,1.1fr) 2fr 44px;gap:8px;align-items:center">
+                <span style="font-family:Lato,sans-serif;font-size:12.5px;line-height:1.3;color:{{ b.textColor }}">{{ b.label }}</span>
+                <div style="height:12px;background:#F4F7F6;border-radius:3px;overflow:hidden">
+                  <div style="height:100%;width:{{ b.barW }};background:{{ b.color }};border-radius:3px"></div>
+                </div>
+                <span style="font-family:Lato,sans-serif;font-size:12px;font-variant-numeric:tabular-nums;color:#516268;text-align:right">{{ b.pct }}%</span>
+              </div>
+            </sc-for>
+          </div>
+          <sc-if value="{{ werdChart2ShowWarn }}">
+            <div style="margin-top:12px;background:#FBF0DF;border-radius:8px;padding:8px 12px;font-size:12.5px;color:#B4791F">{{ werdChart2Warn }}</div>
+          </sc-if>
+        </sc-if>
+      </div>
+
+      <div style="border:1px solid #DCE3E1;border-radius:16px;padding:clamp(18px,2.2vw,26px)">
+        <div style="font-family:Lato,sans-serif;font-weight:400;font-size:clamp(17px,1.8vw,20px);line-height:1.3;color:#0D4A57;margin:0 0 4px">¿Cómo varía el foco de las reformas entre décadas?</div>
+        <div style="font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:#0D4A57;margin-bottom:3px">Foco de las reformas por década</div>
+        <div style="font-size:12.5px;color:#8CA0A5;margin-bottom:20px">{{ werdScopeLabel }} · cada columna = 100 %</div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;height:200px">
+          <sc-for list="{{ werdChart3 }}" as="col">
+            <div style="display:flex;flex-direction:column;height:100%">
+              <div style="flex:1;width:100%;display:flex;flex-direction:column-reverse;border-radius:5px;overflow:hidden;background:#F4F7F6;min-height:0">
+                <sc-for list="{{ col.segs }}" as="seg">
+                  <div style="width:100%;height:{{ seg.h }};background:{{ seg.color }};display:flex;align-items:center;justify-content:center;min-height:0;overflow:hidden" title="{{ seg.title }}">
+                    <sc-if value="{{ seg.showLabel }}">
+                      <span style="font-family:Lato,sans-serif;font-size:9.5px;font-weight:700;color:#fff;line-height:1">{{ seg.pctLabel }}</span>
+                    </sc-if>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
           </sc-for>
         </div>
-        <div data-m="chart-plot" style="flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,2vw,28px);align-items:end;border-left:1px solid #DCE3E1;border-bottom:1px solid #DCE3E1;padding:0 clamp(6px,1.4vw,18px)">
-          <sc-for list="{{ bars }}" as="b" hint-placeholder-count="5">
-            <div onMouseEnter="{{ b.enter }}" onMouseLeave="{{ b.leave }}" style="height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:0;position:relative">
-              <span style="font-family:Lato,sans-serif;font-size:15px;font-weight:700;color:{{ b.color }};margin-bottom:8px;transition:transform .15s;transform:{{ b.labelScale }}">{{ b.value }}</span>
-              <div style="width:100%;max-width:78px;border-radius:6px 6px 0 0;height:{{ b.height }};background:{{ b.fill }};transform-origin:center bottom;animation:growBar .7s cubic-bezier(.3,1.05,.4,1) both;animation-delay:{{ b.delay }};transition:background .15s"></div>
-              <span data-m="label-full" style="font-family:Lato,sans-serif;font-size:11.5px;font-weight:600;color:#516268;text-align:center;line-height:1.3;margin-top:12px;height:44px">{{ b.name }}</span>
-              <span data-m="label-short" style="display:none;font-family:Lato,sans-serif;font-size:10.5px;font-weight:600;color:#516268;text-align:center;line-height:1.25;margin-top:12px;height:44px">{{ b.short }}</span>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px">
+          <sc-for list="{{ werdChart3 }}" as="col">
+            <div style="text-align:center;font-family:Lato,sans-serif;font-size:11.5px;font-weight:500;color:#516268">{{ col.label }}</div>
+          </sc-for>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:2px">
+          <sc-for list="{{ werdChart3 }}" as="col">
+            <div style="text-align:center;font-family:Lato,sans-serif;font-size:10.5px;color:#B0BBBF">n={{ col.n }}</div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:14px">
+          <sc-for list="{{ werdFocosLegend }}" as="f">
+            <div style="display:flex;align-items:center;gap:5px;font-family:Lato,sans-serif;font-size:11.5px;color:#516268">
+              <span style="width:10px;height:10px;border-radius:2px;background:{{ f.color }};flex-shrink:0;display:inline-block"></span>{{ f.label }}
             </div>
           </sc-for>
         </div>
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-top:16px">
-      <sc-for list="{{ bars }}" as="b" hint-placeholder-count="5">
-        <div style="border:1px solid #DCE3E1;border-radius:16px;padding:20px 22px">
-          <span style="display:block;width:10px;height:10px;border-radius:50%;background:{{ b.color }};margin-bottom:12px"></span>
-          <div style="font-family:Lato,sans-serif;font-size:12.5px;font-weight:600;color:#516268;line-height:1.35;margin-bottom:8px;min-height:2.6em">{{ b.name }}</div>
-          <div style="font-family:Lato,sans-serif;font-size:30px;font-weight:700;color:#0D4A57;line-height:1">{{ b.value }}</div>
-          <div style="font-size:11.5px;color:#8CA0A5;margin:4px 0 12px">reformas · {{ chartSubtitle }}</div>
-          <div style="height:6px;border-radius:999px;background:#ECF1EF;overflow:hidden">
-            <div style="height:100%;border-radius:999px;background:{{ b.color }};width:{{ b.pct }};transition:width .4s ease"></div>
-          </div>
-        </div>
-      </sc-for>
-    </div>
-
     <div style="display:flex;align-items:flex-start;gap:12px;background:#FBF0DF;border-radius:16px;padding:18px 22px;margin-top:20px">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px;color:#B4791F" aria-hidden="true"><path d="M12 9v4"></path><path d="M12 17h.01"></path><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path></svg>
-      <p style="margin:0;font-size:13.5px;line-height:1.6;color:#B4791F;font-weight:500">Una mayor cantidad de reformas en una dimensión no implica mejores resultados: indica dónde se ha concentrado la acción de política. El marco advierte que las reformas suelen privilegiar la dimensión institucional, mientras las dimensiones cultural, psicológica y profesional quedan menos representadas.</p>
+      <p style="margin:0;font-size:13.5px;line-height:1.6;color:#B4791F;font-weight:500">Los datos corresponden a reformas registradas en WERD (10.649 registros mundiales; 1.539 de América Latina y el Caribe). La codificación por foco es preliminar: aún no ha completado revisión de casos ni doble codificación.</p>
     </div>
   </section>
 
@@ -479,8 +553,24 @@ const RANGES = ['2021-2024','2017-2020','Todos'];
 const SHORT = ['Insumos','Habilitantes','Apoyo','Aula','Resultados'];
 const CHART_COLORS = ['#0D4A57','#1E6E7C','#4E8C93','#E8A33D','#8C9A8E'];
 
+const W_DEC = [1970,1980,1990,2000,2010];
+const W_DL = {1970:'1970s',1980:'1980s',1990:'1990s',2000:'2000s',2010:'2010s'};
+const W_ALL = 'Todos los países de ALC';
+const W_RAW = {"Antigua y Barbuda":[4,0,0,0,0,0],"Argentina":[4,1,17,16,18,0],"Bahamas":[3,0,0,0,0,0],"Barbados":[4,5,2,3,0,0],"Belice":[3,4,3,7,0,0],"Bolivia":[4,1,20,15,3,0],"Brasil":[14,3,18,49,37,6],"Chile":[11,15,25,42,33,4],"Colombia":[9,5,29,48,28,1],"Costa Rica":[13,10,25,13,14,2],"Cuba":[12,3,13,10,0,0],"Dominica":[2,1,7,8,0,0],"Ecuador":[3,2,3,23,20,0],"El Salvador":[3,4,16,19,5,1],"Granada":[2,2,4,3,1,0],"Guatemala":[5,8,17,28,0,0],"Guyana":[2,1,0,0,0,0],"Haití":[5,13,5,14,5,0],"Honduras":[5,6,21,24,6,1],"Jamaica":[15,16,11,10,5,0],"México":[24,4,23,42,57,0],"Nicaragua":[0,5,7,20,11,5],"Panamá":[13,1,5,17,0,0],"Paraguay":[3,1,12,14,0,0],"Perú":[4,2,6,19,5,1],"República Dominicana":[5,1,17,20,5,0],"San Cristóbal y Nieves":[3,3,2,10,2,0],"San Vicente y las Granadinas":[2,0,0,0,3,0],"Santa Lucía":[5,1,2,3,3,1],"Surinam":[8,7,2,1,0,0],"Trinidad y Tobago":[2,3,7,13,0,0],"Uruguay":[2,15,20,31,8,0],"Venezuela":[10,13,6,21,0,0]};
+const W_C = Object.keys(W_RAW);
+const W_FOCOS = [
+  {l:'Capacidad de provisión',color:'#3E6B78'},
+  {l:'Marco normativo e institucional',color:'#7A4F9A'},
+  {l:'Ecosistema de información y aprendizaje sistémico',color:'#2F8A6C'},
+  {l:'Mediación sistémica',color:'#C0663A'},
+  {l:'Prácticas pedagógicas',color:'#B0487A'},
+  {l:'Información insuficiente',color:'#C8D1DA',m:true},
+  {l:'No encaja en el modelo',color:'#C8D1DA',m:true},
+];
+const W_REC = [[0,0,0,0],[0,0,1,4],[0,0,6,4],[0,0,2,4],[1,0,1,4],[1,0,1,4],[1,0,6,4],[1,1,4,4],[1,2,1,4],[1,2,0,4],[1,2,1,4],[1,2,6,4],[1,2,0,1],[1,2,6,4],[1,2,6,4],[1,2,1,2],[1,2,2,4],[1,2,1,1],[1,2,2,4],[1,2,1,4],[1,2,3,4],[1,2,0,4],[1,2,3,4],[1,3,3,1],[1,3,2,4],[1,3,1,2],[1,3,0,2],[1,3,0,4],[1,3,5,2],[1,3,1,4],[1,3,3,4],[1,3,3,4],[1,3,1,2],[1,3,4,4],[1,3,0,4],[1,3,0,2],[1,3,6,2],[1,3,3,2],[1,2,3,4],[1,2,1,4],[1,3,0,1],[1,0,1,4],[2,0,5,0],[2,0,0,4],[2,0,5,2],[3,0,1,4],[3,0,2,4],[3,0,5,4],[3,0,0,0],[3,1,0,1],[3,1,6,4],[3,1,1,1],[3,1,1,4],[3,1,6,4],[3,2,6,4],[3,2,1,2],[3,3,5,2],[3,3,2,3],[3,3,4,0],[4,0,5,4],[4,0,5,4],[4,0,1,4],[4,1,0,4],[4,1,0,4],[4,1,3,0],[4,1,1,4],[4,2,1,1],[4,2,3,4],[4,2,5,4],[4,3,1,1],[4,3,1,4],[4,3,0,4],[4,3,1,2],[4,3,1,4],[4,3,3,1],[4,3,6,4],[5,0,3,4],[5,0,6,4],[5,0,1,0],[5,0,1,4],[5,1,4,4],[5,2,6,4],[5,2,1,0],[5,2,6,4],[5,2,1,4],[5,2,6,4],[5,2,1,1],[5,2,1,4],[5,2,3,4],[5,2,6,4],[5,2,1,4],[5,2,6,4],[5,2,5,4],[5,2,2,4],[5,2,2,1],[5,2,6,4],[5,2,1,4],[5,2,6,4],[5,2,3,4],[5,3,1,4],[5,3,1,4],[5,3,1,4],[5,3,5,2],[5,3,3,2],[5,3,3,4],[5,3,5,4],[5,3,3,0],[5,3,0,2],[5,3,5,0],[5,3,0,2],[5,3,6,4],[5,3,6,2],[5,3,1,1],[5,2,2,4],[5,2,2,4],[5,3,1,4],[6,0,1,2],[6,0,3,4],[6,0,1,0],[6,0,1,4],[6,0,1,4],[6,0,1,4],[6,0,1,1],[6,0,3,4],[6,0,3,4],[6,0,3,4],[6,0,0,1],[6,0,6,4],[6,0,6,4],[6,1,1,4],[6,1,0,4],[6,1,0,4],[6,2,5,4],[6,2,5,4],[6,2,0,1],[6,2,0,4],[6,2,1,4],[6,2,3,1],[6,2,1,4],[6,2,0,0],[6,2,0,2],[6,2,1,0],[6,2,2,4],[6,2,1,0],[6,2,1,4],[6,2,4,1],[6,2,3,1],[6,2,2,4],[6,2,3,4],[6,3,1,1],[6,3,5,1],[6,3,0,1],[6,3,3,4],[6,3,4,1],[6,3,3,0],[6,3,3,2],[6,3,2,4],[6,3,1,4],[6,3,6,2],[6,3,2,3],[6,3,3,1],[6,3,3,1],[6,3,1,4],[6,3,3,1],[6,3,6,1],[6,3,1,4],[6,3,3,2],[6,3,1,4],[6,3,0,0],[6,3,2,4],[6,3,1,4],[6,3,3,4],[6,3,0,0],[6,3,2,4],[6,3,2,4],[6,3,2,4],[6,3,0,4],[6,3,3,4],[6,3,0,1],[6,3,1,4],[6,3,1,1],[6,3,0,4],[6,3,1,4],[6,3,0,1],[6,3,2,4],[6,3,1,0],[6,3,5,2],[6,3,3,4],[6,3,0,1],[6,3,3,4],[6,3,2,4],[6,3,1,4],[6,3,5,1],[6,3,1,4],[6,3,1,4],[6,3,3,3],[6,3,2,4],[6,3,5,0],[6,0,0,4],[7,0,6,4],[7,0,1,0],[7,0,1,4],[7,0,3,4],[7,0,2,4],[7,0,1,4],[7,0,6,4],[7,0,5,2],[7,0,6,4],[7,0,5,0],[7,1,1,4],[7,1,0,4],[7,1,6,4],[7,1,1,0],[7,1,6,4],[7,1,1,4],[7,1,0,4],[7,1,1,4],[7,1,3,4],[7,1,1,4],[7,1,1,4],[7,1,0,4],[7,1,0,1],[7,1,2,4],[7,1,0,4],[7,2,1,1],[7,2,1,4],[7,2,6,1],[7,2,4,0],[7,2,3,0],[7,2,0,4],[7,2,6,1],[7,2,1,0],[7,2,3,2],[7,2,1,4],[7,2,0,4],[7,2,3,1],[7,2,1,4],[7,2,1,4],[7,2,3,4],[7,2,3,4],[7,2,3,1],[7,2,1,0],[7,2,0,3],[7,2,5,3],[7,2,5,1],[7,2,1,4],[7,2,1,4],[7,2,3,1],[7,2,6,4],[7,3,1,4],[7,3,1,0],[7,3,1,4],[7,3,0,0],[7,3,1,4],[7,3,3,4],[7,3,1,4],[7,3,1,4],[7,3,0,0],[7,3,6,4],[7,3,1,4],[7,3,6,4],[7,3,1,4],[7,3,6,1],[7,3,1,4],[7,3,3,4],[7,3,1,4],[7,3,3,4],[7,3,0,4],[7,3,3,4],[7,3,2,4],[7,3,2,4],[7,3,2,4],[7,3,2,4],[7,3,2,4],[7,3,1,4],[7,3,0,2],[7,3,2,0],[7,3,1,4],[7,3,6,4],[7,3,6,4],[7,3,3,0],[7,3,2,4],[7,3,0,2],[7,3,1,2],[7,3,0,0],[7,3,1,4],[7,3,1,0],[7,3,1,4],[7,3,1,4],[7,3,1,4],[7,3,0,0],[7,0,6,4],[8,0,0,0],[8,0,6,0],[8,0,4,2],[8,0,1,4],[8,0,1,4],[8,0,6,4],[8,0,5,1],[8,0,1,4],[8,0,1,4],[8,1,1,4],[8,1,0,4],[8,1,5,4],[8,1,6,4],[8,1,0,1],[8,2,5,1],[8,2,6,4],[8,2,1,4],[8,2,1,0],[8,2,2,4],[8,2,0,4],[8,2,6,4],[8,2,6,4],[8,2,1,4],[8,2,6,4],[8,2,1,2],[8,2,6,4],[8,2,1,2],[8,2,0,4],[8,2,5,4],[8,2,1,4],[8,2,1,1],[8,2,1,4],[8,2,3,4],[8,2,1,0],[8,2,1,4],[8,2,1,4],[8,2,5,0],[8,2,5,0],[8,2,3,2],[8,2,1,4],[8,2,1,4],[8,3,2,4],[8,3,0,2],[8,3,6,2],[8,3,5,2],[8,3,3,2],[8,3,0,4],[8,3,1,4],[8,3,5,4],[8,3,1,4],[8,3,1,2],[8,3,6,0],[8,3,3,4],[8,3,3,0],[8,3,5,1],[8,3,1,4],[8,3,6,4],[8,3,2,3],[8,3,2,4],[8,3,1,4],[8,3,3,0],[8,3,5,0],[8,3,1,3],[8,3,1,3],[8,3,3,4],[8,3,5,0],[8,3,3,1],[8,3,1,4],[8,3,3,0],[8,3,3,4],[8,3,6,4],[8,3,5,4],[8,3,2,4],[8,3,1,4],[8,3,1,0],[8,3,1,0],[8,3,5,3],[8,3,2,1],[8,3,5,2],[8,3,3,0],[8,3,2,3],[8,3,1,3],[8,3,2,4],[8,3,5,2],[8,3,5,2],[8,3,6,4],[8,3,6,4],[8,3,4,4],[8,3,0,0],[8,2,3,2],[8,2,3,4],[9,0,0,1],[9,0,5,0],[9,0,0,4],[9,0,1,4],[9,0,1,4],[9,0,1,4],[9,0,0,4],[9,0,6,4],[9,0,3,4],[9,0,3,4],[9,0,1,4],[9,0,0,2],[9,0,0,4],[9,1,0,4],[9,1,1,4],[9,1,1,4],[9,1,6,4],[9,1,1,3],[9,1,2,4],[9,1,3,4],[9,1,1,1],[9,1,2,4],[9,1,3,4],[9,2,2,4],[9,2,0,3],[9,2,1,4],[9,2,1,2],[9,2,6,4],[9,2,1,4],[9,2,6,4],[9,2,6,4],[9,2,1,4],[9,2,1,2],[9,2,6,4],[9,2,6,4],[9,2,6,4],[9,2,1,4],[9,2,1,4],[9,2,1,4],[9,2,0,2],[9,2,0,3],[9,2,1,4],[9,2,1,4],[9,2,0,1],[9,2,2,4],[9,2,1,2],[9,2,1,0],[9,2,2,4],[9,3,1,0],[9,3,1,4],[9,3,5,3],[9,3,2,4],[9,3,3,1],[9,3,1,3],[9,3,3,4],[9,3,3,3],[9,3,6,4],[9,3,3,4],[9,3,0,4],[9,3,4,4],[9,3,1,0],[10,0,1,4],[10,0,4,4],[10,0,2,4],[10,0,1,4],[10,0,6,4],[10,0,1,4],[10,0,1,4],[10,0,6,4],[10,0,6,4],[10,0,1,2],[10,0,1,4],[10,1,6,4],[10,1,1,4],[10,1,1,4],[10,2,0,0],[10,2,0,0],[10,2,0,0],[10,2,3,0],[10,2,3,4],[10,2,6,4],[10,2,3,4],[10,2,6,4],[10,2,1,0],[10,2,1,1],[10,2,2,4],[10,2,1,4],[10,2,1,4],[10,3,3,4],[10,3,3,4],[10,3,3,4],[10,3,3,0],[10,3,3,4],[10,3,0,0],[10,3,3,4],[10,0,0,0],[10,3,1,4],[10,3,4,4],[10,3,2,4],[11,0,5,4],[11,0,3,4],[11,1,1,4],[11,2,6,4],[11,2,1,4],[25,0,1,4],[11,2,1,4],[25,0,4,4],[11,2,0,4],[12,0,2,4],[11,2,1,2],[12,0,3,4],[11,2,1,4],[11,2,1,4],[11,3,2,4],[11,3,1,4],[11,3,0,4],[11,3,1,0],[11,3,5,0],[11,3,6,4],[11,3,1,4],[11,3,0,0],[25,0,5,4],[25,0,1,4],[25,0,6,4],[25,1,0,4],[25,2,0,2],[25,2,0,2],[25,2,6,4],[25,2,3,4],[25,2,0,4],[25,2,5,4],[25,2,3,4],[25,2,3,4],[25,2,2,4],[25,2,2,4],[25,2,3,1],[25,2,1,4],[25,2,3,1],[25,2,1,4],[25,2,0,4],[25,2,1,0],[18,0,6,4],[25,3,6,4],[18,0,1,0],[25,3,1,4],[18,0,1,4],[25,3,6,4],[25,3,6,0],[25,3,5,2],[25,3,1,0],[25,3,5,2],[25,3,6,2],[25,3,3,4],[25,3,0,2],[25,3,1,4],[25,3,5,2],[25,3,3,4],[25,3,3,4],[25,3,5,0],[25,3,3,3],[25,3,6,2],[25,3,6,4],[25,3,0,2],[25,3,1,4],[25,2,1,4],[12,0,6,4],[12,1,1,4],[12,1,4,1],[19,0,0,0],[12,2,1,4],[19,0,6,4],[12,2,3,3],[12,2,1,4],[12,3,2,3],[12,3,2,4],[12,3,1,4],[12,3,3,4],[12,3,0,4],[12,3,3,2],[12,3,0,2],[12,3,0,2],[12,3,3,4],[12,3,1,4],[12,3,0,2],[12,3,5,0],[12,3,5,4],[12,3,0,4],[12,3,5,4],[12,3,1,4],[12,3,1,1],[12,3,1,2],[12,3,1,4],[12,3,2,4],[12,3,1,4],[12,3,1,4],[12,3,3,4],[20,0,0,0],[20,0,1,4],[20,0,0,1],[20,0,0,4],[20,0,3,2],[20,0,0,4],[20,0,4,1],[20,0,0,1],[20,0,0,4],[20,0,0,2],[20,0,0,4],[22,0,1,1],[24,0,4,2],[28,0,0,4],[29,0,0,4],[29,0,1,4],[29,0,2,4],[32,0,0,4],[32,0,0,4],[32,0,6,4],[32,0,3,4],[32,0,1,4],[13,0,5,4],[13,0,0,4],[13,0,5,1],[13,1,3,4],[13,1,1,2],[13,1,1,2],[13,1,5,1],[13,2,6,4],[13,2,6,4],[13,2,3,0],[13,2,2,4],[13,2,3,4],[13,2,2,4],[13,2,3,4],[13,2,1,3],[13,2,1,2],[13,2,1,4],[13,2,3,2],[13,2,1,4],[13,2,2,0],[13,2,3,1],[13,2,3,4],[13,2,0,2],[13,3,1,3],[13,3,2,3],[13,3,0,2],[13,3,1,4],[13,3,2,4],[13,3,0,1],[13,3,5,0],[13,3,5,2],[13,3,5,4],[13,3,0,2],[13,3,3,4],[13,3,2,4],[13,3,2,4],[13,3,1,4],[13,3,1,4],[13,3,1,2],[13,3,1,1],[13,3,1,4],[13,3,3,2],[20,0,0,1],[27,0,0,4],[32,0,1,4],[14,0,3,4],[18,0,0,4],[19,0,2,4],[19,0,1,4],[20,0,0,1],[22,0,6,1],[22,0,4,1],[22,0,0,2],[22,0,1,4],[22,0,1,4],[22,0,2,4],[22,0,0,4],[22,0,1,4],[23,0,0,4],[24,0,1,2],[24,0,6,4],[26,0,2,4],[28,0,2,4],[15,0,0,4],[15,0,6,4],[18,0,5,0],[19,0,0,4],[19,0,1,3],[19,0,3,4],[19,0,0,4],[20,0,1,4],[20,0,1,4],[20,0,1,4],[20,0,0,4],[20,0,1,4],[23,0,3,4],[23,0,0,4],[31,0,6,4],[31,0,6,4],[19,0,0,0],[20,0,0,4],[20,0,1,4],[20,0,1,4],[22,0,0,1],[27,0,0,1],[32,0,3,4],[15,0,1,1],[19,0,3,1],[19,0,1,4],[19,0,0,4],[20,0,1,4],[22,0,1,4],[22,0,6,4],[22,0,6,4],[26,0,1,4],[29,0,0,4],[29,0,0,4],[29,0,1,4],[30,0,1,4],[14,0,1,4],[15,0,1,0],[15,0,2,4],[16,0,0,4],[16,0,5,4],[17,0,0,4],[17,0,5,0],[24,0,0,4],[28,0,0,4],[29,0,0,4],[19,0,4,0],[19,0,5,1],[28,0,1,4],[28,0,1,4],[32,0,0,4],[20,0,6,4],[29,0,2,4],[14,1,4,4],[14,1,0,0],[14,2,0,4],[14,2,0,4],[14,3,1,4],[14,3,6,4],[14,2,5,2],[14,2,0,0],[14,3,2,4],[15,1,4,1],[15,1,0,4],[15,1,1,2],[15,1,0,0],[15,1,0,4],[15,1,1,4],[15,1,6,4],[15,2,0,0],[15,2,4,1],[15,2,1,4],[15,2,1,0],[15,2,3,2],[15,2,4,2],[15,2,6,1],[15,2,1,1],[15,2,6,4],[15,2,6,4],[15,2,3,0],[15,2,2,4],[15,2,0,1],[15,2,3,1],[15,2,3,4],[15,2,0,4],[15,3,1,2],[15,3,1,1],[15,3,6,4],[15,3,6,4],[15,3,1,2],[15,3,6,1],[15,3,6,4],[15,3,4,1],[17,0,4,0],[15,3,4,1],[17,0,2,4],[15,3,4,4],[17,0,6,4],[15,3,1,0],[15,3,1,2],[15,3,1,4],[15,3,1,4],[15,3,6,4],[15,3,3,4],[15,3,3,4],[15,3,1,4],[15,3,4,4],[15,3,3,4],[15,3,0,2],[15,3,0,4],[15,3,0,2],[15,3,0,4],[15,3,6,4],[15,3,1,2],[15,3,1,4],[15,3,1,4],[15,2,0,2],[15,1,3,1],[19,0,2,4],[20,0,6,4],[26,0,2,4],[30,0,2,4],[32,0,0,4],[32,0,1,0],[16,1,3,4],[17,1,5,4],[17,1,0,4],[17,1,5,4],[17,1,2,4],[17,1,5,0],[17,1,1,2],[17,1,1,4],[17,1,1,4],[17,1,0,0],[17,1,6,4],[17,1,1,2],[17,1,1,4],[17,1,1,4],[17,2,6,4],[17,2,0,4],[17,2,5,4],[17,2,3,0],[17,2,5,0],[17,3,3,4],[17,3,5,4],[17,3,0,4],[17,3,0,1],[17,3,2,4],[17,3,0,2],[17,3,3,4],[17,3,5,2],[17,3,0,1],[17,3,6,4],[17,3,0,1],[17,3,3,4],[17,3,3,0],[17,3,3,4],[18,1,3,1],[18,1,5,4],[18,1,2,3],[18,1,1,1],[18,1,1,1],[18,1,1,4],[18,2,6,4],[18,2,6,4],[18,2,5,2],[18,2,5,4],[18,2,4,2],[18,2,0,4],[18,2,1,4],[18,2,3,3],[18,2,6,4],[18,2,0,2],[18,2,1,1],[18,2,1,4],[18,2,6,4],[18,2,4,2],[18,2,5,4],[18,2,2,4],[18,2,5,4],[18,2,3,2],[18,3,1,4],[18,3,1,0],[18,3,1,2],[18,3,1,0],[18,3,1,4],[18,3,1,4],[18,3,5,4],[18,3,3,4],[18,3,1,4],[18,3,1,2],[18,3,1,2],[18,3,1,0],[18,3,1,4],[18,3,3,4],[18,3,1,0],[18,3,1,1],[18,3,1,2],[18,3,1,1],[18,3,1,4],[18,3,1,4],[18,3,5,2],[18,2,0,0],[18,2,4,1],[18,2,6,4],[18,3,4,1],[18,3,0,1],[18,3,5,1],[19,1,2,4],[19,1,0,4],[19,1,1,4],[20,1,0,4],[21,1,6,4],[21,1,0,0],[29,1,1,4],[29,1,1,4],[29,1,1,4],[31,1,1,4],[32,1,3,4],[32,1,1,4],[19,1,6,0],[20,1,0,0],[21,1,5,0],[29,1,0,4],[32,1,2,4],[32,1,5,4],[19,1,0,2],[19,1,6,4],[19,1,3,4],[21,1,0,4],[23,1,1,4],[26,1,3,4],[26,1,3,1],[30,1,0,4],[32,1,6,4],[19,1,0,4],[19,1,3,4],[19,1,0,0],[22,1,3,4],[24,1,0,4],[26,1,3,4],[30,1,0,4],[30,1,3,4],[32,1,3,4],[19,1,0,4],[19,1,1,4],[19,1,1,4],[20,1,3,4],[20,1,3,4],[21,1,4,2],[28,1,0,4],[29,1,0,4],[31,1,1,4],[31,1,2,2],[31,1,5,0],[31,1,1,4],[31,1,3,1],[31,1,6,4],[31,1,1,0],[31,1,5,1],[29,1,5,3],[31,1,6,4],[31,1,1,4],[31,1,1,4],[32,1,4,4],[32,1,1,4],[19,1,0,4],[19,1,0,4],[19,1,2,0],[19,2,0,4],[19,2,3,0],[19,2,0,4],[29,1,0,4],[19,2,6,4],[19,2,3,4],[19,2,0,4],[19,2,0,4],[19,2,3,4],[19,2,1,2],[19,2,0,4],[19,2,1,0],[19,3,6,4],[19,3,3,1],[19,3,6,3],[31,1,1,1],[19,3,5,0],[31,1,1,1],[19,3,1,3],[19,3,0,4],[32,1,4,4],[19,3,2,4],[19,3,1,4],[19,3,2,4],[19,3,1,0],[32,1,3,1],[32,1,1,4],[24,1,0,4],[31,1,6,4],[32,1,0,1],[32,1,1,0],[21,2,1,4],[23,2,6,4],[23,2,1,4],[24,2,1,4],[29,2,1,4],[29,2,5,4],[31,2,1,4],[31,2,1,1],[31,2,0,1],[31,2,0,4],[31,2,3,2],[31,2,3,4],[32,2,6,4],[32,2,6,4],[20,2,2,3],[20,2,1,4],[20,2,2,4],[21,2,1,4],[21,2,6,2],[30,2,0,1],[30,2,6,4],[31,2,1,4],[31,2,3,1],[32,2,3,0],[32,2,1,4],[20,2,6,4],[20,2,1,0],[20,2,6,4],[20,2,6,4],[20,2,3,4],[20,2,0,1],[20,2,3,2],[23,2,0,4],[23,2,6,4],[23,2,5,4],[30,2,3,4],[31,2,2,4],[20,2,1,4],[20,2,2,4],[20,2,6,4],[20,2,1,0],[20,2,1,4],[21,2,3,4],[21,2,6,1],[23,2,1,4],[23,2,1,4],[24,2,0,4],[20,2,2,4],[22,2,3,4],[23,2,2,3],[24,2,5,4],[30,2,3,4],[31,2,0,3],[31,2,2,4],[20,2,3,4],[20,2,3,4],[20,2,3,4],[20,2,3,1],[20,2,3,4],[20,2,3,2],[20,2,0,4],[20,3,2,4],[20,3,2,3],[20,3,3,0],[20,3,3,2],[20,3,3,2],[20,3,3,2],[20,3,1,4],[20,3,6,4],[20,3,6,1],[20,3,3,4],[20,3,0,4],[20,3,6,4],[20,3,2,4],[20,3,0,2],[20,3,3,1],[20,3,1,0],[20,3,6,1],[20,3,1,4],[20,3,3,4],[20,3,1,4],[20,3,3,1],[20,3,3,4],[20,3,1,1],[20,3,1,2],[20,3,1,4],[20,3,0,2],[20,3,1,4],[20,3,3,2],[20,3,5,0],[20,3,1,1],[20,3,3,0],[20,3,6,0],[20,3,3,4],[20,3,3,1],[20,3,3,2],[20,3,1,4],[20,3,3,4],[20,3,6,4],[20,3,1,4],[20,3,3,0],[20,3,3,4],[20,3,3,4],[21,2,5,4],[22,2,4,1],[24,2,1,4],[30,2,0,0],[31,2,1,4],[31,2,1,4],[31,2,2,4],[31,2,3,2],[24,2,1,4],[31,2,1,4],[31,2,2,4],[22,2,0,0],[21,2,1,2],[21,3,1,4],[21,3,3,4],[21,3,0,4],[21,3,3,2],[21,3,5,0],[21,3,0,4],[21,3,1,0],[21,3,1,4],[21,3,6,1],[21,3,3,4],[21,3,2,4],[21,3,6,1],[21,3,6,4],[21,3,0,1],[21,3,6,4],[21,3,6,1],[21,3,1,4],[21,3,6,4],[21,3,1,4],[21,3,5,0],[22,2,1,0],[23,2,1,4],[23,2,4,4],[23,2,1,0],[23,2,6,4],[26,2,3,2],[31,2,1,4],[31,2,3,4],[22,2,1,4],[24,2,6,1],[26,2,2,4],[28,2,1,4],[28,2,1,2],[30,2,1,4],[30,2,0,2],[32,2,0,0],[32,2,1,4],[22,3,2,4],[22,3,3,0],[22,3,6,4],[22,3,6,3],[22,3,5,4],[22,3,3,4],[22,3,2,3],[22,3,2,4],[22,3,4,2],[22,3,1,2],[22,3,6,4],[22,3,2,3],[22,3,2,3],[22,3,2,4],[22,3,6,2],[22,3,4,4],[22,3,5,0],[23,3,6,4],[23,3,1,4],[23,3,1,0],[23,3,2,4],[23,3,5,4],[23,3,5,2],[23,3,3,4],[23,3,6,4],[23,3,6,2],[23,3,6,4],[24,3,1,1],[24,3,6,4],[24,3,1,3],[24,3,1,2],[24,3,6,4],[24,3,1,0],[24,3,1,2],[24,3,4,1],[24,3,1,0],[24,3,0,0],[24,3,2,3],[24,3,3,4],[24,3,3,4],[24,3,1,4],[24,3,1,4],[24,3,1,4],[24,3,0,0],[24,3,2,4],[24,3,3,4],[26,3,2,4],[26,3,5,0],[30,3,1,4],[32,3,3,4],[32,3,0,4],[32,3,6,4],[26,3,2,4],[26,3,1,0],[32,3,1,4],[32,3,4,4],[26,3,0,4],[30,3,6,4],[30,3,1,2],[32,3,5,2],[32,3,4,1],[29,3,2,4],[30,3,2,0],[31,3,3,4],[32,3,6,1],[32,3,0,1],[26,3,1,0],[26,3,3,4],[26,3,4,4],[26,3,3,4],[28,3,1,4],[28,3,6,4],[30,3,3,1],[30,3,2,4],[30,3,3,4],[31,3,6,1],[30,3,3,1],[30,3,5,4],[31,3,3,4],[31,3,3,4],[32,3,3,4],[32,3,4,1],[32,3,0,0],[32,3,0,2],[30,3,1,0],[30,3,2,0],[30,3,2,3],[31,3,1,4],[31,3,1,1],[31,3,1,4],[31,3,1,0],[31,3,1,4],[31,3,1,2],[32,3,2,4],[32,3,1,2],[32,3,0,2],[32,3,1,4],[32,3,1,0],[31,3,3,4],[31,3,6,4],[31,3,6,2],[31,3,1,4],[31,3,2,4],[31,3,1,2],[31,3,1,4],[31,3,1,0],[31,3,6,4],[31,3,6,1],[31,3,1,4],[31,3,6,4],[31,3,1,2],[31,3,6,4],[31,3,3,4],[31,3,1,0],[31,3,3,4],[31,3,6,4],[31,3,0,0],[32,3,0,4],[23,3,3,4],[23,3,1,4],[23,3,1,4],[23,3,1,4],[26,3,1,4],[28,3,1,0],[30,3,1,4],[31,3,1,4],[31,3,1,4],[32,3,4,4],[32,3,1,2],[1,4,5,0],[5,4,1,4],[6,4,0,1],[6,4,0,4],[6,4,3,4],[7,4,0,2],[8,4,3,4],[8,4,1,4],[8,4,3,2],[8,4,6,4],[8,4,3,0],[8,4,3,2],[8,4,0,4],[9,4,2,4],[25,4,1,3],[12,4,6,4],[12,4,3,4],[12,4,3,0],[12,4,1,2],[13,4,5,2],[17,4,0,2],[17,4,2,4],[20,4,1,0],[20,4,5,2],[20,4,3,2],[20,4,1,4],[21,4,6,4],[27,4,1,4],[6,4,6,0],[6,4,0,4],[6,4,3,4],[6,4,0,0],[6,4,2,4],[7,4,5,4],[7,4,2,4],[7,4,1,1],[7,4,3,4],[7,4,3,4],[7,4,2,3],[8,4,3,2],[8,4,1,0],[8,4,5,4],[8,4,3,1],[8,4,4,4],[9,4,0,0],[9,4,5,4],[9,4,5,2],[12,4,1,1],[12,4,1,1],[13,4,3,2],[13,4,3,2],[18,4,3,4],[20,4,5,3],[20,4,1,4],[21,4,5,0],[21,4,5,2],[21,4,3,2],[21,4,6,4],[21,4,5,0],[24,4,2,4],[28,4,5,4],[1,4,3,2],[6,4,0,1],[6,4,5,0],[6,4,0,4],[6,4,0,1],[6,4,6,4],[6,4,3,0],[7,4,0,3],[7,4,3,4],[7,4,2,4],[7,4,3,4],[7,4,2,4],[7,4,0,3],[7,4,3,1],[7,4,3,4],[8,4,3,1],[8,4,5,4],[9,4,5,0],[25,4,1,4],[12,4,1,4],[12,4,0,4],[12,4,2,4],[12,4,0,3],[12,4,3,1],[18,4,1,4],[19,4,3,4],[19,4,3,4],[20,4,1,0],[20,4,6,1],[20,4,1,2],[20,4,1,0],[24,4,2,4],[24,4,2,4],[24,4,1,4],[24,4,3,1],[26,4,1,0],[31,4,3,1],[31,4,3,1],[31,4,3,0],[31,4,3,0],[6,4,3,0],[6,4,0,4],[6,4,1,4],[6,4,2,4],[9,4,0,0],[12,4,5,4],[12,4,3,4],[12,4,5,0],[14,4,3,4],[19,4,5,4],[19,4,5,4],[19,4,5,2],[20,4,1,1],[20,4,3,2],[20,4,1,4],[20,4,4,0],[20,4,2,4],[20,4,1,0],[20,4,3,4],[20,4,5,3],[20,4,1,0],[20,4,5,3],[20,4,3,4],[20,4,3,0],[20,4,1,3],[20,4,0,4],[20,4,0,1],[21,4,5,0],[21,4,5,1],[21,4,1,4],[1,4,5,2],[1,4,6,2],[1,4,3,2],[5,4,0,2],[6,4,0,2],[6,4,0,4],[7,4,0,4],[7,4,3,4],[7,4,1,2],[8,4,1,4],[8,4,2,4],[8,4,1,4],[8,4,2,1],[8,4,3,1],[8,4,3,2],[9,4,0,0],[9,4,0,4],[9,4,1,0],[9,4,6,1],[25,4,3,4],[25,4,3,3],[12,4,3,4],[12,4,2,4],[17,4,1,4],[20,4,1,4],[20,4,0,1],[20,4,3,4],[20,4,3,4],[20,4,3,2],[20,4,2,4],[20,4,5,1],[20,4,3,0],[20,4,3,2],[20,4,3,0],[20,4,0,0],[20,4,0,4],[5,4,0,2],[6,4,5,0],[7,4,6,4],[7,4,4,2],[7,4,0,1],[8,4,1,4],[8,4,2,4],[8,4,1,4],[8,4,3,4],[8,4,3,1],[9,4,5,4],[9,4,5,4],[9,4,5,4],[25,4,2,4],[12,4,5,0],[12,4,5,0],[13,4,3,4],[17,4,3,4],[20,4,2,4],[20,4,0,4],[20,4,0,1],[20,4,6,4],[20,4,1,4],[20,4,1,3],[20,4,1,4],[31,4,3,4],[31,4,3,0],[1,4,2,4],[1,4,2,4],[1,4,5,2],[1,4,5,2],[1,4,3,4],[6,4,1,4],[6,4,3,4],[6,4,3,1],[7,4,1,0],[7,4,3,4],[7,4,3,4],[7,4,2,4],[7,4,0,1],[8,4,0,4],[9,4,3,4],[12,4,5,4],[12,4,5,0],[17,4,1,3],[20,4,3,4],[20,4,3,4],[20,4,3,4],[20,4,3,4],[20,4,3,3],[20,4,0,4],[27,4,1,4],[31,4,5,4],[1,4,2,4],[1,4,3,2],[1,4,5,2],[1,4,1,4],[6,4,2,4],[6,4,5,2],[6,4,1,4],[6,4,5,0],[6,4,1,0],[6,4,3,0],[7,4,6,4],[7,4,0,4],[8,4,6,4],[8,4,5,2],[18,4,0,0],[20,4,1,2],[20,4,5,4],[20,4,1,4],[20,4,3,0],[20,4,5,4],[20,4,1,4],[20,4,1,4],[21,4,3,4],[21,4,1,2],[26,4,3,4],[27,4,5,3],[1,4,3,2],[1,4,3,0],[1,4,3,2],[6,4,1,4],[6,4,5,0],[6,4,1,3],[6,4,3,1],[7,4,6,0],[7,4,0,4],[7,4,6,4],[18,4,5,2],[28,4,5,0],[1,4,5,2],[6,4,3,4],[6,4,3,0],[6,4,0,0],[7,4,6,4],[7,4,3,2],[13,4,5,4],[18,4,0,2],[18,4,0,4],[28,4,5,1],[6,4,2,4],[6,4,2,4],[6,4,2,4],[6,4,1,4],[6,4,1,3],[6,4,0,1],[7,4,3,0],[7,4,1,2],[7,4,3,4],[7,4,3,0],[8,4,0,1],[9,4,4,0],[9,4,3,1],[13,4,5,4],[18,4,5,4],[21,4,3,0],[21,4,5,0],[21,4,5,1],[21,4,1,0],[21,4,4,4],[28,4,5,4],[24,4,2,3]];
+
 class Component extends DCLogic {
-  state = {open:{}, pillar:null, range:'2021-2024', hover:null, scrolled:false};
+  state = {open:{}, pillar:null, range:'2021-2024', hover:null, scrolled:false, werdCountry:W_ALL, werdDecs:W_DEC.slice(), werdDecsOpen:false};
 
   componentDidMount(){
     this.onScroll = () => {
@@ -506,7 +596,8 @@ class Component extends DCLogic {
     const card = function(id, tall){
       const p = byId(id);
       const on = s.pillar === id;
-      return {
+
+    return {
         blurb:p.blurb,
         expanded: on ? 'true' : 'false',
         label: on ? 'Cerrar −' : 'Ver subdimensiones +',
@@ -520,6 +611,45 @@ class Component extends DCLogic {
           ';border:1.5px solid ' + (on ? p.color : p.headBg)
       };
     };
+
+    // ── WERD chart data ───────────────────────────────────────────────────
+    var wP = s.werdCountry || W_ALL;
+    var wD = s.werdDecs || W_DEC.slice();
+    var wSc = wP === W_ALL ? W_C : [wP];
+    var wDS = {}; wD.forEach(function(d){ wDS[d] = true; });
+    var wCI = {}; W_C.forEach(function(c,i){ wCI[c] = i; });
+    function wByDec(c){ var r=W_RAW[c]; return [r[0],r[1],r[2],r[3],r[4]+r[5]]; }
+    function wTally(sc,decOk){
+    var cs={}; sc.forEach(function(c){ var i=wCI[c]; if(i!==undefined) cs[i]=true; });
+    var f=W_FOCOS.map(function(){return 0;}), n=0;
+    for(var ri=0;ri<W_REC.length;ri++){
+      var row=W_REC[ri],ci=row[0],di=row[1],fo=row[2];
+      if(!cs[ci]||!decOk(di)) continue; n++; f[fo]++;
+    }
+    return {n:n,f:f};
+    }
+    var wDT=W_DEC.map(function(_,i){ return wSc.reduce(function(sum,c){ return sum+wByDec(c)[i]; },0); });
+    var wMB=Math.max.apply(null,wDT.concat([1]));
+    var wC1=W_DEC.map(function(d,i){
+    var dim=!wDS[d];
+    return {label:W_DL[d],value:wDT[i],barH:Math.max(3,wDT[i]/wMB*160)+'px',
+            color:dim?'#DCE3E1':'#0D4A57',labelColor:dim?'#B0BBBF':'#0D4A57'};
+    });
+    var wR2=wTally(wSc,function(di){ return !!wDS[W_DEC[di]]; });
+    var wMF=Math.max.apply(null,wR2.f.concat([1]));
+    var wC2=W_FOCOS.map(function(fo,i){
+    return {label:fo.l,value:wR2.f[i],pct:wR2.n?Math.round(wR2.f[i]/wR2.n*100):0,
+            barW:(wR2.f[i]/wMF*100)+'%',color:fo.color,textColor:fo.m?'#B0BBBF':'#0D4A57'};
+    });
+    var wC3=W_DEC.map(function(d,di){
+    var r=wTally(wSc,function(ddi){return ddi===di;});
+    return {label:W_DL[d],n:r.n,segs:W_FOCOS.map(function(fo,i){
+      var p=r.n?r.f[i]/r.n*100:0;
+      return {h:p.toFixed(1)+'%',color:fo.color,showLabel:p>=10,
+              pctLabel:Math.round(p)+'%',title:fo.l+': '+Math.round(p)+'% ('+r.f[i]+')'};
+    })};
+    });
+    var wDecRangeLabel=wD.length===0?'Ninguna década':wD.length===W_DEC.length?'Todas las décadas':wD.map(function(d){return W_DL[d];}).join(', ');
     return {
       navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
 
@@ -604,6 +734,31 @@ class Component extends DCLogic {
           leave:function(){ self.setState({hover:null}); }
         };
       }),
+      werdSetPais:function(e){ self.setState({werdCountry:e.target.value,werdDecsOpen:false}); },
+      werdToggleDecs:function(){ self.setState({werdDecsOpen:!s.werdDecsOpen}); },
+      werdDecsOpen:!!s.werdDecsOpen,
+      werdArrowRot:s.werdDecsOpen?'rotate(180deg)':'rotate(0deg)',
+      werdDecLabel:!s.werdDecs||s.werdDecs.length===W_DEC.length?'Todas las décadas':s.werdDecs.length===0?'Ninguna':s.werdDecs.length+' décadas',
+      werdScopeLabel:wP===W_ALL?'Todos los países de ALC':wP,
+      werdDecRangeLabel:wDecRangeLabel,
+      werdCountryOpts:[W_ALL].concat(W_C).map(function(c){ return {value:c,label:c,sel:wP===c?'selected':''}; }),
+      werdDecOpts:W_DEC.map(function(d){
+        var on=s.werdDecs?s.werdDecs.indexOf(d)>=0:true;
+        return {
+          label:W_DL[d],checked:on,
+          boxStyle:'width:16px;height:16px;border-radius:4px;border:1.5px solid '+(on?'#0D4A57':'#DCE3E1')+';background:'+(on?'#0D4A57':'#fff')+';display:inline-flex;align-items:center;justify-content:center;flex-shrink:0',
+          toggle:(function(dec){ return function(){ var arr=(s.werdDecs||W_DEC.slice()).slice(),idx=arr.indexOf(dec); if(idx>=0) arr.splice(idx,1); else arr.push(dec); self.setState({werdDecs:arr}); }; })(d)
+        };
+      }),
+      werdChart1:wC1,
+      werdChart2:wC2,
+      werdChart2N:wR2.n,
+      werdChart2Empty:wR2.n===0,
+      werdChart2HasData:wR2.n>0,
+      werdChart2ShowWarn:wR2.n>0&&wR2.n<20,
+      werdChart2Warn:'Solo '+wR2.n+' reforma'+(wR2.n===1?'':'s')+' en esta selección: los porcentajes son poco representativos.',
+      werdChart3:wC3,
+      werdFocosLegend:W_FOCOS.map(function(f){ return {label:f.l,color:f.color}; }),
       exportCsv:function(){
         const csv = 'Dimensión,Reformas\n' + PILLARS.map(function(p,i){ return '"' + p.name + '",' + values[i]; }).join('\n');
         const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});

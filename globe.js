@@ -36,7 +36,8 @@ class ReformGlobe extends HTMLElement {
         {linea:'Financiamiento Progresivo', caso:'Subvención Escolar Preferencial (SEP)', href:'Detalle de Caso.dc.html'}
       ]},
       {name:'Brasil', lat:-15.79, lon:-47.88, casos:[
-        {linea:'Alfabetización Inicial', caso:'Modelo Sobral de Alfabetización', href:'Detalle de Caso.dc.html'}
+        {linea:'Alfabetización Inicial', caso:'Modelo Sobral de Alfabetización', href:'Detalle de Caso.dc.html'},
+        {linea:'Financiamiento Progresivo', caso:'Fondo de Manutenção e Desenvolvimento da Educação Básica (FUNDEB)', href:'Detalle de Caso.dc.html'}
       ], analizados:[
         {titulo:'Redistribución del ICMS por resultados educativos – Ceará', linea:'Financiamiento Progresivo', tabla:[
           {campo:'País / región', valor:'Estado de Ceará, Brasil (subnacional)'},
@@ -46,15 +47,6 @@ class ReformGlobe extends HTMLElement {
           {campo:'Mecanismo de cálculo', valor:'El 25% del ICMS estatal redistributivo se divide: 18 pp para Educación, 5 pp para Salud y 2 pp para Medioambiente. La distribución sigue una fórmula basada en un índice de calidad educativa municipal que combina niveles y mejoras de aprendizaje y progresión de los estudiantes.'},
           {campo:'Usos permitidos de los recursos', valor:'Transferencia de uso libre: los alcaldes pueden emplear los recursos en cualquier sector, incluso ajeno a la educación. El diseño premia el resultado, no condiciona el gasto.'},
           {campo:'Evidencia de resultados disponible', valor:'Efectos positivos significativos: 5,47–7,49 puntos en portugués y 3,94–5,6 en matemáticas (Petterini & Irffi, 2013). Municipios de Ceará gastan menos de un tercio que los estados más ricos y obtienen resultados mejores (Banco Mundial).'}
-        ]},
-        {titulo:'Fondo de Manutenção e Desenvolvimento da Educação Básica (FUNDEB)', linea:'Financiamiento Progresivo', tabla:[
-          {campo:'País / región', valor:'Brasil (federal: Unión, 26 estados y Distrito Federal)'},
-          {campo:'Categoría de mecanismo', valor:'Fondo redistributivo federal con complementación automática del gobierno central'},
-          {campo:'Año de implementación', valor:'FUNDEF (1997) → FUNDEB (2007) → constitucionalizado de forma permanente en 2020 mediante la Enmienda Constitucional 108.'},
-          {campo:'Criterios de focalización', valor:'Jurisdiccional: estados cuyo gasto por alumno no alcanza el valor mínimo nacional. La complementación federal es automática para los estados que quedan bajo el piso de referencia.'},
-          {campo:'Mecanismo de cálculo', valor:'Fondo contable estadual integrado por 20% de impuestos educacionales estaduales y municipales. El gobierno federal complementa automáticamente hasta el valor mínimo alumno/año, diferenciado por etapa y modalidad educativa.'},
-          {campo:'Usos permitidos de los recursos', valor:'Mínimo 70% en remuneraciones del personal docente y técnico. El FUNDEB 2020 reservó 20% adicional exclusivamente para docentes de educación básica pública en ejercicio.'},
-          {campo:'Evidencia de resultados disponible', valor:'Reduce la brecha de gasto entre estados ricos y pobres. Efectos positivos en resultados educativos, concentrados en los cuartiles bajos (+0.15 DE en SAEB, estados beneficiarios vs. control). Constitucionalizado por amplio consenso político en 2020.'}
         ]}
       ]},
       {name:'Australia', lat:-35.28, lon:149.13, casos:[], analizados:[
@@ -142,6 +134,9 @@ class ReformGlobe extends HTMLElement {
         ]},
         {titulo:'Programa Nacional de Promoção do Sucesso Escolar (PNPSE)', linea:'Alfabetización Inicial'}
       ]},
+      {name:'Francia', lat:46.23, lon:2.21, casos:[
+        {linea:'Financiamiento Progresivo', caso:"Réseaux d'Éducation Prioritaire + (REP+)", href:'Detalle de Caso.dc.html'}
+      ], analizados:[]},
       {name:'Canadá', lat:45.42, lon:-75.69, casos:[], analizados:[
         {titulo:'Programa de Alfabetización – Canadá', linea:'Alfabetización Inicial'}
       ]},
@@ -151,9 +146,9 @@ class ReformGlobe extends HTMLElement {
       {name:'India', lat:28.61, lon:77.21, casos:[], analizados:[
         {titulo:'National Initiative for Proficiency in Reading with Understanding and Numeracy (NIPUN Bharat)', linea:'Alfabetización Inicial'}
       ]},
-      {name:'Irlanda', lat:53.33, lon:-6.25, casos:[], analizados:[
-        {titulo:'Literacy and Numeracy Strategy – Irlanda', linea:'Alfabetización Inicial'}
-      ]},
+      {name:'Irlanda', lat:53.33, lon:-6.25, casos:[
+        {linea:'Alfabetización Inicial', caso:'Literacy and Numeracy Strategy', href:'Detalle de Caso.dc.html'}
+      ], analizados:[]},
       {name:'Kenia', lat:-1.29, lon:36.82, casos:[], analizados:[
         {titulo:'Tusome – Programa Nacional de Alfabetización, Kenia', linea:'Alfabetización Inicial'}
       ]},

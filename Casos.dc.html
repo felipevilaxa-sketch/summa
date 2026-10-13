@@ -372,7 +372,70 @@ const CASES = [
      {label:'Gestión e implementación', value:'Secretaría Municipal de Educación de Sobral con fuerte liderazgo pedagógico y capacidad técnica local. Modelo replicado en otros municipios de Ceará y fuera del estado.'},
      {label:'Sostenibilidad, ajustes y rediseño', value:'El modelo se ha mantenido con continuidad institucional desde 2007. Sobral ha sido referencia para la política de alfabetización del estado de Ceará (PAIC) y para políticas nacionales de Brasil.'}
    ],
-   scores:{contextoSocio:1, contextoEdu:1, costoEst:1, resultados:3, reciente:2007}}
+   scores:{contextoSocio:1, contextoEdu:1, costoEst:1, resultados:3, reciente:2007}},
+
+  {id:'fundeb', linea:'fin', title:'FUNDEB – Fondo de Manutenção e Desenvolvimento da Educação Básica', country:'Brasil', region:'América del Sur',
+   years:'2007 / 2020', start:2007, img:'assets/case-2.jpg', ready:false,
+   href:'#',
+   wise:['insumos','habilitantes'],
+   stat:'2020', statColor:'#E8A33D', statLabel:'año de rango constitucional permanente',
+   tiles:[
+     {label:'Contexto socioeconómico', value:'USD 5.900 · Gini 0.55', hint:'PIB per cápita e índice de Gini, 2007'},
+     {label:'Contexto educativo', value:'40% bajo nivel mínimo', hint:'Lectura SAEB 4° año, 2007'},
+     {label:'Costo por estudiante', value:'USD 9/año adicional', hint:'Complementación federal promedio por alumno'},
+     {label:'Resultados de aprendizaje', value:'+0.15 DE', hint:'SAEB, estados beneficiarios vs. control'}
+   ],
+   rows:[
+     {label:'Unidad de focalización', value:'Jurisdiccional: estados cuyo gasto por alumno no alcanza el valor mínimo nacional fijado por el gobierno federal.'},
+     {label:'Mecanismo de cálculo y asignación', value:'Fondo contable estadual (20% de impuestos educacionales) con complementación federal automática; valor alumno/año diferenciado por etapa y modalidad.'},
+     {label:'Condiciones y libertad de uso', value:'Mínimo 70% en remuneraciones del personal; 20% adicional (FUNDEB 2020) destinado exclusivamente a docentes de educación básica pública.'},
+     {label:'Efecto distributivo y justicia educativa', value:'Reduce la brecha de gasto entre estados ricos y pobres; complementación federal altamente progresiva aunque pequeña frente al gasto total estadual.'},
+     {label:'Gestión e implementación', value:'Ministerio de Educación federal, secretarías estaduales y municipales; comités de control social en cada estado.'},
+     {label:'Sostenibilidad y rediseño', value:'FUNDEF (1997) → FUNDEB (2007) → constitucionalizado de forma permanente en 2020 mediante la Enmienda Constitucional 108.'}
+   ],
+   scores:{contextoSocio:2, contextoEdu:2, costoEst:2, resultados:2, reciente:2007}},
+
+  {id:'repp', linea:'fin', title:"Réseaux d'Éducation Prioritaire + (REP+)", country:'Francia', region:'Europa',
+   years:'2015 – actualidad', start:2015, img:'assets/case-3.jpg', ready:false,
+   href:'#',
+   wise:['insumos','habilitantes'],
+   stat:'2015', statColor:'#0D4A57', statLabel:'año de relanzamiento REP+',
+   tiles:[
+     {label:'Contexto socioeconómico', value:'USD 42.000 · Gini 0.29', hint:'PIB per cápita e índice de Gini, 2014'},
+     {label:'Contexto educativo', value:'20% bajo nivel mínimo', hint:'Proporción de alumnos bajo nivel básico en lectura, PISA 2012'},
+     {label:'Costo por estudiante', value:'~€400/año adicional', hint:'Recursos suplementarios por alumno en zonas REP+'},
+     {label:'Resultados de aprendizaje', value:'+0.08–0.12 DE', hint:'Ganancias en comprensión lectora, evaluaciones internas del Ministerio 2017–2022'}
+   ],
+   rows:[
+     {label:'Unidad de focalización', value:'Institucional y territorial: establecimientos clasificados en zonas de educación prioritaria según índice de vulnerabilidad socioeconómica (ISP).'},
+     {label:'Mecanismo de cálculo y asignación', value:'Asignación complementaria basada en la clasificación REP o REP+: mayor dotación de personal (horas extra, bonificación salarial) y recursos pedagógicos adicionales.'},
+     {label:'Condiciones y libertad de uso', value:'Recursos vinculados a proyectos de red aprobados por la académie. Los establecimientos deben desarrollar proyectos conjuntos y comprometerse con indicadores de seguimiento.'},
+     {label:'Efecto distributivo y justicia educativa', value:'Concentra recursos en escuelas con mayor proporción de alumnos de familias obreras, inmigrantes y en situación de pobreza. Evaluación externa muestra reducciones moderadas en la brecha de rendimiento.'},
+     {label:'Gestión e implementación', value:'Ministerio de Educación Nacional (DGESCO). Las académies coordinan las redes REP+ y supervisan los contratos de objetivos plurianuales.'},
+     {label:'Sostenibilidad y rediseño', value:'Evolución desde las ZEP (1981) → REP → REP+ (2015). Programa sostenido a través de gobiernos de distinto signo político, aunque la cobertura y los criterios han variado con cada reforma.'}
+   ],
+   scores:{contextoSocio:3, contextoEdu:2, costoEst:3, resultados:2, reciente:2015}},
+
+  {id:'irlanda_lec', linea:'lec', title:'Literacy and Numeracy Strategy – Irlanda', country:'Irlanda', region:'Europa',
+   years:'2011 – 2020', start:2011, img:'assets/case-1.jpg', ready:false,
+   href:'#',
+   wise:['apoyo','practicas'],
+   stat:'2011', statColor:'#4E7220', statLabel:'año de lanzamiento nacional',
+   tiles:[
+     {label:'Contexto socioeconómico', value:'USD 48.000 · Gini 0.31', hint:'PIB per cápita e índice de Gini, 2010'},
+     {label:'Contexto educativo', value:'17% bajo nivel mínimo', hint:'Proporción de alumnos bajo nivel 2 en lectura, PISA 2009'},
+     {label:'Costo por estudiante', value:'Información en revisión', hint:'Datos de costo total en proceso de sistematización'},
+     {label:'Resultados de aprendizaje', value:'+5 pts PISA lectura', hint:'Mejora en puntaje promedio PISA entre 2009 y 2018, con reducción de la cola baja'}
+   ],
+   rows:[
+     {label:'Propuesta pedagógica y materiales', value:'Estrategia nacional con estándares explícitos de lectura y numeración por ciclo, recursos didácticos alineados y evaluación diagnóstica estandarizada para los grados 2 y 4.'},
+     {label:'Formación y acompañamiento docente', value:'Formación continua a través del PDST; asesores de literacy desplegados en centros de mayor necesidad; grupos de aprendizaje profesional entre docentes.'},
+     {label:'Evaluación y uso de la información', value:'Pruebas estandarizadas obligatorias en 2° y 4° grado (Drumcondra). Los resultados alimentan el plan de mejora de cada centro y son reportados a la Inspección.'},
+     {label:'Equidad y adaptación al contexto', value:'Foco explícito en escuelas DEIS (Delivering Equality of Opportunity in Schools), que atienden poblaciones de alta desventaja con apoyo adicional de personal y recursos.'},
+     {label:'Gestión e implementación', value:'Departamento de Educación y Habilidades (DES); implementación a través del NCCA y el PDST. Coordinación entre escuelas primarias y secundarias.'},
+     {label:'Sostenibilidad y rediseño', value:'La estrategia 2011–2020 fue seguida por la Literacy for Life Framework (2021–2025), que amplía el enfoque a adultos y familias a lo largo de la vida.'}
+   ],
+   scores:{contextoSocio:3, contextoEdu:2, costoEst:1, resultados:2, reciente:2011}}
 ];
 const WISE = {
   insumos:'Insumos y condiciones estructurales',
@@ -533,7 +596,7 @@ class Component extends DCLogic {
 
     return {
       navShadow: s.scrolled ? '0 4px 20px rgba(13,74,87,.09)' : 'none',
-      countLabel: s.mode === 'lista' ? '2 casos en total (1 por Área de reforma)' : 'Compara hasta 3 casos',
+      countLabel: s.mode === 'lista' ? '5 casos en total' : 'Compara hasta 3 casos',
 
       modes: [['lista','Listado'],['comparador','Comparador']].map(function(m){
         const on = s.mode === m[0];

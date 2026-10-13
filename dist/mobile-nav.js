@@ -1,11 +1,13 @@
 (function(){
   var LINKS = [
+    ['¿Qué es?', 'que-es.html', 'que-es.html'],
     ['Modelo conceptual', 'Marco WISE.dc.html', 'marco-wise.html'],
-    ['Áreas de Reforma', 'Lineas de Reforma.dc.html', 'lineas-de-reforma.html']
+    ['Criterios de selección', 'Criterios de Seleccion.dc.html', 'criterios-de-seleccion.html']
   ];
   var DC = location.pathname.indexOf('.dc.html') > -1;
   function href(l){ return DC ? l[1] : l[2]; }
   var CASES = DC ? 'Casos.dc.html' : 'casos.html';
+  var AREAS = DC ? 'Lineas de Reforma.dc.html' : 'lineas-de-reforma.html';
 
   /* ── Push platform header below #sih (mobile only) ───────────────── */
   function adjustForSih(navWrapper) {
@@ -103,6 +105,7 @@
                   '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8CA0A5" stroke-width="2.2" aria-hidden="true"><polyline points="9 6 15 12 9 18"></polyline></svg></a>';
               }).join('') +
             '</nav>' +
+            '<a href="' + AREAS + '" style="font-family:Lato,sans-serif;display:flex;align-items:center;justify-content:center;border:1.5px solid #0D4A57;background:#fff;color:#0D4A57;font-size:14px;letter-spacing:.03em;padding:15px 22px;border-radius:999px;text-decoration:none;margin-bottom:10px">ÁREAS DE REFORMA</a>' +
             '<a href="' + CASES + '" style="font-family:Lato,sans-serif;display:flex;align-items:center;justify-content:center;border:1.5px solid #0D4A57;background:#0D4A57;color:#fff;font-size:14px;letter-spacing:.03em;padding:15px 22px;border-radius:999px;text-decoration:none">EXPLORAR CASOS</a>' +
           '</div>' +
         '</div>';
@@ -406,24 +409,188 @@
   /* ── Criterios de Selección: filtros carousel ──────────────────── */
   patchCarousel('[data-m="cds-filters"]');
 
-  /* ── Detalle de Caso: main tabs → select principal ───────────────── */
-  patchTabsAsSelect('[data-m="dc-main-tabs"]', {
-    hint: 'Este caso está organizado en secciones. Usa el menú para navegar entre ellas.',
-    placeholder: '__mob-main-sel',
-    wrapStyle: 'margin:12px 0 16px'
-  });
+  /* ── Submenú de secciones (mobile, ≤900px) ──────────────────────────────
+     Componente común: reemplaza las pestañas de una página por un solo control.
+     Botón del color del menú sobre una franja blanca de ancho completo, con un panel desplegable
+     propio (agrupado si hay pestañas secundarias); la franja queda fija bajo el header de la
+     plataforma al hacer scroll. Se usa en Detalle de caso, Modelo conceptual, Áreas de Reforma
+     y el detalle de un área de reforma. */
+  function mobileSubmenu(cfg){
+    if (window.innerWidth > 900) return;
+    var BAR_BG = '#0D4A57', INK = '#FFFFFF', PAD = 'clamp(20px,4vw,40px)';
 
-  /* ── Detalle de Caso: secondary tabs → select secundario ─────────── */
-  patchTabsAsSelect('[data-m="dc-sec-tabs"]', {
-    color: '#4F6B72',
-    border: '1px solid #DCE3E1',
-    fontSize: '13px',
-    fontWeight: '500',
-    padding: '10px 36px 10px 14px',
-    chevronColor: '#4F6B72',
-    placeholder: '__mob-sec-sel',
-    wrapStyle: 'margin:0 0 32px'
-  });
+    function headBottom(){
+      var tn = document.querySelector('[data-m=topnav]');
+      return tn && tn.parentElement ? Math.max(0, Math.round(tn.parentElement.getBoundingClientRect().bottom)) : 0;
+    }
+
+    function tryPatch(){
+      var src = cfg.collect();   /* {groups:[{label, btns}], hide:[elementos], spot:elemento, hint:texto|null} */
+      if (!src) return false;
+      src.hide.forEach(function(el){ el.dataset.mobSelect = '1'; el.style.display = 'none'; });
+      var groups = src.groups;
+      var all = [];
+      groups.forEach(function(g){ all = all.concat(g.btns); });
+
+      var hint = null;
+      if (src.hint) {
+        hint = document.createElement('p');
+        hint.textContent = src.hint;
+        hint.style.cssText = 'margin:14px 0 10px;font-family:Lato,sans-serif;font-size:14px;color:#516268;line-height:1.45';
+      }
+
+      var anchor = document.createElement('div');   /* guarda el lugar cuando la barra pasa a estar fija */
+
+      var bar = document.createElement('div');
+      bar.setAttribute('data-m', 'mob-submenu');
+      bar.style.cssText = 'position:relative;z-index:45;background:#fff;margin:0 calc(-1 * ' + PAD + ') 16px;padding:10px ' + PAD + ' 10px';
+      var box = document.createElement('div');
+      box.style.cssText = 'position:relative';
+
+      var trigger = document.createElement('button');
+      trigger.type = 'button';
+      trigger.setAttribute('aria-haspopup', 'listbox');
+      trigger.setAttribute('aria-expanded', 'false');
+      trigger.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;font-family:Lato,sans-serif;font-size:16px;font-weight:700;color:' + INK + ';background:' + BAR_BG + ';border:none;border-radius:12px;padding:14px 18px;cursor:pointer;text-align:left;box-shadow:0 8px 18px -10px rgba(13,74,87,.55)';
+      var label = document.createElement('span');
+      label.style.cssText = 'display:flex;flex-direction:column;gap:1px;min-width:0';
+      var kicker = document.createElement('span');
+      kicker.style.cssText = 'font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#D4FBA1';
+      kicker.textContent = 'Sección';
+      var current = document.createElement('span');
+      current.style.cssText = 'overflow:hidden;text-overflow:ellipsis;white-space:nowrap';
+      label.appendChild(kicker); label.appendChild(current);
+      var chev = document.createElement('span');
+      chev.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="' + INK + '" stroke-width="2.6" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+      chev.style.cssText = 'display:flex;flex-shrink:0;transition:transform .2s';
+      trigger.appendChild(label); trigger.appendChild(chev);
+
+      var panel = document.createElement('div');
+      panel.setAttribute('role', 'listbox');
+      panel.style.cssText = 'display:none;position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid #DCE3E1;border-radius:12px;box-shadow:0 18px 38px -12px rgba(13,74,87,.35);padding:6px 0;max-height:60vh;overflow-y:auto;-webkit-overflow-scrolling:touch';
+
+      var items = [];
+      groups.forEach(function(g, gi){
+        if (groups.length > 1) {   /* títulos de grupo solo si hay más de un grupo */
+          var h = document.createElement('div');
+          h.textContent = g.label;
+          h.style.cssText = 'font-family:Lato,sans-serif;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7C8B8D;padding:' + (gi ? '12px' : '8px') + ' 18px 6px;' + (gi ? 'border-top:1px solid #ECF1EF;margin-top:4px' : '');
+          panel.appendChild(h);
+        }
+        g.btns.forEach(function(b){
+          var it = document.createElement('button');
+          it.type = 'button';
+          it.setAttribute('role', 'option');
+          it.textContent = b.textContent.trim();
+          it.style.cssText = 'display:flex;align-items:center;justify-content:space-between;width:100%;font-family:Lato,sans-serif;font-size:16px;color:#17242A;background:none;border:none;padding:12px 18px;text-align:left;cursor:pointer';
+          it.addEventListener('click', function(){ choose(b); });
+          panel.appendChild(it);
+          items.push({btn:b, el:it});
+        });
+      });
+
+      box.appendChild(trigger); box.appendChild(panel); bar.appendChild(box);
+      var after = src.spot;
+      if (hint) { after.insertAdjacentElement('afterend', hint); after = hint; }
+      after.insertAdjacentElement('afterend', anchor);
+      anchor.insertAdjacentElement('afterend', bar);
+
+      function sync(){
+        items.forEach(function(x){
+          var on = x.btn.getAttribute('aria-selected') === 'true';
+          x.el.setAttribute('aria-selected', on ? 'true' : 'false');
+          x.el.style.fontWeight = on ? '700' : '500';
+          x.el.style.background = on ? '#E6F0F3' : 'none';
+          x.el.style.boxShadow = on ? 'inset 4px 0 0 ' + BAR_BG : 'none';
+          if (on) current.textContent = x.el.textContent;
+        });
+      }
+      sync();
+      var mo = new MutationObserver(sync);
+      all.forEach(function(b){ mo.observe(b, { attributes:true, attributeFilter:['aria-selected'] }); });
+
+      function open(v){
+        panel.style.display = v ? 'block' : 'none';
+        trigger.setAttribute('aria-expanded', v ? 'true' : 'false');
+        chev.style.transform = v ? 'rotate(180deg)' : 'none';
+      }
+      trigger.addEventListener('click', function(e){ e.stopPropagation(); open(panel.style.display !== 'block'); });
+      panel.addEventListener('click', function(e){ e.stopPropagation(); });
+      document.addEventListener('click', function(){ open(false); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') open(false); });
+
+      function toContent(){
+        var y = anchor.getBoundingClientRect().top + window.pageYOffset - headBottom();
+        if (window.pageYOffset > y) window.scrollTo(0, y);
+        place();
+      }
+      function choose(b){
+        open(false);
+        b.click();
+        setTimeout(toContent, 450);
+      }
+
+      /* fija bajo el header al pasar por su posición */
+      var fixed = false;
+      function place(){
+        var top = headBottom();
+        var shouldFix = anchor.getBoundingClientRect().top <= top;
+        if (shouldFix && !fixed) {
+          fixed = true;
+          anchor.style.height = bar.offsetHeight + 'px';
+          anchor.style.marginBottom = '16px';
+          bar.style.position = 'fixed';
+          bar.style.left = '0'; bar.style.right = '0';
+          bar.style.margin = '0';
+          bar.style.boxShadow = '0 6px 14px -10px rgba(23,36,42,.35)';
+        } else if (!shouldFix && fixed) {
+          fixed = false;
+          anchor.style.height = ''; anchor.style.marginBottom = '';
+          bar.style.position = 'relative';
+          bar.style.left = ''; bar.style.right = '';
+          bar.style.margin = '0 calc(-1 * ' + PAD + ') 16px';
+          bar.style.boxShadow = 'none';
+          bar.style.removeProperty('top');
+        }
+        if (fixed) bar.style.setProperty('top', top + 'px', 'important');
+      }
+      window.addEventListener('scroll', function(){ place(); setTimeout(place, 220); }, { passive:true });
+      window.addEventListener('resize', place);
+      place();
+      /* si la página abrió una pestaña desde un enlace (#ancla o botón del hero), dejar el contenido bajo la franja */
+      window.__mobSubmenuToContent = toContent;
+      return true;
+    }
+    if (!tryPatch()) {
+      var obs = new MutationObserver(function(){ if (tryPatch()) obs.disconnect(); });
+      obs.observe(document.body, { childList:true, subtree:true });
+      setTimeout(function(){ obs.disconnect(); }, 8000);
+    }
+  }
+
+  /* Detalle de caso: secciones + materiales de apoyo en un solo submenú */
+  mobileSubmenu({ collect: function(){
+    var main = document.querySelector('[data-m="dc-main-tabs"]');
+    var sec  = document.querySelector('[data-m="dc-sec-tabs"]');
+    if (!main || main.dataset.mobSelect) return null;
+    var mainBtns = Array.from(main.querySelectorAll('[role="tab"]'));
+    var secBtns  = sec ? Array.from(sec.querySelectorAll('[role="tab"]')) : [];
+    if (mainBtns.length < 2) return null;
+    var groups = [{label:'Secciones del caso', btns:mainBtns}];
+    if (secBtns.length) groups.push({label:'Materiales de apoyo', btns:secBtns});
+    return { groups:groups, hide: sec ? [main, sec] : [main],
+             spot: document.getElementById('__mob-main-sel') || main,
+             hint: 'Este caso está organizado en secciones. Usa el menú para navegar entre ellas.' };
+  }});
+
+  /* Modelo conceptual, Áreas de Reforma y detalle de un área: la barra de pestañas fija pasa a submenú */
+  mobileSubmenu({ collect: function(){
+    var bar = document.querySelector('[data-m="mw-tabs"]');
+    if (!bar || bar.dataset.mobSelect) return null;
+    var btns = Array.from(bar.querySelectorAll('[role="tab"]'));
+    if (btns.length < 2) return null;
+    return { groups:[{label:'Secciones', btns:btns}], hide:[bar], spot:bar, hint:null };
+  }});
 
   /* ── Criterios de Selección: dos selectores (línea + caso) ─────────
      Aplica en desktop y mobile. Los controles originales quedan ocultos
@@ -461,6 +628,18 @@
       });
       outer.appendChild(sel);
       outer.appendChild(chev);
+      outer.__rebuild = function(newBtns){
+        btns.length = 0;
+        newBtns.forEach(function(b){ btns.push(b); mo.observe(b, { attributes: true, attributeFilter: [activeAttr] }); });
+        while (sel.options.length) sel.remove(0);
+        btns.forEach(function(btn, i){
+          var opt = document.createElement('option');
+          opt.value = i;
+          opt.textContent = btn.textContent.trim();
+          if (btn.getAttribute(activeAttr) === 'true') opt.selected = true;
+          sel.appendChild(opt);
+        });
+      };
       return outer;
     }
 
@@ -497,6 +676,7 @@
           if (lineaSel) {
             lineaSel.addEventListener('change', function() {
               setTimeout(function() {
+                w2.__rebuild(Array.from(casosEl.querySelectorAll('button')));
                 if (casosSel.options.length > 0) casosSel.selectedIndex = 0;
               }, 180);
             });
@@ -742,6 +922,8 @@
   (function(){
 
     var SEL_CSS = 'appearance:none;-webkit-appearance:none;font-family:Lato,sans-serif;font-size:15px;font-weight:600;color:#0D4A57;background:#fff;border:1.5px solid #0D4A57;border-radius:10px;padding:13px 42px 13px 16px;cursor:pointer;outline:none;box-sizing:border-box';
+    /* mobile: tamaños mínimos de texto */
+    if (window.innerWidth < 900) SEL_CSS = SEL_CSS.replace('font-size:15px', 'font-size:16px');
     var CHEVRON = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0D4A57" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>';
     var CHEV_CSS = 'position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex;align-items:center';
 
@@ -834,7 +1016,7 @@
         : SEL_CSS + ';min-width:220px;text-align:left;position:relative;display:inline-flex;align-items:center';
 
       var triggerLabel = document.createElement('span');
-      triggerLabel.textContent = 'Selecciona casos';
+      triggerLabel.textContent = getLabelText(); /* refleja casos ya preseleccionados (p. ej. desde "Comparar" en una tarjeta) */
       triggerLabel.style.cssText = 'flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:4px';
       trigger.appendChild(triggerLabel);
       trigger.appendChild(makeChev());
@@ -855,7 +1037,7 @@
 
         if (!filtered.length) {
           var empty = document.createElement('div');
-          empty.style.cssText = 'padding:12px 16px;font-family:Lato,sans-serif;font-size:13px;color:#8CA0A5';
+          empty.style.cssText = 'padding:12px 16px;font-family:Lato,sans-serif;font-size:' + (isMob ? '14px' : '13px') + ';color:#8CA0A5';
           empty.textContent = 'Sin casos para esta línea';
           dropdown.appendChild(empty);
           return;
@@ -863,13 +1045,13 @@
 
         filtered.forEach(function(c) {
           var item = document.createElement('label');
-          item.style.cssText = 'display:flex;align-items:flex-start;gap:10px;padding:9px 16px;cursor:pointer;transition:background .1s';
+          item.style.cssText = 'display:flex;align-items:flex-start;gap:' + (isMob ? '12px' : '10px') + ';padding:' + (isMob ? '12px 16px' : '9px 16px') + ';cursor:pointer;transition:background .1s';
           item.addEventListener('mouseenter', function() { item.style.background = '#F4F7F6'; });
           item.addEventListener('mouseleave', function() { item.style.background = ''; });
 
           var cb = document.createElement('input');
           cb.type = 'checkbox';
-          cb.style.cssText = 'width:15px;height:15px;margin-top:2px;accent-color:#0D4A57;cursor:pointer;flex-shrink:0';
+          cb.style.cssText = (isMob ? 'width:20px;height:20px;margin-top:1px;' : 'width:15px;height:15px;margin-top:2px;') + 'accent-color:#0D4A57;cursor:pointer;flex-shrink:0';
           cb.checked = c.btn.getAttribute('aria-pressed') === 'true';
 
           cb.addEventListener('change', function(e) {
@@ -887,10 +1069,10 @@
 
           var info = document.createElement('div');
           var titleEl = document.createElement('span');
-          titleEl.style.cssText = 'display:block;font-family:Lato,sans-serif;font-size:13.5px;color:#17242A;line-height:1.3';
+          titleEl.style.cssText = 'display:block;font-family:Lato,sans-serif;font-size:' + (isMob ? '16px' : '13.5px') + ';color:#17242A;line-height:1.3';
           titleEl.textContent = c.title;
           var lineaEl = document.createElement('span');
-          lineaEl.style.cssText = 'display:block;font-family:Lato,sans-serif;font-size:11.5px;color:#8CA0A5;margin-top:1px';
+          lineaEl.style.cssText = 'display:block;font-family:Lato,sans-serif;font-size:' + (isMob ? '14px' : '11.5px') + ';color:' + (isMob ? '#4F6B72' : '#8CA0A5') + ';margin-top:' + (isMob ? '3px' : '1px');
           lineaEl.textContent = c.lineaLabel;
           info.appendChild(titleEl);
           info.appendChild(lineaEl);
@@ -902,7 +1084,7 @@
         });
 
         var note = document.createElement('div');
-        note.style.cssText = 'padding:7px 16px 3px;font-family:Lato,sans-serif;font-size:11px;color:#8CA0A5;border-top:1px solid #F0F4F3;margin-top:4px';
+        note.style.cssText = 'padding:' + (isMob ? '10px 16px 6px' : '7px 16px 3px') + ';font-family:Lato,sans-serif;font-size:' + (isMob ? '13px' : '11px') + ';color:#7C8B8D;border-top:1px solid #F0F4F3;margin-top:4px';
         note.textContent = 'Máximo 3 casos a la vez';
         dropdown.appendChild(note);
       }
@@ -943,8 +1125,14 @@
       row.appendChild(lineaWrap);
       row.appendChild(casosWrap);
 
-      /* Insert after the header element */
-      header.insertAdjacentElement('afterend', row);
+      /* Insert into the toolbar slot when present, otherwise after the header element */
+      var slot = document.querySelector('[data-m="cmp-selectors-slot"]');
+      if (slot) {
+        row.style.marginBottom = '0';
+        slot.appendChild(row);
+      } else {
+        header.insertAdjacentElement('afterend', row);
+      }
       return true;
     }
 
@@ -953,4 +1141,247 @@
       obs.observe(document.body, { childList: true, subtree: true });
     }
   })();
+})();
+
+/* ── Tamaños mínimos de texto en mobile (≤760px) ────────────────────
+   Párrafos principales y descripción del hero: 16px · texto secundario: 14px ·
+   etiquetas cortas / mayúsculas / chips: 12px · campos de formulario: 16px.
+   No toca desktop, el header institucional (#sih) ni textos dentro de gráficos SVG. */
+(function(){
+  if (window.__mobileTypeInit) return;
+  window.__mobileTypeInit = true;
+
+  var MQ = window.matchMedia('(max-width:760px)');
+  var MARK = 'data-fs-min';
+
+  function ownText(el){
+    var s = '';
+    for (var i = 0; i < el.childNodes.length; i++) {
+      var n = el.childNodes[i];
+      if (n.nodeType === 3) s += n.textContent;
+    }
+    return s.replace(/\s+/g, ' ').trim();
+  }
+
+  function targetFor(el, fs, cs, text){
+    var tag = el.tagName;
+    if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return 16;
+    if (tag === 'P' && el.closest('[data-m="hero-story"]')) return 16;
+    if (cs.textTransform === 'uppercase' || text.length <= 40) return 12;
+    if (tag === 'P' && fs >= 14.5) return 16;
+    return 14;
+  }
+
+  function fix(el){
+    if (el.nodeType !== 1 || el.closest('#sih') || el.closest('svg')) return;
+    var tag = el.tagName;
+    var isField = tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA';
+    var heroDesc = tag === 'P' && !!el.closest('[data-m="hero-story"]');
+    var text = isField ? 'campo' : ownText(el);
+    /* la descripción del hero cambia con cada diapositiva (a veces vacía): se fija igual para evitar saltos */
+    if (!text && !heroDesc) return;
+    if (el.hasAttribute(MARK)) return;
+    var cs = getComputedStyle(el);
+    var fs = parseFloat(cs.fontSize);
+    if (!fs || fs >= 16) return;
+    var target = targetFor(el, fs, cs, text);
+    if (fs < target) {
+      el.style.setProperty('font-size', target + 'px', 'important');
+      el.setAttribute(MARK, target);
+    }
+  }
+
+  function scan(root){
+    if (!MQ.matches) return;
+    if (root.nodeType === 1) fix(root);
+    var all = (root.querySelectorAll ? root.querySelectorAll('*') : []);
+    for (var i = 0; i < all.length; i++) fix(all[i]);
+  }
+
+  function undo(){
+    var els = document.querySelectorAll('[' + MARK + ']');
+    for (var i = 0; i < els.length; i++) {
+      els[i].style.removeProperty('font-size');
+      els[i].removeAttribute(MARK);
+    }
+  }
+
+  /* El contenido se renderiza y cambia después de la carga (pestañas, comparador, menús):
+     se vuelve a revisar lo nuevo, agrupando los cambios en una sola pasada. */
+  var pending = [], queued = false;
+  function queue(node){
+    pending.push(node);
+    if (queued) return;
+    queued = true;
+    setTimeout(function(){
+      queued = false;
+      var list = pending; pending = [];
+      for (var i = 0; i < list.length; i++) scan(list[i]);
+    }, 30);
+  }
+  var mo = new MutationObserver(function(muts){
+    if (!MQ.matches) return;
+    for (var i = 0; i < muts.length; i++) {
+      var m = muts[i];
+      if (m.type === 'childList') {
+        for (var j = 0; j < m.addedNodes.length; j++) if (m.addedNodes[j].nodeType === 1) queue(m.addedNodes[j]);
+        if (m.target.nodeType === 1) queue(m.target);
+      } else if (m.type === 'attributes' && m.target.hasAttribute && m.target.hasAttribute(MARK)) {
+        /* si el runtime reescribe el estilo en línea, se vuelve a aplicar el mínimo */
+        var el = m.target;
+        if (!el.style.getPropertyValue('font-size') || el.style.getPropertyPriority('font-size') !== 'important') {
+          el.removeAttribute(MARK);
+          queue(el);
+        }
+      } else if (m.type === 'characterData' && m.target.parentElement) {
+        queue(m.target.parentElement);
+      }
+    }
+  });
+
+  function start(){
+    mo.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['style'] });
+    [0, 300, 900, 1800].forEach(function(ms){ setTimeout(function(){ scan(document.body); }, ms); });
+  }
+  if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
+
+  var onChange = function(){ if (MQ.matches) scan(document.body); else undo(); };
+  if (MQ.addEventListener) MQ.addEventListener('change', onChange); else MQ.addListener(onChange);
+})();
+
+/* ── Selectores con el mismo panel desplegable en todo el sitio ─────────
+   Los <select> nativos (filtros de Explorar casos, Tendencias, selectores de Criterios y del
+   comparador) abren, en vez de la lista del navegador, el mismo panel del selector de casos:
+   blanco, borde turquesa, radio redondeado, una fila por opción con marcador circular y la
+   opción elegida en negrita. El <select> original sigue en su lugar y es el que cambia el valor,
+   así que la lógica de cada página no cambia. En mobile usa los tamaños mínimos (16px). */
+(function(){
+  if (window.__selectSkinInit) return;
+  window.__selectSkinInit = true;
+
+  var isMob = function(){ return window.innerWidth < 900; };
+  var openState = null;   /* {sel, panel} del selector abierto */
+  var setValue = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value').set;
+
+  function close(){
+    if (!openState) return;
+    openState.panel.remove();
+    openState.sel.setAttribute('aria-expanded', 'false');
+    openState = null;
+  }
+
+  function position(){
+    if (!openState) return;
+    var r = openState.sel.getBoundingClientRect(), p = openState.panel;
+    var vw = document.documentElement.clientWidth, vh = window.innerHeight;
+    var w = Math.min(Math.max(r.width, 240), vw - 16);
+    var left = Math.min(Math.max(8, r.left), vw - w - 8);
+    var below = vh - r.bottom - 12, above = r.top - 12;
+    p.style.left = left + 'px';
+    p.style.width = w + 'px';
+    if (below >= 180 || below >= above) {
+      p.style.top = (r.bottom + 6) + 'px'; p.style.bottom = '';
+      p.style.maxHeight = Math.max(140, below) + 'px';
+    } else {
+      p.style.top = ''; p.style.bottom = (vh - r.top + 6) + 'px';
+      p.style.maxHeight = Math.max(140, above) + 'px';
+    }
+  }
+
+  function choose(sel, idx){
+    close();
+    if (sel.selectedIndex === idx) return;
+    setValue.call(sel, sel.options[idx].value);           /* setter nativo: React detecta el cambio */
+    sel.dispatchEvent(new Event('input', { bubbles: true }));
+    sel.dispatchEvent(new Event('change', { bubbles: true }));
+    sel.focus();
+  }
+
+  function open(sel){
+    if (openState && openState.sel === sel) { close(); return; }
+    close();
+    var mob = isMob();
+    var panel = document.createElement('div');
+    panel.setAttribute('role', 'listbox');
+    panel.setAttribute('data-select-panel', '');
+    panel.style.cssText = 'position:fixed;z-index:3000;background:#fff;border:1.5px solid #0D4A57;border-radius:10px;padding:6px 0 4px;box-shadow:0 8px 24px rgba(13,74,87,.12);overflow-y:auto;-webkit-overflow-scrolling:touch';
+    Array.prototype.forEach.call(sel.options, function(o, i){
+      if (o.hidden) return;
+      var on = i === sel.selectedIndex;
+      var row = document.createElement('button');
+      row.type = 'button';
+      row.setAttribute('role', 'option');
+      row.setAttribute('aria-selected', on ? 'true' : 'false');
+      row.disabled = o.disabled;
+      row.style.cssText = 'display:flex;align-items:center;gap:' + (mob ? '12px' : '10px') + ';width:100%;padding:' + (mob ? '12px 16px' : '9px 16px') + ';background:none;border:none;text-align:left;cursor:' + (o.disabled ? 'default' : 'pointer') + ';font-family:Lato,sans-serif;font-size:' + (mob ? '16px' : '13.5px') + ';line-height:1.3;color:' + (o.disabled ? '#B0BBBF' : '#17242A') + ';font-weight:' + (on ? '700' : '400') + ';transition:background .1s';
+      var dot = document.createElement('span');
+      var d = mob ? 20 : 15;
+      dot.style.cssText = 'width:' + d + 'px;height:' + d + 'px;border-radius:50%;border:1.5px solid ' + (on ? '#0D4A57' : '#8CA0A5') + ';flex-shrink:0;display:flex;align-items:center;justify-content:center;box-sizing:border-box';
+      if (on) {
+        var inner = document.createElement('span');
+        inner.style.cssText = 'width:' + (d - 9) + 'px;height:' + (d - 9) + 'px;border-radius:50%;background:#0D4A57';
+        dot.appendChild(inner);
+      }
+      var txt = document.createElement('span');
+      txt.textContent = o.textContent.trim();
+      row.appendChild(dot); row.appendChild(txt);
+      row.addEventListener('mouseenter', function(){ if (!o.disabled) row.style.background = '#F4F7F6'; });
+      row.addEventListener('mouseleave', function(){ row.style.background = 'none'; });
+      row.addEventListener('click', function(e){ e.stopPropagation(); if (!o.disabled) choose(sel, i); });
+      panel.appendChild(row);
+    });
+    panel.addEventListener('mousedown', function(e){ e.stopPropagation(); });
+    panel.addEventListener('touchstart', function(e){ e.stopPropagation(); }, { passive: true });
+    document.body.appendChild(panel);
+    openState = { sel: sel, panel: panel };
+    sel.setAttribute('aria-expanded', 'true');
+    position();
+    var cur = panel.querySelector('[aria-selected="true"]');
+    if (cur) { cur.scrollIntoView({ block: 'nearest' }); cur.focus({ preventScroll: true }); }
+  }
+
+  function skin(sel){
+    if (sel.__skinned || sel.multiple || sel.closest('#sih') || sel.hasAttribute('data-native')) return;
+    sel.__skinned = true;
+    sel.setAttribute('aria-haspopup', 'listbox');
+    sel.setAttribute('aria-expanded', 'false');
+    /* evitar la lista nativa y abrir el panel propio (mouse, toque y teclado) */
+    sel.addEventListener('mousedown', function(e){ e.preventDefault(); sel.focus(); open(sel); });
+    sel.addEventListener('touchstart', function(e){ e.preventDefault(); open(sel); }, { passive: false });
+    sel.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown' || e.key === 'ArrowUp' || (e.altKey && e.key === 'ArrowDown')) {
+        e.preventDefault(); open(sel);
+      }
+    });
+  }
+
+  function scan(root){
+    var list = (root || document).querySelectorAll ? (root || document).querySelectorAll('select') : [];
+    Array.prototype.forEach.call(list, skin);
+  }
+
+  /* navegación con teclado dentro del panel */
+  document.addEventListener('keydown', function(e){
+    if (!openState) return;
+    if (e.key === 'Escape') { var s = openState.sel; close(); s.focus(); return; }
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      var rows = Array.prototype.slice.call(openState.panel.querySelectorAll('[role="option"]:not([disabled])'));
+      var i = rows.indexOf(document.activeElement);
+      var n = e.key === 'ArrowDown' ? Math.min(rows.length - 1, i + 1) : Math.max(0, i - 1);
+      if (rows[n]) { rows[n].focus(); e.preventDefault(); }
+    }
+  });
+  document.addEventListener('mousedown', function(e){ if (openState && !openState.panel.contains(e.target) && e.target !== openState.sel) close(); });
+  document.addEventListener('touchstart', function(e){ if (openState && !openState.panel.contains(e.target) && e.target !== openState.sel) close(); }, { passive: true });
+  window.addEventListener('scroll', function(){ position(); }, { passive: true });
+  window.addEventListener('resize', function(){ position(); });
+
+  var pending = false;
+  var mo = new MutationObserver(function(){
+    if (pending) return;
+    pending = true;
+    setTimeout(function(){ pending = false; scan(document); if (openState && !document.body.contains(openState.sel)) close(); }, 60);
+  });
+  function start(){ scan(document); mo.observe(document.body, { childList: true, subtree: true }); }
+  if (document.body) start(); else document.addEventListener('DOMContentLoaded', start);
 })();

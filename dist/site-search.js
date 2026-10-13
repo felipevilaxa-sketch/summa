@@ -87,6 +87,8 @@
       };
       window.addEventListener('resize', place);
       window.addEventListener('load', place);
+      // si se hace scroll con el buscador abierto, el panel sigue el borde inferior del header
+      window.addEventListener('scroll', function(){ if (!panel.hidden) { place(); setTimeout(place, 60); } }, {passive:true});
       place();
       const SVG_LUPA = '<circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>';
       const SVG_CLOSE = '<line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line>';
