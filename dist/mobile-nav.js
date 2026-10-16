@@ -1,7 +1,7 @@
 (function(){
   var LINKS = [
     ['¿Qué es?', 'que-es.html', 'que-es.html'],
-    ['Modelo conceptual', 'Marco WISE.dc.html', 'marco-wise.html'],
+    ['Marco de análisis', 'Marco WISE.dc.html', 'marco-wise.html'],
     ['Criterios de selección', 'Criterios de Seleccion.dc.html', 'criterios-de-seleccion.html']
   ];
   var DC = location.pathname.indexOf('.dc.html') > -1;
@@ -413,7 +413,7 @@
      Componente común: reemplaza las pestañas de una página por un solo control.
      Botón del color del menú sobre una franja blanca de ancho completo, con un panel desplegable
      propio (agrupado si hay pestañas secundarias); la franja queda fija bajo el header de la
-     plataforma al hacer scroll. Se usa en Detalle de caso, Modelo conceptual, Áreas de Reforma
+     plataforma al hacer scroll. Se usa en Detalle de caso, Marco de análisis, Áreas de Reforma
      y el detalle de un área de reforma. */
   function mobileSubmenu(cfg){
     if (window.innerWidth > 900) return;
@@ -583,7 +583,7 @@
              hint: 'Este caso está organizado en secciones. Usa el menú para navegar entre ellas.' };
   }});
 
-  /* Modelo conceptual, Áreas de Reforma y detalle de un área: la barra de pestañas fija pasa a submenú */
+  /* Marco de análisis, Áreas de Reforma y detalle de un área: la barra de pestañas fija pasa a submenú */
   mobileSubmenu({ collect: function(){
     var bar = document.querySelector('[data-m="mw-tabs"]');
     if (!bar || bar.dataset.mobSelect) return null;
