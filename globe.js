@@ -217,8 +217,19 @@ class ReformGlobe extends HTMLElement {
       selectEl.value = i;
     }
 
+    /* Resumen de cada caso analizado (texto provisorio): primera fila de la ficha */
+    var RESUMEN_CASOS = {"Redistribución del ICMS por resultados educativos – Ceará":"Mecanismo del estado de Ceará que reparte una parte de la recaudación del impuesto ICMS entre los municipios según sus resultados educativos, en especial en alfabetización. Busca que los municipios prioricen la mejora de los aprendizajes y se aplica desde 2007, con implementación plena a partir de 2009.",
+      "Needs-Based Funding – Schooling Resource Standard (SRS)":"Modelo de financiamiento según necesidades que fija un monto base por estudiante y agrega cargas por las desventajas de estudiantes y escuelas. Orienta los aportes del gobierno federal a escuelas públicas y privadas, y rige desde 2013, con una revisión importante en 2017.",
+      "Zero Plan for Below-Basic Students (Programa Apoyo a Escuelas con Bajo Desempeño)":"Programa nacional que entrega recursos y apoyos a escuelas con una alta proporción de estudiantes bajo el nivel básico. Usa los resultados de la evaluación nacional para focalizar la ayuda y se puso en marcha en 2010.",
+      "Local Control Funding Formula (LCFF) – California":"Fórmula de financiamiento escolar de California que asigna un monto base por estudiante y recursos adicionales por estudiantes de alta necesidad, con un suplemento para los distritos donde se concentran. Se aprobó en 2013 y alcanzó su implementación plena en 2019.",
+      "Title I, Part A – Every Student Succeeds Act (ESSA)":"Principal programa federal de Estados Unidos para escuelas con alta concentración de pobreza. Transfiere recursos a distritos y escuelas mediante fórmulas para reforzar el apoyo a estudiantes en riesgo. Existe desde 1965 y su versión vigente proviene de la ley ESSA de 2015.",
+      "Chapter 70 Aid — Foundation Budget – Massachusetts":"Sistema de financiamiento de Massachusetts que define el presupuesto mínimo que necesita cada distrito y completa con aportes estatales lo que la comunidad local no puede financiar. Se creó en 1993 y se actualizó en 2019, con una implementación gradual de siete años.",
+      "Pupil Premium – Inglaterra":"Financiamiento adicional que reciben las escuelas de Inglaterra por cada estudiante en desventaja, acompañado de exigencias de rendición de cuentas sobre su uso. Se introdujo en 2011 y sigue vigente.",
+      "Leerlinggewichtenregeling – sistema de ponderación de alumnos":"Sistema neerlandés que pondera el financiamiento por estudiante según un indicador socioeducativo, para entregar más recursos a las escuelas con estudiantes en desventaja. Funciona desde mediados de los años ochenta y se reformó en 2006 y en 2019.",
+      "Territórios Educativos de Intervenção Prioritária (TEIP)":"Programa portugués que financia proyectos de agrupamientos escolares ubicados en territorios con mayores desafíos sociales y educativos. Apoya planes de mejora definidos por cada agrupamiento y se desarrolla desde 1996, con su cuarta generación vigente desde 2024."};
     function renderModalCase(ficha){
-      var rows = ficha.tabla.map(function(row){
+      var tabla = RESUMEN_CASOS[ficha.titulo] ? [{campo:'Resumen', valor:RESUMEN_CASOS[ficha.titulo]}].concat(ficha.tabla) : ficha.tabla;
+      var rows = tabla.map(function(row){
         var vHtml = row.valor.split('\n\n').map(function(p){ return '<p style="margin:0 0 10px">' + p + '</p>'; }).join('');
         return '<tr>'+
           '<td style="padding:14px 16px 14px 28px;font-family:Lato,sans-serif;font-size:13px;font-weight:700;color:#0D4A57;vertical-align:top;white-space:nowrap;border-bottom:1px solid #F0F4F3;width:30%">' + row.campo + '</td>'+

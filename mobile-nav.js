@@ -1,8 +1,7 @@
 (function(){
   var LINKS = [
     ['¿Qué es?', 'que-es.html', 'que-es.html'],
-    ['Marco de análisis', 'Marco WISE.dc.html', 'marco-wise.html'],
-    ['Criterios de selección', 'Criterios de Seleccion.dc.html', 'criterios-de-seleccion.html']
+    ['Marco de análisis', 'Marco WISE.dc.html', 'marco-wise.html']
   ];
   var DC = location.pathname.indexOf('.dc.html') > -1;
   function href(l){ return DC ? l[1] : l[2]; }

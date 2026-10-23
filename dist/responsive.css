@@ -140,3 +140,16 @@
   [data-m="werd-decs-panel"] button{font-size:16px !important;padding:12px 16px !important;border-radius:0 !important;gap:12px !important}
   [data-m="werd-decs-panel"] button > span:first-child{width:20px !important;height:20px !important;flex-shrink:0 !important}
 }
+
+/* Buscador al extremo derecho en desktop; en mobile vuelve antes del menú */
+@media (max-width:900px){
+  [data-m="navsearch"]{order:-1}
+}
+
+/* Explorar casos: selector de dimensiones del marco con el mismo trato mobile que los demás selectores */
+@media (max-width:900px){
+  [data-m="dim-dd-btn"]{font-size:16px !important;border-color:#0D4A57 !important;padding:13px 14px 13px 16px !important}
+  [data-m="dim-dd-btn"] svg{color:#0D4A57 !important;width:16px !important;height:16px !important}
+  [data-m="dim-dd-panel"] button{font-size:16px !important;padding:12px 16px !important}
+  [data-m="dim-dd-panel"] button > span:first-child{width:20px !important;height:20px !important}
+}
