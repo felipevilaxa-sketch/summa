@@ -153,3 +153,8 @@
   [data-m="dim-dd-panel"] button{font-size:16px !important;padding:12px 16px !important}
   [data-m="dim-dd-panel"] button > span:first-child{width:20px !important;height:20px !important}
 }
+
+/* Áreas: botón "Ampliar esta información" del hero, bajo el texto en pantallas angostas */
+@media (max-width:700px){
+  [data-m="hero-dl"]{position:static !important;align-self:flex-start;margin-top:22px;white-space:normal !important}
+}
